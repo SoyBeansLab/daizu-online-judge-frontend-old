@@ -1,0 +1,12 @@
+/* google fonts */
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700|Ubuntu+Mono&subset=japanese');
+
+/* 全体の設定 */
+body {
+  font-family: 'Noto Sans JP', 'Arial',YuGothic,'Yu Gothic','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ', Meiryo,'ＭＳ ゴシック','"Apple Color Emoji"','"Segoe UI Emoji"','"Segoe UI Symbol"',sans-serif;
+}
+
+/* source code用 */
+code {
+  font-family: 'Ubuntu Mono', Consolas, 'Courier New', monospace;
+}

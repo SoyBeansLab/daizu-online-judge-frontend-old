@@ -20,6 +20,7 @@ function App() {
         >
           Learn React
         </a>
+        <p>こんにちはりあくと</p>
       </header>
     </div>
   );
