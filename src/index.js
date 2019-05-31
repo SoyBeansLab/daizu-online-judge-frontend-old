@@ -8,6 +8,7 @@ import { theme } from "./materialui/theme";
 require("./styles/main.css");
 
 ReactDOM.render(
+  // 配色を適応
   <MuiThemeProvider theme={theme}>
     <App />
   </MuiThemeProvider>,
