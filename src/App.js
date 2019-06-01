@@ -1,21 +1,25 @@
+// import library etc.
 import React from "react";
-import logo from "./logo.svg";
 import { BrowserRouter, Route, Link } from "react-router-dom";
-import "./App.css";
-
-const test = () => <h1>Hello World!</h1>;
+// import components
+import rishi from "./pages/temp/works-rishi";
+import syrc from "./pages/temp/works-syrc";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <Link to="/test">test link</Link>
-          <Route exact path="/test" component={test} />
+          <ul>
+            <li>
+              <Link to="/rishi">rishi works</Link>
+            </li>
+            <li>
+              <Link to="/syrc">syrc works</Link>
+            </li>
+          </ul>
+          <Route exact path="/rishi" component={rishi} />
+          <Route exact path="/syrc" component={syrc} />
         </header>
       </BrowserRouter>
     </div>
