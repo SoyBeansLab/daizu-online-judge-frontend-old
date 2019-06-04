@@ -1,0 +1,23 @@
+language: node_js
+
+node_js:
+  - "11"
+
+os:
+  - linux
+dist: trusty
+cache: npm
+
+sudo: false
+install: true
+
+
+before_script:
+  - npm install -g npm
+  - npm install -g
+
+
+script:
+  - npm run build
+  - npm test
+
