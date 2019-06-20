@@ -24,9 +24,12 @@
     },
     "plugins": [
         "react",
-        "prettier"
+        "prettier",
+        "react-hooks"
     ],
     "rules": {
-        "prettier/prettier": "error"
+        "prettier/prettier": "error",
+        "react/react-in-jsx-scope": "off",
+        "react-hooks/exhaustive-deps": "warn"
     }
 }
