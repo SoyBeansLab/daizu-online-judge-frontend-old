@@ -11,7 +11,6 @@ import Paper from "@material-ui/core/Paper";
 const useStyles = makeStyles(() => ({
   root: {
     width: "100%",
-    overflowX: "out",
   },
   table: {
     minWidth: 650,

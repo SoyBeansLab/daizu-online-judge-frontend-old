@@ -4,6 +4,7 @@ import TextButton from "../../atoms/app-button-text";
 import DataTable from "../../atoms/app-dataTable";
 import Tabs from "../../atoms/app-simpleTab";
 import SourceCodeField from "../../atoms/app-sourcecode-field";
+import SimpleSlider from "../../atoms/app-slider";
 
 const Works = () => (
   <div>
@@ -17,6 +18,8 @@ const Works = () => (
     <Tabs />
     <h2>SourceCodeField</h2>
     <SourceCodeField />
+    <h2>SimpleSlider</h2>
+    <SimpleSlider />
   </div>
 );
 

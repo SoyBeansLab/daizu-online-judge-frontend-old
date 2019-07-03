@@ -5,8 +5,8 @@ import Paper from "@material-ui/core/Paper";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    display: "flex",
-    flexWrap: "wrap",
+    // display: "flex",
+    // flexWrap: "wrap",
     width: "50rem",
     minWidth: "25rem",
   },

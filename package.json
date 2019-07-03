@@ -11,7 +11,9 @@
     "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.1",
+    "react-slick": "^0.24.0",
     "redux": "^4.0.1",
+    "slick-carousel": "^1.8.1",
     "tslint": "^5.17.0"
   },
   "scripts": {
