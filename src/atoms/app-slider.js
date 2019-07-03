@@ -1,5 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
+import Button from "./app-button-normal";
+import Card from "../pages/temp/test-card";
 
 class SimpleSlider extends React.Component {
   render() {
@@ -16,9 +18,10 @@ class SimpleSlider extends React.Component {
       <Slider {...settings}>
         <div>
           <h3>1</h3>
+          <Button buttonText="はろーわーるど！" />
         </div>
         <div>
-          <h3>2</h3>
+          <Card />
         </div>
         <div>
           <h3>3</h3>
