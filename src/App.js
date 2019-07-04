@@ -1,4 +1,3 @@
-// import library etc.
 import React from "react";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 // import components
