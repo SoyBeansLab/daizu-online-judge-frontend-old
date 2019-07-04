@@ -2,7 +2,6 @@ import React from "react";
 import CodeBlock from "../../atoms/app-code-block";
 import CheckBox from "../../atoms/app-checkbox";
 
-require("codemirror/theme/material.css");
 const Works = () => (
   // サンプル示すときはlanguage='bash'とかにすべき
   <div>
