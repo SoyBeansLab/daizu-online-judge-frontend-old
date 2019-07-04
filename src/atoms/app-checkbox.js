@@ -19,6 +19,7 @@ export default function CheckBox(props) {
             checked={state.check}
             onChange={handleChange("check")}
             value="check"
+            color="primary"
             inputProps={{
               "aria-label": "primary checkbox",
             }}
