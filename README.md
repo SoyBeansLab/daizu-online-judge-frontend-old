@@ -1,3 +1,9 @@
+# daizu-online-judge-frontend
+
+[![Build Status](https://travis-ci.com/SoyBeansLab/daizu-online-judge-frontend.svg?branch=develop)](https://travis-ci.com/SoyBeansLab/daizu-online-judge-frontend)
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

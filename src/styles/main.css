@@ -1,3 +1,7 @@
+/* react-slickのCSS */
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
 /* google fonts */
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700|Ubuntu+Mono&subset=japanese');
 
@@ -9,4 +13,15 @@ body {
 /* source code用 */
 code {
   font-family: 'Ubuntu Mono', Consolas, 'Courier New', monospace;
+}
+
+/* リンク */
+.link {
+  color: #1e88e5;
+  text-decoration: none;  /* 下線非表示 */
+  transition: all .3s;  /* 3sかけて:hoverの色に変化 */
+}
+
+.link:hover {
+  color: #64b5f6;
 }
