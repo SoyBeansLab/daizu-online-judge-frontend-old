@@ -1,31 +1,20 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import PropTypes from "prop-types";
+// タブ
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
-import Typography from "@material-ui/core/Typography";
+// テーブル
+import ContestsTable from "../atoms/app-dataTable";
 
 const useStyles = makeStyles(() => ({
+  root: {
+    width: "100%",
+  },
   // タブの設定
   tabs: {
-    width: "100%",
     borderBottom: "0.8px solid #cfd8dc",
   },
 }));
-
-// 仮データを突っ込むため関数
-function TabContainer(props) {
-  return (
-    <Typography component="div" style={{ padding: 8 * 3 }}>
-      {props.children}
-    </Typography>
-  );
-}
-
-// propsの型指定
-TabContainer.propTypes = {
-  children: PropTypes.node.isRequired,
-};
 
 export default function ContestsListTabs() {
   const classes = useStyles();
@@ -35,17 +24,17 @@ export default function ContestsListTabs() {
     setValue(newValue);
   }
   return (
-    <div className={classes.tabs}>
-      <Tabs value={value} onChange={handleChange} indicatorColor="primary">
+    <div className={classes.root}>
+      <Tabs value={value} onChange={handleChange} indicatorColor="primary" className={classes.tabs}>
         {/* 仮の項目 */}
         <Tab label="開催中" />
         <Tab label="開催予定" />
         <Tab label="終了" />
       </Tabs>
-      {/* 仮データ */}
-      {value === 0 && <TabContainer>Item One</TabContainer>}
-      {value === 1 && <TabContainer>Item Two</TabContainer>}
-      {value === 2 && <TabContainer>Item Three</TabContainer>}
+
+      {value === 0 && <ContestsTable />}
+      {value === 1 && <ContestsTable />}
+      {value === 2 && <ContestsTable />}
     </div>
   );
 }
