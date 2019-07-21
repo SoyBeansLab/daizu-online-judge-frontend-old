@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
 // テーブル
-import ContestsTable from "../atoms/app-dataTable";
+import ContestsTable from "../atoms/app-contestsTable";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -31,7 +31,6 @@ export default function ContestsListTabs() {
         <Tab label="開催予定" />
         <Tab label="終了" />
       </Tabs>
-
       {value === 0 && <ContestsTable />}
       {value === 1 && <ContestsTable />}
       {value === 2 && <ContestsTable />}
