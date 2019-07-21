@@ -1,6 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
-import Card from "../pages/temp/test-card";
+import Card from "./SliderItem";
 
 class HomeSlider extends React.Component {
   render() {
