@@ -1,5 +1,5 @@
 import React from "react";
-import Slider from "../../modules/HomeSlider";
+import Slider from "../../modules/Slider";
 
 const Works = () => (
   <div>

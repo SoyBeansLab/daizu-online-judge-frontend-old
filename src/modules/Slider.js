@@ -2,7 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import Card from "../pages/temp/test-card";
 
-class SimpleSlider extends React.Component {
+class HomeSlider extends React.Component {
   render() {
     var settings = {
       dots: true,
@@ -35,4 +35,4 @@ class SimpleSlider extends React.Component {
   }
 }
 
-export default SimpleSlider;
+export default HomeSlider;
