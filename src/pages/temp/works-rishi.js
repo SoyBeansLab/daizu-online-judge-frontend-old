@@ -1,5 +1,5 @@
 import React from "react";
-import ContestsListTabs from "../../modules/Contests-contestsListTabs";
+import ContestsListTabs from "../../modules/ContestsListTabs";
 
 const Works = () => (
   <div>
