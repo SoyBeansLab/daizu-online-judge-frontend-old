@@ -1,6 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
-import Card from "./SliderItem";
+import SliderItem from "./SliderItem";
 
 class HomeSlider extends React.Component {
   render() {
@@ -11,24 +11,34 @@ class HomeSlider extends React.Component {
       slidesToShow: 1,
       slidesToScroll: 1,
       autoplay: true,
+      arrow: true,
     };
 
     return (
       <Slider {...settings}>
         <div>
-          <h3>1</h3>
+          <SliderItem
+            contestTitle="contestTitle-1"
+            contestDate="2019.11.11"
+            contestTime="16:00-17:00"
+            contestContent="これはテストです"
+          />
         </div>
         <div>
-          <Card />
+          <SliderItem
+            contestTitle="contestTitle-2"
+            contestDate="2019.12.12"
+            contestTime="16:00-17:00"
+            contestContent="これはテストです"
+          />
         </div>
         <div>
-          <h3>3</h3>
-        </div>
-        <div>
-          <h3>4</h3>
-        </div>
-        <div>
-          <h3>5</h3>
+          <SliderItem
+            contestTitle="contestTitle-3"
+            contestDate="2019.01.01"
+            contestTime="16:00-19:00"
+            contestContent="text is text"
+          />
         </div>
       </Slider>
     );

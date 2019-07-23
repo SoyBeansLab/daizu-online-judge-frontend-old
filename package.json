@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.0.1",
+    "@types/react-slick": "^0.23.4",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -11,10 +12,9 @@
     "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.1",
-    "react-syntax-highlighter": "^11.0.1",
     "react-slick": "^0.24.0",
+    "react-syntax-highlighter": "^11.0.1",
     "redux": "^4.0.1",
-    "slick-carousel": "^1.8.1",
     "tslint": "^5.17.0"
   },
   "scripts": {
@@ -46,7 +46,8 @@
     "eslint-plugin-react": "^7.13.0",
     "husky": "^2.3.0",
     "lint-staged": "^8.1.7",
-    "prettier": "^1.17.1"
+    "prettier": "^1.17.1",
+    "slick-carousel": "^1.8.1"
   },
   "husky": {
     "hooks": {
