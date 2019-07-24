@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../../atoms/app-header";
 import Footer from "../../atoms/app-footer";
-import SigninModal from "../../molecules/signin-modal";
+import SigninModal from "../../molecules/SignInModal";
 
 function SimpleAppBar() {
   return (
