@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Checkbox from "@material-ui/core/Checkbox";
@@ -55,6 +56,7 @@ function SignInModal() {
 
   return (
     <div>
+      <CardContent />
       <CardActions>
         <form className={classes.container} noValidate autoComplete="off">
           <TextField
