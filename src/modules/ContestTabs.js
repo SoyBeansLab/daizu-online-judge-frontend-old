@@ -7,6 +7,8 @@ import Tabs from "@material-ui/core/Tabs";
 import ProblemsTable from "./ProblemsTable";
 import SubmitStatusTable from "./SubmitStatusTable";
 import RankingTable from "./RankingTable";
+// コンテストトップ
+import TopContents from "./ContestTopContents";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -33,7 +35,7 @@ export default function ContestsListTabs() {
         <Tab label="提出状況" />
         <Tab label="ランキング" />
       </Tabs>
-      {value === 0 && <ProblemsTable />}
+      {value === 0 && <TopContents />}
       {value === 1 && <ProblemsTable />}
       {value === 2 && <SubmitStatusTable />}
       {value === 3 && <RankingTable />}
