@@ -22,11 +22,11 @@ function createData(problemId, problemName, timeLimit, memoryLimit, problemScore
 }
 
 const rows = [
-  createData("A", "Hello, World!", 0.1, 256, 50),
-  createData("B", "Hello, World!", 0.1, 256, 50),
-  createData("C", "Hello, World!", 0.1, 256, 50),
-  createData("D", "Hello, World!", 0.1, 256, 50),
-  createData("A", "Hello, World!", 0.1, 256, 50),
+  createData("A", "Hello, World!", 2, 256, 50),
+  createData("B", "Hello, World!", 2, 256, 50),
+  createData("C", "Hello, World!", 2, 256, 50),
+  createData("D", "Hello, World!", 2, 256, 50),
+  createData("A", "Hello, World!", 2, 256, 50),
 ];
 
 export default function DataTable() {
@@ -51,8 +51,8 @@ export default function DataTable() {
                 {row.problemId}
               </TableCell>
               <TableCell align="center">{row.problemName}</TableCell>
-              <TableCell align="center">{row.timeLimit}</TableCell>
-              <TableCell align="center">{row.memoryLimit}</TableCell>
+              <TableCell align="center">{row.timeLimit}sec</TableCell>
+              <TableCell align="center">{row.memoryLimit}MB</TableCell>
               <TableCell align="center">{row.problemScore}</TableCell>
             </TableRow>
           ))}
