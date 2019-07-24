@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
 // テーブル
-import ContestsTable from "../atoms/app-contestsTable";
+import ContestsTable from "./ContestsTable";
 
 const useStyles = makeStyles(() => ({
   root: {
