@@ -17,37 +17,39 @@ const useStyles = makeStyles(() => ({
 }));
 
 // 仮データ用
-function createData(name, date, time) {
-  return { name, date, time };
+function createData(contestName, contestDate, contestTime, problemNumber) {
+  return { contestName, contestDate, contestTime, problemNumber };
 }
 
 const rows = [
-  createData("てすと", "2019-01-01", "00:00-11:11"),
-  createData("test", "2019-01-01", "00:00-11:11"),
-  createData("test", "2019-01-01", "00:00-11:11"),
+  createData("てすと", "2019-01-01", "00:00-11:11", 5),
+  createData("test", "2019-01-01", "00:00-11:11", 3),
+  createData("test", "2019-01-01", "00:00-11:11", 7),
 ];
 
 export default function DataTable() {
   const classes = useStyles();
 
   return (
-    <Paper className={classes.root}>
+    <Paper className={classes.root} elevation={0}>
       <Table className={classes.table}>
         <TableHead>
           <TableRow>
-            <TableCell>てすと</TableCell>
-            <TableCell align="center">Date</TableCell>
-            <TableCell align="center">Time</TableCell>
+            <TableCell>コンテスト名</TableCell>
+            <TableCell align="center">開催日</TableCell>
+            <TableCell align="center">開催時間</TableCell>
+            <TableCell align="center">問題数</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map(row => (
-            <TableRow key={row.name}>
+            <TableRow key={row.contestName}>
               <TableCell component="th" scope="row">
-                {row.name}
+                {row.contestName}
               </TableCell>
-              <TableCell align="center">{row.date}</TableCell>
-              <TableCell align="center">{row.time}</TableCell>
+              <TableCell align="center">{row.contestDate}</TableCell>
+              <TableCell align="center">{row.contestTime}</TableCell>
+              <TableCell align="center">{row.problemNumber}</TableCell>
             </TableRow>
           ))}
         </TableBody>
