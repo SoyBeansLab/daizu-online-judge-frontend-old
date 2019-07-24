@@ -26,7 +26,6 @@ export default function ContestsListTabs() {
   return (
     <div className={classes.root}>
       <Tabs value={value} onChange={handleChange} indicatorColor="primary" className={classes.tabs}>
-        {/* 仮の項目 */}
         <Tab label="開催中" />
         <Tab label="開催予定" />
         <Tab label="終了" />
