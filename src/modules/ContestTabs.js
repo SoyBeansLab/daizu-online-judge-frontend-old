@@ -5,6 +5,7 @@ import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
 // テーブル
 import ProblemsTable from "./ProblemsTable";
+import SubmitStatusTable from "./SubmitStatusTable";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -33,7 +34,7 @@ export default function ContestsListTabs() {
       </Tabs>
       {value === 0 && <ProblemsTable />}
       {value === 1 && <ProblemsTable />}
-      {value === 2 && <ProblemsTable />}
+      {value === 2 && <SubmitStatusTable />}
       {value === 3 && <ProblemsTable />}
     </div>
   );
