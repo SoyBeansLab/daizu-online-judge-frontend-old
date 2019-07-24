@@ -13,6 +13,7 @@ import TopContents from "./ContestTopContents";
 const useStyles = makeStyles(() => ({
   root: {
     width: "100%",
+    height: "100%",
   },
   // タブの設定
   tabs: {
