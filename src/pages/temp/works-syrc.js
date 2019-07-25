@@ -1,25 +1,16 @@
 import React from "react";
 import Header from "../../atoms/app-header";
 import Footer from "../../atoms/app-footer";
+import SigninModal from "../../molecules/SignInModal";
 
 function SimpleAppBar() {
   return (
     <div>
       <Header />
+      <SigninModal />
       <Footer />
     </div>
   );
 }
 
 export default SimpleAppBar;
-
-/*import React from "react";
-
-function Works() {
-  return (
-    <div className="works">
-      <h2>helloWorld!</h2>
-    </div>
-  );
-}
-export default Works;*/
