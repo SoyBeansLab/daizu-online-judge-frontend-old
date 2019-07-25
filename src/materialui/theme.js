@@ -1,6 +1,11 @@
 import { createMuiTheme } from "@material-ui/core/styles";
 
 export const theme = createMuiTheme({
+  overrides: {
+    typography: {
+      fontFamily: ["Noto Sans JS", "sans-serif"].join(","),
+    },
+  },
   palette: {
     /* メインカラー */
     primary: {
