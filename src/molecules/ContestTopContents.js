@@ -6,6 +6,8 @@ import ReactMarkdown from "react-markdown";
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(3, 2),
+    height: "100%",
+    minHeight: 250,
   },
 }));
 

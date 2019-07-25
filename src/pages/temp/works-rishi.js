@@ -1,6 +1,6 @@
 import React from "react";
-import ContestsListTabs from "../../modules/ContestsListTabs";
-import ContestTabs from "../../modules/ContestTabs";
+import ContestsListTabs from "../../molecules/ContestsListTabs";
+import ContestTabs from "../../molecules/ContestTabs";
 
 const Works = () => (
   <div>
