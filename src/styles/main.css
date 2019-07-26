@@ -11,6 +11,21 @@ code {
   font-family: 'Ubuntu Mono', Consolas, 'Courier New', monospace;
 }
 
+.problem-info code {
+  color: #c7254e;
+  border-radius: 3px;
+}
+
+.problem-info pre code {
+  color: #424242;
+}
+
+.problem-info pre {
+  background-color: #e0e0e0;
+  border-radius: 8px;
+  padding: 6px;
+}
+
 /* リンク */
 .link {
   color: #1e88e5;
