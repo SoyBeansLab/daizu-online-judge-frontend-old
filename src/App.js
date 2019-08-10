@@ -4,28 +4,30 @@ import { BrowserRouter, Route, Link } from "react-router-dom";
 import rishi from "./pages/temp/works-rishi";
 import syrc from "./pages/temp/works-syrc";
 import kurokoji from "./pages/temp/works-kurokoji";
+import Header from "./atoms/app-header";
+import Footer from "./atoms/app-footer";
 
 function App() {
   return (
     <div className="App">
+      <Header />
       <BrowserRouter>
-        <header className="App-header">
-          <ul>
-            <li>
-              <Link to="/rishi">rishi works</Link>
-            </li>
-            <li>
-              <Link to="/syrc">syrc works</Link>
-            </li>
-            <li>
-              <Link to="/kurokoji">kurokoji works</Link>
-            </li>
-          </ul>
-          <Route exact path="/rishi" component={rishi} />
-          <Route exact path="/syrc" component={syrc} />
-          <Route exact path="/kurokoji" component={kurokoji} />
-        </header>
+        <ul>
+          <li>
+            <Link to="/rishi">rishi works</Link>
+          </li>
+          <li>
+            <Link to="/syrc">syrc works</Link>
+          </li>
+          <li>
+            <Link to="/kurokoji">kurokoji works</Link>
+          </li>
+        </ul>
+        <Route exact path="/rishi" component={rishi} />
+        <Route exact path="/syrc" component={syrc} />
+        <Route exact path="/kurokoji" component={kurokoji} />
       </BrowserRouter>
+      <Footer />
     </div>
   );
 }
