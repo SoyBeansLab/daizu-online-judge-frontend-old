@@ -6,6 +6,7 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import PropTypes from "prop-types";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -17,20 +18,23 @@ const useStyles = makeStyles(() => ({
 }));
 
 // 仮データ用
-function createData(submitId, submitDate, userName, problemName, result, langage, score) {
-  return { submitId, submitDate, userName, problemName, result, langage, score };
+function createData(submitId, userName, problemName, result, language, score, submitDate) {
+  return { submitId, userName, problemName, result, language, score, submitDate };
 }
 
-const rows = [
-  createData("000000", "2019-10-10 16:30", "hoge012", "Hello, World!", "AC", "C", 50),
-  createData("000001", "2019-10-10 16:30", "hoge012", "Hello, World!", "WA", "C", 0),
-  createData("000000", "2019-10-10 16:30", "hoge012", "Hello, World!", "AC", "C", 50),
-  createData("000000", "2019-10-10 16:30", "hoge012", "Hello, World!", "AC", "C", 50),
-  createData("000000", "2019-10-10 16:30", "hoge012", "Hello, World!", "AC", "C", 50),
-];
-
-export default function DataTable() {
+export default function DataTable(props) {
   const classes = useStyles();
+  const rows = [
+    createData(
+      props.submitId,
+      props.userName,
+      props.problemName,
+      props.result,
+      props.language,
+      props.score,
+      props.submitDate
+    ),
+  ];
 
   return (
     <Paper className={classes.root} elevation={0}>
@@ -55,7 +59,7 @@ export default function DataTable() {
               <TableCell align="center">{row.userName}</TableCell>
               <TableCell align="center">{row.problemName}</TableCell>
               <TableCell align="center">{row.result}</TableCell>
-              <TableCell align="center">{row.langage}</TableCell>
+              <TableCell align="center">{row.language}</TableCell>
               <TableCell align="center">{row.score}</TableCell>
               <TableCell align="center">{row.submitDate}</TableCell>
             </TableRow>
@@ -65,3 +69,13 @@ export default function DataTable() {
     </Paper>
   );
 }
+
+DataTable.propTypes = {
+  submitId: PropTypes.string,
+  userName: PropTypes.string,
+  problemName: PropTypes.string,
+  result: PropTypes.string,
+  language: PropTypes.string,
+  score: PropTypes.number,
+  submitDate: PropTypes.string,
+};

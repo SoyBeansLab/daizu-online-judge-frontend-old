@@ -6,6 +6,7 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import PropTypes from "prop-types";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -21,15 +22,9 @@ function createData(rankUserId, rankTotal, rankScore) {
   return { rankUserId, rankTotal, rankScore };
 }
 
-const rows = [
-  createData("abc012", "3/10", 30),
-  createData("abc012", "3/10", 30),
-  createData("abc012", "3/10", 30),
-  createData("abc012", "3/10", 30),
-];
-
-export default function DataTable() {
+export default function DataTable(props) {
   const classes = useStyles();
+  const rows = [createData(props.rankUserId, props.rankTotal, props.rankScore)];
 
   return (
     <Paper className={classes.root} elevation={0}>
@@ -56,3 +51,9 @@ export default function DataTable() {
     </Paper>
   );
 }
+
+DataTable.propTypes = {
+  rankUserId: PropTypes.string,
+  rankTotal: PropTypes.string,
+  rankScore: PropTypes.number,
+};
