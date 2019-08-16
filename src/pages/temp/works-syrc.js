@@ -1,10 +1,10 @@
 import React from "react";
-import Contests from "../../templates/Contests";
+import Contest from "../../templates/Contest";
 
 function SimpleAppBar() {
   return (
     <div>
-      <Contests />
+      <Contest />
     </div>
   );
 }

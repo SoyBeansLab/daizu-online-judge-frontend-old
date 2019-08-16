@@ -6,6 +6,7 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import PropTypes from "prop-types";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -21,16 +22,9 @@ function createData(problemId, problemName, timeLimit, memoryLimit, problemScore
   return { problemId, problemName, timeLimit, memoryLimit, problemScore };
 }
 
-const rows = [
-  createData("A", "Hello, World!", 2, 256, 50),
-  createData("B", "Hello, World!", 2, 256, 50),
-  createData("C", "Hello, World!", 2, 256, 50),
-  createData("D", "Hello, World!", 2, 256, 50),
-  createData("A", "Hello, World!", 2, 256, 50),
-];
-
-export default function DataTable() {
+export default function DataTable(props) {
   const classes = useStyles();
+  const rows = [createData(props.problemId, props.problemName, props.timeLimit, props.memoryLimit, props.problemScore)];
 
   return (
     <Paper className={classes.root} elevation={0}>
@@ -61,3 +55,11 @@ export default function DataTable() {
     </Paper>
   );
 }
+
+DataTable.propTypes = {
+  problemId: PropTypes.string,
+  problemName: PropTypes.string,
+  timeLimit: PropTypes.number,
+  memoryLimit: PropTypes.number,
+  problemScore: PropTypes.number,
+};
