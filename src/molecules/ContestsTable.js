@@ -6,6 +6,7 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import PropTypes from "prop-types";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -22,15 +23,14 @@ const useStyles = makeStyles(() => ({
 function createData(contestName, contestDate, contestTime, problemNumber) {
   return { contestName, contestDate, contestTime, problemNumber };
 }
-
+/*
 const rows = [
-  createData("てすと", "2019-01-01", "00:00-11:11", 5),
-  createData("test", "2019-01-01", "00:00-11:11", 3),
-  createData("test", "2019-01-01", "00:00-11:11", 7),
-];
+  createData(props.contestName, props.contestDate, props.contestTime, props.problemNumber),
+];*/
 
-export default function DataTable() {
+export default function DataTable(props) {
   const classes = useStyles();
+  const rows = [createData(props.contestName, props.contestDate, props.contestTime, props.problemNumber)];
 
   return (
     <Paper className={classes.root} elevation={0}>
@@ -44,14 +44,14 @@ export default function DataTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map(row => (
-            <TableRow key={row.contestName}>
+          {rows.map(rows => (
+            <TableRow key={rows.contestName}>
               <TableCell component="th" scope="row">
-                {row.contestName}
+                {rows.contestName}
               </TableCell>
-              <TableCell align="center">{row.contestDate}</TableCell>
-              <TableCell align="center">{row.contestTime}</TableCell>
-              <TableCell align="center">{row.problemNumber}</TableCell>
+              <TableCell align="center">{rows.contestDate}</TableCell>
+              <TableCell align="center">{rows.contestTime}</TableCell>
+              <TableCell align="center">{rows.problemNumber}</TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -59,3 +59,10 @@ export default function DataTable() {
     </Paper>
   );
 }
+
+DataTable.propTypes = {
+  contestName: PropTypes.string,
+  contestDate: PropTypes.string,
+  contestTime: PropTypes.string,
+  problemNumber: PropTypes.number,
+};

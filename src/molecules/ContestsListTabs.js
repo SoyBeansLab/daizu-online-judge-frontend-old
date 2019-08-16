@@ -31,7 +31,9 @@ export default function ContestsListTabs() {
         <Tab label="開催予定" />
         <Tab label="終了" />
       </Tabs>
-      {value === 0 && <ContestsTable />}
+      {value === 0 && (
+        <ContestsTable contestName="test" contestDate="2019-01-01" contestTime="00:00-11:11" problemNumber={5} />
+      )}
       {value === 1 && <ContestsTable />}
       {value === 2 && <ContestsTable />}
     </div>
