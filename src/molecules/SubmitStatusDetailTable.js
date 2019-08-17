@@ -46,6 +46,7 @@ export default function SubmitStatusDetail(props) {
     createData("ユーザ", <Link href="">{props.userName}</Link>),
     createData("言語", props.language),
     createData("得点", props.score),
+    createData("テストケース通過数(通過数/全体)", props.testCase),
     createData("結果", chip()),
     createData("実行時間", props.executeTime + " ms"),
     createData("メモリ", props.memory + " KB"),
@@ -80,4 +81,5 @@ SubmitStatusDetail.propTypes = {
   result: PropTypes.string,
   executeTime: PropTypes.number,
   memory: PropTypes.number,
+  testCase: PropTypes.string,
 };
