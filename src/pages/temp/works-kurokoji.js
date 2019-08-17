@@ -1,5 +1,6 @@
 import React from "react";
 import Problem from "../../templates/Problem";
+import SubmitStatusDetailTable from "../../molecules/SubmitStatusDetailTable";
 
 const problemText = `
 Math, like $C_{d}^{\\prime} = \\frac{\\alpha}{}$, is pretty cool.
@@ -40,7 +41,17 @@ const Works = () => (
       score={100}
       problemText={problemText}
       languageLists={["C", "C++17", "Python"]}
-      languageDictionary={{ C: "text/x-csrc", "C++": "text/x-c++src", Python: "text/x-python" }}
+      languageDictionary={{ C: "text/x-csrc", "C++17": "text/x-c++src", Python: "text/x-python" }}
+    />
+    <SubmitStatusDetailTable
+      submitDate={new Date().toString()}
+      problemName={"Summer Vacation"}
+      userName={"kurokoji"}
+      language={"C++17"}
+      score={400}
+      result={"TLE"}
+      executeTime={300}
+      memory={400}
     />
   </div>
 );
