@@ -4,11 +4,12 @@ const log4js = require("log4js");
 const logger = log4js.getLogger();
 logger.level = process.env.DAIZU_LOGGING_LEVEL;
 
-async function request(endpoint, method, payload) {  // eslint-disable-line
+async function request(endpoint, method, payload, header) {  // eslint-disable-line
   axios({
     method: method,
     url: endpoint,
     data: payload,
+    headers: header,
   })
     .then(function(response) {
       return response;
