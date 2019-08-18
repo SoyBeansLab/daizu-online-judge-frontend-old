@@ -1,7 +1,9 @@
+const UrlPattern = require("url-pattern");
+
 exports.responses = [
   [
     "GET",
-    "/languages",
+    new UrlPattern("/languages"),
     200,
     {
       language: [
@@ -25,7 +27,7 @@ exports.responses = [
 
   [
     "GET",
-    "/contests",
+    new UrlPattern("/contests"),
     200,
     {
       contests: [
@@ -48,6 +50,77 @@ exports.responses = [
           problem_numbler: 5,
         },
       ],
+    },
+  ],
+
+  [
+    "GET",
+    new UrlPattern("/contests/:contest_name"),
+    200,
+    {
+      contest_detail: {
+        contest_id: "hogehoge",
+        contest_name: "Welcome Contest",
+        contest_date: "2019-04-04",
+        contest_time: 120,
+        writer: "hoge",
+        description: "This is contest's content.",
+      },
+    },
+  ],
+
+  [
+    "GET",
+    new UrlPattern("/contests/:contest_name/problems"),
+    200,
+    {
+      problems: [
+        {
+          problem_id: "A",
+          problem_name: "Hellor World",
+          time_limit: 2,
+          memory_limit: 512,
+          problem_score: 100,
+        },
+        {
+          problem_id: "B",
+          problem_name: "is uruu?",
+          time_limit: 2,
+          memory_limit: 512,
+          problem_score: 200,
+        },
+        {
+          problem_id: "C",
+          problem_name: "power word",
+          time_limit: 2,
+          memory_limit: 512,
+          problem_score: 300,
+        },
+        {
+          problem_id: "D",
+          problem_name: "Neo Hello World",
+          time_limit: 2,
+          memory_limit: 512,
+          problem_score: 400,
+        },
+      ],
+    },
+  ],
+
+  [
+    "GET",
+    new UrlPattern("/contests/:contest_name/problems/:problem_id"),
+    200,
+    {
+      problem_detail: {
+        problem_id: "hogehoge",
+        problem_name: "Hello World",
+        time_limit: 2,
+        memory_limit: 512,
+        score: 100,
+        writer: "hoge",
+        problem_detail: "# Hello, World<\n>## 問題<br>---<br>HelloWorldと1行に表示しなさい",
+      },
     },
   ],
 ];
