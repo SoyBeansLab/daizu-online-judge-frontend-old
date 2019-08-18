@@ -45,6 +45,7 @@
     ]
   },
   "devDependencies": {
+    "axios-mock-adapter": "^1.17.0",
     "eslint": "^5.16.0",
     "eslint-config-google": "^0.13.0",
     "eslint-config-prettier": "^4.3.0",
