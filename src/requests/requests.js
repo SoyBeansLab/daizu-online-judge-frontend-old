@@ -12,7 +12,7 @@ if (process.env.DAIZU_MOCK === "true") {
   const res = require("./responses.js");
   mock.onAny().reply(config => {
     const [method, url, ...response] = res.responses.shift();
-    if (config.url === url && config.method.toUpperCase() === method) {
+    if (config.url.match(url) && config.method.toUpperCase() === method) {
       return response;
     } else {
       return [500, {}];

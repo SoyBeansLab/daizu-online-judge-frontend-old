@@ -21,7 +21,8 @@
     "react-swipeable-views": "^0.13.3",
     "react-syntax-highlighter": "^11.0.1",
     "redux": "^4.0.1",
-    "tslint": "^5.17.0"
+    "tslint": "^5.17.0",
+    "url-pattern": "^1.0.3"
   },
   "scripts": {
     "start": "react-scripts start",
