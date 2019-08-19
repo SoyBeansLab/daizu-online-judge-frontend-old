@@ -5,6 +5,7 @@ import RankingTable from "../../molecules/RankingTable.js";
 import ContestsListTabs from "../../molecules/ContestsListTabs.js";
 import SubmitStatusTable from "../../molecules/SubmitStatusTable.js";
 import ContestsTabs from "../../molecules/ContestTabs.js";
+import Slider from "../../molecules/Slider.js";
 
 import Contests from "../../templates/Contests.js";
 import Contest from "../../templates/Contest.js";
@@ -90,6 +91,27 @@ const submitStatusListsTestData = [
   },
 ];
 
+const slideItemListTestData = [
+  {
+    contestTitle: "Hello World",
+    contestDate: "2019-07-01",
+    contestTime: 120,
+    contestContest: "Welcome!!!",
+  },
+  {
+    contestTitle: "老害コンテスト",
+    contestDate: "2019-07-01",
+    contestTime: 120,
+    contestContest: "Welcome!!!",
+  },
+  {
+    contestTitle: "Welcome Contest",
+    contestDate: "2019-07-01",
+    contestTime: 120,
+    contestContest: "Welcome!!!",
+  },
+];
+
 const Works = () => (
   <div>
     <h1>para works</h1>
@@ -134,6 +156,9 @@ const Works = () => (
       scheduledContestLists={contestsTableTestData2}
       finishedContestLists={contestsTableTestData}
     />
+
+    <h2>Slider</h2>
+    <Slider slideItemList={slideItemListTestData} />
   </div>
 );
 
