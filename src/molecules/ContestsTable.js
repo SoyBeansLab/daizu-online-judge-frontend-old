@@ -21,9 +21,7 @@ const useStyles = makeStyles(() => ({
 
 export default function DataTable(props) {
   const classes = useStyles();
-  const rows = [createData(props.contestName, props.contestDate, props.contestTime, props.problemNumber)];
 
-  //const contestDictionary = props.contestDictionary;
   const contestLists = props.contestLists;
 
   /* eslint-disable no-unused-vars */
@@ -42,11 +40,11 @@ export default function DataTable(props) {
           {contestLists.map(row => (
             <TableRow key={row.contestName}>
               <TableCell component="th" scope="row">
-                {rows.contestName}
+                {row.contestName}
               </TableCell>
-              <TableCell align="center">{rows.contestDate}</TableCell>
-              <TableCell align="center">{rows.contestTime}</TableCell>
-              <TableCell align="center">{rows.problemNumber}</TableCell>
+              <TableCell align="center">{row.contestDate}</TableCell>
+              <TableCell align="center">{row.contestTime}</TableCell>
+              <TableCell align="center">{row.problemNumber}</TableCell>
             </TableRow>
           ))}
         </TableBody>
