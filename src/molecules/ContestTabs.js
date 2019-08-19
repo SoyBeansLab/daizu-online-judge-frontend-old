@@ -26,6 +26,7 @@ export default function ContestsListTabs(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
+  const contestTopContent = props.contestTopContent;
   const problemLists = props.problemLists;
   const submitStatusLists = props.submitStatusLists;
   const rankingLists = props.rankingLists;
@@ -41,7 +42,7 @@ export default function ContestsListTabs(props) {
         <Tab label="提出状況" />
         <Tab label="ランキング" />
       </Tabs>
-      {value === 0 && <TopContents />}
+      {value === 0 && <TopContents contestTopContent={contestTopContent} />}
       {value === 1 && <ProblemsTable problemLists={problemLists} />}
       {value === 2 && <SubmitStatusTable submitStatusLists={submitStatusLists} />}
       {value === 3 && <RankingTable rankingList={rankingLists} />}
@@ -50,6 +51,7 @@ export default function ContestsListTabs(props) {
 }
 
 ContestsListTabs.propTypes = {
+  contestTopContent: PropTypes.string,
   problemLists: PropTypes.array,
   submitStatusLists: PropTypes.array,
   rankingLists: PropTypes.array,
