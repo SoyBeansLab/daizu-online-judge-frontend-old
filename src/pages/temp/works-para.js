@@ -6,6 +6,9 @@ import ContestsListTabs from "../../molecules/ContestsListTabs.js";
 import SubmitStatusTable from "../../molecules/SubmitStatusTable.js";
 import ContestsTabs from "../../molecules/ContestTabs.js";
 
+import Contests from "../../templates/Contests.js";
+import Contest from "../../templates/Contest.js";
+
 const contestsTableTestData = [
   {
     contestName: "Hello Worold",
@@ -115,6 +118,21 @@ const Works = () => (
       problemLists={problemListsTestData}
       submitStatusLists={submitStatusListsTestData}
       rankingList={rankingListTestData}
+    />
+
+    <h2>Contest Template </h2>
+    <Contest
+      contestTopContent={"# Hello World \n\n this is top content"}
+      problemLists={problemListsTestData}
+      submitStatusLists={submitStatusListsTestData}
+      rankingList={rankingListTestData}
+    />
+
+    <h2>Contests Template</h2>
+    <Contests
+      holdingContestLists={contestsTableTestData}
+      scheduledContestLists={contestsTableTestData2}
+      finishedContestLists={contestsTableTestData}
     />
   </div>
 );
