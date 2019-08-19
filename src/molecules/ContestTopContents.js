@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import ReactMarkdown from "react-markdown";
@@ -11,14 +12,18 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function ContestTopContents() {
+export default function ContestTopContents(props) {
   const classes = useStyles();
-  const input = "# This is a header\n\nAnd this is a paragraph"; // markdown
+  const contestTopContent = props.contestTopContent;
 
   return (
     <Paper className={classes.root}>
       {/* markdownを表示する */}
-      <ReactMarkdown source={input} />
+      <ReactMarkdown source={contestTopContent} />
     </Paper>
   );
 }
+
+ContestTopContents.propTypes = {
+  contestTopContent: PropTypes.string,
+};
