@@ -37,9 +37,21 @@ export default function ContestsListTabs() {
         <Tab label="ランキング" />
       </Tabs>
       {value === 0 && <TopContents />}
-      {value === 1 && <ProblemsTable />}
-      {value === 2 && <SubmitStatusTable />}
-      {value === 3 && <RankingTable />}
+      {value === 1 && (
+        <ProblemsTable problemId="A" problemName="Hello World" timeLimit={2} memoryLimit={100} problemScore={50} />
+      )}
+      {value === 2 && (
+        <SubmitStatusTable
+          submitId="000000"
+          userName="ShuriChibana"
+          problemName="Hello World"
+          result="AC"
+          language="C"
+          score={50}
+          submitDate="2019-01-01"
+        />
+      )}
+      {value === 3 && <RankingTable rankUserId="ShuriChibana" rankTotal="3/10" rankScore={50} />}
     </div>
   );
 }

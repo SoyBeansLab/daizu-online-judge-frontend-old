@@ -1,14 +1,10 @@
 import React from "react";
-import Header from "../../atoms/app-header";
-import Footer from "../../atoms/app-footer";
-import SigninModal from "../../molecules/SignInModal";
+import Preparation from "../../templates/Preparation";
 
 function SimpleAppBar() {
   return (
     <div>
-      <Header />
-      <SigninModal />
-      <Footer />
+      <Preparation />
     </div>
   );
 }

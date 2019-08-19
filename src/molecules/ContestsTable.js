@@ -7,6 +7,7 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import PropTypes from "prop-types";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -21,6 +22,7 @@ const useStyles = makeStyles(() => ({
 
 export default function DataTable(props) {
   const classes = useStyles();
+  const rows = [createData(props.contestName, props.contestDate, props.contestTime, props.problemNumber)];
 
   //const contestDictionary = props.contestDictionary;
   const contestLists = props.contestLists;
@@ -41,11 +43,11 @@ export default function DataTable(props) {
           {contestLists.map(row => (
             <TableRow key={row.contestName}>
               <TableCell component="th" scope="row">
-                {row.contestName}
+                {rows.contestName}
               </TableCell>
-              <TableCell align="center">{row.contestDate}</TableCell>
-              <TableCell align="center">{row.contestTime}</TableCell>
-              <TableCell align="center">{row.problemNumber}</TableCell>
+              <TableCell align="center">{rows.contestDate}</TableCell>
+              <TableCell align="center">{rows.contestTime}</TableCell>
+              <TableCell align="center">{rows.problemNumber}</TableCell>
             </TableRow>
           ))}
         </TableBody>
