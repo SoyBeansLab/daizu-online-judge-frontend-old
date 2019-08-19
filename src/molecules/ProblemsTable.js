@@ -17,14 +17,9 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-// 仮データ用
-function createData(problemId, problemName, timeLimit, memoryLimit, problemScore) {
-  return { problemId, problemName, timeLimit, memoryLimit, problemScore };
-}
-
 export default function DataTable(props) {
   const classes = useStyles();
-  const rows = [createData(props.problemId, props.problemName, props.timeLimit, props.memoryLimit, props.problemScore)];
+  const problemLists = props.problemLists;
 
   return (
     <Paper className={classes.root} elevation={0}>
@@ -39,7 +34,7 @@ export default function DataTable(props) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map(row => (
+          {problemLists.map(row => (
             <TableRow key={row.problemId}>
               <TableCell component="th" scope="row" align="center">
                 {row.problemId}
@@ -57,9 +52,5 @@ export default function DataTable(props) {
 }
 
 DataTable.propTypes = {
-  problemId: PropTypes.string,
-  problemName: PropTypes.string,
-  timeLimit: PropTypes.number,
-  memoryLimit: PropTypes.number,
-  problemScore: PropTypes.number,
+  problemLists: PropTypes.array,
 };

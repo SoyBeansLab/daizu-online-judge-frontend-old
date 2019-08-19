@@ -1,5 +1,6 @@
 import React from "react";
-import DataTable from "../../molecules/ContestsTable.js";
+import ContestsTable from "../../molecules/ContestsTable.js";
+import ProblemsTable from "../../molecules/ProblemsTable.js";
 
 const contestsTableTestData = [
   {
@@ -16,10 +17,32 @@ const contestsTableTestData = [
   },
 ];
 
+const problemListsTestData = [
+  {
+    problemId: "hoge1",
+    problemName: "Hello World",
+    memoryLimit: 256,
+    timeLimit: 2,
+    problemScore: 100,
+  },
+  {
+    problemId: "hoge2",
+    problemName: "Fizz Buzz",
+    memoryLimit: 256,
+    timeLimit: 2,
+    problemScore: 400,
+  },
+];
+
 const Works = () => (
   <div>
     <h1>para works</h1>
-    <DataTable contestLists={contestsTableTestData} />
+
+    <h2>Contests Table</h2>
+    <ContestsTable contestLists={contestsTableTestData} />
+
+    <h2>Problem Table</h2>
+    <ProblemsTable problemLists={problemListsTestData} />
   </div>
 );
 
