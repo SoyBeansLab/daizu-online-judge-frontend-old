@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 // タブ
 import Tab from "@material-ui/core/Tab";
@@ -21,9 +22,13 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default function ContestsListTabs() {
+export default function ContestsListTabs(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
+
+  const problemLists = props.problemLists;
+  const submitStatusLists = props.submitStatusLists;
+  const rankingLists = props.rankingLists;
 
   function handleChange(event, newValue) {
     setValue(newValue);
@@ -37,21 +42,15 @@ export default function ContestsListTabs() {
         <Tab label="ランキング" />
       </Tabs>
       {value === 0 && <TopContents />}
-      {value === 1 && (
-        <ProblemsTable problemId="A" problemName="Hello World" timeLimit={2} memoryLimit={100} problemScore={50} />
-      )}
-      {value === 2 && (
-        <SubmitStatusTable
-          submitId="000000"
-          userName="ShuriChibana"
-          problemName="Hello World"
-          result="AC"
-          language="C"
-          score={50}
-          submitDate="2019-01-01"
-        />
-      )}
-      {value === 3 && <RankingTable rankUserId="ShuriChibana" rankTotal="3/10" rankScore={50} />}
+      {value === 1 && <ProblemsTable problemLists={problemLists} />}
+      {value === 2 && <SubmitStatusTable submitStatusLists={submitStatusLists} />}
+      {value === 3 && <RankingTable rankingList={rankingLists} />}
     </div>
   );
 }
+
+ContestsListTabs.propTypes = {
+  problemLists: PropTypes.array,
+  submitStatusLists: PropTypes.array,
+  rankingLists: PropTypes.array,
+};

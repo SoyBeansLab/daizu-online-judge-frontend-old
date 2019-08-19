@@ -17,14 +17,10 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-// 仮データ用
-function createData(rankUserId, rankTotal, rankScore) {
-  return { rankUserId, rankTotal, rankScore };
-}
-
 export default function DataTable(props) {
   const classes = useStyles();
-  const rows = [createData(props.rankUserId, props.rankTotal, props.rankScore)];
+
+  const rankingList = props.rankingList;
 
   return (
     <Paper className={classes.root} elevation={0}>
@@ -37,7 +33,7 @@ export default function DataTable(props) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map(row => (
+          {rankingList.map(row => (
             <TableRow key={row.rankUserId}>
               <TableCell component="th" scope="row" align="center">
                 {row.rankUserId}
@@ -53,7 +49,5 @@ export default function DataTable(props) {
 }
 
 DataTable.propTypes = {
-  rankUserId: PropTypes.string,
-  rankTotal: PropTypes.string,
-  rankScore: PropTypes.number,
+  rankingList: PropTypes.array,
 };
