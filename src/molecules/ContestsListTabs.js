@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 // タブ
 import Tab from "@material-ui/core/Tab";
@@ -17,9 +18,13 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default function ContestsListTabs() {
+export default function ContestsListTabs(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
+
+  const holdingContestLists = props.holdingContestLists;
+  const scheduledContestLists = props.scheduledContestLists;
+  const finishedContestLists = props.finishedContestLists;
 
   function handleChange(event, newValue) {
     setValue(newValue);
@@ -31,11 +36,15 @@ export default function ContestsListTabs() {
         <Tab label="開催予定" />
         <Tab label="終了" />
       </Tabs>
-      {value === 0 && (
-        <ContestsTable contestName="test" contestDate="2019-01-01" contestTime="00:00-11:11" problemNumber={5} />
-      )}
-      {value === 1 && <ContestsTable />}
-      {value === 2 && <ContestsTable />}
+      {value === 0 && <ContestsTable contestLists={holdingContestLists} />}
+      {value === 1 && <ContestsTable contestLists={scheduledContestLists} />}
+      {value === 2 && <ContestsTable contestLists={finishedContestLists} />}
     </div>
   );
 }
+
+ContestsListTabs.propTypes = {
+  holdingContestLists: PropTypes.array,
+  scheduledContestLists: PropTypes.array,
+  finishedContestLists: PropTypes.array,
+};

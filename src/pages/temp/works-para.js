@@ -2,6 +2,7 @@ import React from "react";
 import ContestsTable from "../../molecules/ContestsTable.js";
 import ProblemsTable from "../../molecules/ProblemsTable.js";
 import RankingTable from "../../molecules/RankingTable.js";
+import ContestsListTabs from "../../molecules/ContestsListTabs.js";
 
 const contestsTableTestData = [
   {
@@ -9,6 +10,21 @@ const contestsTableTestData = [
     contestDate: "2019/03/04",
     contestTime: 120,
     problemNumber: 4,
+  },
+  {
+    contestName: "Hello Worold2",
+    contestDate: "2019/03/05",
+    contestTime: 120,
+    problemNumber: 4,
+  },
+];
+
+const contestsTableTestData2 = [
+  {
+    contestName: "Hell World",
+    contestDate: "2019/03/01",
+    contestTime: 220,
+    problemNumber: 10,
   },
   {
     contestName: "Hello Worold2",
@@ -60,6 +76,13 @@ const Works = () => (
 
     <h2>Ranking Table</h2>
     <RankingTable rankingList={rankingListTestData} />
+
+    <h2>Contest List Tabs</h2>
+    <ContestsListTabs
+      holdingContestLists={contestsTableTestData}
+      scheduledContestLists={contestsTableTestData2}
+      finishedContestLists={contestsTableTestData}
+    />
   </div>
 );
 
