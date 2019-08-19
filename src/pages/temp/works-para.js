@@ -4,6 +4,7 @@ import ProblemsTable from "../../molecules/ProblemsTable.js";
 import RankingTable from "../../molecules/RankingTable.js";
 import ContestsListTabs from "../../molecules/ContestsListTabs.js";
 import SubmitStatusTable from "../../molecules/SubmitStatusTable.js";
+import ContestsTabs from "../../molecules/ContestTabs.js";
 
 const contestsTableTestData = [
   {
@@ -108,6 +109,13 @@ const Works = () => (
 
     <h2>Submit Status Table</h2>
     <SubmitStatusTable submitStatusLists={submitStatusListsTestData} />
+
+    <h2>Contest Tabs</h2>
+    <ContestsTabs
+      problemLists={problemListsTestData}
+      submitStatusLists={submitStatusListsTestData}
+      rankingList={rankingListTestData}
+    />
   </div>
 );
 
