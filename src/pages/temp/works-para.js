@@ -100,21 +100,22 @@ const Works = () => (
     <h2>Ranking Table</h2>
     <RankingTable rankingList={rankingListTestData} />
 
-    <h2>Contest List Tabs</h2>
-    <ContestsListTabs
-      holdingContestLists={contestsTableTestData}
-      scheduledContestLists={contestsTableTestData2}
-      finishedContestLists={contestsTableTestData}
-    />
-
     <h2>Submit Status Table</h2>
     <SubmitStatusTable submitStatusLists={submitStatusListsTestData} />
 
     <h2>Contest Tabs</h2>
     <ContestsTabs
+      contestTopContent={"# Hello World"}
       problemLists={problemListsTestData}
       submitStatusLists={submitStatusListsTestData}
       rankingList={rankingListTestData}
+    />
+
+    <h2>Contest List Tabs</h2>
+    <ContestsListTabs
+      holdingContestLists={contestsTableTestData}
+      scheduledContestLists={contestsTableTestData2}
+      finishedContestLists={contestsTableTestData}
     />
   </div>
 );
