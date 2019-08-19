@@ -17,24 +17,10 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-// 仮データ用
-function createData(submitId, userName, problemName, result, language, score, submitDate) {
-  return { submitId, userName, problemName, result, language, score, submitDate };
-}
-
 export default function DataTable(props) {
   const classes = useStyles();
-  const rows = [
-    createData(
-      props.submitId,
-      props.userName,
-      props.problemName,
-      props.result,
-      props.language,
-      props.score,
-      props.submitDate
-    ),
-  ];
+
+  const submitStatusLists = props.submitStatusLists;
 
   return (
     <Paper className={classes.root} elevation={0}>
@@ -51,7 +37,7 @@ export default function DataTable(props) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map(row => (
+          {submitStatusLists.map(row => (
             <TableRow key={row.submitId}>
               <TableCell component="th" scope="row" align="center">
                 #{row.submitId}
@@ -71,11 +57,5 @@ export default function DataTable(props) {
 }
 
 DataTable.propTypes = {
-  submitId: PropTypes.string,
-  userName: PropTypes.string,
-  problemName: PropTypes.string,
-  result: PropTypes.string,
-  language: PropTypes.string,
-  score: PropTypes.number,
-  submitDate: PropTypes.string,
+  submitStatusLists: PropTypes.array,
 };

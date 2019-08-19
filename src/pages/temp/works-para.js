@@ -3,6 +3,7 @@ import ContestsTable from "../../molecules/ContestsTable.js";
 import ProblemsTable from "../../molecules/ProblemsTable.js";
 import RankingTable from "../../molecules/RankingTable.js";
 import ContestsListTabs from "../../molecules/ContestsListTabs.js";
+import SubmitStatusTable from "../../molecules/SubmitStatusTable.js";
 
 const contestsTableTestData = [
   {
@@ -64,6 +65,27 @@ const rankingListTestData = [
   },
 ];
 
+const submitStatusListsTestData = [
+  {
+    submitId: "123456",
+    problemName: "Douteki keikaku plan",
+    userName: "nemu_sou",
+    result: "AC",
+    language: "C++",
+    score: 100,
+    submitDate: "2019-05-05",
+  },
+  {
+    submitId: "143456",
+    problemName: "Deeplearning",
+    userName: "mitohato",
+    result: "AC",
+    language: "Kotlin",
+    score: 100,
+    submitDate: "2019-05-011",
+  },
+];
+
 const Works = () => (
   <div>
     <h1>para works</h1>
@@ -83,6 +105,9 @@ const Works = () => (
       scheduledContestLists={contestsTableTestData2}
       finishedContestLists={contestsTableTestData}
     />
+
+    <h2>Submit Status Table</h2>
+    <SubmitStatusTable submitStatusLists={submitStatusListsTestData} />
   </div>
 );
 
