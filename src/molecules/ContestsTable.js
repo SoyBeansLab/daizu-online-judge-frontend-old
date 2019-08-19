@@ -1,12 +1,12 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-import PropTypes from "prop-types";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -19,19 +19,12 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-// 仮データ用
-function createData(contestName, contestDate, contestTime, problemNumber) {
-  return { contestName, contestDate, contestTime, problemNumber };
-}
-/*
-const rows = [
-  createData(props.contestName, props.contestDate, props.contestTime, props.problemNumber),
-];*/
-
 export default function DataTable(props) {
   const classes = useStyles();
-  const rows = [createData(props.contestName, props.contestDate, props.contestTime, props.problemNumber)];
 
+  const contestLists = props.contestLists;
+
+  /* eslint-disable no-unused-vars */
   return (
     <Paper className={classes.root} elevation={0}>
       <Table className={classes.table}>
@@ -44,25 +37,23 @@ export default function DataTable(props) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map(rows => (
-            <TableRow key={rows.contestName}>
+          {contestLists.map(row => (
+            <TableRow key={row.contestName}>
               <TableCell component="th" scope="row">
-                {rows.contestName}
+                {row.contestName}
               </TableCell>
-              <TableCell align="center">{rows.contestDate}</TableCell>
-              <TableCell align="center">{rows.contestTime}</TableCell>
-              <TableCell align="center">{rows.problemNumber}</TableCell>
+              <TableCell align="center">{row.contestDate}</TableCell>
+              <TableCell align="center">{row.contestTime}</TableCell>
+              <TableCell align="center">{row.problemNumber}</TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
     </Paper>
   );
+  /* eslint-disable no-unused-vars */
 }
 
 DataTable.propTypes = {
-  contestName: PropTypes.string,
-  contestDate: PropTypes.string,
-  contestTime: PropTypes.string,
-  problemNumber: PropTypes.number,
+  contestLists: PropTypes.array,
 };
