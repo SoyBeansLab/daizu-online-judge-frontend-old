@@ -1,6 +1,7 @@
 import React from "react";
 import ContestsTable from "../../molecules/ContestsTable.js";
 import ProblemsTable from "../../molecules/ProblemsTable.js";
+import RankingTable from "../../molecules/RankingTable.js";
 
 const contestsTableTestData = [
   {
@@ -34,6 +35,19 @@ const problemListsTestData = [
   },
 ];
 
+const rankingListTestData = [
+  {
+    rankUserId: "nemu_sou",
+    rankTotal: "1",
+    rankScore: 200,
+  },
+  {
+    rankUserId: "mitohato",
+    rankTotal: "2",
+    rankScore: 200,
+  },
+];
+
 const Works = () => (
   <div>
     <h1>para works</h1>
@@ -43,6 +57,9 @@ const Works = () => (
 
     <h2>Problem Table</h2>
     <ProblemsTable problemLists={problemListsTestData} />
+
+    <h2>Ranking Table</h2>
+    <RankingTable rankingList={rankingListTestData} />
   </div>
 );
 
