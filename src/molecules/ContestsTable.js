@@ -1,5 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import PropTypes from "prop-types";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -18,20 +19,13 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-// 仮データ用
-function createData(contestName, contestDate, contestTime, problemNumber) {
-  return { contestName, contestDate, contestTime, problemNumber };
-}
-
-const rows = [
-  createData("てすと", "2019-01-01", "00:00-11:11", 5),
-  createData("test", "2019-01-01", "00:00-11:11", 3),
-  createData("test", "2019-01-01", "00:00-11:11", 7),
-];
-
-export default function DataTable() {
+export default function DataTable(props) {
   const classes = useStyles();
 
+  //const contestDictionary = props.contestDictionary;
+  const contestLists = props.contestLists;
+
+  /* eslint-disable no-unused-vars */
   return (
     <Paper className={classes.root} elevation={0}>
       <Table className={classes.table}>
@@ -44,7 +38,7 @@ export default function DataTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map(row => (
+          {contestLists.map(row => (
             <TableRow key={row.contestName}>
               <TableCell component="th" scope="row">
                 {row.contestName}
@@ -58,4 +52,9 @@ export default function DataTable() {
       </Table>
     </Paper>
   );
+  /* eslint-disable no-unused-vars */
 }
+
+DataTable.propTypes = {
+  contestLists: PropTypes.array,
+};
