@@ -1,10 +1,10 @@
 import React from "react";
-import Preparation from "../../templates/Preparation";
+import SubmitStatusStatu from "../../templates/SubmitStatusStatu";
 
 function SimpleAppBar() {
   return (
     <div>
-      <Preparation />
+      <SubmitStatusStatu />
     </div>
   );
 }
