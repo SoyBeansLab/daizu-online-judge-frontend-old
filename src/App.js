@@ -5,6 +5,7 @@ import Footer from "./atoms/app-footer";
 import Home from "./pages/Home.js";
 import Contests from "./pages/Contests.js";
 import Preparation from "./templates/Preparation.js";
+import Problem from "./pages/Problem.js";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Header />
         <Route exact path="/" component={Home} />
         <Route exact path="/contests" component={Contests} />
+        <Route exact path="/contest/:contest_id/problems/:problem_id" component={Problem} />
         <Route exact path="/login" component={Preparation} />
         <Footer />
       </BrowserRouter>
