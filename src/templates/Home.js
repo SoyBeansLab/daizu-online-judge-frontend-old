@@ -4,7 +4,6 @@ import Slider from "../molecules/Slider";
 
 export default function Home(props) {
   const slideItemList = props.slideItemList;
-
   return (
     <div>
       <Slider slideItemList={slideItemList} />

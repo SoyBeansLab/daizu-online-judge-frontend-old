@@ -4,7 +4,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-import { BrowserRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -24,25 +24,23 @@ export default function Header() {
   const classes = useStyles();
 
   return (
-    <BrowserRouter>
-      <div className={classes.root}>
-        <AppBar color="primary" position="static">
-          <Toolbar>
-            <Typography variant="h6" className={classes.title}>
-              hogehoge
-            </Typography>
-            <Button color="inherit" className={classes.button}>
-              HOME
-            </Button>
-            <Button color="inherit" className={classes.button}>
-              CONTESTS
-            </Button>
-            <Button color="inherit" className={classes.button}>
-              LOGIN
-            </Button>
-          </Toolbar>
-        </AppBar>
-      </div>
-    </BrowserRouter>
+    <div className={classes.root}>
+      <AppBar color="primary" position="static">
+        <Toolbar>
+          <Typography variant="h6" className={classes.title}>
+            hogehoge
+          </Typography>
+          <Button color="inherit" className={classes.button} component={Link} to="/">
+            HOME
+          </Button>
+          <Button color="inherit" className={classes.button} component={Link} to="/contests">
+            CONTESTS
+          </Button>
+          <Button color="inherit" className={classes.button} component={Link} to="/login">
+            LOGIN
+          </Button>
+        </Toolbar>
+      </AppBar>
+    </div>
   );
 }
