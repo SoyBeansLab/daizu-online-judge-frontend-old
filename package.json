@@ -1,0 +1,71 @@
+{
+  "name": "daizu-onine-judge",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^4.0.1",
+    "@nteract/markdown": "^4.0.0",
+    "@types/react-slick": "^0.23.4",
+    "axios": "^0.19.0",
+    "axios-mock-adapter": "^1.17.0",
+    "codemirror": "^5.48.2",
+    "log4js": "^5.0.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-codemirror2": "^6.0.0",
+    "react-dom": "^16.8.6",
+    "react-markdown": "^4.1.0",
+    "react-router": "^5.0.0",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "3.0.1",
+    "react-slick": "^0.24.0",
+    "react-swipeable-views": "^0.13.3",
+    "react-syntax-highlighter": "^11.0.1",
+    "redux": "^4.0.1",
+    "tslint": "^5.17.0",
+    "url-pattern": "^1.0.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-google": "^0.13.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.13.0",
+    "husky": "^2.3.0",
+    "lint-staged": "^8.1.7",
+    "prettier": "^1.17.1",
+    "slick-carousel": "^1.8.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix",
+      "git add"
+    ]
+  }
+}

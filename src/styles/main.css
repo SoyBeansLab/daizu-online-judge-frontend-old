@@ -1,0 +1,38 @@
+/* google fonts */
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700|Ubuntu+Mono&subset=japanese');
+
+/* 全体の設定 */
+body {
+  font-family: 'Noto Sans JP', 'Arial',YuGothic,'Yu Gothic','Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3','メイリオ', Meiryo,'ＭＳ ゴシック','"Apple Color Emoji"','"Segoe UI Emoji"','"Segoe UI Symbol"',sans-serif;
+}
+
+/* source code用 */
+code {
+  font-family: 'Ubuntu Mono', Consolas, 'Courier New', monospace;
+}
+
+.problem-info code {
+  color: #c7254e;
+  border-radius: 3px;
+}
+
+.problem-info pre code {
+  color: #424242;
+}
+
+.problem-info pre {
+  background-color: #e0e0e0;
+  border-radius: 8px;
+  padding: 6px;
+}
+
+/* リンク */
+.link {
+  color: #1e88e5;
+  text-decoration: none;  /* 下線非表示 */
+  transition: all .3s;  /* 3sかけて:hoverの色に変化 */
+}
+
+.link:hover {
+  color: #64b5f6;
+}
