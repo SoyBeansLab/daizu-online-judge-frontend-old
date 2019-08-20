@@ -10,7 +10,6 @@ mock.onGet("/contests").reply(200, {
   contests: {
     holdingContestLists: [
       {
-        contestTitle: "Hello World",
         contestName: "Hello World",
         contestDate: "2019/04/04",
         contestTime: "120sec",
@@ -18,7 +17,6 @@ mock.onGet("/contests").reply(200, {
         contestContent: "#Hello World!",
       },
       {
-        contestTitle: "Test",
         contestName: "Hello World",
         contestDate: "2019/04/04",
         contestTime: "120sec",
@@ -28,7 +26,6 @@ mock.onGet("/contests").reply(200, {
     ],
     scheduledContestLists: [
       {
-        contestTitle: "Hello World",
         contestName: "Hello World",
         contestDate: "2019/04/04",
         contestTime: "120sec",

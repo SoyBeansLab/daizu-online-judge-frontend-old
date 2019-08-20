@@ -18,9 +18,9 @@ export default function HomeSlider(props) {
   return (
     <Slider {...settings}>
       {slideItemList.map(row => (
-        <div key={row.contestTitle}>
+        <div key={row.contestName}>
           <SliderItem
-            contestTitle={row.contestTitle}
+            contestTitle={row.contestName}
             contestDate={row.contestDate}
             contestTime={row.contestTime}
             contestContent={row.contestContent}

@@ -9,13 +9,13 @@ var mock = new MockAdapter(axios);
 mock.onGet("/contests").reply(200, {
   contests: [
     {
-      contestTitle: "Hello World",
+      contestName: "Hello World",
       contestDate: "2019/04/04",
       contestTime: "120sec",
       contestContent: "#Hello World!",
     },
     {
-      contestTitle: "Test",
+      contestName: "Test",
       contestDate: "2019/04/04",
       contestTime: "120sec",
       contestContent: "#Hello World!",
