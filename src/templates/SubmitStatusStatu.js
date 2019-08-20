@@ -20,32 +20,46 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SubmitStatusStatu() {
+const submitStatusStateTestData = {
+  submitId: "123456",
+  submitDate: "2019-05-05",
+  problemName: "Douteki keikaku plan",
+  language: "C++",
+  score: 100,
+  codeLength: 100,
+  result: "AC",
+  userName: "nemu_sou",
+  executeTime: 300,
+  memory: 400,
+  sourceCode: 'printf("HelloWorld");',
+};
+
+export default function SubmitStatusState() {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <Typograhy variant="h5" className={classes.heading}>
-        #000000
+        #{submitStatusStateTestData.submitId}
       </Typograhy>
 
       <Typograhy variant="h6" className={classes.text}>
         ソースコード
       </Typograhy>
-      <CodeBlock language="c">#include "hoge.h"</CodeBlock>
+      <CodeBlock language="c">{submitStatusStateTestData.sourceCode}</CodeBlock>
 
       <Typograhy variant="h6" className={classes.text}>
         提出状況
       </Typograhy>
       <SubmitStatusDetailTable
-        submitDate={new Date().toString()}
-        problemName={"Summer Vacation"}
-        userName={"kurokoji"}
-        language={"C++17"}
-        score={400}
-        result={"TLE"}
-        executeTime={300}
-        memory={400}
+        submitDate={submitStatusStateTestData.submitDate}
+        problemName={submitStatusStateTestData.problemName}
+        userName={submitStatusStateTestData.userName}
+        language={submitStatusStateTestData.language}
+        score={submitStatusStateTestData.score}
+        result={submitStatusStateTestData.result}
+        executeTime={submitStatusStateTestData.executeTime}
+        memory={submitStatusStateTestData.memory}
       />
     </div>
   );
