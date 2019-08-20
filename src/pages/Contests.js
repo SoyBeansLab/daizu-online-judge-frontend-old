@@ -16,17 +16,17 @@ mock.onGet("/contests").reply(200, {
         contestNumber: 4,
         contestContent: "#Hello World!",
       },
+    ],
+    scheduledContestLists: [
       {
-        contestName: "Hello World",
+        contestName: "GitHub",
         contestDate: "2019/04/04",
         contestTime: "120sec",
         contestNumber: 4,
         contestContent: "#Hello World!",
       },
-    ],
-    scheduledContestLists: [
       {
-        contestName: "Hello World",
+        contestName: "WelcomeContest",
         contestDate: "2019/04/04",
         contestTime: "120sec",
         contestNumber: 4,
