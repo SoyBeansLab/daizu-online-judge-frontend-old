@@ -2,16 +2,17 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
+import Logo from "../images/daizuLogo.png";
+import Container from "@material-ui/core/Container";
 
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
   },
   title: {
-    flexGrow: 1,
+    width: "20%",
     color: "#ffffff",
   },
   button: {
@@ -27,9 +28,10 @@ export default function Header() {
     <div className={classes.root}>
       <AppBar color="primary" position="static">
         <Toolbar>
-          <Typography variant="h6" className={classes.title}>
-            hogehoge
-          </Typography>
+          <Container justify="flex-start">
+            <img src={Logo} alt="logo" className={classes.title} />
+          </Container>
+
           <Button color="inherit" className={classes.button} component={Link} to="/">
             HOME
           </Button>
