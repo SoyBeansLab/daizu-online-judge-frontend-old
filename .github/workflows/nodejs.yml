@@ -1,4 +1,4 @@
-name: daizu online judge frontend CI
+name: doj_front_ci
 
 on: [push]
 
