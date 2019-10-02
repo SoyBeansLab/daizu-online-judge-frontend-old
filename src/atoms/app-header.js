@@ -14,6 +14,7 @@ const useStyles = makeStyles(theme => ({
   title: {
     width: "20%",
     color: "#ffffff",
+    border: "0",
   },
   button: {
     marginRight: theme.spacing(2),
@@ -29,7 +30,9 @@ export default function Header() {
       <AppBar color="primary" position="static">
         <Toolbar>
           <Container justify="flex-start">
-            <img src={Logo} alt="logo" className={classes.title} />
+            <Link to="/">
+              <img src={Logo} alt="logo" className={classes.title} />
+            </Link>
           </Container>
 
           <Button color="inherit" className={classes.button} component={Link} to="/">
