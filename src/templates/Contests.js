@@ -7,21 +7,21 @@ import Typograhy from "@material-ui/core/Typography";
 const useStyles = makeStyles(theme => ({
   root: {
     // この設定 App.jsに書いたほうが良い説ある
-    margin: theme.spacing(3),
+    margin: theme.spacing(3)
   },
   heading: {
     color: theme.palette.primary.main,
     fontWeight: 500,
-    marginBottom: theme.spacing(2),
-  },
+    marginBottom: theme.spacing(2)
+  }
 }));
 
 export default function Contests(props) {
   const classes = useStyles();
 
-  const holdingContestLists = props.holdingContestLists;
-  const scheduledContestLists = props.scheduledContestLists;
-  const finishedContestLists = props.finishedContestLists;
+  const currentContestLists = props.currentContestLists;
+  const upcomingContestLists = props.upcomingContestLists;
+  const recentContestLists = props.recentContestLists;
 
   return (
     <div className={classes.root}>
@@ -29,16 +29,16 @@ export default function Contests(props) {
         コンテスト一覧
       </Typograhy>
       <ContestsListTabs
-        holdingContestLists={holdingContestLists}
-        scheduledContestLists={scheduledContestLists}
-        finishedContestLists={finishedContestLists}
+        currentContestLists={currentContestLists}
+        upcomingContestLists={upcomingContestLists}
+        recentContestLists={recentContestLists}
       />
     </div>
   );
 }
 
 Contests.propTypes = {
-  holdingContestLists: PropTypes.array,
-  scheduledContestLists: PropTypes.array,
-  finishedContestLists: PropTypes.array,
+  currentContestLists: PropTypes.array,
+  upcomingContestLists: PropTypes.array,
+  recentContestLists: PropTypes.array
 };
