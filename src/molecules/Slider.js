@@ -11,19 +11,19 @@ export default function HomeSlider(props) {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    arrow: true,
+    arrow: true
   };
   const slideItemList = props.slideItemList;
 
   return (
     <Slider {...settings}>
       {slideItemList.map(row => (
-        <div key={row.contestName}>
+        <div key={row.contest_name}>
           <SliderItem
-            contestTitle={row.contestName}
-            contestDate={row.contestDate}
-            contestTime={row.contestTime}
-            contestContent={row.contestContent}
+            contestName={row.contest_name}
+            contestDate={row.contest_date}
+            contestTime={row.contest_time}
+            contestDescription={row.contest_description}
           />
         </div>
       ))}
@@ -32,5 +32,5 @@ export default function HomeSlider(props) {
 }
 
 HomeSlider.propTypes = {
-  slideItemList: PropTypes.array,
+  slideItemList: PropTypes.array
 };

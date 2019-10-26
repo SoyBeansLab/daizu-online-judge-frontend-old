@@ -7,34 +7,31 @@ import MockAdapter from "axios-mock-adapter";
 var mock = new MockAdapter(axios);
 
 mock.onGet("/contests").reply(200, {
-  contests: {
-    holdingContestLists: [
-      {
-        contestName: "Hello World",
-        contestDate: "2019/04/04",
-        contestTime: "120sec",
-        contestNumber: 4,
-        contestContent: "#Hello World!",
-      },
-    ],
-    scheduledContestLists: [
-      {
-        contestName: "GitHub",
-        contestDate: "2019/04/04",
-        contestTime: "120sec",
-        contestNumber: 4,
-        contestContent: "#Hello World!",
-      },
-      {
-        contestName: "WelcomeContest",
-        contestDate: "2019/04/04",
-        contestTime: "120sec",
-        contestNumber: 4,
-        contestContent: "#Hello World!",
-      },
-    ],
-    finishedContestLists: [],
-  },
+  upcoming: [
+    // 予定されているやつ
+    {
+      contest_id: "mitohato",
+      contest_name: "mito_contest",
+      contest_date: "2019-08-17 12:00:00",
+      contest_time: 120,
+      writer: "mitohato",
+      contest_description: "",
+      problem_number: 2
+    }
+  ],
+  current: [
+    // 開催中のやつ
+    {
+      contest_id: "mitohato",
+      contest_name: "mito_contest",
+      contest_date: "2019-08-17 12:00:00",
+      contest_time: 120,
+      writer: "mitohato",
+      contest_description: "",
+      problem_number: 2
+    }
+  ],
+  recent: [] // 終了したやつ
 });
 
 export default function Home() {
@@ -43,20 +40,26 @@ export default function Home() {
     axios
       .get("contests")
       .then(function(response) {
-        const data = { ...response.data.contests };
+        const data = { ...response.data };
         setState({ isDone: true, slideItems: data });
       })
-      .catch(function(error) {  //eslint-disable-line
-        // console.log(error);
+      .catch(function(error) {
+        console.log(error); //eslint-disable-line
       })
       .finally(function() {});
   }, []);
 
   return (
     <ContestsTemplate
-      holdingContestLists={state.isDone ? Object.values(state.slideItems.holdingContestLists) : []}
-      scheduledContestLists={state.isDone ? Object.values(state.slideItems.scheduledContestLists) : []}
-      finishedContestLists={state.isDone ? Object.values(state.slideItems.finishedContestLists) : []}
+      currentContestLists={
+        state.isDone ? Object.values(state.slideItems.current) : []
+      }
+      upcomingContestLists={
+        state.isDone ? Object.values(state.slideItems.upcoming) : []
+      }
+      recentContestLists={
+        state.isDone ? Object.values(state.slideItems.recent) : []
+      }
     />
   );
 }

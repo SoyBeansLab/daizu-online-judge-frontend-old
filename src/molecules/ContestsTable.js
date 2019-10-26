@@ -11,12 +11,12 @@ import Paper from "@material-ui/core/Paper";
 const useStyles = makeStyles(() => ({
   root: {
     width: "100%",
-    height: "100%",
+    height: "100%"
   },
   table: {
     minWidth: 650,
-    height: "100%",
-  },
+    height: "100%"
+  }
 }));
 
 export default function DataTable(props) {
@@ -38,13 +38,13 @@ export default function DataTable(props) {
         </TableHead>
         <TableBody>
           {contestLists.map(row => (
-            <TableRow key={row.contestName}>
+            <TableRow key={row.contest_id}>
               <TableCell component="th" scope="row">
-                {row.contestName}
+                {row.contest_name}
               </TableCell>
-              <TableCell align="center">{row.contestDate}</TableCell>
-              <TableCell align="center">{row.contestTime}</TableCell>
-              <TableCell align="center">{row.problemNumber}</TableCell>
+              <TableCell align="center">{row.contest_date}</TableCell>
+              <TableCell align="center">{row.contest_time}</TableCell>
+              <TableCell align="center">{row.problem_number}</TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -55,5 +55,5 @@ export default function DataTable(props) {
 }
 
 DataTable.propTypes = {
-  contestLists: PropTypes.array,
+  contestLists: PropTypes.array
 };
