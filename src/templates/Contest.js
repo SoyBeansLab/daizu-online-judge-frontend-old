@@ -6,13 +6,13 @@ import ContestTabs from "../molecules/ContestTabs";
 const useStyles = makeStyles(theme => ({
   root: {
     // この設定 App.jsに書いたほうが良い説ある
-    margin: theme.spacing(3),
+    margin: theme.spacing(3)
   },
   heading: {
     color: theme.palette.primary.main,
     fontWeight: 500,
-    marginBottom: theme.spacing(2),
-  },
+    marginBottom: theme.spacing(2)
+  }
 }));
 
 export default function Contests(props) {
@@ -39,5 +39,5 @@ Contests.propTypes = {
   contestTopContent: PropTypes.string,
   problemLists: PropTypes.array,
   submitStatusLists: PropTypes.array,
-  rankingLists: PropTypes.array,
+  rankingLists: PropTypes.array
 };
