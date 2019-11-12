@@ -3,11 +3,8 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import SignUpModal from "../molecules/SignUpModal";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
   root: {
-    // この設定 App.jsに書いたほうが良い説ある
-    margin: theme.spacing(3),
-
     display: "flex",
     justifyContent: "center",
     alignItems: "center"

@@ -9,8 +9,9 @@ import Signin from "./templates/SignInModal";
 import Debug from "./pages/temp/works-para";
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(theme => ({
   root: {
+    margin: theme.spacing(3),
     display: "flex",
     flexDirection: "column",
     minHeight: "100vh"
