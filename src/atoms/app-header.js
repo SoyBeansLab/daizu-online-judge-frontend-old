@@ -55,7 +55,7 @@ export default function Header() {
             color="inherit"
             className={classes.button}
             component={Link}
-            to="/login"
+            to="/signin"
           >
             SIGN IN
           </Button>

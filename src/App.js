@@ -4,7 +4,8 @@ import Header from "./atoms/app-header";
 import Footer from "./atoms/app-footer";
 import Home from "./pages/Home.js";
 import Contests from "./pages/Contests.js";
-import Preparation from "./templates/Preparation.js";
+import Signin from "./templates/SignInModal.js";
+//import Preparation from "./templates/Preparation.js";
 import Debug from "./pages/temp/works-para";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -26,7 +27,7 @@ function App() {
         <div className={classes.root}>
           <Route exact path="/" component={Home} />
           <Route exact path="/contests" component={Contests} />
-          <Route exact path="/login" component={Preparation} />
+          <Route exact path="/signin" component={Signin} />
           <Route exact path="/debug" component={Debug} />
         </div>
       </BrowserRouter>
