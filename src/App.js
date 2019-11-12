@@ -6,18 +6,31 @@ import Home from "./pages/Home.js";
 import Contests from "./pages/Contests.js";
 import Preparation from "./templates/Preparation.js";
 import Debug from "./pages/temp/works-para";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles(() => ({
+  root: {
+    display: "flex",
+    flexDirection: "column",
+    minHeight: "100vh"
+  }
+}));
 
 function App() {
+  const classes = useStyles();
+
   return (
     <div className="App">
       <BrowserRouter>
         <Header />
-        <Route exact path="/" component={Home} />
-        <Route exact path="/contests" component={Contests} />
-        <Route exact path="/login" component={Preparation} />
-        <Route exact path="/debug" component={Debug} />
-        <Footer />
+        <div className={classes.root}>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/contests" component={Contests} />
+          <Route exact path="/login" component={Preparation} />
+          <Route exact path="/debug" component={Debug} />
+        </div>
       </BrowserRouter>
+      <Footer />
     </div>
   );
 }
