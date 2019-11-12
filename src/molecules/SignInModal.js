@@ -2,7 +2,8 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
+//import CardContent from "@material-ui/core/CardContent";
+import CardHeader from "@material-ui/core/CardHeader";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Checkbox from "@material-ui/core/Checkbox";
@@ -24,6 +25,9 @@ const useStyles = makeStyles(theme => ({
     minWidth: 450,
     maxWidth: 500,
     margin: theme.spacing(1)
+  },
+  cardHeader: {
+    textAlign: "center"
   },
   button: {
     marginTop: theme.spacing(3),
@@ -54,7 +58,6 @@ function SignInModal() {
 
   return (
     <div>
-      <CardContent />
       <CardActions>
         <form className={classes.container} noValidate autoComplete="off">
           <TextField
@@ -134,6 +137,7 @@ export default function ModalTab() {
   return (
     <div className={classes.root}>
       <Card className={classes.card}>
+        <CardHeader title="SignIn" className={classes.cardHeader} />
         <SignInModal />
       </Card>
     </div>

@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
+import CardHeader from "@material-ui/core/CardHeader";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 //import FormControlLabel from "@material-ui/core/FormControlLabel";
@@ -22,6 +23,9 @@ const useStyles = makeStyles(theme => ({
     minWidth: 450,
     maxWidth: 500,
     margin: theme.spacing(1)
+  },
+  cardHeader: {
+    textAlign: "center"
   },
   button: {
     marginTop: theme.spacing(3),
@@ -132,6 +136,7 @@ export default function ModalTab() {
   return (
     <div className={classes.root}>
       <Card className={classes.card}>
+        <CardHeader title="SignUp" className={classes.cardHeader} />
         <SignUpModal />
       </Card>
     </div>
