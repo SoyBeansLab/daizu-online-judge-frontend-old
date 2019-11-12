@@ -2,10 +2,10 @@ import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import Header from "./atoms/app-header";
 import Footer from "./atoms/app-footer";
-import Home from "./pages/Home.js";
-import Contests from "./pages/Contests.js";
-import Signin from "./templates/SignInModal.js";
-//import Preparation from "./templates/Preparation.js";
+import Home from "./pages/Home";
+import Contests from "./pages/Contests";
+import Signin from "./templates/SignInModal";
+//import Preparation from "./templates/Preparation";
 import Debug from "./pages/temp/works-para";
 import { makeStyles } from "@material-ui/core/styles";
 
