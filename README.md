@@ -1,6 +1,6 @@
 # daizu-online-judge-frontend
 
-[![Build Status](https://travis-ci.com/SoyBeansLab/daizu-online-judge-frontend.svg?branch=develop)](https://travis-ci.com/SoyBeansLab/daizu-online-judge-frontend)
+[![Actions Status](https://github.com/SoyBeansLab/daizu-online-judge-frontend/workflows/doj_front_ci/badge.svg?branch=develop)](https://github.com/SoyBeansLab/daizu-online-judge-frontend/actions)
 
 ---
 
