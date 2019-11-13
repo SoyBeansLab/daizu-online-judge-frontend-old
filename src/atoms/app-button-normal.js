@@ -6,8 +6,8 @@ import Button from "@material-ui/core/Button";
 // css
 const useStyles = makeStyles(theme => ({
   button: {
-    margin: theme.spacing(1),
-  },
+    margin: theme.spacing(1)
+  }
 }));
 
 export default function NormalButton(props) {
@@ -24,5 +24,5 @@ export default function NormalButton(props) {
 
 // propsの型指定
 NormalButton.propTypes = {
-  buttonText: PropTypes.string,
+  buttonText: PropTypes.string
 };
