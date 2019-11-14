@@ -37,7 +37,7 @@ export default function DataTable(props) {
           {problemLists.map(row => (
             <TableRow key={row.problem_id}>
               <TableCell component="th" scope="row" align="center">
-                {row.problem_id}
+                {row.problem_order}
               </TableCell>
               <TableCell align="center">{row.problem_name}</TableCell>
               <TableCell align="center">{row.time_limit}sec</TableCell>

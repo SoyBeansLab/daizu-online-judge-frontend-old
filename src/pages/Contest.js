@@ -10,15 +10,17 @@ mock.onGet("/contests/mitohato").reply(200, {
   contest_top_content: "## Hello World!",
   problem_list: [
     {
-      problem_id: "hogehoge",
+      problem_id: "hello_world",
+      problem_order: "A",
       problem_name: "Hello World",
       time_limit: 2,
       memory_limit: 256,
       problem_score: 100
     },
     {
-      problem_id: "poen",
-      problem_name: "Hello World",
+      problem_id: "hogehoge",
+      problem_order: "B",
+      problem_name: "hogehoge",
       time_limit: 2,
       memory_limit: 256,
       problem_score: 100
