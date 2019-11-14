@@ -15,10 +15,10 @@ export default function Contests(props) {
   const classes = useStyles();
 
   const checkUndefined = (v, d) => {
-    if (typeof value !== "undefined") {
-      return v;
-    } else {
+    if (typeof v === "undefined") {
       return d;
+    } else {
+      return v;
     }
   };
 
