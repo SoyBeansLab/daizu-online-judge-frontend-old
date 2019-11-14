@@ -10,11 +10,11 @@ import PropTypes from "prop-types";
 
 const useStyles = makeStyles(() => ({
   root: {
-    width: "100%",
+    width: "100%"
   },
   table: {
-    minWidth: 650,
-  },
+    minWidth: 650
+  }
 }));
 
 export default function DataTable(props) {
@@ -35,14 +35,14 @@ export default function DataTable(props) {
         </TableHead>
         <TableBody>
           {problemLists.map(row => (
-            <TableRow key={row.problemId}>
+            <TableRow key={row.problem_id}>
               <TableCell component="th" scope="row" align="center">
-                {row.problemId}
+                {row.problem_id}
               </TableCell>
-              <TableCell align="center">{row.problemName}</TableCell>
-              <TableCell align="center">{row.timeLimit}sec</TableCell>
-              <TableCell align="center">{row.memoryLimit}MB</TableCell>
-              <TableCell align="center">{row.problemScore}</TableCell>
+              <TableCell align="center">{row.problem_name}</TableCell>
+              <TableCell align="center">{row.time_limit}sec</TableCell>
+              <TableCell align="center">{row.memory_limit}MB</TableCell>
+              <TableCell align="center">{row.problem_score}</TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -52,5 +52,5 @@ export default function DataTable(props) {
 }
 
 DataTable.propTypes = {
-  problemLists: PropTypes.array,
+  problemLists: PropTypes.array
 };
