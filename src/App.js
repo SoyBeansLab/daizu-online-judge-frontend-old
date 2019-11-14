@@ -4,6 +4,7 @@ import Header from "./atoms/app-header";
 import Footer from "./atoms/app-footer";
 import Home from "./pages/Home";
 import Contests from "./pages/Contests";
+import Contest from "./pages/Contest";
 import Signin from "./templates/SignInModal";
 import Signup from "./templates/SignUpModal";
 import Preparation from "./templates/Preparation";
@@ -30,6 +31,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/contests" component={Contests} />
+            <Route exact path="/contests/:contest_id" component={Contest} />
             <Route exact path="/signin" component={Signin} />
             <Route exect path="/signup" component={Signup} />
             <Route exact path="/debug" component={Debug} />
