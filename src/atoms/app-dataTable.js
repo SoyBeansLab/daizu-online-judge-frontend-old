@@ -10,11 +10,11 @@ import Paper from "@material-ui/core/Paper";
 
 const useStyles = makeStyles(() => ({
   root: {
-    width: "100%",
+    width: "100%"
   },
   table: {
-    minWidth: 650,
-  },
+    minWidth: 650
+  }
 }));
 
 // 仮データ用
@@ -25,7 +25,7 @@ function createData(name, date, time) {
 const rows = [
   createData("てすと", "2019-01-01", "00:00-11:11"),
   createData("test", "2019-01-01", "00:00-11:11"),
-  createData("test", "2019-01-01", "00:00-11:11"),
+  createData("test", "2019-01-01", "00:00-11:11")
 ];
 
 export default function DataTable() {
