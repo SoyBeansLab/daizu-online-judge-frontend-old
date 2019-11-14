@@ -7,6 +7,7 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -38,7 +39,12 @@ export default function DataTable(props) {
         </TableHead>
         <TableBody>
           {contestLists.map(row => (
-            <TableRow key={row.contest_id}>
+            <TableRow
+              key={row.contest_id}
+              hover
+              component={Link}
+              to={"/contests/" + row.contest_id}
+            >
               <TableCell component="th" scope="row">
                 {row.contest_name}
               </TableCell>
