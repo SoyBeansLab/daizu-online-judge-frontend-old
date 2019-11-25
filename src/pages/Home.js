@@ -17,6 +17,15 @@ mock.onGet("/contests").reply(200, {
       writer: "mitohato",
       contest_description: "Hello World!",
       problem_number: 2
+    },
+    {
+      contest_id: "hogehoge",
+      contest_name: "hoge_contest",
+      contest_date: "2019-08-17 12:00:00",
+      contest_time: 120,
+      writer: "mitohato",
+      contest_description: "Hello World!",
+      problem_number: 2
     }
   ],
   current: [
@@ -43,6 +52,7 @@ export default function Home() {
         const data = {
           ...response.data.upcoming
         };
+        console.log(data); //eslint-disable-line
         setState({ isDone: true, slideItems: Object.values(data) });
       })
       .catch(function(error) {

@@ -9,17 +9,17 @@ import Container from "@material-ui/core/Container";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   title: {
     width: "20%",
     color: "#ffffff",
-    border: "0",
+    border: "0"
   },
   button: {
     marginRight: theme.spacing(2),
-    color: "#ffffff",
-  },
+    color: "#ffffff"
+  }
 }));
 
 export default function Header() {
@@ -35,14 +35,29 @@ export default function Header() {
             </Link>
           </Container>
 
-          <Button color="inherit" className={classes.button} component={Link} to="/">
+          <Button
+            color="inherit"
+            className={classes.button}
+            component={Link}
+            to="/"
+          >
             HOME
           </Button>
-          <Button color="inherit" className={classes.button} component={Link} to="/contests">
+          <Button
+            color="inherit"
+            className={classes.button}
+            component={Link}
+            to="/contests"
+          >
             CONTESTS
           </Button>
-          <Button color="inherit" className={classes.button} component={Link} to="/login">
-            LOGIN
+          <Button
+            color="inherit"
+            className={classes.button}
+            component={Link}
+            to="/signin"
+          >
+            SIGN IN
           </Button>
         </Toolbar>
       </AppBar>

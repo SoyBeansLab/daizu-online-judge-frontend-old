@@ -15,7 +15,16 @@ mock.onGet("/contests").reply(200, {
       contest_date: "2019-08-17 12:00:00",
       contest_time: 120,
       writer: "mitohato",
-      contest_description: "",
+      contest_description: "Hello World!",
+      problem_number: 2
+    },
+    {
+      contest_id: "hogehoge",
+      contest_name: "hoge_contest",
+      contest_date: "2019-08-17 12:00:00",
+      contest_time: 120,
+      writer: "mitohato",
+      contest_description: "Hello World!",
       problem_number: 2
     }
   ],

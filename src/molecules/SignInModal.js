@@ -2,44 +2,55 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
+//import CardContent from "@material-ui/core/CardContent";
+import CardHeader from "@material-ui/core/CardHeader";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
+import Link from "@material-ui/core/Link";
+import { Link as RouterLink } from "react-router-dom";
 import PropTypes from "prop-types";
 
 const useStyles = makeStyles(theme => ({
   container: {
     display: "flex",
-    flexWrap: "wrap",
+    flexWrap: "wrap"
   },
   textField: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
-    minWidth: 450,
+    minWidth: 450
   },
   card: {
     minWidth: 450,
     maxWidth: 500,
-    margin: theme.spacing(1),
+    margin: theme.spacing(1)
+  },
+  cardHeader: {
+    textAlign: "center"
+  },
+  cardFooter: {
+    textAlign: "center",
+    marginBottom: theme.spacing(2)
   },
   button: {
     marginTop: theme.spacing(3),
-    marginBottom: theme.spacing(3),
+    marginBottom: theme.spacing(2),
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
-    minWidth: 450,
+    minWidth: 450
   },
   checkbox: {
-    marginLeft: theme.spacing(1),
+    marginLeft: theme.spacing(1)
   },
   tabs: {
-    margin: theme.spacing(3),
+    margin: theme.spacing(3)
   },
+  linkTypo: {
+    marginBottom: theme.spacing(1)
+  }
 }));
 
 function SignInModal() {
@@ -47,7 +58,7 @@ function SignInModal() {
   const [state, setValues] = React.useState({
     id: "",
     password: "",
-    checkedA: false,
+    checkedA: false
   });
 
   const handleChange = name => event => {
@@ -56,7 +67,6 @@ function SignInModal() {
 
   return (
     <div>
-      <CardContent />
       <CardActions>
         <form className={classes.container} noValidate autoComplete="off">
           <TextField
@@ -87,14 +97,23 @@ function SignInModal() {
       <CardActions>
         <FormControlLabel
           control={
-            <Checkbox checked={state.checked} onChange={handleChange("checkedA")} value="checkedA" color="secondary" />
+            <Checkbox
+              checked={state.checked}
+              onChange={handleChange("checkedA")}
+              value="checkedA"
+              color="secondary"
+            />
           }
           label="IDとパスワードを記憶する"
           className={classes.checkbox}
         />
       </CardActions>
       <CardActions>
-        <Button variant="contained" className={classes.button} color="secondary">
+        <Button
+          variant="contained"
+          className={classes.button}
+          color="secondary"
+        >
           SIGN IN
         </Button>
       </CardActions>
@@ -102,67 +121,21 @@ function SignInModal() {
   );
 }
 
-function SignUpModal() {
+function SignInFooter() {
   const classes = useStyles();
-  const [state, setValues] = React.useState({
-    id: "",
-    email: "",
-    password: "",
-    checkedA: false,
-  });
-
-  const handleChange = name => event => {
-    setValues({ ...state, [name]: event.target.value });
-  };
 
   return (
-    <div>
-      <CardActions>
-        <form className={classes.container} noValidate autoComplete="off">
-          <TextField
-            id="standard-id"
-            label="Your New ID"
-            className={classes.textField}
-            value={state.id}
-            onChange={handleChange("id")}
-            margin="normal"
-            required="true"
-          />
-        </form>
-      </CardActions>
-      <CardActions>
-        <form className={classes.container} noValidate autoComplete="off">
-          <TextField
-            id="standard-email"
-            label="E-Mail"
-            className={classes.textField}
-            value={state.email}
-            onChange={handleChange("email")}
-            margin="normal"
-            required="true"
-            type="email"
-          />
-        </form>
-      </CardActions>
-      <CardActions>
-        <form className={classes.container} noValidate autoComplete="off">
-          <TextField
-            id="standard-password"
-            label="Password"
-            className={classes.textField}
-            value={state.password}
-            onChange={handleChange("password")}
-            margin="normal"
-            required="true"
-            type="password"
-          />
-        </form>
-      </CardActions>
-      <CardActions>
-        <Button variant="contained" className={classes.button} color="secondary">
-          SIGN UP
-        </Button>
-      </CardActions>
+    <div className={classes.cardFooter}>
+      <Typography className={classes.linkTypo}>
+        <Link className={classes.link} component={RouterLink} to="/debug">
+          SignInでお困りの場合
+        </Link>
+      </Typography>
+      <Typography className={classes.linkTypo}>
+        <Link className={classes.link} component={RouterLink} to="/signup">
+          アカウントをお持ちでない場合
+        </Link>
+      </Typography>
     </div>
   );
 }
@@ -178,26 +151,23 @@ function TabContainer(props) {
 
 // propsの型指定
 TabContainer.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 };
 
 export default function ModalTab() {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  /* const [value, setValue] = React.useState(0);
 
   function handleChange(event, newValue) {
     setValue(newValue);
   }
+  */
   return (
     <div className={classes.root}>
       <Card className={classes.card}>
-        <Tabs className={classes.tabs} value={value} onChange={handleChange} indicatorColor="primary" centered={true}>
-          <Tab label="Sign in" />
-          <Tab label="Sign up" />
-        </Tabs>
-
-        {value === 0 && <SignInModal />}
-        {value === 1 && <SignUpModal />}
+        <CardHeader title="SignIn" className={classes.cardHeader} />
+        <SignInModal />
+        <SignInFooter />
       </Card>
     </div>
   );
