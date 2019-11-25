@@ -1,24 +1,28 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useReducer } from "react";
 import ContestTemplate from "../templates/Contest";
 import PropTypes from "prop-types";
-//import request from "../requests/requests.js";
+import { reducer } from "../reducer";
 import axios from "axios";
+import { request } from "../requests";
 import MockAdapter from "axios-mock-adapter";
 
 var mock = new MockAdapter(axios);
+
 mock.onGet("/contests/mitohato").reply(200, {
   contest_top_content: "## Hello World!",
   problem_list: [
     {
-      problem_id: "hogehoge",
+      problem_id: "hello_world",
+      problem_order: "A",
       problem_name: "Hello World",
       time_limit: 2,
       memory_limit: 256,
       problem_score: 100
     },
     {
-      problem_id: "poen",
-      problem_name: "Hello World",
+      problem_id: "hogehoge",
+      problem_order: "B",
+      problem_name: "hogehoge",
       time_limit: 2,
       memory_limit: 256,
       problem_score: 100
@@ -27,28 +31,17 @@ mock.onGet("/contests/mitohato").reply(200, {
 });
 
 export default function Contest(props) {
-  const [state, setState] = useState({
-    isDone: false,
-    items: []
-  });
-  const contestId = props.match.params.contest_id;
+  const [state, dispatch] = useReducer(reducer, { loading: true, data: [] });
+  const contestId = props.match.params.contest_id; // url paramから取得
+
   useEffect(() => {
-    axios
-      .get("contests/" + contestId)
-      .then(function(response) {
-        const data = { ...response.data };
-        setState({ isDone: true, items: data });
-      })
-      .catch(function(error) {
-        console.log(error); //eslint-disable-line
-      })
-      .finally(function() {});
+    request("/contests/" + contestId, dispatch);
   }, [contestId]);
 
   return (
     <ContestTemplate
-      contestTopContent={state.items.contest_top_content}
-      problemLists={state.items.problem_list}
+      contestTopContent={state.data.contest_top_content}
+      problemLists={state.data.problem_list}
     />
   );
 }
