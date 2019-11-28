@@ -24,6 +24,7 @@
     "react-syntax-highlighter": "^11.0.2",
     "redux": "^4.0.4",
     "tslint": "^5.20.1",
+    "url-join": "^4.0.1",
     "url-pattern": "^1.0.3"
   },
   "scripts": {
