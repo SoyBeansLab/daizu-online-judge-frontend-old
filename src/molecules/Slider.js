@@ -20,6 +20,7 @@ export default function HomeSlider(props) {
       {slideItemList.map(row => (
         <div key={row.contest_id}>
           <SliderItem
+            contestId={row.contest_id}
             contestName={row.contest_name}
             contestDate={row.contest_date}
             contestTime={row.contest_time}

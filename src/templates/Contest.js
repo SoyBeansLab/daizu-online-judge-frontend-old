@@ -25,7 +25,8 @@ export default function Contests(props) {
   const contestTopContent = props.contestTopContent;
   const problemLists = checkUndefined(props.problemLists, []);
   const submitStatusLists = checkUndefined(props.submitStatusLists, []);
-  const rankingLists = checkUndefined(props.rankingLists, []);
+  //const rankingLists = checkUndefined(props.rankingLists, []);
+  const contestId = checkUndefined(props.contestId, "");
 
   return (
     <div className={classes.root}>
@@ -33,7 +34,7 @@ export default function Contests(props) {
         contestTopContent={contestTopContent}
         problemLists={problemLists}
         submitStatusLists={submitStatusLists}
-        rankingLists={rankingLists}
+        contestId={contestId}
       />
     </div>
   );
@@ -43,5 +44,6 @@ Contests.propTypes = {
   contestTopContent: PropTypes.string,
   problemLists: PropTypes.array,
   submitStatusLists: PropTypes.array,
-  rankingLists: PropTypes.array
+  contestId: PropTypes.string
+  //rankingLists: PropTypes.array
 };

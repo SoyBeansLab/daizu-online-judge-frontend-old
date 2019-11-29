@@ -5,6 +5,8 @@ import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import { Link } from "react-router-dom";
+import urljoin from "url-join";
 import PropTypes from "prop-types";
 
 const useStyles = makeStyles(theme => ({
@@ -35,6 +37,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 SliderItem.propTypes = {
+  contestId: PropTypes.string,
   contestName: PropTypes.string,
   contestDate: PropTypes.string,
   contestTime: PropTypes.number,
@@ -61,6 +64,8 @@ export default function SliderItem(props) {
             color="secondary"
             variant="contained"
             className={classes.button}
+            component={Link}
+            to={urljoin("/contests", props.contestId)}
           >
             参加する
           </Button>
