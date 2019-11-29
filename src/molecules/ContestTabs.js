@@ -29,7 +29,8 @@ export default function ContestsListTabs(props) {
   const contestTopContent = props.contestTopContent;
   const problemLists = props.problemLists;
   const submitStatusLists = props.submitStatusLists;
-  const rankingLists = props.rankingLists;
+  //const rankingLists = props.rankingLists;
+  const contestId = props.contestId;
 
   function handleChange(event, newValue) {
     setValue(newValue);
@@ -52,7 +53,7 @@ export default function ContestsListTabs(props) {
       {value === 2 && (
         <SubmitStatusTable submitStatusLists={submitStatusLists} />
       )}
-      {value === 3 && <RankingTable rankingList={rankingLists} />}
+      {value === 3 && <RankingTable contestId={contestId} />}
     </div>
   );
 }
@@ -61,5 +62,6 @@ ContestsListTabs.propTypes = {
   contestTopContent: PropTypes.string,
   problemLists: PropTypes.array,
   submitStatusLists: PropTypes.array,
-  rankingLists: PropTypes.array
+  contestId: PropTypes.string
+  //rankingLists: PropTypes.array
 };

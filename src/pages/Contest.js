@@ -20,6 +20,7 @@ export default function Contest(props) {
     <ContestTemplate
       contestTopContent={state.data.contest_top_content}
       problemLists={state.data.problem_list}
+      contestId={contestId}
     />
   );
 }
