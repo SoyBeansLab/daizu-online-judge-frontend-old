@@ -6,6 +6,8 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import { Link } from "react-router-dom";
+import urljoin from "url-join";
 import PropTypes from "prop-types";
 
 const useStyles = makeStyles(() => ({
@@ -20,6 +22,7 @@ const useStyles = makeStyles(() => ({
 export default function DataTable(props) {
   const classes = useStyles();
   const problemLists = props.problemLists;
+  const contestId = props.contestId;
 
   return (
     <Paper className={classes.root} elevation={0}>
@@ -35,7 +38,12 @@ export default function DataTable(props) {
         </TableHead>
         <TableBody>
           {problemLists.map(row => (
-            <TableRow key={row.problem_id}>
+            <TableRow
+              key={row.problem_id}
+              hover
+              component={Link}
+              to={urljoin("/contests", contestId, row.problem_id)}
+            >
               <TableCell component="th" scope="row" align="center">
                 {row.problem_order}
               </TableCell>
@@ -52,5 +60,6 @@ export default function DataTable(props) {
 }
 
 DataTable.propTypes = {
-  problemLists: PropTypes.array
+  problemLists: PropTypes.array,
+  contestId: PropTypes.string
 };
