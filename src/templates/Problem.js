@@ -7,8 +7,8 @@ import CodeSubmit from "../molecules/CodeSubmit";
 const useStyles = makeStyles(theme => ({
   root: {
     marginTop: theme.spacing(10),
-    marginLeft: theme.spacing(2),
-  },
+    marginLeft: theme.spacing(2)
+  }
 }));
 
 export default function Problem(props) {
@@ -24,18 +24,17 @@ export default function Problem(props) {
         score={props.score}
         problemText={props.problemText}
       />
-      <CodeSubmit languageLists={props.languageLists} languageDictionary={props.languageDictionary} />
+      <CodeSubmit languageLists={props.languageLists} />
     </div>
   );
 }
 
 Problem.propTypes = {
-  languageDictionary: PropTypes.object,
   languageLists: PropTypes.array,
   problemID: PropTypes.string,
   problemName: PropTypes.string,
   timeLimit: PropTypes.number,
   memoryLimit: PropTypes.number,
   score: PropTypes.number,
-  problemText: PropTypes.string,
+  problemText: PropTypes.string
 };
