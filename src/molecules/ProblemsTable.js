@@ -42,7 +42,7 @@ export default function DataTable(props) {
               key={row.problem_id}
               hover
               component={Link}
-              to={urljoin("/contests", contestId, row.problem_id)}
+              to={urljoin("/contests", contestId, "problems", row.problem_id)}
             >
               <TableCell component="th" scope="row" align="center">
                 {row.problem_order}
