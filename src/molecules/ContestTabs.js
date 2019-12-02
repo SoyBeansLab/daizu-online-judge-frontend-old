@@ -49,7 +49,9 @@ export default function ContestsListTabs(props) {
         <Tab label="ランキング" />
       </Tabs>
       {value === 0 && <TopContents contestTopContent={contestTopContent} />}
-      {value === 1 && <ProblemsTable problemLists={problemLists} />}
+      {value === 1 && (
+        <ProblemsTable problemLists={problemLists} contestId={contestId} />
+      )}
       {value === 2 && (
         <SubmitStatusTable submitStatusLists={submitStatusLists} />
       )}

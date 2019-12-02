@@ -8,6 +8,7 @@ CORS(app)
 @app.route("/contests/<contest_id>", methods=["GET"])
 def contest_info(contest_id):
     result = {
+        "contest_id": contest_id,
         "contest_top_content": "# Hello World!  ## Welcome!",
         "problem_list": [
             {
@@ -117,6 +118,25 @@ def ranking(contest_id):
     ]
     return jsonify(result)
 
+@app.route("/contests/<contest_id>/problems/<problem_id>", methods=["GET"])
+def problem(contest_id, problem_id):
+    result = {
+       "contest_id": contest_id,
+       "problem_id": problem_id,
+       "problem_name": "初めての競技プログラミング",
+       "time_limit": 2,
+       "memory_limit": 2,
+       "score": 100,
+       "writer": "uchipara",
+       "problem_detail": "ある2つの整数aとbが与えられます. 2つの整数の和を出力してください.",
+    }
+    return jsonify(result)
 
+@app.route("/languages", methods=["GET"])
+def lang():
+    result = ["C", "C++", "Python", "Java"]
+    return jsonify(result)
+
+ 
 if __name__ == "__main__":
     app.run()
