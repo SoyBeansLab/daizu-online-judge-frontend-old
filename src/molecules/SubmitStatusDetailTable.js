@@ -13,14 +13,14 @@ const useStyles = makeStyles(theme => ({
   root: {
     width: "100%",
     margin: theme.spacing(1),
-    overflowX: "auto",
+    overflowX: "auto"
   },
   table: {
-    minWidth: 650,
+    minWidth: 650
   },
   chip: {
-    color: "#f5f5f5",
-  },
+    color: "#f5f5f5"
+  }
 }));
 
 function createData(key, value) {
@@ -32,7 +32,9 @@ export default function SubmitStatusDetail(props) {
 
   const chip = () => {
     if (props.result === "AC") {
-      return <Chip color="primary" className={classes.chip} label={props.result} />;
+      return (
+        <Chip color="primary" className={classes.chip} label={props.result} />
+      );
     } else if (props.result === "WA" || props.result === "TLE") {
       return <Chip color="secondary" label={props.result} />;
     } else {
@@ -49,7 +51,7 @@ export default function SubmitStatusDetail(props) {
     createData("テストケース通過数(通過数/全体)", props.testCase),
     createData("結果", chip()),
     createData("実行時間", props.executeTime + " ms"),
-    createData("メモリ", props.memory + " KB"),
+    createData("メモリ", props.memory + " KB")
   ];
 
   return (
@@ -81,5 +83,5 @@ SubmitStatusDetail.propTypes = {
   result: PropTypes.string,
   executeTime: PropTypes.number,
   memory: PropTypes.number,
-  testCase: PropTypes.string,
+  testCase: PropTypes.string
 };

@@ -38,6 +38,11 @@ function App() {
               path="/contests/:contest_id/problems/:problem_id"
               component={Problem}
             />
+            <Route
+              exact
+              path="/contests/:contest_id/submits/:submit_id"
+              component={Problem}
+            />
             <Route exact path="/signin" component={Signin} />
             <Route exect path="/signup" component={Signup} />
             <Route exact path="/debug" component={Debug} />
