@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Contests from "./pages/Contests";
 import Contest from "./pages/Contest";
 import Problem from "./pages/Problem";
+import SubmitStatusState from "./pages/SubmitStatusState";
 import Signin from "./templates/SignInModal";
 import Signup from "./templates/SignUpModal";
 import Preparation from "./templates/Preparation";
@@ -41,7 +42,7 @@ function App() {
             <Route
               exact
               path="/contests/:contest_id/submits/:submit_id"
-              component={Problem}
+              component={SubmitStatusState}
             />
             <Route exact path="/signin" component={Signin} />
             <Route exect path="/signup" component={Signup} />
