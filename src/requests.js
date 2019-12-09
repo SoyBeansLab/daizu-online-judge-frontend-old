@@ -1,6 +1,7 @@
 import axios from "axios";
 import urljoin from "url-join";
 import { config } from "./config";
+import qs from "qs";
 
 export const request = async (
   endpoint,
@@ -14,7 +15,7 @@ export const request = async (
   axios({
     method: method,
     url: url,
-    data: data
+    data: qs.stringify(data)
   })
     .then(function(response) {
       const data = { ...response.data };
