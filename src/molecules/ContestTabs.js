@@ -14,12 +14,12 @@ import TopContents from "./ContestTopContents";
 const useStyles = makeStyles(() => ({
   root: {
     width: "100%",
-    height: "100%"
+    height: "100%",
   },
   // タブの設定
   tabs: {
-    borderBottom: "0.8px solid #cfd8dc"
-  }
+    borderBottom: "0.8px solid #cfd8dc",
+  },
 }));
 
 export default function ContestsListTabs(props) {
@@ -37,21 +37,14 @@ export default function ContestsListTabs(props) {
   }
   return (
     <div className={classes.root}>
-      <Tabs
-        value={value}
-        onChange={handleChange}
-        indicatorColor="primary"
-        className={classes.tabs}
-      >
+      <Tabs value={value} onChange={handleChange} indicatorColor="primary" className={classes.tabs}>
         <Tab label="トップ" />
         <Tab label="問題一覧" />
         <Tab label="提出状況" />
         <Tab label="ランキング" />
       </Tabs>
       {value === 0 && <TopContents contestTopContent={contestTopContent} />}
-      {value === 1 && (
-        <ProblemsTable problemLists={problemLists} contestId={contestId} />
-      )}
+      {value === 1 && <ProblemsTable problemLists={problemLists} contestId={contestId} />}
       {value === 2 && <SubmitStatusTable contestId={contestId} />}
       {value === 3 && <RankingTable contestId={contestId} />}
     </div>
@@ -62,6 +55,6 @@ ContestsListTabs.propTypes = {
   contestTopContent: PropTypes.string,
   problemLists: PropTypes.array,
   //submitStatusLists: PropTypes.array,
-  contestId: PropTypes.string
+  contestId: PropTypes.string,
   //rankingLists: PropTypes.array
 };

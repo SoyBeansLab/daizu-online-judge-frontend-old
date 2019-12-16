@@ -7,14 +7,14 @@ const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
     flexDirection: "column",
-    minHeight: "100vh"
+    minHeight: "100vh",
   },
   footer: {
     padding: theme.spacing(2),
     marginTop: "auto",
     backgroundColor: "#00897b",
-    color: "#ffffff"
-  }
+    color: "#ffffff",
+  },
 }));
 
 export default function Footer() {

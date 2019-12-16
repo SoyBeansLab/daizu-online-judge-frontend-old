@@ -7,8 +7,8 @@ const useStyles = makeStyles(theme => ({
   heading: {
     color: theme.palette.primary.main,
     fontWeight: 500,
-    marginBottom: theme.spacing(2)
-  }
+    marginBottom: theme.spacing(2),
+  },
 }));
 
 export default function Contests(props) {
@@ -44,6 +44,6 @@ Contests.propTypes = {
   contestTopContent: PropTypes.string,
   problemLists: PropTypes.array,
   submitStatusLists: PropTypes.array,
-  contestId: PropTypes.string
+  contestId: PropTypes.string,
   //rankingLists: PropTypes.array
 };

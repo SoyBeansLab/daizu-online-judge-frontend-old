@@ -11,7 +11,7 @@ export default function HomeSlider(props) {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    arrow: true
+    arrow: true,
   };
   const slideItemList = props.slideItemList;
 
@@ -33,5 +33,5 @@ export default function HomeSlider(props) {
 }
 
 HomeSlider.propTypes = {
-  slideItemList: PropTypes.array
+  slideItemList: PropTypes.array,
 };

@@ -16,14 +16,14 @@ import urljoin from "url-join";
 
 const useStyles = makeStyles(() => ({
   root: {
-    width: "100%"
+    width: "100%",
   },
   table: {
-    minWidth: 650
+    minWidth: 650,
   },
   chip: {
-    color: "#f5f5f5"
-  }
+    color: "#f5f5f5",
+  },
 }));
 
 export default function DataTable(props) {
@@ -88,5 +88,5 @@ export default function DataTable(props) {
 }
 
 DataTable.propTypes = {
-  contestId: PropTypes.string
+  contestId: PropTypes.string,
 };

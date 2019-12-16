@@ -7,13 +7,13 @@ import Typograhy from "@material-ui/core/Typography";
 const useStyles = makeStyles(theme => ({
   root: {
     // この設定 App.jsに書いたほうが良い説ある
-    margin: theme.spacing(3)
+    margin: theme.spacing(3),
   },
   heading: {
     color: theme.palette.primary.main,
     fontWeight: 500,
-    marginBottom: theme.spacing(2)
-  }
+    marginBottom: theme.spacing(2),
+  },
 }));
 
 export default function Contests(props) {
@@ -40,5 +40,5 @@ export default function Contests(props) {
 Contests.propTypes = {
   currentContestLists: PropTypes.array,
   upcomingContestLists: PropTypes.array,
-  recentContestLists: PropTypes.array
+  recentContestLists: PropTypes.array,
 };

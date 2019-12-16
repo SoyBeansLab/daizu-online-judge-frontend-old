@@ -14,26 +14,26 @@ const useStyles = makeStyles(theme => ({
     margin: "auto",
     textAlign: "center",
     justifyContent: "center",
-    fontFamily: ["Noto Sans JS", "sans-serif"].join(",")
+    fontFamily: ["Noto Sans JS", "sans-serif"].join(","),
   },
   card: {
     minWidth: 275,
     padding: theme.spacing(3),
     backgroundColor: theme.palette.primary.main,
-    color: theme.palette.secondary.contrastText
+    color: theme.palette.secondary.contrastText,
   },
   title: {
     fontWeight: "bolder",
-    margin: theme.spacing(1)
+    margin: theme.spacing(1),
   },
   subtitle: {
-    marginBottom: theme.spacing(2)
+    marginBottom: theme.spacing(2),
   },
   button: {
     margin: theme.spacing(1),
     paddingLeft: theme.spacing(3),
-    paddingRight: theme.spacing(3)
-  }
+    paddingRight: theme.spacing(3),
+  },
 }));
 
 SliderItem.propTypes = {
@@ -41,7 +41,7 @@ SliderItem.propTypes = {
   contestName: PropTypes.string,
   contestDate: PropTypes.string,
   contestTime: PropTypes.number,
-  contestDescription: PropTypes.string
+  contestDescription: PropTypes.string,
 };
 export default function SliderItem(props) {
   const classes = useStyles();

@@ -6,7 +6,7 @@ import { request } from "../requests";
 export default function Home() {
   const [state, dispatch] = useReducer(reducer, {
     loading: true,
-    data: []
+    data: [],
   });
   const endpoint = "/contests";
 
@@ -14,9 +14,5 @@ export default function Home() {
     request(endpoint, dispatch);
   }, [endpoint]);
 
-  return (
-    <HomeTemplate
-      slideItemList={Object.values(!state.loading ? state.data.upcoming : [])}
-    />
-  );
+  return <HomeTemplate slideItemList={Object.values(!state.loading ? state.data.upcoming : [])} />;
 }

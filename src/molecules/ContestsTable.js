@@ -12,12 +12,12 @@ import { Link } from "react-router-dom";
 const useStyles = makeStyles(() => ({
   root: {
     width: "100%",
-    height: "100%"
+    height: "100%",
   },
   table: {
     minWidth: 650,
-    height: "100%"
-  }
+    height: "100%",
+  },
 }));
 
 export default function DataTable(props) {
@@ -39,12 +39,7 @@ export default function DataTable(props) {
         </TableHead>
         <TableBody>
           {contestLists.map(row => (
-            <TableRow
-              key={row.contest_id}
-              hover
-              component={Link}
-              to={"/contests/" + row.contest_id}
-            >
+            <TableRow key={row.contest_id} hover component={Link} to={"/contests/" + row.contest_id}>
               <TableCell component="th" scope="row">
                 {row.contest_name}
               </TableCell>
@@ -61,5 +56,5 @@ export default function DataTable(props) {
 }
 
 DataTable.propTypes = {
-  contestLists: PropTypes.array
+  contestLists: PropTypes.array,
 };

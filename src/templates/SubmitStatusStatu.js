@@ -7,17 +7,17 @@ import SubmitStatusDetailTable from "../molecules/SubmitStatusDetailTable";
 const useStyles = makeStyles(theme => ({
   root: {
     marginTop: theme.spacing(10),
-    marginLeft: theme.spacing(2)
+    marginLeft: theme.spacing(2),
   },
   heading: {
     color: theme.palette.primary.main,
     fontWeight: 500,
-    marginBottom: theme.spacing(2)
+    marginBottom: theme.spacing(2),
   },
   text: {
     color: theme.palette.primary.contrastText,
-    marginBottom: theme.spacing(2)
-  }
+    marginBottom: theme.spacing(2),
+  },
 }));
 
 const submitStatusStateTestData = {
@@ -31,7 +31,7 @@ const submitStatusStateTestData = {
   userName: "nemu_sou",
   executeTime: 300,
   memory: 400,
-  sourceCode: 'printf("HelloWorld");'
+  sourceCode: 'printf("HelloWorld");',
 };
 
 export default function SubmitStatusState() {
