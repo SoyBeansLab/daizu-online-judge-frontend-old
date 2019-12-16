@@ -8,7 +8,8 @@ const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(3, 2),
     height: "100%",
-    minHeight: 250
+    minHeight: 250,
+    boxShadow: "none"
   }
 }));
 
