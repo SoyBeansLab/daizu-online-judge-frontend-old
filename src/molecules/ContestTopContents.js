@@ -9,7 +9,8 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(3, 2),
     height: "100%",
     minHeight: 250,
-  },
+    boxShadow: "none"
+  }
 }));
 
 export default function ContestTopContents(props) {
@@ -25,5 +26,5 @@ export default function ContestTopContents(props) {
 }
 
 ContestTopContents.propTypes = {
-  contestTopContent: PropTypes.string,
+  contestTopContent: PropTypes.string
 };
