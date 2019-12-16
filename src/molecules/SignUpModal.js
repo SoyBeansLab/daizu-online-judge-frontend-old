@@ -12,34 +12,34 @@ import PropTypes from "prop-types";
 const useStyles = makeStyles(theme => ({
   container: {
     display: "flex",
-    flexWrap: "wrap"
+    flexWrap: "wrap",
   },
   textField: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
-    minWidth: 450
+    minWidth: 450,
   },
   card: {
     minWidth: 450,
     maxWidth: 500,
-    margin: theme.spacing(1)
+    margin: theme.spacing(1),
   },
   cardHeader: {
-    textAlign: "center"
+    textAlign: "center",
   },
   button: {
     marginTop: theme.spacing(3),
     marginBottom: theme.spacing(3),
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
-    minWidth: 450
+    minWidth: 450,
   },
   checkbox: {
-    marginLeft: theme.spacing(1)
+    marginLeft: theme.spacing(1),
   },
   tabs: {
-    margin: theme.spacing(3)
-  }
+    margin: theme.spacing(3),
+  },
 }));
 
 function SignUpModal() {
@@ -48,7 +48,7 @@ function SignUpModal() {
     id: "",
     email: "",
     password: "",
-    checkedA: false
+    checkedA: false,
   });
 
   const handleChange = name => event => {
@@ -99,11 +99,7 @@ function SignUpModal() {
         </form>
       </CardActions>
       <CardActions>
-        <Button
-          variant="contained"
-          className={classes.button}
-          color="secondary"
-        >
+        <Button variant="contained" className={classes.button} color="secondary">
           SIGN UP
         </Button>
       </CardActions>
@@ -122,7 +118,7 @@ function TabContainer(props) {
 
 // propsの型指定
 TabContainer.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 export default function ModalTab() {

@@ -32,5 +32,5 @@ export default function SubmitStatusDetail(props) {
 }
 
 SubmitStatusDetail.propTypes = {
-  match: PropTypes.object
+  match: PropTypes.object,
 };

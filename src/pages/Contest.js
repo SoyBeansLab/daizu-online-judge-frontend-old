@@ -26,5 +26,5 @@ export default function Contest(props) {
 }
 
 Contest.propTypes = {
-  match: PropTypes.object
+  match: PropTypes.object,
 };

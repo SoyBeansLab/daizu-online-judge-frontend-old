@@ -6,7 +6,7 @@ import { request } from "../requests";
 export default function Contests() {
   const [state, dispatch] = useReducer(reducer, {
     loading: true,
-    data: []
+    data: [],
   });
   const endpoint = "/contests";
 

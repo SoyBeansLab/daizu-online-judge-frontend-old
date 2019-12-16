@@ -7,8 +7,8 @@ const useStyles = makeStyles(() => ({
   root: {
     display: "flex",
     justifyContent: "center",
-    alignItems: "center"
-  }
+    alignItems: "center",
+  },
 }));
 
 export default function Contests() {

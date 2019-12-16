@@ -7,14 +7,14 @@ import MarkDown from "@nteract/markdown";
 
 const useStyles = makeStyles(theme => ({
   typography: {
-    margin: theme.spacing(1)
+    margin: theme.spacing(1),
   },
   divider: {
-    margin: theme.spacing(1)
+    margin: theme.spacing(1),
   },
   markdown: {
-    margin: theme.spacing(1)
-  }
+    margin: theme.spacing(1),
+  },
 }));
 
 export default function ProblemInfo(props) {
@@ -44,5 +44,5 @@ ProblemInfo.propTypes = {
   timeLimit: PropTypes.number,
   memoryLimit: PropTypes.number,
   score: PropTypes.number,
-  problemText: PropTypes.string
+  problemText: PropTypes.string,
 };

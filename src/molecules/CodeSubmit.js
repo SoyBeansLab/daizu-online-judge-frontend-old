@@ -15,25 +15,25 @@ require("codemirror/mode/python/python");
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
-    flexWrap: "wrap"
+    flexWrap: "wrap",
   },
   button: {
-    margin: theme.spacing(1)
+    margin: theme.spacing(1),
   },
   codemirror: {
-    margin: theme.spacing(1)
+    margin: theme.spacing(1),
   },
   formControl: {
     margin: theme.spacing(1),
-    minWidth: 120
-  }
+    minWidth: 120,
+  },
 }));
 
 export default function CodeSubmit(props) {
   const classes = useStyles();
   const [state, setState] = React.useState({
     codeValue: "",
-    codeLanguage: ""
+    codeLanguage: "",
   });
 
   const languageLists = Object.values(props.languageLists);
@@ -48,7 +48,7 @@ export default function CodeSubmit(props) {
   function handleChangeSelect(event) {
     setState(oldState => ({
       ...oldState,
-      codeLanguage: event.target.value
+      codeLanguage: event.target.value,
     }));
   }
 
@@ -77,22 +77,17 @@ export default function CodeSubmit(props) {
         value={state.codeValue}
         options={{
           mode: `${languageDictionary[state.codeLanguage]}`,
-          lineNumbers: true
+          lineNumbers: true,
         }}
         onBeforeChange={(editor, data, value) => {
           setState(oldState => ({
             ...oldState,
-            codeValue: value
+            codeValue: value,
           }));
         }}
         className={classes.codemirror}
       />
-      <Button
-        variant="contained"
-        color="secondary"
-        className={classes.button}
-        onClick={postCode}
-      >
+      <Button variant="contained" color="secondary" className={classes.button} onClick={postCode}>
         提出
       </Button>
     </div>
@@ -101,5 +96,5 @@ export default function CodeSubmit(props) {
 }
 
 CodeSubmit.propTypes = {
-  languageLists: PropTypes.array
+  languageLists: PropTypes.array,
 };

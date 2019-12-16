@@ -13,5 +13,5 @@ export default function Home(props) {
 }
 
 Home.propTypes = {
-  slideItemList: PropTypes.array
+  slideItemList: PropTypes.array,
 };

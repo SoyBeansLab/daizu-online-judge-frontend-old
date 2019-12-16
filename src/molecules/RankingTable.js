@@ -14,11 +14,11 @@ import urljoin from "url-join";
 
 const useStyles = makeStyles(() => ({
   root: {
-    width: "100%"
+    width: "100%",
   },
   table: {
-    minWidth: 650
-  }
+    minWidth: 650,
+  },
 }));
 
 export default function DataTable(props) {
@@ -62,5 +62,5 @@ export default function DataTable(props) {
 
 DataTable.propTypes = {
   //  rankingList: PropTypes.array
-  contestId: PropTypes.string
+  contestId: PropTypes.string,
 };

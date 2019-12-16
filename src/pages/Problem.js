@@ -31,5 +31,5 @@ export default function Problem(props) {
 }
 
 Problem.propTypes = {
-  match: PropTypes.object
+  match: PropTypes.object,
 };

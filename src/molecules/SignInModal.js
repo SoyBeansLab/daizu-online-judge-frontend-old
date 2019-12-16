@@ -16,41 +16,41 @@ import PropTypes from "prop-types";
 const useStyles = makeStyles(theme => ({
   container: {
     display: "flex",
-    flexWrap: "wrap"
+    flexWrap: "wrap",
   },
   textField: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
-    minWidth: 450
+    minWidth: 450,
   },
   card: {
     minWidth: 450,
     maxWidth: 500,
-    margin: theme.spacing(1)
+    margin: theme.spacing(1),
   },
   cardHeader: {
-    textAlign: "center"
+    textAlign: "center",
   },
   cardFooter: {
     textAlign: "center",
-    marginBottom: theme.spacing(2)
+    marginBottom: theme.spacing(2),
   },
   button: {
     marginTop: theme.spacing(3),
     marginBottom: theme.spacing(2),
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
-    minWidth: 450
+    minWidth: 450,
   },
   checkbox: {
-    marginLeft: theme.spacing(1)
+    marginLeft: theme.spacing(1),
   },
   tabs: {
-    margin: theme.spacing(3)
+    margin: theme.spacing(3),
   },
   linkTypo: {
-    marginBottom: theme.spacing(1)
-  }
+    marginBottom: theme.spacing(1),
+  },
 }));
 
 function SignInModal() {
@@ -58,7 +58,7 @@ function SignInModal() {
   const [state, setValues] = React.useState({
     id: "",
     password: "",
-    checkedA: false
+    checkedA: false,
   });
 
   const handleChange = name => event => {
@@ -97,23 +97,14 @@ function SignInModal() {
       <CardActions>
         <FormControlLabel
           control={
-            <Checkbox
-              checked={state.checked}
-              onChange={handleChange("checkedA")}
-              value="checkedA"
-              color="secondary"
-            />
+            <Checkbox checked={state.checked} onChange={handleChange("checkedA")} value="checkedA" color="secondary" />
           }
           label="IDとパスワードを記憶する"
           className={classes.checkbox}
         />
       </CardActions>
       <CardActions>
-        <Button
-          variant="contained"
-          className={classes.button}
-          color="secondary"
-        >
+        <Button variant="contained" className={classes.button} color="secondary">
           SIGN IN
         </Button>
       </CardActions>
@@ -151,7 +142,7 @@ function TabContainer(props) {
 
 // propsの型指定
 TabContainer.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 export default function ModalTab() {
