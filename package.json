@@ -22,7 +22,7 @@
     "react-slick": "^0.25.2",
     "react-swipeable-views": "^0.13.3",
     "react-syntax-highlighter": "^12.2.1",
-    "redux": "^4.0.4",
+    "redux": "^4.0.5",
     "tslint": "^5.20.1",
     "url-join": "^4.0.1",
     "url-pattern": "^1.0.3"
