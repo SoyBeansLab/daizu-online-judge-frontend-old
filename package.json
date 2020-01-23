@@ -23,7 +23,7 @@
     "react-swipeable-views": "^0.13.5",
     "react-syntax-highlighter": "^12.2.1",
     "redux": "^4.0.5",
-    "tslint": "^5.20.1",
+    "tslint": "^6.0.0",
     "url-join": "^4.0.1",
     "url-pattern": "^1.0.3"
   },
