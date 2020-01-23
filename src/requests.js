@@ -1,9 +1,11 @@
 import axios from "axios";
 import urljoin from "url-join";
 import { config } from "./config";
+import mock from "./mocks/$mock";
 import qs from "qs";
 
 export const request = async (endpoint, dispatch, method = "get", data = {}) => {
+  mock();
   dispatch({ type: "REQUEST_SENDING" });
 
   const url = urljoin(config.DEV_API_SERVER, endpoint);
