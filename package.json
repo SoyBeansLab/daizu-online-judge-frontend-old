@@ -33,7 +33,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prettier-watch": "onchange './src/**/*.{js,scss,json,css}' -- prettier --config ./.prettierrc.json --write {{changed}}",
-    "mock": "node ./node_modules/axios-mock-server/bin/index.js -b"
+    "mock": "node ./node_modules/axios-mock-server/bin/index.js -b",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -51,6 +53,11 @@
     ]
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^5.3.9",
+    "@storybook/addon-links": "^5.3.9",
+    "@storybook/addons": "^5.3.9",
+    "@storybook/preset-create-react-app": "^1.5.2",
+    "@storybook/react": "^5.3.9",
     "axios-mock-server": "^0.16.3",
     "eslint": "^6.6.0",
     "eslint-config-google": "^0.14.0",
