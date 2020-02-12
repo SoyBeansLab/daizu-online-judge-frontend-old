@@ -58,7 +58,7 @@
     "@storybook/addon-links": "^5.3.10",
     "@storybook/addons": "^5.3.12",
     "@storybook/preset-create-react-app": "^1.5.2",
-    "@storybook/react": "^5.3.10",
+    "@storybook/react": "^5.3.13",
     "axios-mock-server": "^0.16.3",
     "eslint": "^6.6.0",
     "eslint-config-google": "^0.14.0",
