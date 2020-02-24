@@ -1,4 +1,4 @@
-name: doj_front_ci
+name: CI
 
 on: [push]
 
