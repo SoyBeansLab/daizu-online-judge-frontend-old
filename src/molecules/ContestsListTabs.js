@@ -19,8 +19,10 @@ const useStyles = makeStyles(() => ({
 }));
 
 export default function ContestsListTabs(props) {
+  const tabValueList = ["current", "upcoming", "recent"];
+
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState(tabValueList[0]);
 
   const currentContestLists = props.currentContestLists;
   const upcomingContestLists = props.upcomingContestLists;
@@ -29,16 +31,17 @@ export default function ContestsListTabs(props) {
   function handleChange(event, newValue) {
     setValue(newValue);
   }
+
   return (
     <div className={classes.root}>
       <Tabs value={value} onChange={handleChange} indicatorColor="primary" className={classes.tabs}>
-        <Tab label="開催中" />
-        <Tab label="開催予定" />
-        <Tab label="終了" />
+        <Tab label="開催中" value={tabValueList[0]} />
+        <Tab label="開催予定" value={tabValueList[1]} />
+        <Tab label="終了" value={tabValueList[2]} />
       </Tabs>
-      {value === 0 && <ContestsTable contestLists={currentContestLists} />}
-      {value === 1 && <ContestsTable contestLists={upcomingContestLists} />}
-      {value === 2 && <ContestsTable contestLists={recentContestLists} />}
+      {value === tabValueList[0] && <ContestsTable contestLists={currentContestLists} />}
+      {value === tabValueList[1] && <ContestsTable contestLists={upcomingContestLists} />}
+      {value === tabValueList[2] && <ContestsTable contestLists={recentContestLists} />}
     </div>
   );
 }
