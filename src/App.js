@@ -11,6 +11,7 @@ import Signin from "./templates/SignInModal";
 import Signup from "./templates/SignUpModal";
 import Preparation from "./templates/Preparation";
 import Debug from "./pages/temp/works-para";
+import { AuthContextProvider } from "./contexts/auth";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
@@ -27,23 +28,25 @@ function App() {
 
   return (
     <div className="App">
-      <BrowserRouter>
-        <Header />
-        <div className={classes.root}>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/contests" component={Contests} />
-            <Route exact path="/contests/:contest_id" component={Contest} />
-            <Route exact path="/contests/:contest_id/problems/:problem_id" component={Problem} />
-            <Route exact path="/contests/:contest_id/submits/:submit_id" component={SubmitStatusState} />
-            <Route exact path="/signin" component={Signin} />
-            <Route exect path="/signup" component={Signup} />
-            <Route exact path="/debug" component={Debug} />
-            <Route component={Preparation} />
-          </Switch>
-        </div>
-      </BrowserRouter>
-      <Footer />
+      <AuthContextProvider>
+        <BrowserRouter>
+          <Header />
+          <div className={classes.root}>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/contests" component={Contests} />
+              <Route exact path="/contests/:contest_id" component={Contest} />
+              <Route exact path="/contests/:contest_id/problems/:problem_id" component={Problem} />
+              <Route exact path="/contests/:contest_id/submits/:submit_id" component={SubmitStatusState} />
+              <Route exact path="/signin" component={Signin} />
+              <Route exect path="/signup" component={Signup} />
+              <Route exact path="/debug" component={Debug} />
+              <Route component={Preparation} />
+            </Switch>
+          </div>
+        </BrowserRouter>
+        <Footer />
+      </AuthContextProvider>
     </div>
   );
 }
