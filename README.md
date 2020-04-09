@@ -4,24 +4,11 @@
 
 ---
 
-## How to run 
+## Usage
 
-### develop
-
-Run frontend.
-```sh
+```shell
 $ npm install
 $ npm run start
-```
-
-Run fake api.
-```sh
-# If pipenv is not installed.
-# $ pip install pipenv
-
-$ cd fake_api
-$ pipenv install
-$ pipenv run python main.py
 ```
 
 ## License
