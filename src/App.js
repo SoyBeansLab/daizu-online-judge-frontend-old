@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Header from "./atoms/app-header";
+import Header from "./organisms/Header";
 import Footer from "./organisms/Footer";
 import Home from "./pages/Home";
 import Contests from "./pages/Contests";
