@@ -1,10 +1,13 @@
 import React from "react";
+import StoryRouter from "storybook-react-router";
 //import { action } from '@storybook/addon-actions';
 
-import NormalButton from "../atoms/app-button-normal";
+import HeaderAppBar from "../molecules/HeaderAppBar";
+
 export default {
   title: "Molecules",
-  component: NormalButton,
+  component: HeaderAppBar,
+  decorators: [StoryRouter()],
 };
 
-export const normal_button = () => <NormalButton buttonText={"click"} />;
+export const header_appbar = () => <HeaderAppBar />;
