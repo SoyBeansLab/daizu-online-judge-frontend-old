@@ -1,7 +1,6 @@
 import React from "react";
-import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
+import Copyright from "../atoms/app-copyright-text";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -23,11 +22,7 @@ export default function Footer() {
   return (
     <div>
       <footer className={classes.footer}>
-        <Container maxWidth="sm">
-          <Typography align="center" variant="body1">
-            ©ICT Committee
-          </Typography>
-        </Container>
+        <Copyright />
       </footer>
     </div>
   );
