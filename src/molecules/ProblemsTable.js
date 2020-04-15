@@ -23,6 +23,7 @@ export default function DataTable(props) {
   const classes = useStyles();
   const problemLists = props.problemLists;
   const contestId = props.contestId;
+  const problemUrl = urljoin("/contests", contestId, "/problems");
 
   return (
     <Paper className={classes.root} elevation={0}>
@@ -38,16 +39,13 @@ export default function DataTable(props) {
         </TableHead>
         <TableBody>
           {problemLists.map(row => (
-            <TableRow
-              key={row.problem_id}
-              hover
-              component={Link}
-              to={urljoin("/contests", contestId, "problems", row.problem_id)}
-            >
+            <TableRow key={row.problem_id} hover>
               <TableCell component="th" scope="row" align="center">
-                {row.problem_order}
+                <Link to={urljoin(problemUrl, row.problem_id)}>{row.problem_order}</Link>
               </TableCell>
-              <TableCell align="center">{row.problem_name}</TableCell>
+              <TableCell align="center">
+                <Link to={urljoin(problemUrl, row.problem_id)}>{row.problem_name}</Link>
+              </TableCell>
               <TableCell align="center">{row.time_limit}sec</TableCell>
               <TableCell align="center">{row.memory_limit}MB</TableCell>
               <TableCell align="center">{row.problem_score}</TableCell>
