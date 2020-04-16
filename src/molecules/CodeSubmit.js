@@ -36,7 +36,8 @@ export default function CodeSubmit(props) {
     codeLanguage: "",
   });
 
-  const languageLists = Object.values(props.languageLists);
+  // `value1 || value2`でvalue1がundefinedだったときにvalue2を返す
+  const languageLists = Object.values(props.languageLists || {});
   const languageDictionary = (() => {
     var result = {};
     languageLists.forEach((element, idx) => {

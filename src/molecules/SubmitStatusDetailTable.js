@@ -30,26 +30,36 @@ function createData(key, value) {
 export default function SubmitStatusDetail(props) {
   const classes = useStyles();
 
+  const submitDate = props.submitDate || "";
+  const problemName = props.problemName || "";
+  const userName = props.userName || "";
+  const language = props.language || "";
+  const score = props.score || 0;
+  const result = props.result || "";
+  const executeTime = props.executeTime || 0;
+  const memory = props.memory || 0;
+  const testCase = props.testCase || "";
+
   const chip = () => {
-    if (props.result === "AC") {
-      return <Chip color="primary" className={classes.chip} label={props.result} />;
-    } else if (props.result === "WA" || props.result === "TLE") {
-      return <Chip color="secondary" label={props.result} />;
+    if (result === "AC") {
+      return <Chip color="primary" className={classes.chip} label={result} />;
+    } else if (result === "WA" || result === "TLE") {
+      return <Chip color="secondary" label={result} />;
     } else {
-      return <Chip label={props.result} />;
+      return <Chip label={result} />;
     }
   };
 
   const cells = [
-    createData("提出日時", props.submitDate),
-    createData("問題", <Link href="">{props.problemName}</Link>),
-    createData("ユーザ", <Link href="">{props.userName}</Link>),
-    createData("言語", props.language),
-    createData("得点", props.score),
-    createData("テストケース通過数(通過数/全体)", props.testCase),
+    createData("提出日時", submitDate),
+    createData("問題", <Link href="">{problemName}</Link>),
+    createData("ユーザ", <Link href="">{userName}</Link>),
+    createData("言語", language),
+    createData("得点", score || 0),
+    createData("テストケース通過数(通過数/全体)", testCase),
     createData("結果", chip()),
-    createData("実行時間", props.executeTime + " ms"),
-    createData("メモリ", props.memory + " KB"),
+    createData("実行時間", executeTime + " ms"),
+    createData("メモリ", memory + " KB"),
   ];
 
   return (

@@ -24,7 +24,7 @@ const useStyles = makeStyles(() => ({
 export default function DataTable(props) {
   const classes = useStyles();
   const [state, dispatch] = useReducer(reducer, { loading: true, data: [] });
-  const contestId = props.contestId;
+  const contestId = props.contestId || "";
   const endpoint = urljoin("/contests", contestId, "ranking");
 
   //const rankingList = props.rankingList;

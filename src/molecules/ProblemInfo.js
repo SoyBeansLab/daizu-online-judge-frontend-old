@@ -20,19 +20,26 @@ const useStyles = makeStyles(theme => ({
 export default function ProblemInfo(props) {
   const classes = useStyles();
 
+  const problemID = props.problemID || "";
+  const problemName = props.problemName || "";
+  const timeLimit = props.problemName || 120;
+  const memoryLimit = props.memoryLimit || 256;
+  const score = props.score || 0;
+  const problemText = props.problemText || "";
+
   return (
     <div className="problem-info">
       <Typography className={classes.typography} variant="h3" color="primary">
-        {props.problemID} - {props.problemName}
+        {problemID} - {problemName}
       </Typography>
       <Typography className={classes.typography} variant="subtitle1">
-        実行時間制限: {props.timeLimit} sec / メモリ制限: {props.memoryLimit} MB
+        実行時間制限: {timeLimit} sec / メモリ制限: {memoryLimit} MB
       </Typography>
       <Typography className={classes.typography} variant="subtitle1">
-        配点: {props.score} 点
+        配点: {score} 点
       </Typography>
       <Divider className={classes.divider} variant="fullwidth" />
-      <MarkDown className={classes.markdown} source={props.problemText} />
+      <MarkDown className={classes.markdown} source={problemText} />
       <Divider className={classes.divider} variant="fullwidth" />
     </div>
   );

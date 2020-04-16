@@ -13,7 +13,7 @@ export default function HomeSlider(props) {
     autoplay: true,
     arrow: true,
   };
-  const slideItemList = props.slideItemList;
+  const slideItemList = props.slideItemList || [];
 
   return (
     <Slider {...settings}>

@@ -36,27 +36,26 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-SliderItem.propTypes = {
-  contestId: PropTypes.string,
-  contestName: PropTypes.string,
-  contestDate: PropTypes.string,
-  contestTime: PropTypes.number,
-  contestDescription: PropTypes.string,
-};
 export default function SliderItem(props) {
   const classes = useStyles();
+
+  const contestId = props.contestId || "";
+  const contestName = props.contestName || "";
+  const contestDate = props.contestDate || "";
+  const contestTime = props.contestTime || 0;
+  const contestDescription = props.contestDescription || "";
 
   return (
     <div className={classes.root}>
       <Card className={classes.card} elevation={0}>
         <CardContent>
           <Typography variant="h3" className={classes.title}>
-            {props.contestName}
+            {contestName}
           </Typography>
           <Typography variant="subtitle1" className={classes.subtitle}>
-            {props.contestDate} {props.contestTime}
+            {contestDate} {contestTime}
           </Typography>
-          <Typography variant="body1">{props.contestDescription}</Typography>
+          <Typography variant="body1">{contestDescription}</Typography>
         </CardContent>
         <CardActions classes={{ root: classes.root }}>
           <Button
@@ -65,7 +64,7 @@ export default function SliderItem(props) {
             variant="contained"
             className={classes.button}
             component={Link}
-            to={urljoin("/contests", props.contestId)}
+            to={urljoin("/contests", contestId)}
           >
             参加する
           </Button>
@@ -74,3 +73,11 @@ export default function SliderItem(props) {
     </div>
   );
 }
+
+SliderItem.propTypes = {
+  contestId: PropTypes.string,
+  contestName: PropTypes.string,
+  contestDate: PropTypes.string,
+  contestTime: PropTypes.number,
+  contestDescription: PropTypes.string,
+};

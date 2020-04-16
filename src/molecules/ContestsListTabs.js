@@ -37,9 +37,9 @@ export default function ContestsListTabs(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(getTabPostion());
 
-  const currentContestLists = props.currentContestLists;
-  const upcomingContestLists = props.upcomingContestLists;
-  const recentContestLists = props.recentContestLists;
+  const currentContestLists = props.currentContestLists || [];
+  const upcomingContestLists = props.upcomingContestLists || [];
+  const recentContestLists = props.recentContestLists || [];
 
   function handleChange(event, newValue) {
     setValue(newValue);

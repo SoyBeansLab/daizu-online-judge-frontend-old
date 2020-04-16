@@ -41,11 +41,11 @@ export default function ContestsListTabs(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(getTabPostion());
 
-  const contestTopContent = props.contestTopContent;
-  const problemLists = props.problemLists;
+  const contestTopContent = props.contestTopContent || "";
+  const problemLists = props.problemLists || [];
   //const submitStatusLists = props.submitStatusLists;
   //const rankingLists = props.rankingLists;
-  const contestId = props.contestId;
+  const contestId = props.contestId || "";
 
   function handleChange(event, newValue) {
     setValue(newValue);
