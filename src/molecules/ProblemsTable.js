@@ -21,8 +21,8 @@ const useStyles = makeStyles(() => ({
 
 export default function DataTable(props) {
   const classes = useStyles();
-  const problemLists = props.problemLists;
-  const contestId = props.contestId;
+  const problemLists = props.problemLists || [];
+  const contestId = props.contestId || "";
   const problemUrl = urljoin("/contests", contestId, "/problems");
 
   return (

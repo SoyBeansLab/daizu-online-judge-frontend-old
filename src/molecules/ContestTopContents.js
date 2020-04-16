@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function ContestTopContents(props) {
   const classes = useStyles();
-  const contestTopContent = props.contestTopContent;
+  const contestTopContent = props.contestTopContent || "";
 
   return (
     <Paper className={classes.root}>

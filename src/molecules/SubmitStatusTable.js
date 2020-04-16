@@ -29,7 +29,7 @@ const useStyles = makeStyles(() => ({
 export default function DataTable(props) {
   const classes = useStyles();
   const [state, dispatch] = useReducer(reducer, { loading: true, data: [] });
-  const contestId = props.contestId;
+  const contestId = props.contestId || "";
   const endpoint = urljoin("/contests", contestId, "submits");
 
   //  const submitStatusLists = props.submitStatusLists;
@@ -68,7 +68,7 @@ export default function DataTable(props) {
               key={row.submit_id}
               hover
               component={Link}
-              to={urljoin("/contests", contestId, "submits", row.submit_id)}
+              to={urljoin("/contests", contestId, "submits", row.submit_id || "")}
             >
               <TableCell component="th" scope="row" align="center">
                 #{row.submit_id}
