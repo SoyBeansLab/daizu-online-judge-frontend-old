@@ -19,7 +19,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default function DataTable(props) {
+export default function ProblemsTable(props) {
   const classes = useStyles();
   const problemLists = props.problemLists || [];
   const contestId = props.contestId || "";
@@ -57,7 +57,7 @@ export default function DataTable(props) {
   );
 }
 
-DataTable.propTypes = {
+ProblemsTable.propTypes = {
   problemLists: PropTypes.array,
   contestId: PropTypes.string,
 };

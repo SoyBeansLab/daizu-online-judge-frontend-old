@@ -26,7 +26,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default function DataTable(props) {
+export default function SubmitStatusTable(props) {
   const classes = useStyles();
   const [state, dispatch] = useReducer(reducer, { loading: true, data: [] });
   const contestId = props.contestId || "";
@@ -87,6 +87,6 @@ export default function DataTable(props) {
   );
 }
 
-DataTable.propTypes = {
+SubmitStatusTable.propTypes = {
   contestId: PropTypes.string,
 };

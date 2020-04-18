@@ -21,7 +21,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default function DataTable(props) {
+export default function ContestsTable(props) {
   const classes = useStyles();
 
   const contestLists = props.contestLists || [];
@@ -56,6 +56,6 @@ export default function DataTable(props) {
   /* eslint-disable no-unused-vars */
 }
 
-DataTable.propTypes = {
+ContestsTable.propTypes = {
   contestLists: PropTypes.array,
 };

@@ -21,7 +21,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default function DataTable(props) {
+export default function RankingTable(props) {
   const classes = useStyles();
   const [state, dispatch] = useReducer(reducer, { loading: true, data: [] });
   const contestId = props.contestId || "";
@@ -60,7 +60,7 @@ export default function DataTable(props) {
   );
 }
 
-DataTable.propTypes = {
+RankingTable.propTypes = {
   //  rankingList: PropTypes.array
   contestId: PropTypes.string,
 };
