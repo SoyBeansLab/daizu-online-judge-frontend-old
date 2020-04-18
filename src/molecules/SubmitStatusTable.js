@@ -64,14 +64,9 @@ export default function SubmitStatusTable(props) {
         </TableHead>
         <TableBody>
           {Object.values(state.data).map(row => (
-            <TableRow
-              key={row.submit_id}
-              hover
-              component={Link}
-              to={urljoin("/contests", contestId, "submits", row.submit_id || "")}
-            >
+            <TableRow key={row.submit_id} hover>
               <TableCell component="th" scope="row" align="center">
-                #{row.submit_id}
+                <Link to={urljoin("/contests", contestId, "submits", row.submit_id || "")}>#{row.submit_id}</Link>
               </TableCell>
               <TableCell align="center">{row.username}</TableCell>
               <TableCell align="center">{row.problem_name}</TableCell>
