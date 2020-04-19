@@ -25,7 +25,7 @@ export default function Problem(props) {
       memoryLimit={state.data.memory_limit}
       score={state.data.score}
       problemText={state.data.problem_detail}
-      languageLists={lang.data}
+      languageLists={Object.values(lang.data)}
     />
   );
 }
