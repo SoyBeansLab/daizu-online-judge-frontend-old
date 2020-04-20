@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import HeaderAppBar from "../molecules/HeaderAppBar";
+import { useAuth0 } from "../react-auth0-spa";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -19,10 +20,17 @@ const useStyles = makeStyles(theme => ({
 
 export default function Header() {
   const classes = useStyles();
+  const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
+
+  // eslint-disable-next-line
+  const logoutWithRedirect = () =>
+    logout({
+      returnTo: window.location.origin,
+    });
 
   return (
     <div className={classes.root}>
-      <HeaderAppBar />
+      <HeaderAppBar user={user} isAuthenticated={isAuthenticated} loginWithRedirect={loginWithRedirect} />
     </div>
   );
 }
