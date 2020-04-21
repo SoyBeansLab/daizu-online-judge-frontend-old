@@ -11,6 +11,8 @@ import Signin from "./templates/SignInModal";
 import Signup from "./templates/SignUpModal";
 import Preparation from "./templates/Preparation";
 import Debug from "./pages/temp/works-para";
+import Loading from "./organisms/Loading";
+import { useAuth0 } from "./react-auth0-spa";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
@@ -24,6 +26,11 @@ const useStyles = makeStyles(theme => ({
 
 function App() {
   const classes = useStyles();
+  const { loading } = useAuth0();
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <div className="App">
