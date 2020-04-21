@@ -3,6 +3,7 @@ import StoryRouter from "storybook-react-router";
 
 import Footer from "../organisms/Footer";
 import Header from "../organisms/Header";
+import Loading from "../organisms/Loading";
 
 export default {
   title: "Organisms",
@@ -13,3 +14,5 @@ export default {
 export const footer = () => <Footer />;
 
 export const header = () => <Header />;
+
+export const loading = () => <Loading />;
