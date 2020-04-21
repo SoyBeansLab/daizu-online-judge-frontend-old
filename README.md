@@ -2,12 +2,21 @@
 
 [![Actions Status](https://github.com/SoyBeansLab/daizu-online-judge-frontend/workflows/CI/badge.svg?branch=develop)](https://github.com/SoyBeansLab/daizu-online-judge-frontend/actions)
 
-## Development 
+## Development
 
 ```shell
 $ npm install
 $ npm run start
 ```
+
+### Environment variables
+Please set the environment variables of the table to .env, etc.
+
+|          Variable name         | Default value |
+|:------------------------------:|:-------------:|
+|  REACT\_APP\_DEV\_API\_SERVER  |       ""      |
+|   REACT\_APP\_AUTH0\_DOMAIN    |       ""      |
+|  REACT\_APP\_AUTH0\_CLIENT\_ID |       ""      |
 
 ### Storybook
 
@@ -29,7 +38,7 @@ using [axios-mock-server](https://github.com/m-mitsuhide/axios-mock-server).
 $ npm run mock
 ```
 
-###  format
+### format
 Automatically do a prettier format when saving.
 
 ```shell
