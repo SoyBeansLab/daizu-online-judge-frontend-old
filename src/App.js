@@ -9,7 +9,7 @@ import Problem from "./pages/Problem";
 import SubmitStatusState from "./pages/SubmitStatusState";
 import Signin from "./templates/SignInModal";
 import Signup from "./templates/SignUpModal";
-import Preparation from "./templates/Preparation";
+import NotFound from "./templates/NotFound";
 import Debug from "./pages/temp/works-para";
 import Loading from "./organisms/Loading";
 import { useAuth0 } from "./react-auth0-spa";
@@ -46,7 +46,7 @@ function App() {
             <Route exact path="/signin" component={Signin} />
             <Route exect path="/signup" component={Signup} />
             <Route exact path="/debug" component={Debug} />
-            <Route component={Preparation} />
+            <Route component={NotFound} />
           </Switch>
         </div>
       </BrowserRouter>
