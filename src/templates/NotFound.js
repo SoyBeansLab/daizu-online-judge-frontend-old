@@ -5,10 +5,6 @@ import Typograhy from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    // この設定 App.jsに書いたほうが良い説ある
-    margin: theme.spacing(3),
-  },
   heading: {
     color: theme.palette.primary.main,
     fontWeight: 500,
