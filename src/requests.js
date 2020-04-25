@@ -26,3 +26,5 @@ export const request = async (endpoint, dispatch, method = "get", data = {}) => 
       console.log("GET " + url); //eslint-disable-line
     });
 };
+
+export const axiosClient = axios.create({ baseURL: config.DEV_API_SERVER });
