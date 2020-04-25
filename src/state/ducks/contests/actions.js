@@ -10,6 +10,6 @@ export const fetching = () => ({
 });
 
 export const receiveContests = json => ({
-  types: types.FETCH_CONTESTS_SUCCESS,
+  types: types.FETCH_CONTESTS_SUCEESS,
   data: json,
 });
