@@ -14,6 +14,8 @@ import Debug from "./pages/temp/works-para";
 import Loading from "./organisms/Loading";
 import { useAuth0 } from "./react-auth0-spa";
 import { makeStyles } from "@material-ui/core/styles";
+import { Provider as ReduxProvider } from "react-redux";
+import configureStore from "./state/store";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -23,6 +25,8 @@ const useStyles = makeStyles(theme => ({
     minHeight: "100vh",
   },
 }));
+
+const reduxStore = configureStore(window.REDUX_INITIAL_DATA);
 
 function App() {
   const classes = useStyles();
@@ -34,23 +38,25 @@ function App() {
 
   return (
     <div className="App">
-      <BrowserRouter>
-        <Header />
-        <div className={classes.root}>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/contests" component={Contests} />
-            <Route exact path="/contests/:contest_id" component={Contest} />
-            <Route exact path="/contests/:contest_id/problems/:problem_id" component={Problem} />
-            <Route exact path="/contests/:contest_id/submits/:submit_id" component={SubmitStatusState} />
-            <Route exact path="/signin" component={Signin} />
-            <Route exect path="/signup" component={Signup} />
-            <Route exact path="/debug" component={Debug} />
-            <Route component={NotFound} />
-          </Switch>
-        </div>
-      </BrowserRouter>
-      <Footer />
+      <ReduxProvider store={reduxStore}>
+        <BrowserRouter>
+          <Header />
+          <div className={classes.root}>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/contests" component={Contests} />
+              <Route exact path="/contests/:contest_id" component={Contest} />
+              <Route exact path="/contests/:contest_id/problems/:problem_id" component={Problem} />
+              <Route exact path="/contests/:contest_id/submits/:submit_id" component={SubmitStatusState} />
+              <Route exact path="/signin" component={Signin} />
+              <Route exect path="/signup" component={Signup} />
+              <Route exact path="/debug" component={Debug} />
+              <Route component={NotFound} />
+            </Switch>
+          </div>
+        </BrowserRouter>
+        <Footer />
+      </ReduxProvider>
     </div>
   );
 }
