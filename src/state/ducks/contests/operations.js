@@ -1,12 +1,13 @@
+import axios from "axios";
 import { fetching, receiveContests } from "./actions";
-import { axiosClient } from "../../../requests";
+import mock from "../../../mocks/$mock";
 
 const contestsOprations = url => dispatch => {
   dispatch(fetching);
-  axiosClient
-    .get({
-      url: url,
-    })
+  mock();
+
+  axios
+    .get("/contests")
     .then(response => {
       const data = { ...response.data };
       dispatch(receiveContests(data));
