@@ -6,7 +6,7 @@ export default function Home(props) {
   const slideItemList = props.slideItemList;
   return (
     <div>
-      <Slider slideItemList={slideItemList} />
+      <Slider slideItemList={Object.values(slideItemList)} />
       {/* 寂しいので何らかのコンテンツ欲しい */}
     </div>
   );
