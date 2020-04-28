@@ -6,10 +6,10 @@ export const fetchContests = filter => ({
 });
 
 export const fetching = () => ({
-  types: types.LOADING,
+  type: types.LOADING,
 });
 
 export const receiveContests = json => ({
-  types: types.FETCH_CONTESTS_SUCEESS,
+  type: types.FETCH_CONTESTS_SUCEESS,
   data: json,
 });
