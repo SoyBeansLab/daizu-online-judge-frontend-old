@@ -11,7 +11,7 @@ const contests = (state = initState, action) => {
     case types.FETCH_CONTESTS:
       return { ...state, loading: true };
     case types.FETCH_CONTESTS_SUCEESS:
-      return { ...state, loading: false, data: action.payload };
+      return { ...state, loading: false, data: action.data };
     default:
       return state;
   }
