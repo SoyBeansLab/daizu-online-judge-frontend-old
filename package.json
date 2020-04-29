@@ -28,6 +28,7 @@
     "react-syntax-highlighter": "^12.2.1",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
+    "reselect": "^4.0.0",
     "storybook-react-router": "^1.0.8",
     "styled-components": "^5.0.1",
     "tslint": "^6.0.0",
