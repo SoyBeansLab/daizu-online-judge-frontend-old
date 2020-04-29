@@ -1,15 +1,15 @@
 import React, { useEffect, useReducer } from "react";
+import { useParams } from "react-router-dom";
 import ContestTemplate from "../templates/Contest";
-import PropTypes from "prop-types";
 import { reducer } from "../reducer";
 //import axios from "axios";
 import { request } from "../requests";
 import urljoin from "url-join";
 //import { config } from "../config";
 
-export default function Contest(props) {
+export default function Contest() {
   const [state, dispatch] = useReducer(reducer, { loading: true, data: [] });
-  const contestId = props.match.params.contest_id; // url paramから取得
+  const { contestId } = useParams(); // url paramから取得
   const endpoint = urljoin("/contests", contestId);
 
   useEffect(() => {
@@ -24,7 +24,3 @@ export default function Contest(props) {
     />
   );
 }
-
-Contest.propTypes = {
-  match: PropTypes.object,
-};

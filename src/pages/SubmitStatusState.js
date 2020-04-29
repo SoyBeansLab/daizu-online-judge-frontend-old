@@ -1,14 +1,13 @@
 import React, { useEffect, useReducer } from "react";
+import { useParams } from "react-router-dom";
 import SubmitStatusState from "../templates/SubmitStatusStatu";
-import PropTypes from "prop-types";
 import { reducer } from "../reducer";
 import { request } from "../requests";
 import urljoin from "url-join";
 
-export default function SubmitStatusDetail(props) {
+export default function SubmitStatusDetail() {
   const [state, dispatch] = useReducer(reducer, { loading: true, data: [] });
-  const contestId = props.match.params.contest_id; // url paramから取得
-  const submitId = props.match.params.submit_id; // url paramから取得
+  const { contestId, submitId } = useParams();
   const endpoint = urljoin("/contests", contestId, "/submits/", submitId);
 
   useEffect(() => {
@@ -30,7 +29,3 @@ export default function SubmitStatusDetail(props) {
     />
   );
 }
-
-SubmitStatusDetail.propTypes = {
-  match: PropTypes.object,
-};
