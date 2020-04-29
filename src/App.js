@@ -45,9 +45,9 @@ function App() {
             <Switch>
               <Route exact path="/" component={Home} />
               <Route exact path="/contests" component={Contests} />
-              <Route exact path="/contests/:contest_id" component={Contest} />
-              <Route exact path="/contests/:contest_id/problems/:problem_id" component={Problem} />
-              <Route exact path="/contests/:contest_id/submits/:submit_id" component={SubmitStatusState} />
+              <Route exact path="/contests/:contestId" component={Contest} />
+              <Route exact path="/contests/:contestId/problems/:problemId" component={Problem} />
+              <Route exact path="/contests/:contestId/submits/:submitId" component={SubmitStatusState} />
               <Route exact path="/signin" component={Signin} />
               <Route exect path="/signup" component={Signup} />
               <Route exact path="/debug" component={Debug} />
