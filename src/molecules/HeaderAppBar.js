@@ -31,5 +31,5 @@ export default function HeaderAppBar(props) {
 HeaderAppBar.propTypes = {
   user: PropTypes.object,
   isAuthenticated: PropTypes.bool,
-  loginWithRedirect: PropTypes.object,
+  loginWithRedirect: PropTypes.func,
 };
