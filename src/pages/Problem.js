@@ -1,21 +1,24 @@
 import React, { useEffect, useReducer } from "react";
+import { connect } from "react-redux";
+import { useParams } from "react-router-dom";
 import ProblemTemplate from "../templates/Problem";
 import PropTypes from "prop-types";
 import { reducer } from "../reducer";
 import { request } from "../requests";
 import urljoin from "url-join";
+import { languagesOperations, languagesSelectors } from "../state/ducks/languages";
 
-export default function Problem(props) {
+const ProblemContainer = ({ languages, isLanguagesFetched, fetchLanguages }) => {
   const [state, dispatch] = useReducer(reducer, { loading: true, data: [] });
-  const [lang, langDispatch] = useReducer(reducer, { loading: true, data: [] });
-  const contestId = props.match.params.contest_id;
-  const problemId = props.match.params.problem_id;
+  const { contestId, problemId } = useParams();
   const endpoint = urljoin("/contests", contestId, "/problems", problemId);
 
   useEffect(() => {
     request(endpoint, dispatch);
-    request("/languages", langDispatch);
-  }, [endpoint]);
+    if (!isLanguagesFetched) {
+      fetchLanguages("/languages");
+    }
+  }, [fetchLanguages, isLanguagesFetched, endpoint]);
 
   return (
     <ProblemTemplate
@@ -25,11 +28,26 @@ export default function Problem(props) {
       memoryLimit={state.data.memory_limit}
       score={state.data.score}
       problemText={state.data.problem_detail}
-      languageLists={Object.values(lang.data)}
+      languageLists={Object.values(languages)}
     />
   );
-}
-
-Problem.propTypes = {
-  match: PropTypes.object,
 };
+
+ProblemContainer.propTypes = {
+  languages: PropTypes.array,
+  isLanguagesFetched: PropTypes.bool,
+  fetchLanguages: PropTypes.func,
+};
+
+const mapStateToProps = state => ({
+  languages: languagesSelectors.languagesSelector(state),
+  isLanguagesFetched: languagesSelectors.isfetched(state),
+});
+
+const mapDispatchToProps = {
+  fetchLanguages: languagesOperations,
+};
+
+const Problem = connect(mapStateToProps, mapDispatchToProps)(ProblemContainer);
+
+export default Problem;
