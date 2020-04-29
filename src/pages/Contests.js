@@ -2,18 +2,16 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import ContestsTemplate from "../templates/Contests.js";
-import { contestsOperations } from "../state/ducks/contests";
+import { contestsOperations, contestsSelectors } from "../state/ducks/contests";
 
-const ContestsContainer = ({ contests, fetch }) => {
+const ContestsContainer = ({ contests, isfetched, fetch }) => {
   const endpoint = "/contests";
 
   useEffect(() => {
-    // contestsだけではからのhashに見えるので
-    // その中の要素指定しないとundefinedか確認できない
-    if (contests.upcoming === void 0) {
+    if (!isfetched) {
       fetch(endpoint);
     }
-  }, [endpoint, fetch, contests]);
+  }, [endpoint, fetch, isfetched]);
 
   return (
     <ContestsTemplate
@@ -31,10 +29,12 @@ ContestsContainer.propTypes = {
     recent: PropTypes.array,
   }),
   fetch: PropTypes.func,
+  isfetched: PropTypes.bool,
 };
 
 const mapStateToProps = state => ({
-  contests: state.contestsState.contests.data,
+  contests: contestsSelectors.contestsSelector(state),
+  isfetched: contestsSelectors.isfetched(state),
 });
 
 const mapDispatchToProps = {
