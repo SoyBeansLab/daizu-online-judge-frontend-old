@@ -13,7 +13,6 @@ const HomeContainer = ({ slideItemList, fetch }) => {
     }
   }, [endpoint, fetch, slideItemList]);
 
-  console.log(slideItemList);
   return <HomeTemplate slideItemList={slideItemList} />;
 };
 
