@@ -1,9 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Slider from "react-slick";
+import { makeStyles } from "@material-ui/core/styles";
 import SliderItem from "./SliderItem";
 
+const useStyles = makeStyles(theme => ({
+  root: {
+    margin: theme.spacing(2),
+  },
+}));
+
 export default function HomeSlider(props) {
+  const classes = useStyles();
+
   const settings = {
     dots: true,
     infinite: true,
@@ -16,7 +25,7 @@ export default function HomeSlider(props) {
   const slideItemList = props.slideItemList || [];
 
   return (
-    <Slider {...settings}>
+    <Slider {...settings} className={classes.root}>
       {slideItemList.map(row => (
         <div key={row.contest_id}>
           <SliderItem
