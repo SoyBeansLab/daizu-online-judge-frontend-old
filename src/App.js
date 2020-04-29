@@ -18,11 +18,13 @@ import { Provider as ReduxProvider } from "react-redux";
 import configureStore from "./state/store";
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    margin: theme.spacing(3),
+  app: {
     display: "flex",
     flexDirection: "column",
     minHeight: "100vh",
+  },
+  root: {
+    margin: theme.spacing(3),
   },
 }));
 
@@ -37,7 +39,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className={classes.app}>
       <ReduxProvider store={reduxStore}>
         <BrowserRouter>
           <Header />
@@ -54,8 +56,8 @@ function App() {
               <Route component={NotFound} />
             </Switch>
           </div>
+          <Footer />
         </BrowserRouter>
-        <Footer />
       </ReduxProvider>
     </div>
   );

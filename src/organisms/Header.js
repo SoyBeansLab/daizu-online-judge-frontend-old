@@ -5,7 +5,7 @@ import { useAuth0 } from "../react-auth0-spa";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1,
+    flexGrow: 0,
   },
   title: {
     width: "20%",
