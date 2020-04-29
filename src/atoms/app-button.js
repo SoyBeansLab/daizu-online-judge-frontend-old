@@ -11,19 +11,18 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function LinkButton(props) {
-  const style = useStyles();
+  const classes = useStyles();
   const text = props.text || "";
   const onClick = props.onClick || function() {};
 
   return (
-    <Button color="inherit" className={style} onClick={onClick}>
+    <Button color="inherit" className={classes.button} onClick={onClick}>
       {text}
     </Button>
   );
 }
 
 LinkButton.propTypes = {
-  style: PropTypes.object,
   text: PropTypes.string,
   onClick: PropTypes.func,
 };
