@@ -29,6 +29,7 @@ export default function Contests(props) {
   const contestId = checkUndefined(props.contestId, "");
   const rankings = props.rankings || [];
   const fetchRanking = props.fetchRanking || (() => {});
+  const rankingsTotal = props.rankingsTotal || 10;
 
   return (
     <div className={classes.root}>
@@ -39,6 +40,7 @@ export default function Contests(props) {
         contestId={contestId}
         rankings={Object.values(rankings)}
         fetchRanking={fetchRanking}
+        rankingsTotal={rankingsTotal}
       />
     </div>
   );
@@ -49,6 +51,7 @@ Contests.propTypes = {
   problemLists: PropTypes.array,
   submitStatusLists: PropTypes.array,
   contestId: PropTypes.string,
-  rankings: PropTypes.object,
+  rankings: PropTypes.array,
   fetchRanking: PropTypes.func,
+  rankingsTotal: PropTypes.number,
 };
