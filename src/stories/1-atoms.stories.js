@@ -16,6 +16,7 @@ import CopyRight from "../atoms/app-copyright-text";
 import TitleImage from "../atoms/app-title-image";
 import LinkButton from "../atoms/app-link-button";
 import Loading from "../atoms/app-loading";
+import Pagination from "../atoms/app-paginations";
 
 export default {
   title: "Atoms",
@@ -50,3 +51,5 @@ export const title_image = () => <TitleImage />;
 export const link_button = () => <LinkButton to="" text="TEST" />; // 透明なButton
 
 export const loading = () => <Loading />;
+
+export const pagination = () => <Pagination />;
