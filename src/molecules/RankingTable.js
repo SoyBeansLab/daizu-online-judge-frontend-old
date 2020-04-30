@@ -7,14 +7,19 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import PropTypes from "prop-types";
-
+import Pagination from "../atoms/app-paginations";
 import { reducer } from "../reducer";
 import { request } from "../requests";
 import urljoin from "url-join";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(theme => ({
   root: {
+    textAlign: "center",
+  },
+  paper: {
     width: "100%",
+    margin: theme.spacing(1),
+    overflowX: "auto",
   },
   table: {
     minWidth: 650,
@@ -25,6 +30,9 @@ export default function RankingTable(props) {
   const classes = useStyles();
   const [state, dispatch] = useReducer(reducer, { loading: true, data: [] });
   const contestId = props.contestId || "";
+  const offset = props.total || 1;
+  const total = props.total || 5;
+  const paginationClickHandler = props.paginationClickHandler || (() => {});
   const endpoint = urljoin("/contests", contestId, "ranking");
 
   //const rankingList = props.rankingList;
@@ -33,34 +41,39 @@ export default function RankingTable(props) {
   }, [endpoint]);
 
   return (
-    <Paper className={classes.root} elevation={0}>
-      <Table className={classes.table}>
-        <TableHead>
-          <TableRow>
-            <TableCell align="center">順位</TableCell>
-            <TableCell align="center">ユーザー名</TableCell>
-            <TableCell align="center">AC/Total</TableCell>
-            <TableCell align="center">得点</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {Object.values(state.data).map(row => (
-            <TableRow key={row.rank}>
-              <TableCell align="center">{row.rank}</TableCell>
-              <TableCell component="th" scope="row" align="center">
-                {row.user_id}
-              </TableCell>
-              <TableCell align="center">{row.total}</TableCell>
-              <TableCell align="center">{row.score}</TableCell>
+    <div className={classes.root}>
+      <Paper className={classes.paper} elevation={0}>
+        <Table className={classes.table}>
+          <TableHead>
+            <TableRow>
+              <TableCell align="center">順位</TableCell>
+              <TableCell align="center">ユーザー名</TableCell>
+              <TableCell align="center">AC/Total</TableCell>
+              <TableCell align="center">得点</TableCell>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </Paper>
+          </TableHead>
+          <TableBody>
+            {Object.values(state.data).map(row => (
+              <TableRow key={row.rank}>
+                <TableCell align="center">{row.rank}</TableCell>
+                <TableCell component="th" scope="row" align="center">
+                  {row.user_id}
+                </TableCell>
+                <TableCell align="center">{row.total}</TableCell>
+                <TableCell align="center">{row.score}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </Paper>
+      <Pagination offset={offset} total={total} onClick={(_, offset) => paginationClickHandler(offset)} />
+    </div>
   );
 }
 
 RankingTable.propTypes = {
-  //  rankingList: PropTypes.array
+  rankingList: PropTypes.array,
   contestId: PropTypes.string,
+  total: PropTypes.number,
+  paginationClickHandler: PropTypes.func,
 };

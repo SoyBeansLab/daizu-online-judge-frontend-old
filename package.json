@@ -11,6 +11,7 @@
     "axios-mock-adapter": "^1.17.0",
     "codemirror": "^5.52.0",
     "history": "^4.10.1",
+    "material-ui-flat-pagination": "^4.1.0",
     "onchange": "^6.1.0",
     "prop-types": "^15.7.2",
     "qs": "^6.9.1",
