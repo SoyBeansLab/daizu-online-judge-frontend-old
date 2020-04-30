@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
-import ContestTabs from "../molecules/ContestTabs";
+import ContestTabs from "../organisms/ContestTabPage";
 
 const useStyles = makeStyles(theme => ({
   heading: {
@@ -27,6 +27,8 @@ export default function Contests(props) {
   const submitStatusLists = checkUndefined(props.submitStatusLists, []);
   //const rankingLists = checkUndefined(props.rankingLists, []);
   const contestId = checkUndefined(props.contestId, "");
+  const rankings = props.rankings || [];
+  const fetchRanking = props.fetchRanking || (() => {});
 
   return (
     <div className={classes.root}>
@@ -35,6 +37,8 @@ export default function Contests(props) {
         problemLists={problemLists}
         submitStatusLists={submitStatusLists}
         contestId={contestId}
+        rankings={Object.values(rankings)}
+        fetchRanking={fetchRanking}
       />
     </div>
   );
@@ -45,5 +49,6 @@ Contests.propTypes = {
   problemLists: PropTypes.array,
   submitStatusLists: PropTypes.array,
   contestId: PropTypes.string,
-  //rankingLists: PropTypes.array
+  rankings: PropTypes.object,
+  fetchRanking: PropTypes.func,
 };

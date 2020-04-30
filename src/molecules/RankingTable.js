@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -8,9 +8,6 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import PropTypes from "prop-types";
 import Pagination from "../atoms/app-paginations";
-import { reducer } from "../reducer";
-import { request } from "../requests";
-import urljoin from "url-join";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -28,17 +25,10 @@ const useStyles = makeStyles(theme => ({
 
 export default function RankingTable(props) {
   const classes = useStyles();
-  const [state, dispatch] = useReducer(reducer, { loading: true, data: [] });
-  const contestId = props.contestId || "";
   const offset = props.total || 1;
   const total = props.total || 5;
   const paginationClickHandler = props.paginationClickHandler || (() => {});
-  const endpoint = urljoin("/contests", contestId, "ranking");
-
-  //const rankingList = props.rankingList;
-  useEffect(() => {
-    request(endpoint, dispatch);
-  }, [endpoint]);
+  const rankings = props.rankings || [];
 
   return (
     <div className={classes.root}>
@@ -53,7 +43,7 @@ export default function RankingTable(props) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {Object.values(state.data).map(row => (
+            {Object.values(rankings).map(row => (
               <TableRow key={row.rank}>
                 <TableCell align="center">{row.rank}</TableCell>
                 <TableCell component="th" scope="row" align="center">
@@ -73,7 +63,7 @@ export default function RankingTable(props) {
 
 RankingTable.propTypes = {
   rankingList: PropTypes.array,
-  contestId: PropTypes.string,
   total: PropTypes.number,
   paginationClickHandler: PropTypes.func,
+  rankings: PropTypes.array,
 };
