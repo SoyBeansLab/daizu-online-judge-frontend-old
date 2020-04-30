@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function RankingTable(props) {
   const classes = useStyles();
-  const offset = props.total || 1;
+  const offset = props.offset || 1;
   const total = props.total || 5;
   const paginationClickHandler = props.paginationClickHandler || (() => {});
   const rankings = props.rankings || [];
@@ -56,7 +56,7 @@ export default function RankingTable(props) {
           </TableBody>
         </Table>
       </Paper>
-      <Pagination offset={offset} total={total} onClick={(_, offset) => paginationClickHandler(offset)} />
+      <Pagination offset={offset} total={total} onClick={(event, offset) => paginationClickHandler(event, offset)} />
     </div>
   );
 }
@@ -64,6 +64,7 @@ export default function RankingTable(props) {
 RankingTable.propTypes = {
   rankingList: PropTypes.array,
   total: PropTypes.number,
+  offset: PropTypes.number,
   paginationClickHandler: PropTypes.func,
   rankings: PropTypes.array,
 };

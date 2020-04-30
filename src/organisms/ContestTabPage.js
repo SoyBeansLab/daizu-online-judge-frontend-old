@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useLocation } from "react-router-dom";
 import { parse } from "query-string";
@@ -35,7 +35,8 @@ export default function ContestTabsPage(props) {
   };
 
   const classes = useStyles();
-  const [value, setValue] = React.useState(getTabPostion());
+  const [value, setValue] = useState(getTabPostion());
+  const [rankingTablePage, setRankingTablePage] = useState(1);
 
   const contestTopContent = props.contestTopContent || "";
   const problemLists = props.problemLists || [];
@@ -43,13 +44,18 @@ export default function ContestTabsPage(props) {
   const rankings = props.rankings || [];
   const fetchRanking = props.fetchRanking || (() => {});
   const contestId = props.contestId || "";
+  const rankingsTotal = props.rankingsTotal || 5;
 
-  function handleChange(event, newValue) {
+  const handleChange = (event, newValue) => {
     if (newValue === tabValueList[3]) {
       fetchRanking(`/contests/${contestId}/ranking`);
     }
     setValue(newValue);
-  }
+  };
+
+  const rankingPaginationHandler = (event, val) => {
+    setRankingTablePage(val);
+  };
 
   return (
     <div className={classes.root}>
@@ -57,7 +63,15 @@ export default function ContestTabsPage(props) {
       {value === tabValueList[0] && <TopContents contestTopContent={contestTopContent} />}
       {value === tabValueList[1] && <ProblemsTable problemLists={problemLists} contestId={contestId} />}
       {value === tabValueList[2] && <SubmitStatusTable contestId={contestId} />}
-      {value === tabValueList[3] && <RankingTable contestId={contestId} rankings={rankings} />}
+      {value === tabValueList[3] && (
+        <RankingTable
+          contestId={contestId}
+          rankings={rankings}
+          offset={rankingTablePage}
+          paginationClickHandler={rankingPaginationHandler}
+          total={rankingsTotal}
+        />
+      )}
     </div>
   );
 }
@@ -69,4 +83,5 @@ ContestTabsPage.propTypes = {
   contestId: PropTypes.string,
   rankings: PropTypes.array,
   fetchRanking: PropTypes.func,
+  rankingsTotal: PropTypes.number,
 };

@@ -4,7 +4,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import FlatPagination from "material-ui-flat-pagination";
 
 export default function Pagination(props) {
-  const limit = props.limit || 5;
+  const limit = props.limit || 10;
   const offset = props.offset || 0;
   const total = props.total || 10;
   const onClick = props.onClick || (() => {});
