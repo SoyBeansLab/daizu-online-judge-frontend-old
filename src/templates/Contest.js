@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
-import ContestTabs from "../molecules/ContestTabs";
+import ContestTabs from "../organisms/ContestTabPage";
 
 const useStyles = makeStyles(theme => ({
   heading: {
