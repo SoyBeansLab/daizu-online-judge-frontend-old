@@ -40,10 +40,14 @@ export default function ContestTabsPage(props) {
   const contestTopContent = props.contestTopContent || "";
   const problemLists = props.problemLists || [];
   //const submitStatusLists = props.submitStatusLists;
-  //const rankingLists = props.rankingLists;
+  const rankings = props.rankings || [];
+  const fetchRanking = props.fetchRanking || (() => {});
   const contestId = props.contestId || "";
 
   function handleChange(event, newValue) {
+    if (newValue === tabValueList[3]) {
+      fetchRanking(`/contests/${contestId}/ranking`);
+    }
     setValue(newValue);
   }
 
@@ -53,7 +57,7 @@ export default function ContestTabsPage(props) {
       {value === tabValueList[0] && <TopContents contestTopContent={contestTopContent} />}
       {value === tabValueList[1] && <ProblemsTable problemLists={problemLists} contestId={contestId} />}
       {value === tabValueList[2] && <SubmitStatusTable contestId={contestId} />}
-      {value === tabValueList[3] && <RankingTable contestId={contestId} />}
+      {value === tabValueList[3] && <RankingTable contestId={contestId} rankings={rankings} />}
     </div>
   );
 }
@@ -63,5 +67,6 @@ ContestTabsPage.propTypes = {
   problemLists: PropTypes.array,
   //submitStatusLists: PropTypes.array,
   contestId: PropTypes.string,
-  //rankingLists: PropTypes.array
+  rankings: PropTypes.array,
+  fetchRanking: PropTypes.func,
 };
