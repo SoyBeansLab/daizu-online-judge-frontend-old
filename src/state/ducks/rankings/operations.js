@@ -7,7 +7,7 @@ const rankingsOprations = url => dispatch => {
   mock();
 
   axios
-    .get("/contests/10riridk0/ranking")
+    .get(url)
     .then(response => {
       const data = { ...response.data };
       dispatch(receiveRankings(data));
