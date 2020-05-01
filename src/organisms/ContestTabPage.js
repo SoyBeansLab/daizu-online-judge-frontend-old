@@ -45,6 +45,8 @@ export default function ContestTabsPage(props) {
   const fetchRanking = props.fetchRanking || (() => {});
   const contestId = props.contestId || "";
   const rankingsTotal = props.rankingsTotal || 5;
+  const submissions = props.submissions || [];
+  const submissionsTotal = props.submissionsTotal || 0;
 
   const handleChange = (event, newValue) => {
     if (newValue === tabValueList[3]) {
@@ -62,7 +64,9 @@ export default function ContestTabsPage(props) {
       <ContestTabs tabPosition={value} onChange={handleChange} />
       {value === tabValueList[0] && <TopContents contestTopContent={contestTopContent} />}
       {value === tabValueList[1] && <ProblemsTable problemLists={problemLists} contestId={contestId} />}
-      {value === tabValueList[2] && <SubmitStatusTable contestId={contestId} />}
+      {value === tabValueList[2] && (
+        <SubmitStatusTable contestId={contestId} submissions={submissions} submissionsTotal={submissionsTotal} />
+      )}
       {value === tabValueList[3] && (
         <RankingTable
           contestId={contestId}
@@ -84,4 +88,6 @@ ContestTabsPage.propTypes = {
   rankings: PropTypes.array,
   fetchRanking: PropTypes.func,
   rankingsTotal: PropTypes.number,
+  submissions: PropTypes.array,
+  submissionsTotal: PropTypes.number,
 };
