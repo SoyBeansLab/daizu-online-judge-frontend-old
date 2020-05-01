@@ -10,7 +10,7 @@ import urljoin from "url-join";
 //import { config } from "../config";
 import { rankingsOperations, rankingsSelectors } from "../state/ducks/rankings";
 
-const ContestContainer = ({ rankings, fetchRanking }) => {
+const ContestContainer = ({ rankings, rankingsTotal, fetchRanking }) => {
   const [state, dispatch] = useReducer(reducer, { loading: true, data: [] });
   const { contestId } = useParams(); // url paramから取得
   const endpoint = urljoin("/contests", contestId);
@@ -25,6 +25,7 @@ const ContestContainer = ({ rankings, fetchRanking }) => {
       contestTopContent={state.data.contest_top_content}
       problemLists={state.data.problem_list}
       rankings={rankings}
+      rankingsTotal={rankingsTotal}
       fetchRanking={fetchRanking}
       contestId={contestId}
     />
@@ -32,12 +33,14 @@ const ContestContainer = ({ rankings, fetchRanking }) => {
 };
 
 ContestContainer.propTypes = {
-  rankings: PropTypes.object,
+  rankings: PropTypes.array,
+  rankingsTotal: PropTypes.number,
   fetchRanking: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
   rankings: rankingsSelectors.rankingsSelector(state),
+  rankingsTotal: rankingsSelectors.rankingTotalSelector(state),
 });
 
 const mapDispatchToProps = {
