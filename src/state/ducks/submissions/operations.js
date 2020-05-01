@@ -1,5 +1,5 @@
 import axios from "axios";
-import { fetching, receiveRankings } from "./actions";
+import { fetching, receiveSubmissions } from "./actions";
 import mock from "../../../mocks/$mock";
 
 const submissionsOprations = url => dispatch => {
@@ -10,7 +10,7 @@ const submissionsOprations = url => dispatch => {
     .get(url)
     .then(response => {
       const data = { ...response.data };
-      dispatch(receiveRankings(data));
+      dispatch(receiveSubmissions(data));
     })
     .catch(error => {
       console.log(error); // eslint-disable-line
