@@ -33,8 +33,6 @@ export default function Contests(props) {
   const submissions = props.submissions || [];
   const submissionsTotal = props.submissionsTotal || 0;
 
-  console.log(submissions);
-  console.log(submissionsTotal);
   return (
     <div className={classes.root}>
       <ContestTabs

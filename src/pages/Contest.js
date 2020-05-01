@@ -29,7 +29,6 @@ const ContestContainer = ({
     request(endpoint, dispatch);
   }, [endpoint, fetchRanking, contestId, fetchSubmissions]);
 
-  console.log("page", submissions);
   return (
     <ContestTemplate
       contestTopContent={state.data.contest_top_content}
