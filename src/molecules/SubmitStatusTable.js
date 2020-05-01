@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -10,8 +10,8 @@ import Paper from "@material-ui/core/Paper";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-import { reducer } from "../reducer";
-import { request } from "../requests";
+//import { reducer } from "../reducer";
+//import { request } from "../requests";
 import urljoin from "url-join";
 
 const useStyles = makeStyles(() => ({
@@ -28,9 +28,10 @@ const useStyles = makeStyles(() => ({
 
 export default function SubmitStatusTable(props) {
   const classes = useStyles();
-  const [state, dispatch] = useReducer(reducer, { loading: true, data: [] });
+  //const [state, dispatch] = useReducer(reducer, { loading: true, data: [] });
   const contestId = props.contestId || "";
-  const endpoint = urljoin("/contests", contestId, "submits");
+  //const endpoint = urljoin("/contests", contestId, "submits");
+  const submissions = props.submissions || [];
 
   //  const submitStatusLists = props.submitStatusLists;
 
@@ -45,8 +46,8 @@ export default function SubmitStatusTable(props) {
   };
 
   useEffect(() => {
-    request(endpoint, dispatch);
-  }, [endpoint]);
+    //  request(endpoint, dispatch);
+  }, []);
 
   return (
     <Paper className={classes.root} elevation={0}>
@@ -63,7 +64,7 @@ export default function SubmitStatusTable(props) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {Object.values(state.data).map(row => (
+          {submissions.map(row => (
             <TableRow key={row.submit_id} hover>
               <TableCell component="th" scope="row" align="center">
                 <Link to={urljoin("/contests", contestId, "submits", row.submit_id || "")}>#{row.submit_id}</Link>
@@ -84,4 +85,6 @@ export default function SubmitStatusTable(props) {
 
 SubmitStatusTable.propTypes = {
   contestId: PropTypes.string,
+  submissions: PropTypes.array,
+  submissionsTotal: PropTypes.number,
 };
