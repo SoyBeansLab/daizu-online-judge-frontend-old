@@ -37,6 +37,7 @@ export default function ContestTabsPage(props) {
   const classes = useStyles();
   const [value, setValue] = useState(getTabPostion());
   const [rankingTablePage, setRankingTablePage] = useState(1);
+  const [submissionsTablePage, setSubmissionsTablePage] = useState(1);
 
   const contestTopContent = props.contestTopContent || "";
   const problemLists = props.problemLists || [];
@@ -54,13 +55,23 @@ export default function ContestTabsPage(props) {
     setRankingTablePage(val);
   };
 
+  const submissionsPaginationHandler = (event, val) => {
+    setSubmissionsTablePage(val);
+  };
+
   return (
     <div className={classes.root}>
       <ContestTabs tabPosition={value} onChange={handleChange} />
       {value === tabValueList[0] && <TopContents contestTopContent={contestTopContent} />}
       {value === tabValueList[1] && <ProblemsTable problemLists={problemLists} contestId={contestId} />}
       {value === tabValueList[2] && (
-        <SubmitStatusTable contestId={contestId} submissions={submissions} submissionsTotal={submissionsTotal} />
+        <SubmitStatusTable
+          contestId={contestId}
+          submissions={submissions}
+          offset={submissionsTablePage}
+          paginationClickHandler={submissionsPaginationHandler}
+          submissionsTotal={submissionsTotal}
+        />
       )}
       {value === tabValueList[3] && (
         <RankingTable
