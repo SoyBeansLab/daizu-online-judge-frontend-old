@@ -7,7 +7,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import PropTypes from "prop-types";
-import Pagination from "../atoms/app-paginations";
+import Pagination from "../atoms/paginations";
 
 const useStyles = makeStyles(theme => ({
   root: {
