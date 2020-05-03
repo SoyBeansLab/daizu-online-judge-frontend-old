@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useCallback } from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 // タブ
@@ -25,14 +25,14 @@ export default function ContestsListTabs(props) {
   const tabValueList = ["current", "upcoming", "recent"];
 
   const location = useLocation();
-  const getTabPostion = () => {
+  const getTabPostion = useCallback(() => {
     if (!location.search) {
       return tabValueList[0];
     }
 
     const parsed = parse(location.search);
     return parsed.tab;
-  };
+  }, [location, tabValueList]);
 
   const classes = useStyles();
   const [value, setValue] = React.useState(getTabPostion());
@@ -40,6 +40,10 @@ export default function ContestsListTabs(props) {
   const currentContestLists = props.currentContestLists || [];
   const upcomingContestLists = props.upcomingContestLists || [];
   const recentContestLists = props.recentContestLists || [];
+
+  useEffect(() => {
+    setValue(getTabPostion());
+  }, [getTabPostion]);
 
   function handleChange(event, newValue) {
     setValue(newValue);
