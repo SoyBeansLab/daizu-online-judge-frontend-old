@@ -13,6 +13,7 @@ import TitleImage from "../atoms/TitleLogo";
 import Button from "../atoms/Button";
 import Loading from "../atoms/Loading";
 import Pagination from "../atoms/Paginations";
+import Tabs from "../atoms/Tabs";
 
 import { theme } from "../materialui/theme";
 
@@ -47,3 +48,9 @@ export const button = () => <Button to="" text="TEST" />; // 透明なButton
 export const loading = () => <Loading />;
 
 export const pagination = () => <Pagination />;
+
+export const tabs = () => {
+  const labels = ["テスト1", "テスト2", "テスト3", "テスト4"];
+  const tabValueList = ["content1", "content2", "content3", "content4"];
+  return <Tabs labels={labels} tabValueList={tabValueList} tabPosition={tabValueList[0]} />;
+};

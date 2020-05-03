@@ -1,14 +1,12 @@
 import React, { useEffect, useCallback } from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
-// タブ
-import Tab from "@material-ui/core/Tab";
-import Tabs from "@material-ui/core/Tabs";
 // テーブル
-import ContestsTable from "./ContestsTable";
+import ContestsTable from "../molecules/ContestsTable";
 
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { parse } from "query-string";
+import Tabs from "../atoms/Tabs";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -21,8 +19,9 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default function ContestsListTabs(props) {
+export default function ContestsTables(props) {
   const tabValueList = ["current", "upcoming", "recent"];
+  const labelList = ["開催中", "開催予定", "終了予定"];
 
   const location = useLocation();
   const getTabPostion = useCallback(() => {
@@ -51,21 +50,7 @@ export default function ContestsListTabs(props) {
 
   return (
     <div className={classes.root}>
-      <Tabs value={value} onChange={handleChange} indicatorColor="primary" className={classes.tabs}>
-        <Tab
-          label="開催中"
-          value={tabValueList[0]}
-          component={Link}
-          to={`${location.pathname}?tab=${tabValueList[0]}`}
-        />
-        <Tab
-          label="開催予定"
-          value={tabValueList[1]}
-          component={Link}
-          to={`${location.pathname}?tab=${tabValueList[1]}`}
-        />
-        <Tab label="終了" value={tabValueList[2]} component={Link} to={`${location.pathname}?tab=${tabValueList[2]}`} />
-      </Tabs>
+      <Tabs tabPosition={value} onChange={handleChange} labels={labelList} tabValueList={tabValueList} />
       {value === tabValueList[0] && <ContestsTable contestLists={currentContestLists} />}
       {value === tabValueList[1] && <ContestsTable contestLists={upcomingContestLists} />}
       {value === tabValueList[2] && <ContestsTable contestLists={recentContestLists} />}
@@ -73,7 +58,7 @@ export default function ContestsListTabs(props) {
   );
 }
 
-ContestsListTabs.propTypes = {
+ContestsTables.propTypes = {
   currentContestLists: PropTypes.array,
   upcomingContestLists: PropTypes.array,
   recentContestLists: PropTypes.array,
