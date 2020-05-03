@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import PropTypes from "prop-types";
 import { useLocation, useHistory } from "react-router-dom";
 import { parse } from "query-string";
@@ -25,14 +25,14 @@ export default function ContestTabsPage(props) {
   const tabValueList = ["top", "problems", "submits", "ranking"];
 
   const location = useLocation();
-  const getTabPostion = () => {
+  const getTabPostion = useCallback(() => {
     if (!location.search) {
       return tabValueList[0];
     }
 
     const parsed = parse(location.search);
     return parsed.tab;
-  };
+  }, [location, tabValueList]);
 
   const classes = useStyles();
   const [value, setValue] = useState(getTabPostion());
@@ -47,6 +47,10 @@ export default function ContestTabsPage(props) {
   const rankingsTotal = props.rankingsTotal || 5;
   const submissions = props.submissions || [];
   const submissionsTotal = props.submissionsTotal || 0;
+
+  useEffect(() => {
+    setValue(getTabPostion());
+  }, [getTabPostion]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
