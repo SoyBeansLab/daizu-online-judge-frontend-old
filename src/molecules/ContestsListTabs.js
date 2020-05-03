@@ -56,15 +56,15 @@ export default function ContestsListTabs(props) {
           label="開催中"
           value={tabValueList[0]}
           component={Link}
-          to={location.pathname + `?tab=${tabValueList[0]}`}
+          to={`${location.pathname}?tab=${tabValueList[0]}`}
         />
         <Tab
           label="開催予定"
           value={tabValueList[1]}
           component={Link}
-          to={location.pathname + `?tab=${tabValueList[1]}`}
+          to={`${location.pathname}?tab=${tabValueList[1]}`}
         />
-        <Tab label="終了" value={tabValueList[2]} component={Link} to={location.pathname + `?tab=${tabValueList[2]}`} />
+        <Tab label="終了" value={tabValueList[2]} component={Link} to={`${location.pathname}?tab=${tabValueList[2]}`} />
       </Tabs>
       {value === tabValueList[0] && <ContestsTable contestLists={currentContestLists} />}
       {value === tabValueList[1] && <ContestsTable contestLists={upcomingContestLists} />}
