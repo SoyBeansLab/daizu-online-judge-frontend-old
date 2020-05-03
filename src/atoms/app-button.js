@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
+import { Button as MaterialUiButton } from "@material-ui/core/Button";
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -10,19 +10,26 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function LinkButton(props) {
+export default function Button(props) {
   const classes = useStyles();
+
   const text = props.text || "";
   const onClick = props.onClick || function() {};
+  const variant = props.variant || "contained";
+  const color = props.color || "inherit";
+  const style = props.style || classes.button;
 
   return (
-    <Button color="inherit" className={classes.button} onClick={onClick}>
+    <MaterialUiButton color={color} variant={variant} className={style} onClick={onClick}>
       {text}
-    </Button>
+    </MaterialUiButton>
   );
 }
 
-LinkButton.propTypes = {
+Button.propTypes = {
   text: PropTypes.string,
   onClick: PropTypes.func,
+  variant: PropTypes.string,
+  color: PropTypes.string,
+  style: PropTypes.object,
 };
