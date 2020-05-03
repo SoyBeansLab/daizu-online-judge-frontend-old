@@ -3,12 +3,11 @@ import { useParams } from "react-router-dom";
 import SubmitStatusState from "../templates/SubmitStatusStatu";
 import { reducer } from "../reducer";
 import { request } from "../requests";
-import urljoin from "url-join";
 
 export default function SubmitStatusDetail() {
   const [state, dispatch] = useReducer(reducer, { loading: true, data: [] });
   const { contestId, submitId } = useParams();
-  const endpoint = urljoin("/contests", contestId, "/submits/", submitId);
+  const endpoint = `/contests/${contestId}/submits/${submitId}`;
 
   useEffect(() => {
     request(endpoint, dispatch);

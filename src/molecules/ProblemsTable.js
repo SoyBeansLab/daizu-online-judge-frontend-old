@@ -7,7 +7,6 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { Link } from "react-router-dom";
-import urljoin from "url-join";
 import PropTypes from "prop-types";
 
 const useStyles = makeStyles(() => ({
@@ -23,7 +22,7 @@ export default function ProblemsTable(props) {
   const classes = useStyles();
   const problemLists = props.problemLists || [];
   const contestId = props.contestId || "";
-  const problemUrl = urljoin("/contests", contestId, "/problems");
+  const problemUrl = `/contests/${contestId}/problems`;
 
   return (
     <Paper className={classes.root} elevation={0}>
@@ -41,10 +40,10 @@ export default function ProblemsTable(props) {
           {problemLists.map(row => (
             <TableRow key={row.problem_id} hover>
               <TableCell component="th" scope="row" align="center">
-                <Link to={urljoin(problemUrl, row.problem_id)}>{row.problem_order}</Link>
+                <Link to={`${problemUrl}/${row.problem_order}`}>{row.problem_order}</Link>
               </TableCell>
               <TableCell align="center">
-                <Link to={urljoin(problemUrl, row.problem_id)}>{row.problem_name}</Link>
+                <Link to={`${problemUrl}/${row.problem_name}`}>{row.problem_name}</Link>
               </TableCell>
               <TableCell align="center">{row.time_limit}sec</TableCell>
               <TableCell align="center">{row.memory_limit}MB</TableCell>

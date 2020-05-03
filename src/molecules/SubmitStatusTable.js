@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -9,10 +9,6 @@ import Chip from "@material-ui/core/Chip";
 import Paper from "@material-ui/core/Paper";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-
-//import { reducer } from "../reducer";
-//import { request } from "../requests";
-import urljoin from "url-join";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -28,12 +24,8 @@ const useStyles = makeStyles(() => ({
 
 export default function SubmitStatusTable(props) {
   const classes = useStyles();
-  //const [state, dispatch] = useReducer(reducer, { loading: true, data: [] });
   const contestId = props.contestId || "";
-  //const endpoint = urljoin("/contests", contestId, "submits");
   const submissions = props.submissions || [];
-
-  //  const submitStatusLists = props.submitStatusLists;
 
   const chip = result => {
     if (result === "AC") {
@@ -44,10 +36,6 @@ export default function SubmitStatusTable(props) {
       return <Chip label={result} />;
     }
   };
-
-  useEffect(() => {
-    //  request(endpoint, dispatch);
-  }, []);
 
   return (
     <Paper className={classes.root} elevation={0}>
@@ -67,7 +55,7 @@ export default function SubmitStatusTable(props) {
           {submissions.map(row => (
             <TableRow key={row.submit_id} hover>
               <TableCell component="th" scope="row" align="center">
-                <Link to={urljoin("/contests", contestId, "submits", row.submit_id || "")}>#{row.submit_id}</Link>
+                <Link to={`/contests/${contestId}/submits/${row.submit_id}`}>#{row.submit_id}</Link>
               </TableCell>
               <TableCell align="center">{row.username}</TableCell>
               <TableCell align="center">{row.problem_name}</TableCell>

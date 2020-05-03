@@ -5,13 +5,12 @@ import ProblemTemplate from "../templates/Problem";
 import PropTypes from "prop-types";
 import { reducer } from "../reducer";
 import { request } from "../requests";
-import urljoin from "url-join";
 import { languagesOperations, languagesSelectors } from "../state/ducks/languages";
 
 const ProblemContainer = ({ languages, isLanguagesFetched, fetchLanguages }) => {
   const [state, dispatch] = useReducer(reducer, { loading: true, data: [] });
   const { contestId, problemId } = useParams();
-  const endpoint = urljoin("/contests", contestId, "/problems", problemId);
+  const endpoint = `/contests/${contestId}/problems/${problemId}`;
 
   useEffect(() => {
     request(endpoint, dispatch);
@@ -34,7 +33,7 @@ const ProblemContainer = ({ languages, isLanguagesFetched, fetchLanguages }) => 
 };
 
 ProblemContainer.propTypes = {
-  languages: PropTypes.array,
+  languages: PropTypes.object,
   isLanguagesFetched: PropTypes.bool,
   fetchLanguages: PropTypes.func,
 };

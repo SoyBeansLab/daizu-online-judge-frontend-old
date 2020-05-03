@@ -8,7 +8,6 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { Link } from "react-router-dom";
-import urljoin from "url-join";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -26,7 +25,6 @@ export default function ContestsTable(props) {
 
   const contestLists = props.contestLists || [];
 
-  /* eslint-disable no-unused-vars */
   return (
     <Paper className={classes.root} elevation={0}>
       <Table className={classes.table}>
@@ -42,7 +40,7 @@ export default function ContestsTable(props) {
           {contestLists.map(row => (
             <TableRow key={row.contest_id} hover>
               <TableCell component="th" scope="row">
-                <Link to={urljoin("/contests", row.contest_id)}>{row.contest_name}</Link>
+                <Link to={`/contests/${row.contest_id}`}>{row.contest_name}</Link>
               </TableCell>
               <TableCell align="center">{row.contest_date}</TableCell>
               <TableCell align="center">{row.contest_time}</TableCell>
@@ -53,7 +51,6 @@ export default function ContestsTable(props) {
       </Table>
     </Paper>
   );
-  /* eslint-disable no-unused-vars */
 }
 
 ContestsTable.propTypes = {
