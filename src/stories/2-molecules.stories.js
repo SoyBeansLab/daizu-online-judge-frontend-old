@@ -1,5 +1,6 @@
 import React from "react";
 import StoryRouter from "storybook-react-router";
+import { muiTheme } from "storybook-addon-material-ui";
 //import { action } from '@storybook/addon-actions';
 
 import HeaderAppBar from "../molecules/HeaderAppBar";
@@ -17,10 +18,12 @@ import DataTableY from "../molecules/RankingTable";
 import SliderItem from "../molecules/SliderItem";
 import HomeSlider from "../molecules/Slider";
 
+import { theme } from "../materialui/theme";
+
 export default {
   title: "Molecules",
   component: HeaderAppBar,
-  decorators: [StoryRouter()],
+  decorators: [StoryRouter(), muiTheme([theme])],
 };
 
 export const header_appbar = () => <HeaderAppBar />;

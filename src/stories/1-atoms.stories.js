@@ -1,5 +1,6 @@
 import React from "react";
 import StoryRouter from "storybook-react-router";
+import { muiTheme } from "storybook-addon-material-ui";
 
 import CheckBox from "../atoms/CheckBox";
 import CodeBlock from "../atoms/CodeBlock";
@@ -13,10 +14,12 @@ import Button from "../atoms/Button";
 import Loading from "../atoms/Loading";
 import Pagination from "../atoms/Paginations";
 
+import { theme } from "../materialui/theme";
+
 export default {
   title: "Atoms",
   component: Button,
-  decorators: [StoryRouter()],
+  decorators: [StoryRouter(), muiTheme([theme])],
 };
 
 export const check_box = () => <CheckBox checkboxText={"X"} />;
