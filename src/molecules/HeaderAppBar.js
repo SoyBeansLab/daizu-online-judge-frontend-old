@@ -4,7 +4,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Container from "@material-ui/core/Container";
 import LinkButton from "../atoms/app-link-button";
-import Button from "../atoms/app-button";
+import Button from "../atoms/button";
 import LinkTitleImage from "./LinkTitleImage";
 
 export default function HeaderAppBar(props) {
@@ -21,8 +21,8 @@ export default function HeaderAppBar(props) {
 
         <LinkButton to="/" text="HOME" />
         <LinkButton to="/contests" text="CONTESTS" />
-        {!isAuthenticated && <Button text="SIGN IN" onClick={loginWithRedirect} />}
-        {isAuthenticated && <Button text="SIGN OUT" onClick={loginWithRedirect} />}
+        {!isAuthenticated && <Button text="SIGN IN" variant="text" onClick={loginWithRedirect} />}
+        {isAuthenticated && <Button text="SIGN OUT" variant="text" onClick={loginWithRedirect} />}
       </Toolbar>
     </AppBar>
   );
