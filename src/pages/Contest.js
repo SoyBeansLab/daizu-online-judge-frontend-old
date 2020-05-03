@@ -34,7 +34,6 @@ const ContestContainer = ({
       problemLists={state.data.problem_list}
       rankings={rankings}
       rankingsTotal={rankingsTotal}
-      fetchRanking={fetchRanking}
       contestId={contestId}
       submissions={submissions}
       submissionsTotal={submissionsTotal}
