@@ -38,9 +38,9 @@ export default function ProblemInfo(props) {
       <Typography className={classes.typography} variant="subtitle1">
         配点: {score} 点
       </Typography>
-      <Divider className={classes.divider} variant="fullwidth" />
+      <Divider className={classes.divider} variant="fullWidth" />
       <MarkDown className={classes.markdown} source={problemText} />
-      <Divider className={classes.divider} variant="fullwidth" />
+      <Divider className={classes.divider} variant="fullWidth" />
     </div>
   );
 }
