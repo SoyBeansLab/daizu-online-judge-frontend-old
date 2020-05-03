@@ -26,6 +26,7 @@ export default function Button(props) {
   );
 }
 
+// 受け取れるpropsの説明についてはMaterial UIのButtonのpropsを確認
 Button.propTypes = {
   text: PropTypes.string,
   onClick: PropTypes.func,
