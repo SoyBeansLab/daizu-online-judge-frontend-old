@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
-import { Button as MaterialUiButton } from "@material-ui/core/Button";
+import Button from "@material-ui/core/Button";
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Button(props) {
+export default function ButtonAtom(props) {
   const classes = useStyles();
 
   const text = props.text || "";
@@ -20,14 +20,14 @@ export default function Button(props) {
   const style = props.style || classes.button;
 
   return (
-    <MaterialUiButton color={color} variant={variant} className={style} onClick={onClick}>
+    <Button color={color} variant={variant} className={style} onClick={onClick}>
       {text}
-    </MaterialUiButton>
+    </Button>
   );
 }
 
 // 受け取れるpropsの説明についてはMaterial UIのButtonのpropsを確認
-Button.propTypes = {
+ButtonAtom.propTypes = {
   text: PropTypes.string,
   onClick: PropTypes.func,
   variant: PropTypes.string,
