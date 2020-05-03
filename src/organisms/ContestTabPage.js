@@ -52,16 +52,16 @@ export default function ContestTabsPage(props) {
     setValue(getTabPostion());
   }, [getTabPostion]);
 
-  const handleChange = (event, newValue) => {
+  const handleChange = (_, newValue) => {
     setValue(newValue);
   };
 
-  const rankingPaginationHandler = (event, val) => {
+  const rankingPaginationHandler = (_, val) => {
     history.push(`${location.pathname}?tab=ranking&page=${val}`);
     setRankingTablePage(val);
   };
 
-  const submissionsPaginationHandler = (event, val) => {
+  const submissionsPaginationHandler = (_, val) => {
     history.push(`${location.pathname}?tab=submits&page=${val}`);
     setSubmissionsTablePage(val);
   };

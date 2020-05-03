@@ -56,7 +56,7 @@ export default function RankingTable(props) {
           </TableBody>
         </Table>
       </Paper>
-      <Pagination offset={offset} total={total} onClick={(event, offset) => paginationClickHandler(event, offset)} />
+      <Pagination offset={offset} total={total} onClick={(_, offset) => paginationClickHandler(_, offset)} />
     </div>
   );
 }
