@@ -1,6 +1,6 @@
 import React from "react";
 import Slider from "react-slick";
-import Button from "./app-button-normal";
+import Button from "./Button";
 import Card from "../pages/temp/test-card";
 
 import "slick-carousel/slick/slick.css";

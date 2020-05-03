@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Container from "@material-ui/core/Container";
-import LinkButton from "../atoms/app-link-button";
-import Button from "../atoms/button";
+import LinkButton from "../atoms/LinkButton";
+import Button from "../atoms/Button";
 import LinkTitleImage from "./LinkTitleImage";
 
 export default function HeaderAppBar(props) {
