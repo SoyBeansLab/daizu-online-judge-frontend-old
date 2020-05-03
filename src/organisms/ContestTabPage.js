@@ -4,11 +4,11 @@ import { useLocation, useHistory } from "react-router-dom";
 import { parse } from "query-string";
 import { makeStyles } from "@material-ui/core/styles";
 
-import ContestTabs from "../molecules/ContestTabs";
 import ProblemsTable from "../molecules/ProblemsTable";
 import SubmitStatusTable from "../molecules/SubmitStatusTable";
 import RankingTable from "../molecules/RankingTable";
 import TopContents from "../molecules/ContestTopContents";
+import Tabs from "../atoms/Tabs";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -23,6 +23,7 @@ const useStyles = makeStyles(() => ({
 
 export default function ContestTabsPage(props) {
   const tabValueList = ["top", "problems", "submits", "ranking"];
+  const labelList = ["トップ", "問題一覧", "提出状況", "ランキング"];
 
   const location = useLocation();
   const getTabPostion = useCallback(() => {
@@ -52,23 +53,23 @@ export default function ContestTabsPage(props) {
     setValue(getTabPostion());
   }, [getTabPostion]);
 
-  const handleChange = (event, newValue) => {
+  const handleChange = (_, newValue) => {
     setValue(newValue);
   };
 
-  const rankingPaginationHandler = (event, val) => {
+  const rankingPaginationHandler = (_, val) => {
     history.push(`${location.pathname}?tab=ranking&page=${val}`);
     setRankingTablePage(val);
   };
 
-  const submissionsPaginationHandler = (event, val) => {
+  const submissionsPaginationHandler = (_, val) => {
     history.push(`${location.pathname}?tab=submits&page=${val}`);
     setSubmissionsTablePage(val);
   };
 
   return (
     <div className={classes.root}>
-      <ContestTabs tabPosition={value} onChange={handleChange} />
+      <Tabs tabPosition={value} onChange={handleChange} tabValueList={tabValueList} labels={labelList} />
       {value === tabValueList[0] && <TopContents contestTopContent={contestTopContent} />}
       {value === tabValueList[1] && <ProblemsTable problemLists={problemLists} contestId={contestId} />}
       {value === tabValueList[2] && (

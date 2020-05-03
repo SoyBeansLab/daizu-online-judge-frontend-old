@@ -21,24 +21,24 @@ export default function ContestsListTabs(props) {
 
   return (
     <Tabs value={tabPosition} onChange={handleChange} indicatorColor="primary" className={classes.tabs}>
-      <Tab label="トップ" value={tabValueList[0]} component={Link} to={location.pathname + `?tab=${tabValueList[0]}`} />
+      <Tab label="トップ" value={tabValueList[0]} component={Link} to={`${location.pathname}?tab=${tabValueList[0]}`} />
       <Tab
         label="問題一覧"
         value={tabValueList[1]}
         component={Link}
-        to={location.pathname + `?tab=${tabValueList[1]}`}
+        to={`${location.pathname}?tab=${tabValueList[1]}`}
       />
       <Tab
         label="提出状況"
         value={tabValueList[2]}
         component={Link}
-        to={location.pathname + `?tab=${tabValueList[2]}`}
+        to={`${location.pathname}?tab=${tabValueList[2]}`}
       />
       <Tab
         label="ランキング"
         value={tabValueList[3]}
         component={Link}
-        to={location.pathname + `?tab=${tabValueList[3]}`}
+        to={`${location.pathname}?tab=${tabValueList[3]}`}
       />
     </Tabs>
   );

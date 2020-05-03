@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import ContestsListTabs from "../molecules/ContestsListTabs";
 import { makeStyles } from "@material-ui/core/styles";
 import Typograhy from "@material-ui/core/Typography";
+
+import ContestsTable from "../organisms/ContestsTable";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -28,7 +29,7 @@ export default function Contests(props) {
       <Typograhy variant="h5" className={classes.heading}>
         コンテスト一覧
       </Typograhy>
-      <ContestsListTabs
+      <ContestsTable
         currentContestLists={Object.values(currentContestLists)}
         upcomingContestLists={Object.values(upcomingContestLists)}
         recentContestLists={Object.values(recentContestLists)}
