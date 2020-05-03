@@ -6,7 +6,6 @@ import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { Link } from "react-router-dom";
-import urljoin from "url-join";
 import PropTypes from "prop-types";
 
 const useStyles = makeStyles(theme => ({
@@ -64,7 +63,7 @@ export default function SliderItem(props) {
             variant="contained"
             className={classes.button}
             component={Link}
-            to={urljoin("/contests", contestId)}
+            to={`/contests/${contestId}`}
           >
             参加する
           </Button>

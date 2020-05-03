@@ -6,7 +6,6 @@ import ContestTemplate from "../templates/Contest";
 import { reducer } from "../reducer";
 //import axios from "axios";
 import { request } from "../requests";
-import urljoin from "url-join";
 //import { config } from "../config";
 import { rankingsOperations, rankingsSelectors } from "../state/ducks/rankings";
 import { submissionsOperations, submissionsSelectors } from "../state/ducks/submissions";
@@ -21,7 +20,7 @@ const ContestContainer = ({
 }) => {
   const [state, dispatch] = useReducer(reducer, { loading: true, data: [] });
   const { contestId } = useParams(); // url paramから取得
-  const endpoint = urljoin("/contests", contestId);
+  const endpoint = `/contests/${contestId}`;
 
   useEffect(() => {
     fetchRanking(`/contests/${contestId}/ranking`);
