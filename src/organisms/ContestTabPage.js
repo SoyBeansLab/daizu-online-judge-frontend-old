@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { useLocation } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 import { parse } from "query-string";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -38,6 +38,7 @@ export default function ContestTabsPage(props) {
   const [value, setValue] = useState(getTabPostion());
   const [rankingTablePage, setRankingTablePage] = useState(1);
   const [submissionsTablePage, setSubmissionsTablePage] = useState(1);
+  const history = useHistory();
 
   const contestTopContent = props.contestTopContent || "";
   const problemLists = props.problemLists || [];
@@ -52,10 +53,12 @@ export default function ContestTabsPage(props) {
   };
 
   const rankingPaginationHandler = (event, val) => {
+    history.push(`${location.pathname}?tab=ranking&page=${val}`);
     setRankingTablePage(val);
   };
 
   const submissionsPaginationHandler = (event, val) => {
+    history.push(`${location.pathname}?tab=submits&page=${val}`);
     setSubmissionsTablePage(val);
   };
 
