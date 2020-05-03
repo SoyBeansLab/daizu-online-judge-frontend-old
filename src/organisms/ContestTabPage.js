@@ -40,18 +40,13 @@ export default function ContestTabsPage(props) {
 
   const contestTopContent = props.contestTopContent || "";
   const problemLists = props.problemLists || [];
-  //const submitStatusLists = props.submitStatusLists;
   const rankings = props.rankings || [];
-  const fetchRanking = props.fetchRanking || (() => {});
   const contestId = props.contestId || "";
   const rankingsTotal = props.rankingsTotal || 5;
   const submissions = props.submissions || [];
   const submissionsTotal = props.submissionsTotal || 0;
 
   const handleChange = (event, newValue) => {
-    if (newValue === tabValueList[3]) {
-      fetchRanking(`/contests/${contestId}/ranking`);
-    }
     setValue(newValue);
   };
 
@@ -83,7 +78,6 @@ export default function ContestTabsPage(props) {
 ContestTabsPage.propTypes = {
   contestTopContent: PropTypes.string,
   problemLists: PropTypes.array,
-  //submitStatusLists: PropTypes.array,
   contestId: PropTypes.string,
   rankings: PropTypes.array,
   fetchRanking: PropTypes.func,

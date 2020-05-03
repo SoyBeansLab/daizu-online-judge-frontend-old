@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Copyright from "../atoms/app-copyright-text";
+import Copyright from "../atoms/Copyright";
 
 const useStyles = makeStyles(theme => ({
   root: {

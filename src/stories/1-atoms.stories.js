@@ -1,32 +1,26 @@
 import React from "react";
 import StoryRouter from "storybook-react-router";
-//import { action } from '@storybook/addon-actions';
+import { muiTheme } from "storybook-addon-material-ui";
 
-import NormalButton from "../atoms/app-button-normal";
-import TextButton from "../atoms/app-button-text";
-import CheckBox from "../atoms/app-checkbox";
-import CodeBlock from "../atoms/app-code-block";
-import DataTable from "../atoms/app-dataTable";
-//import Footer from "../atoms/app-footer";
-//import Header from "../atoms/app-header";
-import SimpleTab from "../atoms/app-simpleTab";
-import SimpleSlider from "../atoms/app-slider";
-import SourceCodeField from "../atoms/app-sourcecode-field";
-import CopyRight from "../atoms/app-copyright-text";
-import TitleImage from "../atoms/app-title-image";
-import LinkButton from "../atoms/app-link-button";
-import Loading from "../atoms/app-loading";
-import Pagination from "../atoms/app-paginations";
+import CheckBox from "../atoms/CheckBox";
+import CodeBlock from "../atoms/CodeBlock";
+import DataTable from "../atoms/DataTable";
+import SimpleTab from "../atoms/SimpleTab";
+import SimpleSlider from "../atoms/Slider";
+import SourceCodeField from "../atoms/SourceCodeField";
+import CopyRight from "../atoms/Copyright";
+import TitleImage from "../atoms/TitleLogo";
+import Button from "../atoms/Button";
+import Loading from "../atoms/Loading";
+import Pagination from "../atoms/Paginations";
+
+import { theme } from "../materialui/theme";
 
 export default {
   title: "Atoms",
-  component: NormalButton,
-  decorators: [StoryRouter()],
+  component: Button,
+  decorators: [StoryRouter(), muiTheme([theme])],
 };
-
-export const normal_button = () => <NormalButton buttonText={"click"} />;
-
-export const text_button = () => <TextButton buttonText={"click"} />;
 
 export const check_box = () => <CheckBox checkboxText={"X"} />;
 
@@ -48,7 +42,7 @@ export const copyright = () => <CopyRight />;
 
 export const title_image = () => <TitleImage />;
 
-export const link_button = () => <LinkButton to="" text="TEST" />; // 透明なButton
+export const button = () => <Button to="" text="TEST" />; // 透明なButton
 
 export const loading = () => <Loading />;
 

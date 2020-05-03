@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typograhy from "@material-ui/core/Typography";
-import CodeBlock from "../atoms/app-code-block";
+import CodeBlock from "../atoms/CodeBlock";
 import SubmitStatusDetailTable from "../molecules/SubmitStatusDetailTable";
 
 const useStyles = makeStyles(theme => ({

@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import TitleImage from "../atoms/app-title-image";
+import TitleLogo from "../atoms/TitleLogo";
 
 export default function LinkTitleImage() {
   return (
     <Link to="/">
-      <TitleImage />
+      <TitleLogo />
     </Link>
   );
 }

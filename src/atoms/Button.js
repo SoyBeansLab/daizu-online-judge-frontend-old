@@ -10,19 +10,27 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function LinkButton(props) {
+export default function ButtonAtom(props) {
   const classes = useStyles();
+
   const text = props.text || "";
   const onClick = props.onClick || function() {};
+  const variant = props.variant || "contained";
+  const color = props.color || "inherit";
+  const style = props.style || classes.button;
 
   return (
-    <Button color="inherit" className={classes.button} onClick={onClick}>
+    <Button color={color} variant={variant} className={style} onClick={onClick}>
       {text}
     </Button>
   );
 }
 
-LinkButton.propTypes = {
+// 受け取れるpropsの説明についてはMaterial UIのButtonのpropsを確認
+ButtonAtom.propTypes = {
   text: PropTypes.string,
   onClick: PropTypes.func,
+  variant: PropTypes.string,
+  color: PropTypes.string,
+  style: PropTypes.object,
 };
