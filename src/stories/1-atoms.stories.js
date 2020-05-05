@@ -14,6 +14,7 @@ import Button from "../atoms/Button";
 import Loading from "../atoms/Loading";
 import Pagination from "../atoms/Paginations";
 import Tabs from "../atoms/Tabs";
+import Blockqoute from "../atoms/Blockqoute";
 
 import { theme } from "../materialui/theme";
 
@@ -53,4 +54,14 @@ export const tabs = () => {
   const labels = ["テスト1", "テスト2", "テスト3", "テスト4"];
   const tabValueList = ["content1", "content2", "content3", "content4"];
   return <Tabs labels={labels} tabValueList={tabValueList} tabPosition={tabValueList[0]} />;
+};
+
+export const blockqoute = () => {
+  return (
+    <div>
+      <Blockqoute color="info" text="info" />
+      <Blockqoute color="warning" text="warning" />
+      <Blockqoute color="error" text="error" />
+    </div>
+  );
 };
