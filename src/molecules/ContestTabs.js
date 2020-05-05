@@ -11,7 +11,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default function ContestsListTabs(props) {
+export default function ContestTabs(props) {
   const tabValueList = ["top", "problems", "submits", "ranking"];
   const classes = useStyles();
   const location = useLocation();
@@ -44,7 +44,7 @@ export default function ContestsListTabs(props) {
   );
 }
 
-ContestsListTabs.propTypes = {
+ContestTabs.propTypes = {
   tabPosition: PropTypes.string,
   onChange: PropTypes.func,
 };
