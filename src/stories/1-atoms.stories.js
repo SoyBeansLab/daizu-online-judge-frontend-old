@@ -6,7 +6,6 @@ import CheckBox from "../atoms/CheckBox";
 import CodeBlock from "../atoms/CodeBlock";
 import DataTable from "../atoms/DataTable";
 import SimpleTab from "../atoms/SimpleTab";
-import SimpleSlider from "../atoms/Slider";
 import SourceCodeField from "../atoms/SourceCodeField";
 import CopyRight from "../atoms/Copyright";
 import TitleImage from "../atoms/TitleLogo";
@@ -35,8 +34,6 @@ export const data_table = () => <DataTable />;
 // export const feader = () => <Header />;
 
 export const simple_tab = () => <SimpleTab />;
-
-export const simple_slider = () => <SimpleSlider />;
 
 export const source_code_field = () => <SourceCodeField />;
 
