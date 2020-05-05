@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Slider from "react-slick";
 import { makeStyles } from "@material-ui/core/styles";
-import SliderItem from "./SliderItem";
+import SliderItem from "../molecules/SliderItem";
 
 const useStyles = makeStyles(theme => ({
   root: {

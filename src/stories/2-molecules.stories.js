@@ -15,7 +15,6 @@ import ProblemInfo from "../molecules/ProblemInfo";
 import DataTableX from "../molecules/ProblemsTable";
 import DataTableY from "../molecules/RankingTable";
 import SliderItem from "../molecules/SliderItem";
-import HomeSlider from "../molecules/Slider";
 
 import { theme } from "../materialui/theme";
 
@@ -48,21 +47,3 @@ export const problems_table = () => <DataTableX />;
 export const ranking_table = () => <DataTableY />;
 
 export const slider_item = () => <SliderItem />;
-
-const sliderTestData = [
-  {
-    contestId: "hoge",
-    contestName: "hoge",
-    contestDate: "hoge/hoge/hoge",
-    contestTime: 120,
-    contestDescription: "hogehoge",
-  },
-  {
-    contestId: "hoge2",
-    contestName: "hoge2",
-    contestDate: "hoge/hoge/hoge",
-    contestTime: 120,
-    contestDescription: "hogehoge",
-  },
-];
-export const slider = () => <HomeSlider slideItemList={sliderTestData} />;
