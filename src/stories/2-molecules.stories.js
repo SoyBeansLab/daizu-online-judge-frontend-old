@@ -10,7 +10,6 @@ import ContestTabs from "../molecules/ContestTabs";
 import DataTable from "../molecules/SubmitStatusTable";
 import SubmitStatusTable from "../molecules/SubmitStatusDetailTable";
 import ContestTopContents from "../molecules/ContestTopContents";
-import ContestsListTabs from "../molecules/ContestsListTabs";
 import ContestsTable from "../molecules/ContestsTable";
 import ProblemInfo from "../molecules/ProblemInfo";
 import DataTableX from "../molecules/ProblemsTable";
@@ -39,8 +38,6 @@ export const submit_status_table = () => <DataTable />;
 export const submit_status_detail = () => <SubmitStatusTable />;
 
 export const contest_top_content = () => <ContestTopContents contestTopContent="# test" />;
-
-export const contests_list_tab = () => <ContestsListTabs />;
 
 export const contests_table = () => <ContestsTable />;
 
