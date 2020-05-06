@@ -30,7 +30,12 @@ export default function Header() {
 
   return (
     <div className={classes.root}>
-      <HeaderAppBar user={user} isAuthenticated={isAuthenticated} loginWithRedirect={loginWithRedirect} />
+      <HeaderAppBar
+        user={user}
+        isAuthenticated={isAuthenticated}
+        loginWithRedirect={loginWithRedirect}
+        logoutWithRedirect={logoutWithRedirect}
+      />
     </div>
   );
 }
