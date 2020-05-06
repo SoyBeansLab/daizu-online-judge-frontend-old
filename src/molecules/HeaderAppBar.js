@@ -11,6 +11,7 @@ export default function HeaderAppBar(props) {
   // const user = props.user;
   const isAuthenticated = props.isAuthenticated;
   const loginWithRedirect = props.loginWithRedirect;
+  const logoutWithRedirect = props.logoutWithRedirect;
 
   return (
     <AppBar color="primary" position="static">
@@ -22,7 +23,7 @@ export default function HeaderAppBar(props) {
         <LinkButton to="/" text="HOME" />
         <LinkButton to="/contests" text="CONTESTS" />
         {!isAuthenticated && <Button text="SIGN IN" variant="text" onClick={loginWithRedirect} />}
-        {isAuthenticated && <Button text="SIGN OUT" variant="text" onClick={loginWithRedirect} />}
+        {isAuthenticated && <Button text="SIGN OUT" variant="text" onClick={logoutWithRedirect} />}
       </Toolbar>
     </AppBar>
   );
@@ -32,4 +33,5 @@ HeaderAppBar.propTypes = {
   user: PropTypes.object,
   isAuthenticated: PropTypes.bool,
   loginWithRedirect: PropTypes.func,
+  logoutWithRedirect: PropTypes.func,
 };
