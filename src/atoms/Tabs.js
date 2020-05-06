@@ -15,10 +15,10 @@ export default function Tabs(props) {
   const classes = useStyles();
   const location = useLocation();
 
-  const tabPosition = props.tabPosition || "";
-  const handleChange = props.onChange || (() => {});
-  const tabValueList = props.tabValueList || [];
-  const labels = props.labels || [];
+  const tabPosition = props.tabPosition;
+  const handleChange = props.onChange;
+  const tabValueList = props.tabValueList;
+  const labels = props.labels;
 
   return (
     <MaterialUITabs value={tabPosition} onChange={handleChange} indicatorColor="primary" className={classes.tabs}>

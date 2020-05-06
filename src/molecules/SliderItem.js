@@ -38,11 +38,11 @@ const useStyles = makeStyles(theme => ({
 export default function SliderItem(props) {
   const classes = useStyles();
 
-  const contestId = props.contestId || "";
-  const contestName = props.contestName || "";
-  const contestDate = props.contestDate || "";
-  const contestTime = props.contestTime || 0;
-  const contestDescription = props.contestDescription || "";
+  const contestId = props.contestId;
+  const contestName = props.contestName;
+  const contestDate = props.contestDate;
+  const contestTime = props.contestTime;
+  const contestDescription = props.contestDescription;
 
   return (
     <div className={classes.root}>

@@ -20,9 +20,9 @@ const useStyles = makeStyles(theme => ({
 export default function Contests(props) {
   const classes = useStyles();
 
-  const currentContestLists = props.currentContestLists || [];
-  const upcomingContestLists = props.upcomingContestLists || [];
-  const recentContestLists = props.recentContestLists || [];
+  const currentContestLists = props.currentContestLists;
+  const upcomingContestLists = props.upcomingContestLists;
+  const recentContestLists = props.recentContestLists;
 
   return (
     <div className={classes.root}>
@@ -30,9 +30,9 @@ export default function Contests(props) {
         コンテスト一覧
       </Typograhy>
       <ContestsTable
-        currentContestLists={Object.values(currentContestLists)}
-        upcomingContestLists={Object.values(upcomingContestLists)}
-        recentContestLists={Object.values(recentContestLists)}
+        currentContestLists={currentContestLists}
+        upcomingContestLists={upcomingContestLists}
+        recentContestLists={recentContestLists}
       />
     </div>
   );
