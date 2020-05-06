@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import ContestsTemplate from "../templates/Contests.js";
 import { contestsOperations, contestsSelectors } from "../state/ducks/contests";
 
-const ContestsContainer = ({ contests, isfetched, fetch }) => {
+const ContestsContainer = ({ currentContests, upcomingContests, recentContests, isfetched, fetch }) => {
   const endpoint = "/contests";
 
   useEffect(() => {
@@ -15,25 +15,25 @@ const ContestsContainer = ({ contests, isfetched, fetch }) => {
 
   return (
     <ContestsTemplate
-      currentContestLists={contests.current}
-      upcomingContestLists={contests.upcoming}
-      recentContestLists={contests.recent}
+      currentContestLists={currentContests}
+      upcomingContestLists={upcomingContests}
+      recentContestLists={recentContests}
     />
   );
 };
 
 ContestsContainer.propTypes = {
-  contests: PropTypes.shape({
-    current: PropTypes.array,
-    upcoming: PropTypes.array,
-    recent: PropTypes.array,
-  }),
+  currentContests: PropTypes.array,
+  upcomingContests: PropTypes.array,
+  recentContests: PropTypes.array,
   fetch: PropTypes.func,
   isfetched: PropTypes.bool,
 };
 
 const mapStateToProps = state => ({
-  contests: contestsSelectors.contestsSelector(state),
+  currentContests: contestsSelectors.currentContestsSelector(state),
+  upcomingContests: contestsSelectors.upcomingContestsSelector(state),
+  recentContests: contestsSelectors.recentContestsSelector(state),
   isfetched: contestsSelectors.isfetched(state),
 });
 
