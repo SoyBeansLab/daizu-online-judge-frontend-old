@@ -5,11 +5,11 @@ import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
-import Chip from "@material-ui/core/Chip";
 import Paper from "@material-ui/core/Paper";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Pagination from "../atoms/Paginations";
+import Chip from "../atoms/Chip";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -23,9 +23,6 @@ const useStyles = makeStyles(theme => ({
   table: {
     minWidth: 650,
   },
-  chip: {
-    color: "#f5f5f5",
-  },
 }));
 
 export default function SubmitStatusTable(props) {
@@ -35,16 +32,6 @@ export default function SubmitStatusTable(props) {
   const total = props.submissionsTotal;
   const offset = props.offset;
   const paginationClickHandler = props.paginationClickHandler;
-
-  const chip = result => {
-    if (result === "AC") {
-      return <Chip color="primary" className={classes.chip} label={result} />;
-    } else if (result === "WA" || result === "TLE") {
-      return <Chip color="secondary" label={result} />;
-    } else {
-      return <Chip label={result} />;
-    }
-  };
 
   return (
     <div className={classes.root}>
@@ -69,7 +56,9 @@ export default function SubmitStatusTable(props) {
                 </TableCell>
                 <TableCell align="center">{row.username}</TableCell>
                 <TableCell align="center">{row.problem_name}</TableCell>
-                <TableCell align="center">{chip(row.result)}</TableCell>
+                <TableCell align="center">
+                  <Chip result={row.result} />
+                </TableCell>
                 <TableCell align="center">{row.language}</TableCell>
                 <TableCell align="center">{row.score}</TableCell>
                 <TableCell align="center">{row.submit_date}</TableCell>
