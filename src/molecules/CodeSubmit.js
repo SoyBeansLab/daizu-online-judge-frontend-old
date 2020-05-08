@@ -36,8 +36,7 @@ export default function CodeSubmit(props) {
     codeLanguage: "",
   });
 
-  // `value1 || value2`でvalue1がundefinedだったときにvalue2を返す
-  const languageLists = Object.values(props.languageLists || {});
+  const languageLists = props.languageLists;
   const languageDictionary = (() => {
     var result = {};
     languageLists.forEach((element, idx) => {
@@ -47,10 +46,13 @@ export default function CodeSubmit(props) {
   })();
 
   function handleChangeSelect(event) {
+    console.log(languageDictionary);
+    console.log(event.target);
     setState(oldState => ({
       ...oldState,
       codeLanguage: event.target.value,
     }));
+    console.log(state);
   }
 
   // 提出するときの処理

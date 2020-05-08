@@ -16,8 +16,8 @@ export default function ContestTabs(props) {
   const classes = useStyles();
   const location = useLocation();
 
-  const tabPosition = props.tabPosition || "";
-  const handleChange = props.onChange || (() => {});
+  const tabPosition = props.tabPosition;
+  const handleChange = props.onChange;
 
   return (
     <Tabs value={tabPosition} onChange={handleChange} indicatorColor="primary" className={classes.tabs}>

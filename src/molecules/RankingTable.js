@@ -25,10 +25,10 @@ const useStyles = makeStyles(theme => ({
 
 export default function RankingTable(props) {
   const classes = useStyles();
-  const offset = props.offset || 1;
-  const total = props.total || 5;
-  const paginationClickHandler = props.paginationClickHandler || (() => {});
-  const rankings = props.rankings || [];
+  const offset = props.offset;
+  const total = props.total;
+  const paginationClickHandler = props.paginationClickHandler;
+  const rankings = props.rankings;
 
   return (
     <div className={classes.root}>

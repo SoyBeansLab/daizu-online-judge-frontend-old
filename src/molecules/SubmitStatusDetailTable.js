@@ -30,15 +30,15 @@ function createData(key, value) {
 export default function SubmitStatusDetail(props) {
   const classes = useStyles();
 
-  const submitDate = props.submitDate || "";
-  const problemName = props.problemName || "";
-  const userName = props.userName || "";
-  const language = props.language || "";
-  const score = props.score || 0;
-  const result = props.result || "";
-  const executeTime = props.executeTime || 0;
-  const memory = props.memory || 0;
-  const testCase = props.testCase || "";
+  const submitDate = props.submitDate;
+  const problemName = props.problemName;
+  const userName = props.userName;
+  const language = props.language;
+  const score = props.score;
+  const result = props.result;
+  const executeTime = props.executeTime;
+  const memory = props.memory;
+  const testCase = props.testCase;
 
   const chip = () => {
     if (result === "AC") {
@@ -55,7 +55,7 @@ export default function SubmitStatusDetail(props) {
     createData("問題", <Link href="">{problemName}</Link>),
     createData("ユーザ", <Link href="">{userName}</Link>),
     createData("言語", language),
-    createData("得点", score || 0),
+    createData("得点", score),
     createData("テストケース通過数(通過数/全体)", testCase),
     createData("結果", chip()),
     createData("実行時間", executeTime + " ms"),

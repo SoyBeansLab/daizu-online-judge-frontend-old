@@ -20,8 +20,8 @@ const useStyles = makeStyles(() => ({
 
 export default function ProblemsTable(props) {
   const classes = useStyles();
-  const problemLists = props.problemLists || [];
-  const contestId = props.contestId || "";
+  const problemLists = props.problemLists;
+  const contestId = props.contestId;
   const problemUrl = `/contests/${contestId}/problems`;
 
   return (
