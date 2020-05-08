@@ -14,23 +14,15 @@ const useStyles = makeStyles(theme => ({
 export default function Contests(props) {
   const classes = useStyles();
 
-  const checkUndefined = (v, d) => {
-    if (typeof v === "undefined") {
-      return d;
-    } else {
-      return v;
-    }
-  };
-
-  const contestTopContent = props.contestTopContent;
-  const problemLists = checkUndefined(props.problemLists, []);
-  const submitStatusLists = checkUndefined(props.submitStatusLists, []);
+  const contestTopContent = props.contestTopContent || "";
+  const problemLists = props.problemLists || [];
+  const submitStatusLists = props.submitStatusLists;
   //const rankingLists = checkUndefined(props.rankingLists, []);
-  const contestId = checkUndefined(props.contestId, "");
-  const rankings = props.rankings || [];
-  const rankingsTotal = props.rankingsTotal || 0;
-  const submissions = props.submissions || [];
-  const submissionsTotal = props.submissionsTotal || 0;
+  const contestId = props.contestId;
+  const rankings = props.rankings;
+  const rankingsTotal = props.rankingsTotal;
+  const submissions = props.submissions;
+  const submissionsTotal = props.submissionsTotal;
 
   return (
     <div className={classes.root}>
@@ -39,7 +31,7 @@ export default function Contests(props) {
         problemLists={problemLists}
         submitStatusLists={submitStatusLists}
         contestId={contestId}
-        rankings={Object.values(rankings)}
+        rankings={rankings}
         rankingsTotal={rankingsTotal}
         submissions={submissions}
         submissionsTotal={submissionsTotal}

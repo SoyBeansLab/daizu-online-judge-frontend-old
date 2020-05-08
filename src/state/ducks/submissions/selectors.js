@@ -1,8 +1,8 @@
 import { createSelector } from "reselect";
 
-const submissionsTotalSelector = state => state.submissionsState.submissions.data.total;
+const submissionsTotalSelector = state => state.submissionsState.submissions.data.total || 10;
 
-const submissionsSelector = state => state.submissionsState.submissions.data.data;
+const submissionsSelector = state => state.submissionsState.submissions.data.data || [];
 
 const limitedSubmissionsSelector = createSelector(submissionsSelector, submissions => submissions);
 

@@ -41,6 +41,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prettier-watch": "onchange './src/**/*.{js,scss,json,css}' -- prettier --config ./.prettierrc.json --write {{changed}}",
+    "fmt": "prettier --write src/**/*.js",
     "mock": "node ./node_modules/axios-mock-server/bin/index.js -b",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"

@@ -20,12 +20,12 @@ const useStyles = makeStyles(theme => ({
 export default function ProblemInfo(props) {
   const classes = useStyles();
 
-  const problemID = props.problemID || "";
-  const problemName = props.problemName || "";
-  const timeLimit = props.problemName || 120;
-  const memoryLimit = props.memoryLimit || 256;
-  const score = props.score || 0;
-  const problemText = props.problemText || "";
+  const problemID = props.problemID;
+  const problemName = props.problemName;
+  const timeLimit = props.timeLimit;
+  const memoryLimit = props.memoryLimit;
+  const score = props.score;
+  const problemText = props.problemText;
 
   return (
     <div className="problem-info">

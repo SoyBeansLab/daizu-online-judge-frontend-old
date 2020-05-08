@@ -41,13 +41,13 @@ export default function ContestTabsPage(props) {
   const [submissionsTablePage, setSubmissionsTablePage] = useState(1);
   const history = useHistory();
 
-  const contestTopContent = props.contestTopContent || "";
-  const problemLists = props.problemLists || [];
-  const rankings = props.rankings || [];
-  const contestId = props.contestId || "";
-  const rankingsTotal = props.rankingsTotal || 5;
-  const submissions = props.submissions || [];
-  const submissionsTotal = props.submissionsTotal || 0;
+  const contestTopContent = props.contestTopContent;
+  const problemLists = props.problemLists;
+  const rankings = props.rankings;
+  const contestId = props.contestId;
+  const rankingsTotal = props.rankingsTotal;
+  const submissions = props.submissions;
+  const submissionsTotal = props.submissionsTotal;
 
   useEffect(() => {
     setValue(getTabPostion());

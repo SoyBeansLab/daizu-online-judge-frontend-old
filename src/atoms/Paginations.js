@@ -4,10 +4,10 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import FlatPagination from "material-ui-flat-pagination";
 
 export default function Pagination(props) {
-  const limit = props.limit || 10;
-  const offset = props.offset || 0;
-  const total = props.total || 10;
-  const onClick = props.onClick || (() => {});
+  const limit = props.limit;
+  const offset = props.offset;
+  const total = props.total;
+  const onClick = props.onClick;
 
   return (
     <div>

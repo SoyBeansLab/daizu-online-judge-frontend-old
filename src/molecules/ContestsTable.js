@@ -23,7 +23,7 @@ const useStyles = makeStyles(() => ({
 export default function ContestsTable(props) {
   const classes = useStyles();
 
-  const contestLists = props.contestLists || [];
+  const contestLists = props.contestLists;
 
   return (
     <Paper className={classes.root} elevation={0}>

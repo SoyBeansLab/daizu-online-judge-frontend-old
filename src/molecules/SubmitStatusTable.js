@@ -30,11 +30,11 @@ const useStyles = makeStyles(theme => ({
 
 export default function SubmitStatusTable(props) {
   const classes = useStyles();
-  const contestId = props.contestId || "";
-  const submissions = props.submissions || [];
-  const total = props.submissionsTotal || 10;
-  const offset = props.offset || 1;
-  const paginationClickHandler = props.paginationClickHandler || (() => {});
+  const contestId = props.contestId;
+  const submissions = props.submissions;
+  const total = props.submissionsTotal;
+  const offset = props.offset;
+  const paginationClickHandler = props.paginationClickHandler;
 
   const chip = result => {
     if (result === "AC") {
