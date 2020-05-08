@@ -6,8 +6,8 @@ import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-import Chip from "@material-ui/core/Chip";
 import Link from "@material-ui/core/Link";
+import Chip from "../atoms/Chip";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -17,9 +17,6 @@ const useStyles = makeStyles(theme => ({
   },
   table: {
     minWidth: 650,
-  },
-  chip: {
-    color: "#f5f5f5",
   },
 }));
 
@@ -40,16 +37,6 @@ export default function SubmitStatusDetail(props) {
   const memory = props.memory;
   const testCase = props.testCase;
 
-  const chip = () => {
-    if (result === "AC") {
-      return <Chip color="primary" className={classes.chip} label={result} />;
-    } else if (result === "WA" || result === "TLE") {
-      return <Chip color="secondary" label={result} />;
-    } else {
-      return <Chip label={result} />;
-    }
-  };
-
   const cells = [
     createData("提出日時", submitDate),
     createData("問題", <Link href="">{problemName}</Link>),
@@ -57,7 +44,7 @@ export default function SubmitStatusDetail(props) {
     createData("言語", language),
     createData("得点", score),
     createData("テストケース通過数(通過数/全体)", testCase),
-    createData("結果", chip()),
+    createData("結果", <Chip result={result} />),
     createData("実行時間", executeTime + " ms"),
     createData("メモリ", memory + " KB"),
   ];
