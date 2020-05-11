@@ -29,18 +29,20 @@ export default function ContestTabsPage(props) {
   const classes = useStyles();
   const history = useHistory();
 
-  const getQueryParams = useCallback(
-    key => {
-      if (!location.search) {
-        return;
-      }
-      const parsed = parse(location.search);
-      return parsed[key];
-    },
-    [location]
-  );
+  const getTab = useCallback(() => {
+    if (!location.search) {
+      return tabValueList[0];
+    }
+    const parsed = parse(location.search);
+    return parsed.tab;
+  }, [location, tabValueList]);
 
-  const [tabPosition, setTabPosition] = useState(getQueryParams("tab")); // useStateで最初にtabを取得して渡してあげないと,最初の描画でうまくtabの場所にいてくれない
+  const getPage = useCallback(() => {
+    const parsed = parse(location.search);
+    return parsed.page;
+  }, [location]);
+
+  const [tabPosition, setTabPosition] = useState(getTab()); // useStateで最初にtabを取得して渡してあげないと,最初の描画でうまくtabの場所にいてくれない
   const [rankingTablePage, setRankingTablePage] = useState(1);
   const [submissionsTablePage, setSubmissionsTablePage] = useState(1);
 
@@ -53,16 +55,16 @@ export default function ContestTabsPage(props) {
   const submissionsTotal = props.submissionsTotal;
 
   useEffect(() => {
-    setTabPosition(getQueryParams("tab"));
+    setTabPosition(getTab);
     // tabのpositionがSubmissionsのとき
     if (tabPosition === tabValueList[2]) {
-      setSubmissionsTablePage(getQueryParams("page"));
+      setSubmissionsTablePage(getPage("page"));
     }
     // tabのpositionがRankingのとき
     if (tabPosition === tabValueList[3]) {
-      setRankingTablePage(getQueryParams("page"));
+      setRankingTablePage(getPage("page"));
     }
-  }, [getQueryParams, tabValueList, tabPosition]);
+  }, [getTab, getPage, tabValueList, tabPosition]);
 
   const handleChange = (_, newValue) => {
     setTabPosition(newValue);
