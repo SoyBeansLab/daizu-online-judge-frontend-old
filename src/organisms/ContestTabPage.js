@@ -39,7 +39,7 @@ export default function ContestTabsPage(props) {
 
   const classes = useStyles();
   // useStateで最初にtabを取得して渡してあげないと,最初の描画でうまくtabの場所にいてくれない
-  const [value, setValue] = useState(getQueryParams("tab"));
+  const [tabPosition, setTabPosition] = useState(getQueryParams("tab"));
   const [rankingTablePage, setRankingTablePage] = useState(1);
   const [submissionsTablePage, setSubmissionsTablePage] = useState(1);
   const history = useHistory();
@@ -53,19 +53,19 @@ export default function ContestTabsPage(props) {
   const submissionsTotal = props.submissionsTotal;
 
   useEffect(() => {
-    setValue(getQueryParams("tab"));
+    setTabPosition(getQueryParams("tab"));
     // tabのpositionがSubmissionsのとき
-    if (value === tabValueList[2]) {
+    if (tabPosition === tabValueList[2]) {
       setSubmissionsTablePage(getQueryParams("page"));
     }
     // tabのpositionがRankingのとき
-    if (value === tabValueList[3]) {
+    if (tabPosition === tabValueList[3]) {
       setRankingTablePage(getQueryParams("page"));
     }
-  }, [getQueryParams, tabValueList, value]);
+  }, [getQueryParams, tabValueList, tabPosition]);
 
   const handleChange = (_, newValue) => {
-    setValue(newValue);
+    setTabPosition(newValue);
   };
 
   const rankingPaginationHandler = (_, val) => {
@@ -80,10 +80,10 @@ export default function ContestTabsPage(props) {
 
   return (
     <div className={classes.root}>
-      <Tabs tabPosition={value} onChange={handleChange} tabValueList={tabValueList} labels={labelList} />
-      {value === tabValueList[0] && <TopContents contestTopContent={contestTopContent} />}
-      {value === tabValueList[1] && <ProblemsTable problemLists={problemLists} contestId={contestId} />}
-      {value === tabValueList[2] && (
+      <Tabs tabPosition={tabPosition} onChange={handleChange} tabValueList={tabValueList} labels={labelList} />
+      {tabPosition === tabValueList[0] && <TopContents contestTopContent={contestTopContent} />}
+      {tabPosition === tabValueList[1] && <ProblemsTable problemLists={problemLists} contestId={contestId} />}
+      {tabPosition === tabValueList[2] && (
         <SubmitStatusTable
           contestId={contestId}
           submissions={submissions}
@@ -92,7 +92,7 @@ export default function ContestTabsPage(props) {
           submissionsTotal={submissionsTotal}
         />
       )}
-      {value === tabValueList[3] && (
+      {tabPosition === tabValueList[3] && (
         <RankingTable
           contestId={contestId}
           rankings={rankings}
