@@ -38,6 +38,7 @@ export default function ContestTabsPage(props) {
   );
 
   const classes = useStyles();
+  // useStateで最初にtabを取得して渡してあげないと,最初の描画でうまくtabの場所にいてくれない
   const [value, setValue] = useState(getQueryParams("tab"));
   const [rankingTablePage, setRankingTablePage] = useState(1);
   const [submissionsTablePage, setSubmissionsTablePage] = useState(1);
@@ -53,9 +54,11 @@ export default function ContestTabsPage(props) {
 
   useEffect(() => {
     setValue(getQueryParams("tab"));
+    // tabのpositionがSubmissionsのとき
     if (value === tabValueList[2]) {
       setSubmissionsTablePage(getQueryParams("page"));
     }
+    // tabのpositionがRankingのとき
     if (value === tabValueList[3]) {
       setRankingTablePage(getQueryParams("page"));
     }
