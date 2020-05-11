@@ -37,13 +37,7 @@ export default function CodeSubmit(props) {
   });
 
   const languageLists = props.languageLists;
-  const languageDictionary = (() => {
-    var result = {};
-    languageLists.forEach((element, idx) => {
-      result[element] = idx;
-    });
-    return result;
-  })();
+  const languageDictionary = props.languageDict;
 
   function handleChangeSelect(event) {
     console.log(languageDictionary);
@@ -100,4 +94,5 @@ export default function CodeSubmit(props) {
 
 CodeSubmit.propTypes = {
   languageLists: PropTypes.array,
+  languageDict: PropTypes.object,
 };
