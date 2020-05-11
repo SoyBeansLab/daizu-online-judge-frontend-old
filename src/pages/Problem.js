@@ -7,7 +7,7 @@ import { reducer } from "../reducer";
 import { request } from "../requests";
 import { languagesOperations, languagesSelectors } from "../state/ducks/languages";
 
-const ProblemContainer = ({ languages, isLanguagesFetched, fetchLanguages }) => {
+const ProblemContainer = ({ languages, languageDict, isLanguagesFetched, fetchLanguages }) => {
   const [state, dispatch] = useReducer(reducer, { loading: true, data: [] });
   const { contestId, problemId } = useParams();
   const endpoint = `/contests/${contestId}/problems/${problemId}`;
@@ -19,6 +19,7 @@ const ProblemContainer = ({ languages, isLanguagesFetched, fetchLanguages }) => 
     }
   }, [fetchLanguages, isLanguagesFetched, endpoint]);
 
+  console.log(languages);
   return (
     <ProblemTemplate
       problemId={state.data.problem_id}
@@ -28,18 +29,21 @@ const ProblemContainer = ({ languages, isLanguagesFetched, fetchLanguages }) => 
       score={state.data.score}
       problemText={state.data.problem_detail}
       languageLists={Object.values(languages)}
+      languageDict={languageDict}
     />
   );
 };
 
 ProblemContainer.propTypes = {
-  languages: PropTypes.object,
+  languages: PropTypes.array,
+  languageDict: PropTypes.object,
   isLanguagesFetched: PropTypes.bool,
   fetchLanguages: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
-  languages: languagesSelectors.languagesSelector(state),
+  languages: languagesSelectors.languageListSelector(state),
+  languageDict: languagesSelectors.languageDictSelector(state),
   isLanguagesFetched: languagesSelectors.isfetched(state),
 });
 

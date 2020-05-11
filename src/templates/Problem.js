@@ -24,13 +24,14 @@ export default function Problem(props) {
         score={props.score}
         problemText={props.problemText}
       />
-      <CodeSubmit languageLists={props.languageLists} />
+      <CodeSubmit languageLists={props.languageLists} languageDict={props.languageDict} />
     </div>
   );
 }
 
 Problem.propTypes = {
   languageLists: PropTypes.array,
+  languageDict: PropTypes.object,
   problemID: PropTypes.string,
   problemName: PropTypes.string,
   timeLimit: PropTypes.number,
