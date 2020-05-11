@@ -26,20 +26,25 @@ export default function ContestTabsPage(props) {
   const labelList = ["トップ", "問題一覧", "提出状況", "ランキング"];
 
   const location = useLocation();
-  const getTabPostion = useCallback(() => {
+  const classes = useStyles();
+  const history = useHistory();
+
+  const getTab = useCallback(() => {
     if (!location.search) {
       return tabValueList[0];
     }
-
     const parsed = parse(location.search);
     return parsed.tab;
   }, [location, tabValueList]);
 
-  const classes = useStyles();
-  const [value, setValue] = useState(getTabPostion());
+  const getPage = useCallback(() => {
+    const parsed = parse(location.search);
+    return parsed.page;
+  }, [location]);
+
+  const [tabPosition, setTabPosition] = useState(getTab()); // useStateで最初にtabを取得して渡してあげないと,最初の描画でうまくtabの場所にいてくれない
   const [rankingTablePage, setRankingTablePage] = useState(1);
   const [submissionsTablePage, setSubmissionsTablePage] = useState(1);
-  const history = useHistory();
 
   const contestTopContent = props.contestTopContent;
   const problemLists = props.problemLists;
@@ -50,11 +55,19 @@ export default function ContestTabsPage(props) {
   const submissionsTotal = props.submissionsTotal;
 
   useEffect(() => {
-    setValue(getTabPostion());
-  }, [getTabPostion]);
+    setTabPosition(getTab);
+    // tabのpositionがSubmissionsのとき
+    if (tabPosition === tabValueList[2]) {
+      setSubmissionsTablePage(getPage("page"));
+    }
+    // tabのpositionがRankingのとき
+    if (tabPosition === tabValueList[3]) {
+      setRankingTablePage(getPage("page"));
+    }
+  }, [getTab, getPage, tabValueList, tabPosition]);
 
   const handleChange = (_, newValue) => {
-    setValue(newValue);
+    setTabPosition(newValue);
   };
 
   const rankingPaginationHandler = (_, val) => {
@@ -69,10 +82,10 @@ export default function ContestTabsPage(props) {
 
   return (
     <div className={classes.root}>
-      <Tabs tabPosition={value} onChange={handleChange} tabValueList={tabValueList} labels={labelList} />
-      {value === tabValueList[0] && <TopContents contestTopContent={contestTopContent} />}
-      {value === tabValueList[1] && <ProblemsTable problemLists={problemLists} contestId={contestId} />}
-      {value === tabValueList[2] && (
+      <Tabs tabPosition={tabPosition} onChange={handleChange} tabValueList={tabValueList} labels={labelList} />
+      {tabPosition === tabValueList[0] && <TopContents contestTopContent={contestTopContent} />}
+      {tabPosition === tabValueList[1] && <ProblemsTable problemLists={problemLists} contestId={contestId} />}
+      {tabPosition === tabValueList[2] && (
         <SubmitStatusTable
           contestId={contestId}
           submissions={submissions}
@@ -81,7 +94,7 @@ export default function ContestTabsPage(props) {
           submissionsTotal={submissionsTotal}
         />
       )}
-      {value === tabValueList[3] && (
+      {tabPosition === tabValueList[3] && (
         <RankingTable
           contestId={contestId}
           rankings={rankings}
