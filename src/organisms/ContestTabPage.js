@@ -26,17 +26,19 @@ export default function ContestTabsPage(props) {
   const labelList = ["トップ", "問題一覧", "提出状況", "ランキング"];
 
   const location = useLocation();
-  const getTabPostion = useCallback(() => {
-    if (!location.search) {
-      return tabValueList[0];
-    }
-
-    const parsed = parse(location.search);
-    return parsed.tab;
-  }, [location, tabValueList]);
+  const getQueryParams = useCallback(
+    key => {
+      if (!location.search) {
+        return;
+      }
+      const parsed = parse(location.search);
+      return parsed[key];
+    },
+    [location]
+  );
 
   const classes = useStyles();
-  const [value, setValue] = useState(getTabPostion());
+  const [value, setValue] = useState(getQueryParams("tab"));
   const [rankingTablePage, setRankingTablePage] = useState(1);
   const [submissionsTablePage, setSubmissionsTablePage] = useState(1);
   const history = useHistory();
@@ -50,8 +52,14 @@ export default function ContestTabsPage(props) {
   const submissionsTotal = props.submissionsTotal;
 
   useEffect(() => {
-    setValue(getTabPostion());
-  }, [getTabPostion]);
+    setValue(getQueryParams("tab"));
+    if (value === tabValueList[2]) {
+      setSubmissionsTablePage(getQueryParams("page"));
+    }
+    if (value === tabValueList[3]) {
+      setRankingTablePage(getQueryParams("page"));
+    }
+  }, [getQueryParams, tabValueList, value]);
 
   const handleChange = (_, newValue) => {
     setValue(newValue);
