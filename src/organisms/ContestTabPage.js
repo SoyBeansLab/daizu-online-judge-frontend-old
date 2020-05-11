@@ -26,6 +26,9 @@ export default function ContestTabsPage(props) {
   const labelList = ["トップ", "問題一覧", "提出状況", "ランキング"];
 
   const location = useLocation();
+  const classes = useStyles();
+  const history = useHistory();
+
   const getQueryParams = useCallback(
     key => {
       if (!location.search) {
@@ -37,12 +40,9 @@ export default function ContestTabsPage(props) {
     [location]
   );
 
-  const classes = useStyles();
-  // useStateで最初にtabを取得して渡してあげないと,最初の描画でうまくtabの場所にいてくれない
-  const [tabPosition, setTabPosition] = useState(getQueryParams("tab"));
+  const [tabPosition, setTabPosition] = useState(getQueryParams("tab")); // useStateで最初にtabを取得して渡してあげないと,最初の描画でうまくtabの場所にいてくれない
   const [rankingTablePage, setRankingTablePage] = useState(1);
   const [submissionsTablePage, setSubmissionsTablePage] = useState(1);
-  const history = useHistory();
 
   const contestTopContent = props.contestTopContent;
   const problemLists = props.problemLists;
