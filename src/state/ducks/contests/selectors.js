@@ -1,6 +1,6 @@
 import { createSelector } from "reselect";
 
-const contestsSelector = state => state.contestsState.contests.data;
+const contestsSelector = state => state.contestsState.contests.entities;
 
 const currentContestsSelector = createSelector(contestsSelector, contests => Object.values(contests.current || []));
 
