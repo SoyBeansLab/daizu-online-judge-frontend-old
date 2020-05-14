@@ -12,15 +12,11 @@ const contestsOprations = url => dispatch => {
     .then(response => {
       const data = { ...response.data };
 
-      const current = new schema.Entity("current", {}, { idAttribute: "contest_id" });
-      const upcoming = new schema.Entity("upcoming", {}, { idAttribute: "contest_id" });
-      const recent = new schema.Entity("recent", {}, { idAttribute: "contest_id" });
+      const contests = new schema.Entity("contests", {}, { idAttribute: "contest_id" });
 
-      const myScheme = new schema.Entity("contests", {
-        current: [current],
-        upcoming: [upcoming],
-        recent: [recent],
-      });
+      const myScheme = {
+        contests: [contests],
+      };
       const normalizeData = normalize(data, myScheme);
       dispatch(receiveContests(normalizeData));
     })
