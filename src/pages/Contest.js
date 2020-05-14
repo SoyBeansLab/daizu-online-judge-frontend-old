@@ -7,10 +7,13 @@ import { reducer } from "../reducer";
 //import axios from "axios";
 import { request } from "../requests";
 //import { config } from "../config";
+import { contestsOperations, contestsSelectors } from "../state/ducks/contests";
 import { rankingsOperations, rankingsSelectors } from "../state/ducks/rankings";
 import { submissionsOperations, submissionsSelectors } from "../state/ducks/submissions";
 
 const ContestContainer = ({
+  topContent,
+  fetchContests,
   rankings,
   rankingsTotal,
   fetchRanking,
@@ -23,14 +26,15 @@ const ContestContainer = ({
   const endpoint = `/contests/${contestId}`;
 
   useEffect(() => {
+    fetchContests(`/contests/${contestId}`);
     fetchRanking(`/contests/${contestId}/ranking`);
     fetchSubmissions(`/contests/${contestId}/submits`);
     request(endpoint, dispatch);
-  }, [endpoint, fetchRanking, contestId, fetchSubmissions]);
+  }, [endpoint, fetchRanking, contestId, fetchSubmissions, fetchContests]);
 
   return (
     <ContestTemplate
-      contestTopContent={state.data.contest_top_content}
+      contestTopContent={topContent}
       problemLists={state.data.problem_list}
       rankings={rankings}
       rankingsTotal={rankingsTotal}
@@ -42,6 +46,8 @@ const ContestContainer = ({
 };
 
 ContestContainer.propTypes = {
+  topContent: PropTypes.string,
+  fetchContests: PropTypes.func,
   rankings: PropTypes.array,
   rankingsTotal: PropTypes.number,
   fetchRanking: PropTypes.func,
@@ -51,6 +57,7 @@ ContestContainer.propTypes = {
 };
 
 const mapStateToProps = state => ({
+  topContent: contestsSelectors.getContestByID,
   rankings: rankingsSelectors.rankingsSelector(state),
   rankingsTotal: rankingsSelectors.rankingTotalSelector(state),
   submissions: submissionsSelectors.submissionsSelector(state),
@@ -60,6 +67,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   fetchRanking: rankingsOperations,
   fetchSubmissions: submissionsOperations,
+  fetchContests: contestsOperations,
 };
 
 const Contest = connect(mapStateToProps, mapDispatchToProps)(ContestContainer);
