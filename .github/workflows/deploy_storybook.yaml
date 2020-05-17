@@ -45,7 +45,7 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: "Netlify CLI's outputs...\n\n```${{ steps.deploy_with_nelify.outputs.NETLIFY_OUTPUT }}```\nLog: ${{ steps.deploy_with_nelify.outputs.NETLIFY_LOGS_URL }}\n Website Draft URL: ${{ steps.deploy_with_nelify.outputs.NETLIFY_URL }}\nLive URL: ${{ steps.deploy_with_nelify.outputs.NETLIFY_LIVE_URL }}"
+              body: "Netlify CLI's outputs...\n ```${{ steps.deploy_with_nelify.outputs.NETLIFY_OUTPUT }}``` \n Log: ${{ steps.deploy_with_nelify.outputs.NETLIFY_LOGS_URL }}\n Website Draft URL: ${{ steps.deploy_with_nelify.outputs.NETLIFY_URL }}\nLive URL: ${{ steps.deploy_with_nelify.outputs.NETLIFY_LIVE_URL }}"
             })
 
       - name: test echo
