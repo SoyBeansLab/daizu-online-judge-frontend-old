@@ -30,6 +30,7 @@ jobs:
           npm install
           npm run build-storybook
       - name: Deploy to netlify
+        id: deploy_with_nelify
         uses: netlify/actions/cli@master
         with:
           args: deploy --dir=./storybook-static
@@ -38,4 +39,7 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
       - name: test echo
         run: |
-          echo $NETLIFY_OUTPUT
+          echo "${{ steps.deploy_with_nelify.NETLIFY_OUTPUT }}"
+          echo "${{ steps.deploy_with_nelify.NETLIFY_URL }}"
+          echo "${{ steps.deploy_with_nelify.NETLIFY_LOGS_URL }}"
+          echo "${{ steps.deploy_with_nelify.NETLIFY_LIVE_URL }}"
