@@ -42,13 +42,13 @@ jobs:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
             const outputs = [
-              "Netlify CLI's outputs... :rocket:",
-              "Netlify cli output: ${{ steps.deploy_with_nelify.outputs.NETLIFY_OUTPUT }}",
-              "Log: ${{ steps.deploy_with_nelify.outputs.NETLIFY_LOGS_URL }}",
-              "Website Draft URL: ${{ steps.deploy_with_nelify.outputs.NETLIFY_URL }}",
-              "Live URL: ${{ steps.deploy_with_nelify.outputs.NETLIFY_LIVE_URL }}",
+              "## Netlify CLI's outputs... :rocket:",
+              "Netlify cli output :stuck_out_tongue_closed_eyes:: ${{ steps.deploy_with_nelify.outputs.NETLIFY_OUTPUT }}",
+              "Log :pencil2:: ${{ steps.deploy_with_nelify.outputs.NETLIFY_LOGS_URL }}",
+              "Website Draft URL :man_technologist:: ${{ steps.deploy_with_nelify.outputs.NETLIFY_URL }}",
+              "Live URL :tv:: ${{ steps.deploy_with_nelify.outputs.NETLIFY_LIVE_URL }}",
             ]
-            const body = outputs.join("\n")
+            const body = outputs.join("\n\n")
 
             github.issues.createComment({
               issue_number: context.issue.number,
