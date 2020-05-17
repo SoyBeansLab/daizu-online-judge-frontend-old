@@ -1,8 +1,8 @@
 name: deploy_storybook
 
-on: [push]
-#  pull_request:
-#    types: ["opened", "edited", "synchronize"]
+on:
+  pull_request:
+    types: ["opened", "edited", "synchronize"]
 
 jobs:
   build:
@@ -37,6 +37,17 @@ jobs:
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      - uses: actions/github-script@0.9.0
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.issues.createComment({
+              issues_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: "Netlify CLI's outputs...\n\n```${{ steps.deploy_with_nelify.outputs.NETLIFY_OUTPUT }}```\nLog: ${{ steps.deploy_with_nelify.outputs.NETLIFY_LOGS_URL }}\n Website Draft URL: ${{ steps.deploy_with_nelify.outputs.NETLIFY_URL }}\nLive URL: ${{ steps.deploy_with_nelify.outputs.NETLIFY_LIVE_URL }}"
+            })
+
       - name: test echo
         run: |
           echo "${{ steps.deploy_with_nelify.outputs.NETLIFY_OUTPUT }}"
