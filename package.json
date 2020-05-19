@@ -10,6 +10,7 @@
     "axios": "^0.19.2",
     "axios-mock-adapter": "^1.17.0",
     "codemirror": "^5.52.0",
+    "connected-react-router": "^6.8.0",
     "history": "^4.10.1",
     "material-ui-flat-pagination": "^4.1.0",
     "normalizr": "^3.6.0",
