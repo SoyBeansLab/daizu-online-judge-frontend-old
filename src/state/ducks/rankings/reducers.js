@@ -4,6 +4,9 @@ import types from "./types";
 const initState = {
   data: {},
   loading: true,
+  ui: {
+    page: 0,
+  },
 };
 
 const rankings = (state = initState, action) => {
@@ -12,6 +15,8 @@ const rankings = (state = initState, action) => {
       return { ...state, loading: true };
     case types.FETCH_RANKINGS_SUCEESS:
       return { ...state, loading: false, data: action.data };
+    case types.CHANGE_PAGE:
+      return { ...state, ui: { page: action.data } };
     default:
       return state;
   }

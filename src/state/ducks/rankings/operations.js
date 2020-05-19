@@ -1,5 +1,5 @@
 import axios from "axios";
-import { fetching, receiveRankings } from "./actions";
+import { fetching, receiveRankings, changePage } from "./actions";
 import mock from "../../../mocks/$mock";
 
 const rankingsOprations = url => dispatch => {
@@ -20,4 +20,11 @@ const rankingsOprations = url => dispatch => {
     });
 };
 
-export default rankingsOprations;
+const setRankingPage = page => dispatch => {
+  dispatch(changePage(page));
+};
+
+export default {
+  rankingsOprations,
+  setRankingPage,
+};
