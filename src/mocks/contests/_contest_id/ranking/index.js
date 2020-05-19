@@ -1,6 +1,6 @@
 const ranking = {
   total: 20,
-  data: [
+  ranking: [
     {
       rank: 1,
       user_id: "mitohato",
