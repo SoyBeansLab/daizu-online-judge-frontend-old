@@ -15,6 +15,6 @@ export const receiveRankings = json => ({
 });
 
 export const changePage = page => ({
-  type: types.CHANGE_PAGE,
+  type: types.CHANGE_RANKING_PAGE,
   data: page,
 });

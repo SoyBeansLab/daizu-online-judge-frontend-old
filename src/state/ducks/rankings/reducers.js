@@ -15,7 +15,7 @@ const rankings = (state = initState, action) => {
       return { ...state, loading: true };
     case types.FETCH_RANKINGS_SUCEESS:
       return { ...state, loading: false, data: action.data };
-    case types.CHANGE_PAGE:
+    case types.CHANGE_RANKING_PAGE:
       return { ...state, ui: { page: action.data } };
     default:
       return state;
