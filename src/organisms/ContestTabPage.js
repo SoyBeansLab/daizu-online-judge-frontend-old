@@ -6,7 +6,7 @@ import { parse } from "query-string";
 import { makeStyles } from "@material-ui/core/styles";
 
 import ProblemsTable from "../molecules/ProblemsTable";
-import SubmitStatusTable from "../molecules/SubmitStatusTable";
+import SubmissionsPageTable from "./SubmissionsPageTable";
 import RankingTable from "../molecules/RankingTable";
 import TopContents from "../molecules/ContestTopContents";
 import Tabs from "../atoms/Tabs";
@@ -53,10 +53,7 @@ function ContestTabsPageContainer(props) {
   const rankings = props.rankings;
   const contestId = props.contestId;
   const rankingsTotal = props.rankingsTotal;
-  const submissions = props.submissions;
-  const submissionsTotal = props.submissionsTotal;
   const setRankingPage = props.setRankingPage;
-  const submissionsPage = props.submissionsPage;
   const setSubmissionsPage = props.setSubmissionsPage;
 
   useEffect(() => {
@@ -81,25 +78,12 @@ function ContestTabsPageContainer(props) {
     setRankingPage(val);
   };
 
-  const submissionsPaginationHandler = (_, val) => {
-    history.push(`${location.pathname}?tab=submits&page=${val}`);
-    setSubmissionsPage(val);
-  };
-
   return (
     <div className={classes.root}>
       <Tabs tabPosition={tabPosition} onChange={handleChange} tabValueList={tabValueList} labels={labelList} />
       {tabPosition === tabValueList[0] && <TopContents contestTopContent={contestTopContent} />}
       {tabPosition === tabValueList[1] && <ProblemsTable problemLists={problemLists} contestId={contestId} />}
-      {tabPosition === tabValueList[2] && (
-        <SubmitStatusTable
-          contestId={contestId}
-          submissions={submissions}
-          offset={submissionsPage}
-          paginationClickHandler={submissionsPaginationHandler}
-          submissionsTotal={submissionsTotal}
-        />
-      )}
+      {tabPosition === tabValueList[2] && <SubmissionsPageTable />}
       {tabPosition === tabValueList[3] && (
         <RankingTable
           contestId={contestId}
@@ -120,11 +104,8 @@ ContestTabsPageContainer.propTypes = {
   rankings: PropTypes.array,
   fetchRanking: PropTypes.func,
   rankingsTotal: PropTypes.number,
-  submissions: PropTypes.array,
-  submissionsTotal: PropTypes.number,
   rankingPage: PropTypes.number,
   setRankingPage: PropTypes.func,
-  submissionsPage: PropTypes.number,
   setSubmissionsPage: PropTypes.func,
 };
 
