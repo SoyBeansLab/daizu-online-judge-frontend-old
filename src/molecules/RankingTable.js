@@ -7,7 +7,6 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import PropTypes from "prop-types";
-import Pagination from "../atoms/Paginations";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -25,9 +24,6 @@ const useStyles = makeStyles(theme => ({
 
 export default function RankingTable(props) {
   const classes = useStyles();
-  const offset = props.offset;
-  const total = props.total;
-  const paginationClickHandler = props.paginationClickHandler;
   const rankings = props.rankings;
 
   return (
@@ -56,15 +52,11 @@ export default function RankingTable(props) {
           </TableBody>
         </Table>
       </Paper>
-      <Pagination offset={offset} total={total} onClick={(_, offset) => paginationClickHandler(_, offset)} />
     </div>
   );
 }
 
 RankingTable.propTypes = {
   rankingList: PropTypes.array,
-  total: PropTypes.number,
-  offset: PropTypes.number,
-  paginationClickHandler: PropTypes.func,
   rankings: PropTypes.array,
 };

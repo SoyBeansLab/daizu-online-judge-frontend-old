@@ -8,7 +8,6 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import Pagination from "../atoms/Paginations";
 import Chip from "../atoms/Chip";
 
 const useStyles = makeStyles(theme => ({
@@ -29,9 +28,6 @@ export default function SubmitStatusTable(props) {
   const classes = useStyles();
   const contestId = props.contestId;
   const submissions = props.submissions;
-  const total = props.submissionsTotal;
-  const offset = props.offset;
-  const paginationClickHandler = props.paginationClickHandler;
 
   return (
     <div className={classes.root}>
@@ -67,7 +63,6 @@ export default function SubmitStatusTable(props) {
           </TableBody>
         </Table>
       </Paper>
-      <Pagination offset={offset} total={total} onClick={(event, offset) => paginationClickHandler(event, offset)} />
     </div>
   );
 }

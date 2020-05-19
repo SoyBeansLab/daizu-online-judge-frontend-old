@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { useLocation, useHistory } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { parse } from "query-string";
 import { makeStyles } from "@material-ui/core/styles";
 
 import ProblemsTable from "../molecules/ProblemsTable";
-import SubmitStatusTable from "../molecules/SubmitStatusTable";
-import RankingTable from "../molecules/RankingTable";
+import SubmissionsPageTable from "./SubmissionsPageTable";
+import RankingPageTable from "./RankingPageTable";
 import TopContents from "../molecules/ContestTopContents";
 import Tabs from "../atoms/Tabs";
 
@@ -31,7 +31,6 @@ function ContestTabsPageContainer(props) {
 
   const location = useLocation();
   const classes = useStyles();
-  const history = useHistory();
 
   const getTab = useCallback(() => {
     if (!location.search) {
@@ -52,11 +51,7 @@ function ContestTabsPageContainer(props) {
   const problemLists = props.problemLists;
   const rankings = props.rankings;
   const contestId = props.contestId;
-  const rankingsTotal = props.rankingsTotal;
-  const submissions = props.submissions;
-  const submissionsTotal = props.submissionsTotal;
   const setRankingPage = props.setRankingPage;
-  const submissionsPage = props.submissionsPage;
   const setSubmissionsPage = props.setSubmissionsPage;
 
   useEffect(() => {
@@ -76,39 +71,13 @@ function ContestTabsPageContainer(props) {
     setTabPosition(newValue);
   };
 
-  const rankingPaginationHandler = (_, val) => {
-    history.push(`${location.pathname}?tab=ranking&page=${val}`);
-    setRankingPage(val);
-  };
-
-  const submissionsPaginationHandler = (_, val) => {
-    history.push(`${location.pathname}?tab=submits&page=${val}`);
-    setSubmissionsPage(val);
-  };
-
   return (
     <div className={classes.root}>
       <Tabs tabPosition={tabPosition} onChange={handleChange} tabValueList={tabValueList} labels={labelList} />
       {tabPosition === tabValueList[0] && <TopContents contestTopContent={contestTopContent} />}
       {tabPosition === tabValueList[1] && <ProblemsTable problemLists={problemLists} contestId={contestId} />}
-      {tabPosition === tabValueList[2] && (
-        <SubmitStatusTable
-          contestId={contestId}
-          submissions={submissions}
-          offset={submissionsPage}
-          paginationClickHandler={submissionsPaginationHandler}
-          submissionsTotal={submissionsTotal}
-        />
-      )}
-      {tabPosition === tabValueList[3] && (
-        <RankingTable
-          contestId={contestId}
-          rankings={rankings}
-          offset={props.rankingPage}
-          paginationClickHandler={rankingPaginationHandler}
-          total={rankingsTotal}
-        />
-      )}
+      {tabPosition === tabValueList[2] && <SubmissionsPageTable />}
+      {tabPosition === tabValueList[3] && <RankingPageTable rankings={rankings} />}
     </div>
   );
 }
@@ -118,13 +87,7 @@ ContestTabsPageContainer.propTypes = {
   problemLists: PropTypes.array,
   contestId: PropTypes.string,
   rankings: PropTypes.array,
-  fetchRanking: PropTypes.func,
-  rankingsTotal: PropTypes.number,
-  submissions: PropTypes.array,
-  submissionsTotal: PropTypes.number,
-  rankingPage: PropTypes.number,
   setRankingPage: PropTypes.func,
-  submissionsPage: PropTypes.number,
   setSubmissionsPage: PropTypes.func,
 };
 
