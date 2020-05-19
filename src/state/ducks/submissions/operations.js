@@ -1,5 +1,5 @@
 import axios from "axios";
-import { fetching, receiveSubmissions } from "./actions";
+import { fetching, receiveSubmissions, changePage } from "./actions";
 import mock from "../../../mocks/$mock";
 
 const submissionsOprations = url => dispatch => {
@@ -20,4 +20,11 @@ const submissionsOprations = url => dispatch => {
     });
 };
 
-export default submissionsOprations;
+const setSubmissionsPage = page => dispatch => {
+  dispatch(changePage(page));
+};
+
+export default {
+  submissionsOprations,
+  setSubmissionsPage,
+};
