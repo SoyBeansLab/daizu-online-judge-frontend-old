@@ -12,6 +12,7 @@ import TopContents from "../molecules/ContestTopContents";
 import Tabs from "../atoms/Tabs";
 
 import { rankingsOperations, rankingsSelectors } from "../state/ducks/rankings";
+import { submissionsOperations, submissionsSelectors } from "../state/ducks/submissions";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -46,7 +47,6 @@ function ContestTabsPageContainer(props) {
   }, [location]);
 
   const [tabPosition, setTabPosition] = useState(getTab()); // useStateで最初にtabを取得して渡してあげないと,最初の描画でうまくtabの場所にいてくれない
-  const [submissionsTablePage, setSubmissionsTablePage] = useState(1);
 
   const contestTopContent = props.contestTopContent;
   const problemLists = props.problemLists;
@@ -56,19 +56,21 @@ function ContestTabsPageContainer(props) {
   const submissions = props.submissions;
   const submissionsTotal = props.submissionsTotal;
   const setRankingPage = props.setRankingPage;
+  const submissionsPage = props.submissionsPage;
+  const setSubmissionsPage = props.setSubmissionsPage;
 
   useEffect(() => {
     // tabのpositionがSubmissionsのとき
     if (tabPosition === tabValueList[2]) {
       const page = Number(getPage());
-      setSubmissionsTablePage(page);
+      setSubmissionsPage(page);
     }
     // tabのpositionがRankingのとき
     if (tabPosition === tabValueList[3]) {
       const page = Number(getPage());
       setRankingPage(page);
     }
-  }, [getTab, getPage, setRankingPage, tabValueList, tabPosition]);
+  }, [getTab, getPage, setRankingPage, setSubmissionsPage, tabValueList, tabPosition]);
 
   const handleChange = (_, newValue) => {
     setTabPosition(newValue);
@@ -81,7 +83,7 @@ function ContestTabsPageContainer(props) {
 
   const submissionsPaginationHandler = (_, val) => {
     history.push(`${location.pathname}?tab=submits&page=${val}`);
-    setSubmissionsTablePage(val);
+    setSubmissionsPage(val);
   };
 
   return (
@@ -93,7 +95,7 @@ function ContestTabsPageContainer(props) {
         <SubmitStatusTable
           contestId={contestId}
           submissions={submissions}
-          offset={submissionsTablePage}
+          offset={submissionsPage}
           paginationClickHandler={submissionsPaginationHandler}
           submissionsTotal={submissionsTotal}
         />
@@ -122,14 +124,18 @@ ContestTabsPageContainer.propTypes = {
   submissionsTotal: PropTypes.number,
   rankingPage: PropTypes.number,
   setRankingPage: PropTypes.func,
+  submissionsPage: PropTypes.number,
+  setSubmissionsPage: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
   rankingPage: rankingsSelectors.getRankingPage(state),
+  submissionsPage: submissionsSelectors.getSubmissionsPage(state),
 });
 
 const mapDispatchToProps = {
   setRankingPage: rankingsOperations.setRankingPage,
+  setSubmissionsPage: submissionsOperations.setSubmissionsPage,
 };
 
 const ContestTopPage = connect(mapStateToProps, mapDispatchToProps)(ContestTabsPageContainer);
