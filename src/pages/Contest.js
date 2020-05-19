@@ -66,7 +66,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   fetchRanking: rankingsOperations.rankingsOprations,
-  fetchSubmissions: submissionsOperations,
+  fetchSubmissions: submissionsOperations.submissionsOprations,
   fetchContests: contestsOperations,
 };
 
