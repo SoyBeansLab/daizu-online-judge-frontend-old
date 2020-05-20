@@ -8,7 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import ProblemsTable from "../molecules/ProblemsTable";
 import SubmissionsPageTable from "./SubmissionsPageTable";
 import RankingPageTable from "./RankingPageTable";
-import TopContents from "./ContestTopContainer";
+import ContestTop from "./ContestTop";
 import Tabs from "../atoms/Tabs";
 
 import { rankingsOperations, rankingsSelectors } from "../state/ducks/rankings";
@@ -73,7 +73,7 @@ function ContestTabsPageContainer(props) {
   return (
     <div className={classes.root}>
       <Tabs tabPosition={tabPosition} onChange={handleChange} tabValueList={tabValueList} labels={labelList} />
-      {tabPosition === tabValueList[0] && <TopContents contestId={contestId} />}
+      {tabPosition === tabValueList[0] && <ContestTop contestId={contestId} />}
       {tabPosition === tabValueList[1] && <ProblemsTable problemLists={problemLists} contestId={contestId} />}
       {tabPosition === tabValueList[2] && <SubmissionsPageTable />}
       {tabPosition === tabValueList[3] && <RankingPageTable rankings={rankings} />}
