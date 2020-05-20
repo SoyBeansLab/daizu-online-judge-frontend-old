@@ -8,7 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import ProblemsTable from "../molecules/ProblemsTable";
 import SubmissionsPageTable from "./SubmissionsPageTable";
 import RankingPageTable from "./RankingPageTable";
-import TopContents from "../molecules/ContestTopContents";
+import TopContents from "./ContestTopContainer";
 import Tabs from "../atoms/Tabs";
 
 import { rankingsOperations, rankingsSelectors } from "../state/ducks/rankings";
@@ -47,7 +47,6 @@ function ContestTabsPageContainer(props) {
 
   const [tabPosition, setTabPosition] = useState(getTab()); // useStateで最初にtabを取得して渡してあげないと,最初の描画でうまくtabの場所にいてくれない
 
-  const contestTopContent = props.contestTopContent;
   const problemLists = props.problemLists;
   const rankings = props.rankings;
   const contestId = props.contestId;
@@ -74,7 +73,7 @@ function ContestTabsPageContainer(props) {
   return (
     <div className={classes.root}>
       <Tabs tabPosition={tabPosition} onChange={handleChange} tabValueList={tabValueList} labels={labelList} />
-      {tabPosition === tabValueList[0] && <TopContents contestTopContent={contestTopContent} />}
+      {tabPosition === tabValueList[0] && <TopContents contestId={contestId} />}
       {tabPosition === tabValueList[1] && <ProblemsTable problemLists={problemLists} contestId={contestId} />}
       {tabPosition === tabValueList[2] && <SubmissionsPageTable />}
       {tabPosition === tabValueList[3] && <RankingPageTable rankings={rankings} />}
@@ -83,7 +82,6 @@ function ContestTabsPageContainer(props) {
 }
 
 ContestTabsPageContainer.propTypes = {
-  contestTopContent: PropTypes.string,
   problemLists: PropTypes.array,
   contestId: PropTypes.string,
   rankings: PropTypes.array,
