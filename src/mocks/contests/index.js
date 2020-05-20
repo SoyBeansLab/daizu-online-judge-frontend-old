@@ -1,3 +1,34 @@
+const problems = [
+  {
+    order: 1,
+    problem_id: "hogehoge1",
+    time_limit: 2,
+    memory_limit: 256,
+    score: 100,
+  },
+  {
+    order: 2,
+    problem_id: "hogehoge2",
+    time_limit: 2,
+    memory_limit: 256,
+    score: 100,
+  },
+  {
+    order: 3,
+    problem_id: "hogehoge3",
+    time_limit: 2,
+    memory_limit: 256,
+    score: 100,
+  },
+  {
+    order: 4,
+    problem_id: "hogehoge4",
+    time_limit: 2,
+    memory_limit: 256,
+    score: 100,
+  },
+];
+
 const contests = {
   contests: [
     {
@@ -9,6 +40,7 @@ const contests = {
       writer: "mitohato",
       contest_description: "Welcome!",
       problem_number: 2,
+      problems: problems,
     },
     {
       contest_id: "nemusou",
@@ -19,6 +51,7 @@ const contests = {
       writer: "mitohato",
       contest_description: "Hello World!",
       problem_number: 2,
+      problems: problems,
     },
     {
       contest_id: "kurokoji",
@@ -29,6 +62,7 @@ const contests = {
       writer: "mitohato",
       contest_description: "Hello World!",
       problem_number: 2,
+      problems: problems,
     },
     {
       contest_id: "10riridk0",
@@ -39,6 +73,7 @@ const contests = {
       writer: "mitohato",
       contest_description: "Hello World!",
       problem_number: 2,
+      problems: problems,
     },
   ],
 };
