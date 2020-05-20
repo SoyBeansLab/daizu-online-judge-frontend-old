@@ -54,6 +54,7 @@ function ContestTabsPageContainer(props) {
   const setSubmissionsPage = props.setSubmissionsPage;
 
   useEffect(() => {
+    setTabPosition(getTab());
     // tabのpositionがSubmissionsのとき
     if (tabPosition === tabValueList[2]) {
       const page = Number(getPage());
