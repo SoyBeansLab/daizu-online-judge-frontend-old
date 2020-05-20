@@ -18,6 +18,8 @@ const recentContestsSelector = createSelector(contestsListSelector, contests =>
   contests.filter(value => value.holding_status === "recent")
 );
 
+const getProblemList = createSelector(contestSelector, contest => contest.problems || []);
+
 const isfetched = createSelector(contestsSelector, contests => contests.upcoming !== void 0);
 
 export default {
@@ -27,4 +29,5 @@ export default {
   recentContestsSelector,
   isfetched,
   contestSelector,
+  getProblemList,
 };
