@@ -8,7 +8,6 @@ import { contestsSelectors } from "../../state/ducks/contests";
 
 function ContestTopContainer(props) {
   const content = props.contest.contest_description;
-  console.log(content);
 
   return <TopContents contestTopContent={content} />;
 }
