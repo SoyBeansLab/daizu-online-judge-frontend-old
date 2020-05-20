@@ -1,12 +1,10 @@
 import React, { useEffect } from "react";
-import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { useLocation, useParams, useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
-import SubmissionsStatusTable from "../molecules/SubmitStatusTable";
-import Pagination from "../atoms/Paginations";
 
-import { submissionsOperations, submissionsSelectors } from "../state/ducks/submissions";
+import SubmissionsStatusTable from "../../molecules/SubmitStatusTable";
+import Pagination from "../../atoms/Paginations";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -49,16 +47,4 @@ SubmissionsPageTableContainer.propTypes = {
   setSubmissionsPage: PropTypes.func,
 };
 
-const mapStateToProps = state => ({
-  page: submissionsSelectors.getSubmissionsPage(state),
-  total: submissionsSelectors.submissionsTotalSelector(state),
-  submissions: submissionsSelectors.submissionsSelector(state),
-});
-
-const mapDispatchToProps = {
-  setSubmissionsPage: submissionsOperations.setSubmissionsPage,
-};
-
-const SubmissionsPageTable = connect(mapStateToProps, mapDispatchToProps)(SubmissionsPageTableContainer);
-
-export default SubmissionsPageTable;
+export default SubmissionsPageTableContainer;

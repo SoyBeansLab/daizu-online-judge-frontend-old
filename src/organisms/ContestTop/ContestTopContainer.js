@@ -2,13 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import TopContents from "../molecules/ContestTopContents";
+import TopContents from "../../molecules/ContestTopContents";
 
-import { contestsSelectors } from "../state/ducks/contests";
+import { contestsSelectors } from "../../state/ducks/contests";
 
 function ContestTopContainer(props) {
   const content = props.contest.contest_description;
-  console.log(content);
 
   return <TopContents contestTopContent={content} />;
 }

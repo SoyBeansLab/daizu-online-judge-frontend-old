@@ -1,12 +1,10 @@
 import React, { useEffect } from "react";
-import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { useLocation, useHistory } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
-import RankingTable from "../molecules/RankingTable";
-import Pagination from "../atoms/Paginations";
 
-import { rankingsOperations, rankingsSelectors } from "../state/ducks/rankings";
+import RankingTable from "../../molecules/RankingTable";
+import Pagination from "../../atoms/Paginations";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -14,7 +12,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-function RankingPageTableContainer(props) {
+function RankingPageTableComponent(props) {
   const classes = useStyles();
   const location = useLocation();
   const history = useHistory();
@@ -41,23 +39,11 @@ function RankingPageTableContainer(props) {
   );
 }
 
-RankingPageTableContainer.propTypes = {
+RankingPageTableComponent.propTypes = {
   ranking: PropTypes.array,
   page: PropTypes.number,
   total: PropTypes.number,
   setRankingPage: PropTypes.func,
 };
 
-const mapStateToProps = state => ({
-  page: rankingsSelectors.getRankingPage(state),
-  total: rankingsSelectors.rankingTotalSelector(state),
-  ranking: rankingsSelectors.rankingsSelector(state),
-});
-
-const mapDispatchToProps = {
-  setRankingPage: rankingsOperations.setRankingPage,
-};
-
-const RankingPageTable = connect(mapStateToProps, mapDispatchToProps)(RankingPageTableContainer);
-
-export default RankingPageTable;
+export default RankingPageTableComponent;
