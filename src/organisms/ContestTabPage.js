@@ -5,7 +5,7 @@ import { useLocation, useParams } from "react-router-dom";
 import { parse } from "query-string";
 import { makeStyles } from "@material-ui/core/styles";
 
-import ProblemsTable from "../molecules/ProblemsTable";
+import ProblemsTable from "./ProblemsTable";
 import SubmissionsPageTable from "./SubmissionsPageTable";
 import RankingPageTable from "./RankingPageTable";
 import ContestTop from "./ContestTop";
@@ -48,7 +48,6 @@ function ContestTabsPageContainer(props) {
 
   const [tabPosition, setTabPosition] = useState(getTab()); // useStateで最初にtabを取得して渡してあげないと,最初の描画でうまくtabの場所にいてくれない
 
-  const problemLists = props.problemLists;
   const rankings = props.rankings;
   const setRankingPage = props.setRankingPage;
   const setSubmissionsPage = props.setSubmissionsPage;
@@ -75,7 +74,7 @@ function ContestTabsPageContainer(props) {
     <div className={classes.root}>
       <Tabs tabPosition={tabPosition} onChange={handleChange} tabValueList={tabValueList} labels={labelList} />
       {tabPosition === tabValueList[0] && <ContestTop contestId={contestId} />}
-      {tabPosition === tabValueList[1] && <ProblemsTable problemLists={problemLists} contestId={contestId} />}
+      {tabPosition === tabValueList[1] && <ProblemsTable contestId={contestId} />}
       {tabPosition === tabValueList[2] && <SubmissionsPageTable />}
       {tabPosition === tabValueList[3] && <RankingPageTable rankings={rankings} />}
     </div>
@@ -83,7 +82,6 @@ function ContestTabsPageContainer(props) {
 }
 
 ContestTabsPageContainer.propTypes = {
-  problemLists: PropTypes.array,
   rankings: PropTypes.array,
   setRankingPage: PropTypes.func,
   setSubmissionsPage: PropTypes.func,

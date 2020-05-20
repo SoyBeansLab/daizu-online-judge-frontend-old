@@ -40,14 +40,14 @@ export default function ProblemsTable(props) {
           {problemLists.map(row => (
             <TableRow key={row.problem_id} hover>
               <TableCell component="th" scope="row" align="center">
-                <Link to={`${problemUrl}/${row.problem_order}`}>{row.problem_order}</Link>
+                <Link to={`${problemUrl}/${row.problem_id}`}>{row.order}</Link>
               </TableCell>
               <TableCell align="center">
-                <Link to={`${problemUrl}/${row.problem_name}`}>{row.problem_name}</Link>
+                <Link to={`${problemUrl}/${row.problem_id}`}>{row.problem_name}</Link>
               </TableCell>
               <TableCell align="center">{row.time_limit}sec</TableCell>
               <TableCell align="center">{row.memory_limit}MB</TableCell>
-              <TableCell align="center">{row.problem_score}</TableCell>
+              <TableCell align="center">{row.score}</TableCell>
             </TableRow>
           ))}
         </TableBody>
