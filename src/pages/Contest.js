@@ -1,29 +1,24 @@
-import React, { useEffect, useReducer } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { useParams } from "react-router-dom";
 import ContestTemplate from "../templates/Contest";
-import { reducer } from "../reducer";
-//import axios from "axios";
-import { request } from "../requests";
-//import { config } from "../config";
+
 import { contestsOperations } from "../state/ducks/contests";
 import { rankingsOperations } from "../state/ducks/rankings";
 import { submissionsOperations } from "../state/ducks/submissions";
 
 const ContestContainer = ({ fetchContests, fetchRanking, fetchSubmissions }) => {
-  const [state, dispatch] = useReducer(reducer, { loading: true, data: [] });
   const { contestId } = useParams(); // url paramから取得
   const endpoint = `/contests/${contestId}`;
 
   useEffect(() => {
-    fetchContests(`/contests/${contestId}`);
-    fetchRanking(`/contests/${contestId}/ranking`);
-    fetchSubmissions(`/contests/${contestId}/submits`);
-    request(endpoint, dispatch);
-  }, [endpoint, fetchRanking, contestId, fetchSubmissions, fetchContests]);
+    fetchContests(endpoint);
+    fetchRanking(`${endpoint}/ranking`);
+    fetchSubmissions(`${endpoint}/submits`);
+  }, [endpoint, fetchRanking, fetchSubmissions, fetchContests]);
 
-  return <ContestTemplate problemLists={state.data.problem_list} />;
+  return <ContestTemplate />;
 };
 
 ContestContainer.propTypes = {

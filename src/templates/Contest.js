@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import ContestTabs from "../organisms/ContestTabPage";
 
@@ -11,18 +10,12 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Contests(props) {
+export default function Contests() {
   const classes = useStyles();
-
-  const problemLists = props.problemLists || [];
 
   return (
     <div className={classes.root}>
-      <ContestTabs problemLists={problemLists} />
+      <ContestTabs />
     </div>
   );
 }
-
-Contests.propTypes = {
-  problemLists: PropTypes.array,
-};
