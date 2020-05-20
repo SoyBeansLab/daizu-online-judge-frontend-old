@@ -2,6 +2,7 @@ const problems = [
   {
     order: 1,
     problem_id: "hogehoge1",
+    problem_name: "Hello World1",
     time_limit: 2,
     memory_limit: 256,
     score: 100,
@@ -9,6 +10,7 @@ const problems = [
   {
     order: 2,
     problem_id: "hogehoge2",
+    problem_name: "Hello World2",
     time_limit: 2,
     memory_limit: 256,
     score: 100,
@@ -16,6 +18,7 @@ const problems = [
   {
     order: 3,
     problem_id: "hogehoge3",
+    problem_name: "Hello World3",
     time_limit: 2,
     memory_limit: 256,
     score: 100,
@@ -23,6 +26,7 @@ const problems = [
   {
     order: 4,
     problem_id: "hogehoge4",
+    problem_name: "Hello World4",
     time_limit: 2,
     memory_limit: 256,
     score: 100,
