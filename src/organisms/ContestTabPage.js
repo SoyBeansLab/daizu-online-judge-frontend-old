@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { parse } from "query-string";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -30,6 +30,7 @@ function ContestTabsPageContainer(props) {
   const labelList = ["トップ", "問題一覧", "提出状況", "ランキング"];
 
   const location = useLocation();
+  const { contestId } = useParams();
   const classes = useStyles();
 
   const getTab = useCallback(() => {
@@ -49,7 +50,6 @@ function ContestTabsPageContainer(props) {
 
   const problemLists = props.problemLists;
   const rankings = props.rankings;
-  const contestId = props.contestId;
   const setRankingPage = props.setRankingPage;
   const setSubmissionsPage = props.setSubmissionsPage;
 
@@ -83,7 +83,6 @@ function ContestTabsPageContainer(props) {
 
 ContestTabsPageContainer.propTypes = {
   problemLists: PropTypes.array,
-  contestId: PropTypes.string,
   rankings: PropTypes.array,
   setRankingPage: PropTypes.func,
   setSubmissionsPage: PropTypes.func,
