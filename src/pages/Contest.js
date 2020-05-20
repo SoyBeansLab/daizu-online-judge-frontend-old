@@ -7,20 +7,11 @@ import { reducer } from "../reducer";
 //import axios from "axios";
 import { request } from "../requests";
 //import { config } from "../config";
-import { contestsOperations, contestsSelectors } from "../state/ducks/contests";
-import { rankingsOperations, rankingsSelectors } from "../state/ducks/rankings";
-import { submissionsOperations, submissionsSelectors } from "../state/ducks/submissions";
+import { contestsOperations } from "../state/ducks/contests";
+import { rankingsOperations } from "../state/ducks/rankings";
+import { submissionsOperations } from "../state/ducks/submissions";
 
-const ContestContainer = ({
-  topContent,
-  fetchContests,
-  rankings,
-  rankingsTotal,
-  fetchRanking,
-  submissions,
-  submissionsTotal,
-  fetchSubmissions,
-}) => {
+const ContestContainer = ({ fetchContests, fetchRanking, fetchSubmissions }) => {
   const [state, dispatch] = useReducer(reducer, { loading: true, data: [] });
   const { contestId } = useParams(); // url paramから取得
   const endpoint = `/contests/${contestId}`;
@@ -32,37 +23,16 @@ const ContestContainer = ({
     request(endpoint, dispatch);
   }, [endpoint, fetchRanking, contestId, fetchSubmissions, fetchContests]);
 
-  return (
-    <ContestTemplate
-      contestTopContent={topContent}
-      problemLists={state.data.problem_list}
-      rankings={rankings}
-      rankingsTotal={rankingsTotal}
-      contestId={contestId}
-      submissions={submissions}
-      submissionsTotal={submissionsTotal}
-    />
-  );
+  return <ContestTemplate problemLists={state.data.problem_list} />;
 };
 
 ContestContainer.propTypes = {
-  topContent: PropTypes.string,
   fetchContests: PropTypes.func,
-  rankings: PropTypes.array,
-  rankingsTotal: PropTypes.number,
   fetchRanking: PropTypes.func,
-  submissions: PropTypes.array,
-  submissionsTotal: PropTypes.number,
   fetchSubmissions: PropTypes.func,
 };
 
-const mapStateToProps = state => ({
-  topContent: contestsSelectors.getContestByID,
-  rankings: rankingsSelectors.rankingsSelector(state),
-  rankingsTotal: rankingsSelectors.rankingTotalSelector(state),
-  submissions: submissionsSelectors.submissionsSelector(state),
-  submissionsTotal: submissionsSelectors.submissionsTotalSelector(state),
-});
+const mapStateToProps = () => ({});
 
 const mapDispatchToProps = {
   fetchRanking: rankingsOperations.rankingsOprations,
