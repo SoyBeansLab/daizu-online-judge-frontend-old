@@ -3,6 +3,7 @@ const f = submit_id => {
     submit_id: submit_id,
     submit_date: "2019-05-05",
     problem_name: "Douteki keikaku plan",
+    problem_id: "hogehoge",
     language: "C++",
     score: 100,
     code_length: 100,

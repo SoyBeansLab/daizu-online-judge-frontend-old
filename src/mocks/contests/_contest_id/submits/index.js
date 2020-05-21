@@ -1,10 +1,11 @@
 const submits = {
   total: 20,
-  data: [
+  submissions: [
     {
       submit_id: "123456",
       submit_date: "2019-05-05",
       problem_name: "Douteki keikaku plan",
+      problem_id: "hogehoge",
       language: "C++",
       score: 100,
       code_length: 100,
@@ -18,6 +19,7 @@ const submits = {
       submit_id: "929292",
       submit_date: "2019-05-05",
       problem_name: "Hello World",
+      problem_id: "hogehoge",
       language: "C++",
       score: 100,
       code_length: 100,
@@ -31,6 +33,7 @@ const submits = {
       submit_id: "122222",
       submit_date: "2019-05-05",
       problem_name: "Douteki keikaku plan",
+      problem_id: "hogehoge",
       language: "C++",
       score: 100,
       code_length: 100,
