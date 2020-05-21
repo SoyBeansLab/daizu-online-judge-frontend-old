@@ -2,7 +2,10 @@ import { combineReducers } from "redux";
 import types from "./types";
 
 const initState = {
-  data: {},
+  data: {
+    entities: {},
+    result: {},
+  },
   loading: true,
   ui: {
     page: 0,

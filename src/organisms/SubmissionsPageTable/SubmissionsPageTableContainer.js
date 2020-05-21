@@ -5,7 +5,7 @@ import { submissionsOperations, submissionsSelectors } from "../../state/ducks/s
 const mapStateToProps = state => ({
   page: submissionsSelectors.getSubmissionsPage(state),
   total: submissionsSelectors.submissionsTotalSelector(state),
-  submissions: submissionsSelectors.submissionsSelector(state),
+  submissions: submissionsSelectors.getSubmissions(state),
 });
 
 const mapDispatchToProps = {
