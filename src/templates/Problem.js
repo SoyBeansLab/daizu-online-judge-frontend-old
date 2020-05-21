@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
-import ProblemInfo from "../molecules/ProblemInfo";
+import { useParams } from "react-router-dom";
+import ProblemDetails from "../organisms/ProblemDetails";
 import CodeSubmit from "../molecules/CodeSubmit";
 
 const useStyles = makeStyles(theme => ({
@@ -13,17 +14,11 @@ const useStyles = makeStyles(theme => ({
 
 export default function Problem(props) {
   const classes = useStyles();
+  const { problemId } = useParams();
 
   return (
     <div className={classes.root}>
-      <ProblemInfo
-        problemID={props.problemID}
-        problemName={props.problemName}
-        timeLimit={props.timeLimit}
-        memoryLimit={props.memoryLimit}
-        score={props.score}
-        problemText={props.problemText}
-      />
+      <ProblemDetails problemId={problemId} />
       <CodeSubmit languageLists={props.languageLists} languageDict={props.languageDict} />
     </div>
   );
