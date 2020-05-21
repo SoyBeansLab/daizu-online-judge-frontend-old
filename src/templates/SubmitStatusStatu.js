@@ -2,7 +2,8 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typograhy from "@material-ui/core/Typography";
 import CodeBlock from "../atoms/CodeBlock";
-import SubmitStatusDetailTable from "../molecules/SubmitStatusDetailTable";
+import { useParams } from "react-router-dom";
+import SubmissionDetails from "../organisms/SubmissionDetails";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -36,11 +37,12 @@ const submitStatusStateTestData = {
 
 export default function SubmitStatusState() {
   const classes = useStyles();
+  const { submitId } = useParams();
 
   return (
     <div className={classes.root}>
       <Typograhy variant="h5" className={classes.heading}>
-        #{submitStatusStateTestData.submitId}
+        #{submitId}
       </Typograhy>
 
       <Typograhy variant="h6" className={classes.text}>
@@ -51,16 +53,8 @@ export default function SubmitStatusState() {
       <Typograhy variant="h6" className={classes.text}>
         提出状況
       </Typograhy>
-      <SubmitStatusDetailTable
-        submitDate={submitStatusStateTestData.submitDate}
-        problemName={submitStatusStateTestData.problemName}
-        userName={submitStatusStateTestData.userName}
-        language={submitStatusStateTestData.language}
-        score={submitStatusStateTestData.score}
-        result={submitStatusStateTestData.result}
-        executeTime={submitStatusStateTestData.executeTime}
-        memory={submitStatusStateTestData.memory}
-      />
+
+      <SubmissionDetails submitId={submitId} />
     </div>
   );
 }
