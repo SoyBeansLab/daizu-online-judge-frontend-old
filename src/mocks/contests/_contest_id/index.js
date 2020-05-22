@@ -1,33 +1,50 @@
+const problems = [
+  {
+    order: 1,
+    problem_id: "hogehoge1",
+    problem_name: "Hello World1",
+    time_limit: 2,
+    memory_limit: 256,
+    score: 100,
+  },
+  {
+    order: 2,
+    problem_id: "hogehoge2",
+    problem_name: "Hello World2",
+    time_limit: 2,
+    memory_limit: 256,
+    score: 100,
+  },
+  {
+    order: 3,
+    problem_id: "hogehoge3",
+    problem_name: "Hello World3",
+    time_limit: 2,
+    memory_limit: 256,
+    score: 100,
+  },
+  {
+    order: 4,
+    problem_id: "hogehoge4",
+    problem_name: "Hello World4",
+    time_limit: 2,
+    memory_limit: 256,
+    score: 100,
+  },
+];
+
 const f = contest_id => {
   const result = {
     contest_id: contest_id,
-    contest_top_content: "# Hello World!  ## Welcome!",
-    problem_list: [
-      {
-        problem_id: "Hello_World",
-        problem_order: "A",
-        problem_name: "Hello World!",
-        time_limit: 2,
-        memory_limit: 256,
-        problem_score: 100,
-      },
-      {
-        problem_id: "uruu",
-        problem_order: "B",
-        problem_name: "is uruu?",
-        time_limit: 2,
-        memory_limit: 256,
-        problem_score: 100,
-      },
-      {
-        problem_id: "New_Hello_World",
-        problem_order: "C",
-        problem_name: "New Hello World!",
-        time_limit: 2,
-        memory_limit: 256,
-        problem_score: 1000,
-      },
-    ],
+    top_content: "# Hello World!\n## Welcome!",
+    contest_name: "kurokoji_contest",
+    contest_date: "2019-08-17 12:00:00",
+    holding_status: "current",
+    contest_time: 120,
+    writer: "mitohato",
+    contest_description: "Hello World!",
+    problem_number: 2,
+    problems: problems,
   };
   return result;
 };
