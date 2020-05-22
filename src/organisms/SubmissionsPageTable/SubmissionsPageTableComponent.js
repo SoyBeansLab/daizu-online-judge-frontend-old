@@ -26,7 +26,7 @@ function SubmissionsPageTableComponent(props) {
   const fetchSubmissions = props.fetchSubmissions;
 
   const paginationClickHandler = (_, val) => {
-    fetchSubmissions(endpoint);
+    fetchSubmissions(`${endpoint}?page=${val}`);
     history.push(`${location.pathname}?tab=submits&page=${val}`);
     setSubmissionsPage(val);
   };
