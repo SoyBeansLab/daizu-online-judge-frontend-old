@@ -1,26 +1,36 @@
 import { createSelector } from "reselect";
 
-const submissionsTotalSelector = state => state.submissionsState.submissions.data.result.total || 10;
+const submissionsSelector = (state, props) => {
+  const submissions = state.submissionsState.submissions.data.submissions[props.contestId] || {};
+  return submissions[props.page] || [];
+};
 
-const submissionsSelector = state => state.submissionsState.submissions.data.entities.submissions || {};
+const submissionSelector = (state, props) =>
+  state.submissionsState.submissions.data[props.contestId][props.submitId] || {};
 
-const limitedSubmissionsSelector = createSelector(submissionsSelector, submissions => submissions);
+const submissionPageSelector = (state, props) => state.submissionsState.submissions.pages[props.contestId] || {};
 
 const isfetched = createSelector(submissionsSelector, submissions => submissions.upcoming !== void 0);
 
-const getSubmissionsPage = state => state.submissionsState.submissions.ui.page || 0;
+// 特定のContestのSubmission一覧を取得する
+// propsにContestIdとPage(cursol)が必要
+const getSubmissionsByContestId = createSelector(submissionsSelector, submissions => Object.values(submissions));
 
-const getSubmissions = createSelector(submissionsSelector, submissions => Object.values(submissions));
+// Submission単体を取得する.
+// propsにSubmitIdが必要
+const getSubmissionsBySubmitId = createSelector(submissionSelector, submission => submission);
 
-const getSubmissionById = (state, props) =>
-  state.submissionsState.submissions.data.entities.submissions[props.submitId] || {};
+// paginationのpageを取得するselector
+const getPageByContestId = createSelector(submissionPageSelector, page => page.page || 0);
+
+// submissionsのtotalを取得するselector
+// propsにContestIdが必要
+const getTotalByContestId = createSelector(submissionPageSelector, page => page.total || 0);
 
 export default {
-  submissionsTotalSelector,
-  submissionsSelector,
-  limitedSubmissionsSelector,
   isfetched,
-  getSubmissionsPage,
-  getSubmissions,
-  getSubmissionById,
+  getSubmissionsByContestId,
+  getSubmissionsBySubmitId,
+  getPageByContestId,
+  getTotalByContestId,
 };

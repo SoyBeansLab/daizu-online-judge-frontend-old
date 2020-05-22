@@ -1,5 +1,4 @@
 import axios from "axios";
-import { normalize, schema } from "normalizr";
 import { fetching, receiveSubmissions, changePage } from "./actions";
 import mock from "../../../mocks/$mock";
 
@@ -11,14 +10,9 @@ const fetchSubmissions = url => dispatch => {
     .get(url)
     .then(response => {
       const data = { ...response.data };
+      console.log(data);
 
-      const submissions = new schema.Entity("submissions", {}, { idAttribute: "submit_id" });
-      const myScheme = {
-        submissions: [submissions],
-      };
-
-      const normalizeData = normalize(data, myScheme);
-      dispatch(receiveSubmissions(normalizeData));
+      dispatch(receiveSubmissions(data));
     })
     .catch(error => {
       console.log(error); // eslint-disable-line
@@ -28,8 +22,8 @@ const fetchSubmissions = url => dispatch => {
     });
 };
 
-const setSubmissionsPage = page => dispatch => {
-  dispatch(changePage(page));
+const setSubmissionsPage = (contestId, page) => dispatch => {
+  dispatch(changePage(contestId, page));
 };
 
 export default {

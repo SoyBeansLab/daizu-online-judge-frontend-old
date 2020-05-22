@@ -14,7 +14,8 @@ export const receiveSubmissions = json => ({
   data: json,
 });
 
-export const changePage = page => ({
+export const changePage = (contestId, page) => ({
   type: types.CHANGE_SUBMISSIONS_PAGE,
-  data: page,
+  page: page,
+  contestId: contestId,
 });
