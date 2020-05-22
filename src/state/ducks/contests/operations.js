@@ -1,14 +1,14 @@
 import axios from "axios";
 import { normalize, schema } from "normalizr";
-import { fetching, receiveContests } from "./actions";
+import { fetching, receiveContests, receiveContest, fetchFailed } from "./actions";
 import mock from "../../../mocks/$mock";
 
-const contestsOprations = url => dispatch => {
+const fetchContests = url => dispatch => {
   dispatch(fetching);
   mock();
 
   axios
-    .get("/contests")
+    .get(url)
     .then(response => {
       const data = { ...response.data };
 
@@ -21,11 +21,33 @@ const contestsOprations = url => dispatch => {
       dispatch(receiveContests(normalizeData));
     })
     .catch(error => {
-      console.log(error); // eslint-disable-line
+      dispatch(fetchFailed(error));
     })
     .finally(() => {
       console.log("GET " + url); // eslint-disable-line
     });
 };
 
-export default contestsOprations;
+const fetchContest = url => dispatch => {
+  dispatch(fetching);
+  mock();
+
+  axios
+    .get(url)
+    .then(response => {
+      const data = { ...response.data };
+
+      dispatch(receiveContest(data));
+    })
+    .catch(error => {
+      dispatch(fetchFailed(error));
+    })
+    .finally(() => {
+      console.log("GET " + url); // eslint-disable-line
+    });
+};
+
+export default {
+  fetchContests,
+  fetchContest,
+};

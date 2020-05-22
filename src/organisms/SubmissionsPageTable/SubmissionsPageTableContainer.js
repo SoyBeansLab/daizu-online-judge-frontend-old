@@ -10,6 +10,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   setSubmissionsPage: submissionsOperations.setSubmissionsPage,
+  fetchSubmissions: submissionsOperations.fetchSubmissions,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SubmissionsPageTableComponent);

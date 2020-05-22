@@ -1,5 +1,6 @@
-const f = submit_id => {
+const f = (contest_id, submit_id) => {
   return {
+    contest_id: contest_id,
     submit_id: submit_id,
     submit_date: "2019-05-05",
     problem_name: "Douteki keikaku plan",
@@ -17,6 +18,6 @@ const f = submit_id => {
 
 module.exports = {
   get({ values }) {
-    return [200, f(values.submit_id)];
+    return [200, f(values.contest_id, values.submit_id)];
   },
 };

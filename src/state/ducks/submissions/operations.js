@@ -3,7 +3,7 @@ import { normalize, schema } from "normalizr";
 import { fetching, receiveSubmissions, changePage } from "./actions";
 import mock from "../../../mocks/$mock";
 
-const submissionsOprations = url => dispatch => {
+const fetchSubmissions = url => dispatch => {
   dispatch(fetching);
   mock();
 
@@ -33,6 +33,6 @@ const setSubmissionsPage = page => dispatch => {
 };
 
 export default {
-  submissionsOprations,
+  fetchSubmissions,
   setSubmissionsPage,
 };

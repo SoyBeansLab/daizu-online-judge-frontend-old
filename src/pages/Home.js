@@ -4,31 +4,31 @@ import { connect } from "react-redux";
 import HomeTemplate from "../templates/Home.js";
 import { contestsOperations, contestsSelectors } from "../state/ducks/contests";
 
-const HomeContainer = ({ slideItemList, isfetched, fetch }) => {
+const HomeContainer = ({ slideItemList, isfetched, fetchContests }) => {
   const endpoint = "/contests";
 
   useEffect(() => {
     if (!isfetched) {
-      fetch(endpoint);
+      fetchContests(endpoint);
     }
-  }, [endpoint, fetch, isfetched]);
+  }, [endpoint, fetchContests, isfetched]);
 
   return <HomeTemplate slideItemList={slideItemList} />;
 };
 
 HomeContainer.propTypes = {
   slideItemList: PropTypes.array,
-  fetch: PropTypes.func,
+  fetchContests: PropTypes.func,
   isfetched: PropTypes.bool,
 };
 
 const mapStateToProps = state => ({
   slideItemList: contestsSelectors.upcomingContestsSelector(state),
-  isfetched: contestsSelectors.isfetched(state),
+  isfetched: contestsSelectors.isfetchedContests(state),
 });
 
 const mapDispatchToProps = {
-  fetch: contestsOperations,
+  fetchContests: contestsOperations.fetchContests,
 };
 
 const Home = connect(mapStateToProps, mapDispatchToProps)(HomeContainer);
