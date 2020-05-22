@@ -7,14 +7,14 @@ import TopContents from "../../molecules/ContestTopContents";
 import { contestsSelectors } from "../../state/ducks/contests";
 
 function ContestTopContainer(props) {
-  const content = props.contest.contest_description;
+  const content = props.contest.top_content;
 
   return <TopContents contestTopContent={content} />;
 }
 
 ContestTopContainer.propTypes = {
   contest: PropTypes.shape({
-    contest_description: PropTypes.string,
+    top_content: PropTypes.string,
   }),
 };
 
