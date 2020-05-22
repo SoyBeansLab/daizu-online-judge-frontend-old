@@ -12,25 +12,28 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-function SubmissionsPageTableContainer(props) {
+function SubmissionsPageTableComponent(props) {
   const classes = useStyles();
   const location = useLocation();
   const history = useHistory();
   const { contestId } = useParams();
+  const endpoint = `/contests/${contestId}/submits`;
 
   const submissions = props.submissions;
   const page = props.page;
   const total = props.total;
   const setSubmissionsPage = props.setSubmissionsPage;
+  const fetchSubmissions = props.fetchSubmissions;
 
   const paginationClickHandler = (_, val) => {
+    fetchSubmissions(endpoint);
     history.push(`${location.pathname}?tab=submits&page=${val}`);
     setSubmissionsPage(val);
   };
 
   useEffect(() => {
-    //    props.setSubmissionsPage();
-  }, []);
+    fetchSubmissions(endpoint);
+  }, [fetchSubmissions, endpoint]);
 
   return (
     <div className={classes.root}>
@@ -40,11 +43,12 @@ function SubmissionsPageTableContainer(props) {
   );
 }
 
-SubmissionsPageTableContainer.propTypes = {
+SubmissionsPageTableComponent.propTypes = {
   submissions: PropTypes.array,
   page: PropTypes.number,
   total: PropTypes.number,
   setSubmissionsPage: PropTypes.func,
+  fetchSubmissions: PropTypes.func,
 };
 
-export default SubmissionsPageTableContainer;
+export default SubmissionsPageTableComponent;
