@@ -32,8 +32,8 @@ function SubmissionsPageTableComponent(props) {
   };
 
   useEffect(() => {
-    fetchSubmissions(endpoint);
-  }, [fetchSubmissions, endpoint]);
+    fetchSubmissions(`${endpoint}?page=${page}`);
+  }, [fetchSubmissions, endpoint, page]);
 
   return (
     <div className={classes.root}>
