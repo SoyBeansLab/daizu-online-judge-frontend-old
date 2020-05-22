@@ -19,7 +19,7 @@ const recentContestsSelector = createSelector(contestsListSelector, contests =>
 );
 
 const getProblemList = createSelector(contestSelector, contest => {
-  const problems = contest.problems;
+  const problems = contest.problems || [];
   problems.sort((a, b) => {
     return a.order - b.order;
   });
@@ -27,14 +27,19 @@ const getProblemList = createSelector(contestSelector, contest => {
   return problems;
 });
 
-const isfetched = createSelector(contestsSelector, contests => contests.upcoming !== void 0);
+// contest一覧がfetch済みかをcheckする
+const isfetchedContests = state => state.contestsState.isfetchedContest;
+
+// props.contestIdで指定されたcontestがfetch済みかをcheckする
+const isfetchedContest = createSelector(contestSelector, contest => contest.contest_id !== void 0);
 
 export default {
   contestsSelector,
   currentContestsSelector,
   upcomingContestsSelector,
   recentContestsSelector,
-  isfetched,
+  isfetchedContests,
+  isfetchedContest,
   contestSelector,
   getProblemList,
 };
