@@ -13,5 +13,5 @@ const useStyles = makeStyles(() => ({
 export default function TitleImage() {
   const classes = useStyles();
 
-  return <img src={Mascot} className={classes.mascot} />;
+  return <img src={Mascot} alt="mascot" className={classes.mascot} />;
 }
