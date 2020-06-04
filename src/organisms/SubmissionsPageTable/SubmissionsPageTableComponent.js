@@ -24,10 +24,9 @@ function SubmissionsPageTableComponent(props) {
   const total = props.total;
   const setSubmissionsPage = props.setSubmissionsPage;
   const fetchSubmissions = props.fetchSubmissions;
-  console.log(submissions);
 
   const paginationClickHandler = (event, val) => {
-    setSubmissionsPage(contestId, val);
+    setSubmissionsPage(val);
     fetchSubmissions(`${endpoint}?page=${val}`);
     history.push(`${location.pathname}?tab=submits&page=${val}`);
   };

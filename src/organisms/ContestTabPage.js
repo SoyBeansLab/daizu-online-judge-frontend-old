@@ -89,9 +89,9 @@ ContestTabsPageContainer.propTypes = {
   submissionsPage: PropTypes.number,
 };
 
-const mapStateToProps = (state, props) => ({
+const mapStateToProps = state => ({
   rankingPage: rankingsSelectors.getRankingPage(state),
-  submissionsPage: submissionsSelectors.getPageByContestId(state, props),
+  submissionsPage: submissionsSelectors.getPage(state),
 });
 
 const mapDispatchToProps = {
