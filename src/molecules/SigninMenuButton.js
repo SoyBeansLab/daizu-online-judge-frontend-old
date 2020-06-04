@@ -31,6 +31,7 @@ const useStyles = makeStyles(theme => ({
   button: {
     marginRight: theme.spacing(2),
     color: "#ffffff",
+    textTransform: "none",
   },
 }));
 
@@ -38,6 +39,7 @@ export default function SigninMenuButton(props) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
+  const username = props.username;
   const isAuthenticated = props.isAuthenticated;
   const loginWithRedirect = props.loginWithRedirect;
   const logoutWithRedirect = props.logoutWithRedirect;
@@ -59,8 +61,7 @@ export default function SigninMenuButton(props) {
         className={classes.button}
         onClick={handleClick}
       >
-        {!isAuthenticated && "SIGN IN"}
-        {isAuthenticated && "username"}
+        {username}
         <ArrowDropDownIcon />
       </Button>
 
@@ -86,6 +87,7 @@ export default function SigninMenuButton(props) {
 }
 
 SigninMenuButton.propTypes = {
+  username: PropTypes.string,
   isAuthenticated: PropTypes.bool,
   loginWithRedirect: PropTypes.func,
   logoutWithRedirect: PropTypes.func,

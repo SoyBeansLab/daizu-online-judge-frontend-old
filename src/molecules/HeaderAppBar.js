@@ -8,7 +8,8 @@ import SigninMenuButton from "./SigninMenuButton";
 import LinkTitleImage from "./LinkTitleImage";
 
 export default function HeaderAppBar(props) {
-  // const user = props.user;
+  const user = props.user || {};
+  const username = user.nickname || "Guest";
   const isAuthenticated = props.isAuthenticated;
   const loginWithRedirect = props.loginWithRedirect;
   const logoutWithRedirect = props.logoutWithRedirect;
@@ -23,6 +24,7 @@ export default function HeaderAppBar(props) {
         <LinkButton to="/" text="HOME" />
         <LinkButton to="/contests" text="CONTESTS" />
         <SigninMenuButton
+          username={username}
           isAuthenticated={isAuthenticated}
           logoutWithRedirect={logoutWithRedirect}
           loginWithRedirect={loginWithRedirect}
