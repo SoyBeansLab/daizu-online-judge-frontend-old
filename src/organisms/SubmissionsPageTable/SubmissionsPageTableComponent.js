@@ -19,6 +19,7 @@ function SubmissionsPageTableComponent(props) {
   const { contestId } = useParams();
   const endpoint = `/contests/${contestId}/submits`;
 
+  const limit = 10; // tableにはrowを10行までしか表示しませんの合図!
   const submissions = props.submissions;
   const page = props.page;
   const total = props.total;
@@ -38,7 +39,12 @@ function SubmissionsPageTableComponent(props) {
   return (
     <div className={classes.root}>
       <SubmissionsStatusTable contestId={contestId} submissions={submissions} />
-      <Pagination offset={page} total={total} onClick={(event, offset) => paginationClickHandler(event, offset)} />
+      <Pagination
+        limit={limit}
+        offset={page}
+        total={total}
+        onClick={(event, offset) => paginationClickHandler(event, offset)}
+      />
     </div>
   );
 }
