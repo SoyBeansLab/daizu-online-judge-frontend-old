@@ -1,36 +1,30 @@
 import { createSelector } from "reselect";
 
-const submissionsSelector = (state, props) => {
-  const submissions = state.submissionsState.submissions.data.submissions[props.contestId] || {};
-  return submissions[props.page] || [];
-};
+const submissionsSelector = state => state.submissionsState.submissions.data.submissions || {};
 
-const submissionSelector = (state, props) =>
-  state.submissionsState.submissions.data[props.contestId][props.submitId] || {};
+const submissionSelector = (state, props) => state.submissionsState.submissions.data.submission[props.submitId] || {};
 
-const submissionPageSelector = (state, props) => state.submissionsState.submissions.pages[props.contestId] || {};
+const submissionsUISelector = state => state.submissionsState.submissions.ui || {};
 
 const isfetched = createSelector(submissionsSelector, submissions => submissions.upcoming !== void 0);
 
 // 特定のContestのSubmission一覧を取得する
-// propsにContestIdとPage(cursol)が必要
-const getSubmissionsByContestId = createSelector(submissionsSelector, submissions => Object.values(submissions));
+const getSubmissions = createSelector(submissionsSelector, submissions => Object.values(submissions));
 
 // Submission単体を取得する.
 // propsにSubmitIdが必要
 const getSubmissionsBySubmitId = createSelector(submissionSelector, submission => submission);
 
 // paginationのpageを取得するselector
-const getPageByContestId = createSelector(submissionPageSelector, page => page.page || 0);
+const getPage = createSelector(submissionsUISelector, ui => ui.page || 0);
 
 // submissionsのtotalを取得するselector
-// propsにContestIdが必要
-const getTotalByContestId = createSelector(submissionPageSelector, page => page.total || 0);
+const getTotal = createSelector(submissionsUISelector, ui => ui.total);
 
 export default {
   isfetched,
-  getSubmissionsByContestId,
+  getSubmissions,
   getSubmissionsBySubmitId,
-  getPageByContestId,
-  getTotalByContestId,
+  getPage,
+  getTotal,
 };

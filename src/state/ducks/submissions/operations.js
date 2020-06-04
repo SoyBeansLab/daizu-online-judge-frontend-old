@@ -10,7 +10,6 @@ const fetchSubmissions = url => dispatch => {
     .get(url)
     .then(response => {
       const data = { ...response.data };
-      console.log(data);
 
       dispatch(receiveSubmissions(data));
     })
@@ -22,8 +21,8 @@ const fetchSubmissions = url => dispatch => {
     });
 };
 
-const setSubmissionsPage = (contestId, page) => dispatch => {
-  dispatch(changePage(contestId, page));
+const setSubmissionsPage = page => dispatch => {
+  dispatch(changePage(page));
 };
 
 export default {

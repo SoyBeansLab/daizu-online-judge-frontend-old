@@ -7,13 +7,10 @@ const initState = {
     submission: {}, // submission単体をrequestされたとき
   },
   loading: true,
-  ui: {},
-  pages: {},
-};
-
-const initStatePage = {
-  total: 100,
-  page: 0,
+  ui: {
+    total: 0,
+    page: 0,
+  },
 };
 
 const submissions = (state = initState, action) => {
@@ -21,37 +18,27 @@ const submissions = (state = initState, action) => {
     case types.FETCH_SUBMISSIONS:
       return { ...state, loading: true };
     case types.FETCH_SUBMISSIONS_SUCEESS: {
-      const contestId = action.data.contest_id;
-      const page = action.data.page;
       const total = action.data.total;
 
-      const submissions = state.data.submissions;
-      const pages = state.pages;
-
-      if (!Object.prototype.hasOwnProperty.call(submissions, contestId)) {
-        submissions[contestId] = {};
-        submissions[contestId][page] = {};
-
-        pages[contestId] = initStatePage;
+      // submit_idをkeyにしたMapを作る
+      var submissions = {};
+      for (const submission of action.data.submissions || []) {
+        const submitId = submission["submit_id"];
+        submissions[submitId] = submission;
       }
 
-      submissions[contestId][page] = [...action.data.submissions];
-
-      pages[contestId]["total"] = total;
-
-      return { ...state, loading: false, data: { submissions }, pages };
+      return {
+        ...state,
+        loading: false,
+        data: { ...state.data, submissions: submissions },
+        ui: { ...state.ui, total: total },
+      };
     }
     case types.CHANGE_SUBMISSIONS_PAGE: {
-      const pages = state.pages;
-      const contestId = action.contestId;
+      const total = action.total;
+      const page = action.page;
 
-      if (!Object.prototype.hasOwnProperty.call(pages, contestId)) {
-        pages[contestId] = {};
-      }
-      pages[contestId]["page"] = action.page;
-      console.log(action);
-
-      return { ...state, pages };
+      return { ...state, ui: { total: total, page: page } };
     }
     default:
       return state;
