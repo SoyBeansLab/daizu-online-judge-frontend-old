@@ -26,6 +26,7 @@ const getSubmissionsBySubmitId = createSelector(submissionSelector, submission =
     executeTime: submission["execute_time"],
     memory: submission["memory"],
     testCase: `${submission["all_test_case"]}/${submission["passed_test_case"]}`,
+    sourceCode: submission["source_code"],
   };
 
   return result;
