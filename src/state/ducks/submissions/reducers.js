@@ -34,6 +34,18 @@ const submissions = (state = initState, action) => {
         ui: { ...state.ui, total: total },
       };
     }
+    case types.FETCH_SUBMISSION_SUCEESS: {
+      const submitId = action.data["submit_id"];
+
+      const submission = state.data.submission;
+      submission[submitId] = action.data;
+
+      return {
+        ...state,
+        loading: false,
+        data: { ...state.submissions, submission: submission },
+      };
+    }
     case types.CHANGE_SUBMISSIONS_PAGE: {
       const total = action.total;
       const page = action.page;
