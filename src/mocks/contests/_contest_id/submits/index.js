@@ -1,52 +1,45 @@
+const randomStr = N => {
+  var S = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  return Array.from(Array(N))
+    .map(() => S[Math.floor(Math.random() * S.length)])
+    .join("");
+};
+
+const randomChoiceJudgeStatus = () => {
+  const list = ["AC", "WA", "WJ", "TLE", "RE", "MLE"];
+  const idx = Math.floor(Math.random() * list.length);
+  return list[idx];
+};
+
+const submissions = (contest_id, page) => {
+  const result = [];
+  for (var i = 0; i < 10; i++) {
+    const id = randomStr(7);
+    const submission = {
+      submit_id: id,
+      submit_date: "2019-05-05",
+      problem_name: "Douteki keikaku plan" + page,
+      problem_id: "hogehoge",
+      language: "C++",
+      score: 100,
+      code_length: 100,
+      result: randomChoiceJudgeStatus(),
+      username: "nemu_sou " + contest_id,
+      execute_time: 300,
+      memory: 400,
+      source_code: 'printf("HelloWorld");',
+    };
+    result.push(submission);
+  }
+  return result;
+};
+
 const f = (contest_id, page) => {
   const submits = {
-    total: 20,
+    total: 30,
     contest_id: contest_id,
     page: page,
-    submissions: [
-      {
-        submit_id: "123456",
-        submit_date: "2019-05-05",
-        problem_name: "Douteki keikaku plan" + page,
-        problem_id: "hogehoge",
-        language: "C++",
-        score: 100,
-        code_length: 100,
-        result: "AC",
-        username: "nemu_sou",
-        execute_time: 300,
-        memory: 400,
-        source_code: 'printf("HelloWorld");',
-      },
-      {
-        submit_id: "929292",
-        submit_date: "2019-05-05",
-        problem_name: "Hello World",
-        problem_id: "hogehoge",
-        language: "C++",
-        score: 100,
-        code_length: 100,
-        result: "WA",
-        username: "nemu_sou",
-        execute_time: 300,
-        memory: 400,
-        source_code: 'printf("HelloWorld");',
-      },
-      {
-        submit_id: "122222",
-        submit_date: "2019-05-05",
-        problem_name: "Douteki keikaku plan",
-        problem_id: "hogehoge",
-        language: "C++",
-        score: 100,
-        code_length: 100,
-        result: "WJ",
-        username: "nemu_sou",
-        execute_time: 300,
-        memory: 400,
-        source_code: 'printf("HelloWorld");',
-      },
-    ],
+    submissions: submissions(contest_id, page),
   };
   return submits;
 };
