@@ -1,13 +1,31 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Container from "@material-ui/core/Container";
-import LinkButton from "../atoms/LinkButton";
-import SigninMenuButton from "./SigninMenuButton";
-import LinkTitleImage from "./LinkTitleImage";
+import LinkButton from "../../atoms/LinkButton";
+import SigninMenuButton from "../../molecules/SigninMenuButton";
+import LinkTitleImage from "../../molecules/LinkTitleImage";
 
-export default function HeaderAppBar(props) {
+const useStyles = makeStyles(theme => ({
+  root: {
+    flexGrow: 0,
+  },
+  title: {
+    width: "20%",
+    color: "#ffffff",
+    border: "0",
+  },
+  button: {
+    marginRight: theme.spacing(2),
+    color: "#ffffff",
+  },
+}));
+
+export default function HeaderComponent(props) {
+  const classes = useStyles();
+
   const user = props.user || {};
   const username = user.nickname || "Guest";
   const isAuthenticated = props.isAuthenticated;
@@ -15,26 +33,28 @@ export default function HeaderAppBar(props) {
   const logoutWithRedirect = props.logoutWithRedirect;
 
   return (
-    <AppBar color="primary" position="static">
-      <Toolbar>
-        <Container justify="flex-start">
-          <LinkTitleImage />
-        </Container>
+    <div className={classes.root}>
+      <AppBar color="primary" position="static">
+        <Toolbar>
+          <Container justify="flex-start">
+            <LinkTitleImage />
+          </Container>
 
-        <LinkButton to="/" text="HOME" />
-        <LinkButton to="/contests" text="CONTESTS" />
-        <SigninMenuButton
-          username={username}
-          isAuthenticated={isAuthenticated}
-          logoutWithRedirect={logoutWithRedirect}
-          loginWithRedirect={loginWithRedirect}
-        />
-      </Toolbar>
-    </AppBar>
+          <LinkButton to="/" text="HOME" />
+          <LinkButton to="/contests" text="CONTESTS" />
+          <SigninMenuButton
+            username={username}
+            isAuthenticated={isAuthenticated}
+            logoutWithRedirect={logoutWithRedirect}
+            loginWithRedirect={loginWithRedirect}
+          />
+        </Toolbar>
+      </AppBar>
+    </div>
   );
 }
 
-HeaderAppBar.propTypes = {
+HeaderComponent.propTypes = {
   user: PropTypes.object,
   isAuthenticated: PropTypes.bool,
   loginWithRedirect: PropTypes.func,
