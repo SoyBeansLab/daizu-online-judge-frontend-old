@@ -7,22 +7,23 @@ import CodeBlock from "../../atoms/CodeBlock";
 import { submissionsSelectors } from "../../state/ducks/submissions";
 
 function SubmissionCodeBlockContainer(props) {
+  console.log(props);
   const submission = props.submission;
-  const sourceCode = submission.source_code;
-  const language = submission.language;
+  const sourceCode = submission.sourceCode || "";
+  const language = submission.language || "";
 
   return <CodeBlock language={language}>{sourceCode}</CodeBlock>;
 }
 
 SubmissionCodeBlockContainer.propTypes = {
   submission: PropTypes.shape({
-    source_code: PropTypes.string,
+    sourceCode: PropTypes.string,
     language: PropTypes.string,
   }),
 };
 
 const mapStateToProps = (state, props) => ({
-  submission: submissionsSelectors.getSubmissionById(state, props),
+  submission: submissionsSelectors.getSubmissionsBySubmitId(state, props),
 });
 
 export default connect(mapStateToProps)(SubmissionCodeBlockContainer);

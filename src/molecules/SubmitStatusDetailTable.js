@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-import Link from "@material-ui/core/Link";
 import Chip from "../atoms/Chip";
 
 const useStyles = makeStyles(theme => ({
@@ -36,11 +36,13 @@ export default function SubmitStatusDetail(props) {
   const executeTime = props.executeTime;
   const memory = props.memory;
   const testCase = props.testCase;
+  const problemId = props.problemId;
+  const contestId = props.contestId;
 
   const cells = [
     createData("提出日時", submitDate),
-    createData("問題", <Link href="">{problemName}</Link>),
-    createData("ユーザ", <Link href="">{userName}</Link>),
+    createData("問題", <Link to={`/contests/${contestId}/problems/${problemId}`}>{problemName}</Link>),
+    createData("ユーザ", userName),
     createData("言語", language),
     createData("得点", score),
     createData("テストケース通過数(通過数/全体)", testCase),
@@ -79,4 +81,6 @@ SubmitStatusDetail.propTypes = {
   executeTime: PropTypes.number,
   memory: PropTypes.number,
   testCase: PropTypes.string,
+  problemId: PropTypes.string,
+  contestId: PropTypes.string,
 };

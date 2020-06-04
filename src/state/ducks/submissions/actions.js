@@ -14,6 +14,11 @@ export const receiveSubmissions = json => ({
   data: json,
 });
 
+export const receiveSubmission = json => ({
+  type: types.FETCH_SUBMISSION_SUCEESS,
+  data: json,
+});
+
 export const changePage = page => ({
   type: types.CHANGE_SUBMISSIONS_PAGE,
   page: page,
