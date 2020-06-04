@@ -1,4 +1,5 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import ContestTabs from "../organisms/ContestTabPage";
 
@@ -12,10 +13,11 @@ const useStyles = makeStyles(theme => ({
 
 export default function Contests() {
   const classes = useStyles();
+  const { contestId } = useParams;
 
   return (
     <div className={classes.root}>
-      <ContestTabs />
+      <ContestTabs contestId={contestId} />
     </div>
   );
 }

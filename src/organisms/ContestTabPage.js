@@ -51,6 +51,7 @@ function ContestTabsPageContainer(props) {
   const rankings = props.rankings;
   const setRankingPage = props.setRankingPage;
   const setSubmissionsPage = props.setSubmissionsPage;
+  const submissionsPage = props.submissionsPage;
 
   useEffect(() => {
     setTabPosition(getTab());
@@ -75,7 +76,7 @@ function ContestTabsPageContainer(props) {
       <Tabs tabPosition={tabPosition} onChange={handleChange} tabValueList={tabValueList} labels={labelList} />
       {tabPosition === tabValueList[0] && <ContestTop contestId={contestId} />}
       {tabPosition === tabValueList[1] && <ProblemsTable contestId={contestId} />}
-      {tabPosition === tabValueList[2] && <SubmissionsPageTable />}
+      {tabPosition === tabValueList[2] && <SubmissionsPageTable contestId={contestId} page={submissionsPage} />}
       {tabPosition === tabValueList[3] && <RankingPageTable rankings={rankings} />}
     </div>
   );
@@ -85,11 +86,12 @@ ContestTabsPageContainer.propTypes = {
   rankings: PropTypes.array,
   setRankingPage: PropTypes.func,
   setSubmissionsPage: PropTypes.func,
+  submissionsPage: PropTypes.number,
 };
 
 const mapStateToProps = state => ({
   rankingPage: rankingsSelectors.getRankingPage(state),
-  submissionsPage: submissionsSelectors.getSubmissionsPage(state),
+  submissionsPage: submissionsSelectors.getPage(state),
 });
 
 const mapDispatchToProps = {

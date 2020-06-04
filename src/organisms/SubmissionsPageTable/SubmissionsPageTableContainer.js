@@ -3,8 +3,8 @@ import SubmissionsPageTableComponent from "./SubmissionsPageTableComponent";
 import { submissionsOperations, submissionsSelectors } from "../../state/ducks/submissions";
 
 const mapStateToProps = state => ({
-  page: submissionsSelectors.getSubmissionsPage(state),
-  total: submissionsSelectors.submissionsTotalSelector(state),
+  page: submissionsSelectors.getPage(state),
+  total: submissionsSelectors.getTotal(state),
   submissions: submissionsSelectors.getSubmissions(state),
 });
 
