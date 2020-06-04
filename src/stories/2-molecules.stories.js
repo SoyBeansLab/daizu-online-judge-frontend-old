@@ -15,6 +15,7 @@ import ProblemInfo from "../molecules/ProblemInfo";
 import DataTableX from "../molecules/ProblemsTable";
 import DataTableY from "../molecules/RankingTable";
 import SliderItem from "../molecules/SliderItem";
+import SinginMenuButton from "../molecules/SigninMenuButton";
 
 import { theme } from "../materialui/theme";
 
@@ -47,3 +48,5 @@ export const problems_table = () => <DataTableX />;
 export const ranking_table = () => <DataTableY />;
 
 export const slider_item = () => <SliderItem />;
+
+export const singin_menu_button = () => <SinginMenuButton />;

@@ -4,11 +4,12 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Container from "@material-ui/core/Container";
 import LinkButton from "../atoms/LinkButton";
-import Button from "../atoms/Button";
+import SigninMenuButton from "./SigninMenuButton";
 import LinkTitleImage from "./LinkTitleImage";
 
 export default function HeaderAppBar(props) {
-  // const user = props.user;
+  const user = props.user || {};
+  const username = user.nickname || "Guest";
   const isAuthenticated = props.isAuthenticated;
   const loginWithRedirect = props.loginWithRedirect;
   const logoutWithRedirect = props.logoutWithRedirect;
@@ -22,8 +23,12 @@ export default function HeaderAppBar(props) {
 
         <LinkButton to="/" text="HOME" />
         <LinkButton to="/contests" text="CONTESTS" />
-        {!isAuthenticated && <Button text="SIGN IN" variant="text" onClick={loginWithRedirect} />}
-        {isAuthenticated && <Button text="SIGN OUT" variant="text" onClick={logoutWithRedirect} />}
+        <SigninMenuButton
+          username={username}
+          isAuthenticated={isAuthenticated}
+          logoutWithRedirect={logoutWithRedirect}
+          loginWithRedirect={loginWithRedirect}
+        />
       </Toolbar>
     </AppBar>
   );
