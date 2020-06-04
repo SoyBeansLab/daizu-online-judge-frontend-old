@@ -27,16 +27,6 @@ const StyledMenu = withStyles({
   />
 ));
 
-const StyledMenuItem = withStyles(theme => ({
-  root: {
-    "&:focus": {
-      "& .MuiListItemIcon-root, & .MuiListItemText-primary": {
-        color: theme.palette.common.black,
-      },
-    },
-  },
-}))(props => <MenuItem {...props} />);
-
 const useStyles = makeStyles(theme => ({
   button: {
     marginRight: theme.spacing(2),
@@ -76,18 +66,18 @@ export default function SigninMenuButton(props) {
 
       <StyledMenu id="customized-menu" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
         {!isAuthenticated && (
-          <StyledMenuItem onClick={loginWithRedirect}>
+          <MenuItem onClick={loginWithRedirect}>
             <ListItemText primary="SignIn" />
-          </StyledMenuItem>
+          </MenuItem>
         )}
         {isAuthenticated && (
           <div>
-            <StyledMenuItem>
+            <MenuItem>
               <ListItemText primary="Profile" />
-            </StyledMenuItem>
-            <StyledMenuItem onClick={logoutWithRedirect}>
+            </MenuItem>
+            <MenuItem onClick={logoutWithRedirect}>
               <ListItemText primary="Sign Out" />
-            </StyledMenuItem>
+            </MenuItem>
           </div>
         )}
       </StyledMenu>
