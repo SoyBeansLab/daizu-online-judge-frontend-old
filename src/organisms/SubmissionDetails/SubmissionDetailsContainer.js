@@ -34,6 +34,7 @@ function SubmissionDetailsContainer(props) {
       submitDate={submitDate}
       problemName={problemName}
       problemId={problemId}
+      contestId={contestId}
       userName={username}
       language={language}
       score={score}
