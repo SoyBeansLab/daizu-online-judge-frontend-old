@@ -48,4 +48,11 @@ module.exports = {
   get({ values, params }) {
     return [200, f(values.contest_id, params.page)];
   },
+
+  post({ header, data }) {
+    console.log(data);
+    console.log(header);
+
+    return [201];
+  },
 };
