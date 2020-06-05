@@ -19,6 +19,7 @@ function RankingPageTableComponent(props) {
   const { contestId } = useParams();
   const endpoint = `/contests/${contestId}/ranking`;
 
+  const limit = 10;
   const ranking = props.ranking;
   const page = props.page;
   const total = props.total;
@@ -38,7 +39,12 @@ function RankingPageTableComponent(props) {
   return (
     <div className={classes.root}>
       <RankingTable rankings={ranking} />
-      <Pagination offset={page} total={total} onClick={(event, offset) => paginationClickHandler(event, offset)} />
+      <Pagination
+        limit={limit}
+        offset={page}
+        total={total}
+        onClick={(event, offset) => paginationClickHandler(event, offset)}
+      />
     </div>
   );
 }
