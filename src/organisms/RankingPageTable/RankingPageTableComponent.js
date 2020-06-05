@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
-import { useLocation, useHistory } from "react-router-dom";
+import { useLocation, useHistory, useParams } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 
 import RankingTable from "../../molecules/RankingTable";
@@ -16,20 +16,24 @@ function RankingPageTableComponent(props) {
   const classes = useStyles();
   const location = useLocation();
   const history = useHistory();
+  const { contestId } = useParams();
+  const endpoint = `/contests/${contestId}/ranking`;
 
   const ranking = props.ranking;
   const page = props.page;
   const total = props.total;
   const setRankingPage = props.setRankingPage;
+  const fetchRanking = props.fetchRanking;
 
   const paginationClickHandler = (_, val) => {
     history.push(`${location.pathname}?tab=ranking&page=${val}`);
+    fetchRanking(`${endpoint}?page=${val}`);
     setRankingPage(val);
   };
 
   useEffect(() => {
-    //    props.setRankingPage();
-  }, []);
+    fetchRanking(endpoint);
+  }, [fetchRanking, endpoint]);
 
   return (
     <div className={classes.root}>
@@ -44,6 +48,7 @@ RankingPageTableComponent.propTypes = {
   page: PropTypes.number,
   total: PropTypes.number,
   setRankingPage: PropTypes.func,
+  fetchRanking: PropTypes.func,
 };
 
 export default RankingPageTableComponent;
