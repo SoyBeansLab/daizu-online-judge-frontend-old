@@ -1,71 +1,23 @@
-const ranking = {
-  total: 20,
-  ranking: [
-    {
-      rank: 1,
-      user_id: "mitohato",
+const f = (contest_id, page) => {
+  var result = [];
+  for (var i = 0; i < 10; i++) {
+    const ranking = {
+      rank: i + 1,
+      user_id: "mitohato " + contest_id + page,
       total: "5/5",
       score: "5000",
-    },
-    {
-      rank: 2,
-      user_id: "222mitohato",
-      total: "5/5",
-      score: "5000",
-    },
-    {
-      rank: 3,
-      user_id: "fdmitohato",
-      total: "2/5",
-      score: "1000",
-    },
-    {
-      rank: 4,
-      user_id: "0mitohato",
-      total: "0/5",
-      score: "0",
-    },
-    {
-      rank: 5,
-      user_id: "mitohato",
-      total: "5/5",
-      score: "5000",
-    },
-    {
-      rank: 6,
-      user_id: "222mitohato",
-      total: "5/5",
-      score: "5000",
-    },
-    {
-      rank: 7,
-      user_id: "fdmitohato",
-      total: "2/5",
-      score: "1000",
-    },
-    {
-      rank: 8,
-      user_id: "0mitohato",
-      total: "0/5",
-      score: "0",
-    },
-    {
-      rank: 9,
-      user_id: "fdmitohato",
-      total: "2/5",
-      score: "1000",
-    },
-    {
-      rank: 10,
-      user_id: "0mitohato",
-      total: "0/5",
-      score: "0",
-    },
-  ],
+    };
+    result.push(ranking);
+  }
+
+  return {
+    total: 30,
+    ranking: result,
+  };
 };
 
 module.exports = {
-  get() {
-    return [200, ranking];
+  get({ values, params }) {
+    return [200, f(values.contest_id, params.page)];
   },
 };

@@ -5,6 +5,7 @@ const initState = {
   data: {},
   loading: true,
   ui: {
+    total: 0,
     page: 0,
   },
 };
@@ -13,10 +14,14 @@ const rankings = (state = initState, action) => {
   switch (action.type) {
     case types.FETCH_RANKINGS:
       return { ...state, loading: true };
-    case types.FETCH_RANKINGS_SUCEESS:
-      return { ...state, loading: false, data: action.data };
+    case types.FETCH_RANKINGS_SUCEESS: {
+      const total = action.data.total;
+      const ranking = action.data.ranking;
+
+      return { ...state, loading: false, data: ranking, ui: { ...state.ui, total: total } };
+    }
     case types.CHANGE_RANKING_PAGE:
-      return { ...state, ui: { page: action.data } };
+      return { ...state, ui: { ...state.ui, page: action.data } };
     default:
       return state;
   }
