@@ -2,7 +2,7 @@ import axios from "axios";
 import { fetching, receiveRankings, changePage } from "./actions";
 import mock from "../../../mocks/$mock";
 
-const rankingsOprations = url => dispatch => {
+const fetchRanking = url => dispatch => {
   dispatch(fetching);
   mock();
 
@@ -25,6 +25,6 @@ const setRankingPage = page => dispatch => {
 };
 
 export default {
-  rankingsOprations,
+  fetchRanking,
   setRankingPage,
 };
