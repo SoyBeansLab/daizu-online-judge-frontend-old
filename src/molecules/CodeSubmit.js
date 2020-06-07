@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { useParams, Redirect } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import Button from "@material-ui/core/Button";
@@ -7,6 +8,8 @@ import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
+
+import { useAuth0 } from "../react-auth0-spa";
 
 require("codemirror/lib/codemirror.css");
 require("codemirror/mode/clike/clike");
@@ -31,26 +34,52 @@ const useStyles = makeStyles(theme => ({
 
 export default function CodeSubmit(props) {
   const classes = useStyles();
-  const [state, setState] = React.useState({
+  const { contestId, problemId } = useParams();
+  const { getTokenSilently } = useAuth0();
+  const [state, setState] = useState({
     codeValue: "",
     codeLanguage: "",
   });
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const languageLists = props.languageLists;
   const languageDictionary = props.languageDict;
+  const submit = props.submit;
 
   function handleChangeSelect(event) {
-    console.log(languageDictionary);
-    console.log(event.target);
+    //    console.log(languageDictionary);
+    //    console.log(event.target);
     setState(oldState => ({
       ...oldState,
       codeLanguage: event.target.value,
     }));
-    console.log(state);
+    //    console.log(state);
   }
 
   // 提出するときの処理
-  function postCode() {}
+  async function postCode() {
+    const payload = {
+      language: state.codeLanguage,
+      code: state.codeValue,
+      contestId: contestId,
+      problemId: problemId,
+    };
+    const token = await getTokenSilently();
+    submit(`/contests/${contestId}/submits`, token, payload);
+    setIsSubmitted(true);
+  }
+
+  if (isSubmitted) {
+    console.log(isSubmitted);
+    return (
+      <Redirect
+        to={{
+          pathname: `/contests/${contestId}`,
+          search: "?tab=submits",
+        }}
+      />
+    );
+  }
 
   /* eslint-disable no-unused-vars */
   return (
@@ -84,7 +113,14 @@ export default function CodeSubmit(props) {
         }}
         className={classes.codemirror}
       />
-      <Button variant="contained" color="secondary" className={classes.button} onClick={postCode}>
+      <Button
+        variant="contained"
+        color="secondary"
+        className={classes.button}
+        onClick={async () => {
+          await postCode();
+        }}
+      >
         提出
       </Button>
     </div>
@@ -95,4 +131,5 @@ export default function CodeSubmit(props) {
 CodeSubmit.propTypes = {
   languageLists: PropTypes.array,
   languageDict: PropTypes.object,
+  submit: PropTypes.func,
 };

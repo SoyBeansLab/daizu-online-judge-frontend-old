@@ -1,9 +1,8 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import { useParams } from "react-router-dom";
 import ProblemDetails from "../organisms/ProblemDetails";
-import CodeSubmit from "../molecules/CodeSubmit";
+import CodeSubmit from "../organisms/CodeSubmit";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -12,25 +11,14 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Problem(props) {
+export default function Problem() {
   const classes = useStyles();
   const { problemId } = useParams();
 
   return (
     <div className={classes.root}>
       <ProblemDetails problemId={problemId} />
-      <CodeSubmit languageLists={props.languageLists} languageDict={props.languageDict} />
+      <CodeSubmit />
     </div>
   );
 }
-
-Problem.propTypes = {
-  languageLists: PropTypes.array,
-  languageDict: PropTypes.object,
-  problemID: PropTypes.string,
-  problemName: PropTypes.string,
-  timeLimit: PropTypes.number,
-  memoryLimit: PropTypes.number,
-  score: PropTypes.number,
-  problemText: PropTypes.string,
-};
