@@ -1,5 +1,5 @@
-import React from "react";
-import { useParams } from "react-router-dom";
+import React, { useState } from "react";
+import { useParams, Redirect } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
 import Button from "@material-ui/core/Button";
@@ -36,10 +36,11 @@ export default function CodeSubmit(props) {
   const classes = useStyles();
   const { contestId, problemId } = useParams();
   const { getTokenSilently } = useAuth0();
-  const [state, setState] = React.useState({
+  const [state, setState] = useState({
     codeValue: "",
     codeLanguage: "",
   });
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const languageLists = props.languageLists;
   const languageDictionary = props.languageDict;
@@ -65,6 +66,19 @@ export default function CodeSubmit(props) {
     };
     const token = await getTokenSilently();
     submit(`/contests/${contestId}/submits`, token, payload);
+    setIsSubmitted(true);
+  }
+
+  if (isSubmitted) {
+    console.log(isSubmitted);
+    return (
+      <Redirect
+        to={{
+          pathname: `/contests/${contestId}`,
+          search: "?tab=submits",
+        }}
+      />
+    );
   }
 
   /* eslint-disable no-unused-vars */
