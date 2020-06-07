@@ -23,6 +23,10 @@ module.exports = client =>
         methods: require("./contests/_contest_id/ranking/index"),
       },
       {
+        path: "/contests/_contest_id/problems",
+        methods: require("./contests/_contest_id/problems/index"),
+      },
+      {
         path: "/contests/_contest_id/problems/_problem_id",
         methods: require("./contests/_contest_id/problems/_problem_id/index"),
       },
