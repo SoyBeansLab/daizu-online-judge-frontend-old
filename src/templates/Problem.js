@@ -13,11 +13,11 @@ const useStyles = makeStyles(theme => ({
 
 export default function Problem() {
   const classes = useStyles();
-  const { problemId } = useParams();
+  const { contestId, problemId } = useParams();
 
   return (
     <div className={classes.root}>
-      <ProblemDetails problemId={problemId} />
+      <ProblemDetails contestId={contestId} problemId={problemId} />
       <CodeSubmit />
     </div>
   );
