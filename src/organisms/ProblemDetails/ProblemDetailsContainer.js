@@ -40,7 +40,7 @@ const mapStateToProps = (state, props) => ({
 });
 
 const mapDispatchToProps = {
-  fetchProblem: problemsOperations,
+  fetchProblem: problemsOperations.fetchProblemById,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProblemDetailsContainer);

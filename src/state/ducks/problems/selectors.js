@@ -1,9 +1,15 @@
 import { createSelector } from "reselect";
 
-const problemSelector = (state, props) => state.problemsState.problems.entities.problems[props.problemId] || {};
+const problemsSelector = (state, props) => state.problemsState.problems.data[props.contestId] || {};
 
-const getProblemById = createSelector(problemSelector, problem => problem);
+const getProblemsById = createSelector(problemsSelector, problems => Object.values(problems || {}));
+
+const getProblemById = createSelector(
+  [problemsSelector, (_, props) => props.problemId],
+  (problems, problemId) => problems[problemId] || {}
+);
 
 export default {
+  getProblemsById,
   getProblemById,
 };

@@ -1,14 +1,16 @@
-const f = (contest_id, problem_id) => {
+const f = (contestId, problemId) => {
   const result = {
-    contest_id: contest_id,
-    problem_id: problem_id,
-    problem_name: "初めての競技プログラミング",
+    order: 1,
+    problem_id: problemId,
     time_limit: 2,
-    memory_limit: 2,
+    memory_limit: 256,
     score: 100,
+    contest_id: contestId,
+    problem_name: "初めての競技プログラミング",
     writer: "uchipara",
     problem_detail: "ある2つの整数aとbが与えられます. 2つの整数の和を出力してください.",
   };
+
   return result;
 };
 

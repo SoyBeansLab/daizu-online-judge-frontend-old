@@ -5,21 +5,18 @@ import { connect } from "react-redux";
 
 import ProblemsTable from "../../molecules/ProblemsTable";
 
-import { contestsOperations, contestsSelectors } from "../../state/ducks/contests";
+import { problemsOperations, problemsSelectors } from "../../state/ducks/problems";
 
 function ProblemsTableContainer(props) {
   const { contestId } = useParams();
-  const endpoint = `/contests/${contestId}`;
+  const endpoint = `/contests/${contestId}/problems`;
 
   const problemList = props.problemList;
-  const isfetchedContest = props.isfetchedContest;
-  const fetchContest = props.fetchContest;
+  const fetchProblems = props.fetchProblems;
 
   useEffect(() => {
-    if (!isfetchedContest) {
-      fetchContest(endpoint);
-    }
-  }, [isfetchedContest, fetchContest, endpoint]);
+    fetchProblems(endpoint);
+  }, [fetchProblems, endpoint]);
 
   return <ProblemsTable problemLists={problemList} contestId={contestId} />;
 }
@@ -27,16 +24,15 @@ function ProblemsTableContainer(props) {
 ProblemsTableContainer.propTypes = {
   problemList: PropTypes.array,
   isfetchedContest: PropTypes.bool,
-  fetchContest: PropTypes.func,
+  fetchProblems: PropTypes.func,
 };
 
 const mapStateToProps = (state, props) => ({
-  problemList: contestsSelectors.getProblemList(state, props),
-  isfetchedContest: contestsSelectors.isfetchedContest(state, props),
+  problemList: problemsSelectors.getProblemsById(state, props),
 });
 
 const mapDispatchToProps = {
-  fetchContest: contestsOperations.fetchContest,
+  fetchProblems: problemsOperations.fetchProblems,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProblemsTableContainer);
