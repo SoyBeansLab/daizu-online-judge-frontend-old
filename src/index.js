@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { MuiThemeProvider } from "@material-ui/core/styles";
-import { theme } from "./materialui/theme";
+import { theme } from "./styles/materialUItheme";
 import { Auth0Provider } from "./react-auth0-spa";
 import history from "./utils/history";
 import { config } from "./config";
