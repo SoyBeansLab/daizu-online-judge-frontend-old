@@ -6,10 +6,10 @@ const languageListSelector = createSelector(languagesSelector, languages => Obje
 
 const languageDictSelector = createSelector(languagesSelector, languages => languages);
 
-const isfetched = createSelector(languagesSelector, languages => languages[0] !== void 0);
+const isFetched = createSelector(languagesSelector, languages => Object.keys(languages).length !== 0);
 
 export default {
   languageListSelector,
   languageDictSelector,
-  isfetched,
+  isFetched,
 };

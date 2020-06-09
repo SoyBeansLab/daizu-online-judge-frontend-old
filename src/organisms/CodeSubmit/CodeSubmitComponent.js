@@ -6,13 +6,15 @@ import CodeSubmit from "../../molecules/CodeSubmit";
 function CodeSubmitComponent(props) {
   const languageDict = props.languageDict || {};
   const languageLists = props.languages || [];
-  const isLanguagesFetched = props.isLanguagesFetched || false;
+  const isFetched = props.isFetched || false;
   const submit = props.submit;
   const fetchLanguages = props.fetchLanguages;
 
   useEffect(() => {
-    fetchLanguages("/languages");
-  }, [isLanguagesFetched, fetchLanguages]);
+    if (!isFetched) {
+      fetchLanguages("/languages");
+    }
+  }, [isFetched, fetchLanguages]);
 
   return <CodeSubmit languageLists={languageLists} languageDict={languageDict} submit={submit} />;
 }
@@ -20,7 +22,7 @@ function CodeSubmitComponent(props) {
 CodeSubmitComponent.propTypes = {
   languages: PropTypes.array,
   languageDict: PropTypes.object,
-  isLanguagesFetched: PropTypes.bool,
+  isFetched: PropTypes.bool,
   submit: PropTypes.func,
   fetchLanguages: PropTypes.func,
 };

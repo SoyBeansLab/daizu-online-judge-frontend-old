@@ -8,7 +8,7 @@ import { submissionsOperations } from "../../state/ducks/submissions";
 const mapStateToProps = state => ({
   languages: languagesSelectors.languageListSelector(state),
   languageDict: languagesSelectors.languageDictSelector(state),
-  isLanguagesFetched: languagesSelectors.isfetched(state),
+  isFetched: languagesSelectors.isFetched(state),
 });
 
 const mapDispatchToProps = {

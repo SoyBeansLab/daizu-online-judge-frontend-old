@@ -13,22 +13,26 @@ function ProblemsTableContainer(props) {
 
   const problemList = props.problemList;
   const fetchProblems = props.fetchProblems;
+  const isFetched = props.isFetched;
 
   useEffect(() => {
-    fetchProblems(endpoint);
-  }, [fetchProblems, endpoint]);
+    if (!isFetched) {
+      fetchProblems(endpoint);
+    }
+  }, [isFetched, fetchProblems, endpoint]);
 
   return <ProblemsTable problemLists={problemList} contestId={contestId} />;
 }
 
 ProblemsTableContainer.propTypes = {
   problemList: PropTypes.array,
-  isfetchedContest: PropTypes.bool,
+  isFetched: PropTypes.bool,
   fetchProblems: PropTypes.func,
 };
 
 const mapStateToProps = (state, props) => ({
   problemList: problemsSelectors.getProblemsById(state, props),
+  isFetched: problemsSelectors.isFetchedProblems(state, props),
 });
 
 const mapDispatchToProps = {
