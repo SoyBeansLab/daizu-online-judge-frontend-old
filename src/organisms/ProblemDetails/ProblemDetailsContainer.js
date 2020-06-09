@@ -13,10 +13,13 @@ function ProblemDetailsContainer(props) {
 
   const fetchProblem = props.fetchProblem;
   const problem = props.problemDetails;
+  const isFetchedProblem = props.isFetchedProblem;
 
   useEffect(() => {
-    fetchProblem(url);
-  }, [fetchProblem, url]);
+    if (!isFetchedProblem) {
+      fetchProblem(url);
+    }
+  }, [isFetchedProblem, fetchProblem, url]);
 
   return (
     <ProblemDetails
@@ -33,10 +36,12 @@ function ProblemDetailsContainer(props) {
 ProblemDetailsContainer.propTypes = {
   fetchProblem: PropTypes.func,
   problemDetails: PropTypes.object,
+  isFetchedProblem: PropTypes.bool,
 };
 
 const mapStateToProps = (state, props) => ({
   problemDetails: problemsSelectors.getProblemById(state, props),
+  isFetchedProblem: problemsSelectors.isFetchedProblem(state, props),
 });
 
 const mapDispatchToProps = {
