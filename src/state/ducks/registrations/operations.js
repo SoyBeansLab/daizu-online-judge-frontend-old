@@ -23,7 +23,6 @@ const fetchRegistraion = url => dispatch => {
 const entryRegistraion = (url, token, payload) => dispatch => {
   dispatch(fetching);
   mock();
-  console.log(url);
 
   axios({
     method: "post",
@@ -39,7 +38,7 @@ const entryRegistraion = (url, token, payload) => dispatch => {
       console.log(error);
     })
     .finally(() => {
-      console.log("POST: " + url);
+      console.log("POST " + url);
     });
 };
 
