@@ -2,7 +2,7 @@ import axios from "axios";
 import { fetching, receiveRegistraions, registEntry } from "./actions";
 import mock from "../../../mocks/$mock";
 
-const fetchRegistraion = url => dispatch => {
+const fetchRegistration = url => dispatch => {
   dispatch(fetching);
   mock();
 
@@ -20,7 +20,7 @@ const fetchRegistraion = url => dispatch => {
     });
 };
 
-const entryRegistraion = (url, token, payload) => dispatch => {
+const entryRegistration = (url, token, payload) => dispatch => {
   dispatch(fetching);
   mock();
 
@@ -43,6 +43,6 @@ const entryRegistraion = (url, token, payload) => dispatch => {
 };
 
 export default {
-  fetchRegistraion,
-  entryRegistraion,
+  fetchRegistration,
+  entryRegistration,
 };
