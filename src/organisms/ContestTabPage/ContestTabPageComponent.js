@@ -1,20 +1,15 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { useLocation, useParams } from "react-router-dom";
 import { parse } from "query-string";
 import { makeStyles } from "@material-ui/core/styles";
 
-import ProblemsTable from "./ProblemsTable";
-import SubmissionsPageTable from "./SubmissionsPageTable";
-import RankingPageTable from "./RankingPageTable";
-import ContestTop from "./ContestTop";
-import EntryRegistrationCard from "./EntryRegistrationCard";
-import Tabs from "../atoms/Tabs";
-
-import { rankingsOperations, rankingsSelectors } from "../state/ducks/rankings";
-import { submissionsOperations, submissionsSelectors } from "../state/ducks/submissions";
-import { registrationsOperations, registrationsSelectors } from "../state/ducks/registrations";
+import ProblemsTable from "../ProblemsTable";
+import SubmissionsPageTable from "../SubmissionsPageTable";
+import RankingPageTable from "../RankingPageTable";
+import ContestTop from "../ContestTop";
+import EntryRegistrationCard from "../EntryRegistrationCard";
+import Tabs from "../../atoms/Tabs";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -27,7 +22,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-function ContestTabsPageContainer(props) {
+function ContestTabsPageComponent(props) {
   const tabValueList = ["top", "problems", "submits", "ranking"];
   const labelList = ["トップ", "問題一覧", "提出状況", "ランキング"];
 
@@ -108,7 +103,7 @@ function ContestTabsPageContainer(props) {
   );
 }
 
-ContestTabsPageContainer.propTypes = {
+ContestTabsPageComponent.propTypes = {
   rankings: PropTypes.array,
   setRankingPage: PropTypes.func,
   setSubmissionsPage: PropTypes.func,
@@ -117,18 +112,4 @@ ContestTabsPageContainer.propTypes = {
   fetchRegistration: PropTypes.func,
 };
 
-const mapStateToProps = (state, props) => ({
-  rankingPage: rankingsSelectors.getRankingPage(state),
-  submissionsPage: submissionsSelectors.getPage(state),
-  isRegisted: registrationsSelectors.isRegisted(state, props),
-});
-
-const mapDispatchToProps = {
-  setRankingPage: rankingsOperations.setRankingPage,
-  setSubmissionsPage: submissionsOperations.setSubmissionsPage,
-  fetchRegistration: registrationsOperations.fetchRegistration,
-};
-
-const ContestTopPage = connect(mapStateToProps, mapDispatchToProps)(ContestTabsPageContainer);
-
-export default ContestTopPage;
+export default ContestTabsPageComponent;
