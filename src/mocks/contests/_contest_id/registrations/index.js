@@ -9,7 +9,7 @@ const getRegistration = contestId => {
 const postRegistration = (contestId, header, params) => {
   console.log(contestId, header, params);
   const result = {
-    contestId: contestId,
+    contest_id: contestId,
     is_registed: true,
   };
   return result;
