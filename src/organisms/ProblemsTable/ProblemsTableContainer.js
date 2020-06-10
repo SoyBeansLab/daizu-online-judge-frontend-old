@@ -1,34 +1,8 @@
-import React, { useEffect } from "react";
-import PropTypes from "prop-types";
-import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
 
-import ProblemsTable from "../../molecules/ProblemsTable";
+import ProblemsTableComponent from "./ProblemsTableComponent";
 
 import { problemsOperations, problemsSelectors } from "../../state/ducks/problems";
-
-function ProblemsTableContainer(props) {
-  const { contestId } = useParams();
-  const endpoint = `/contests/${contestId}/problems`;
-
-  const problemList = props.problemList;
-  const fetchProblems = props.fetchProblems;
-  const isFetched = props.isFetched;
-
-  useEffect(() => {
-    if (!isFetched) {
-      fetchProblems(endpoint);
-    }
-  }, [isFetched, fetchProblems, endpoint]);
-
-  return <ProblemsTable problemLists={problemList} contestId={contestId} />;
-}
-
-ProblemsTableContainer.propTypes = {
-  problemList: PropTypes.array,
-  isFetched: PropTypes.bool,
-  fetchProblems: PropTypes.func,
-};
 
 const mapStateToProps = (state, props) => ({
   problemList: problemsSelectors.getProblemsById(state, props),
@@ -39,4 +13,4 @@ const mapDispatchToProps = {
   fetchProblems: problemsOperations.fetchProblems,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProblemsTableContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(ProblemsTableComponent);
