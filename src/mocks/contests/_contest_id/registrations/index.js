@@ -6,8 +6,8 @@ const getRegistration = contestId => {
   return result;
 };
 
+// eslint-disable-next-line
 const postRegistration = (contestId, header, params) => {
-  console.log(contestId, header, params);
   const result = {
     contest_id: contestId,
     is_registed: true,
