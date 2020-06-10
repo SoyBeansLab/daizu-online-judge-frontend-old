@@ -10,7 +10,7 @@ const isRegisted = createSelector(
 );
 */
 
-const isRegisted = (state, props) => state.registrationsState.registrations.data[props.contestId] || false;
+const isRegisted = (state, props) => state.registrationsState.registrations.data[props.contestId];
 
 export default {
   isRegisted,

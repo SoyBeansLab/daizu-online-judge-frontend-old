@@ -14,7 +14,7 @@ import Tabs from "../atoms/Tabs";
 
 import { rankingsOperations, rankingsSelectors } from "../state/ducks/rankings";
 import { submissionsOperations, submissionsSelectors } from "../state/ducks/submissions";
-import { registrationsSelectors } from "../state/ducks/registrations";
+import { registrationsOperations, registrationsSelectors } from "../state/ducks/registrations";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -55,8 +55,12 @@ function ContestTabsPageContainer(props) {
   const setSubmissionsPage = props.setSubmissionsPage;
   const submissionsPage = props.submissionsPage;
   const isRegisted = props.isRegisted;
+  const fetchRegistration = props.fetchRegistration;
 
   useEffect(() => {
+    if (isRegisted === void 0) {
+      fetchRegistration(`/contests/${contestId}/registrations`);
+    }
     setTabPosition(getTab());
     // tabのpositionがSubmissionsのとき
     if (tabPosition === tabValueList[2]) {
@@ -68,7 +72,17 @@ function ContestTabsPageContainer(props) {
       const page = Number(getPage());
       setRankingPage(page);
     }
-  }, [getTab, getPage, setRankingPage, setSubmissionsPage, tabValueList, tabPosition]);
+  }, [
+    getTab,
+    getPage,
+    setRankingPage,
+    setSubmissionsPage,
+    tabValueList,
+    tabPosition,
+    isRegisted,
+    fetchRegistration,
+    contestId,
+  ]);
 
   const handleChange = (_, newValue) => {
     setTabPosition(newValue);
@@ -100,6 +114,7 @@ ContestTabsPageContainer.propTypes = {
   setSubmissionsPage: PropTypes.func,
   submissionsPage: PropTypes.number,
   isRegisted: PropTypes.bool,
+  fetchRegistration: PropTypes.func,
 };
 
 const mapStateToProps = (state, props) => ({
@@ -111,6 +126,7 @@ const mapStateToProps = (state, props) => ({
 const mapDispatchToProps = {
   setRankingPage: rankingsOperations.setRankingPage,
   setSubmissionsPage: submissionsOperations.setSubmissionsPage,
+  fetchRegistration: registrationsOperations.fetchRegistration,
 };
 
 const ContestTopPage = connect(mapStateToProps, mapDispatchToProps)(ContestTabsPageContainer);
