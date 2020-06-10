@@ -9,10 +9,12 @@ import ProblemsTable from "./ProblemsTable";
 import SubmissionsPageTable from "./SubmissionsPageTable";
 import RankingPageTable from "./RankingPageTable";
 import ContestTop from "./ContestTop";
+import EntryRegistrationCard from "./EntryRegistrationCard";
 import Tabs from "../atoms/Tabs";
 
 import { rankingsOperations, rankingsSelectors } from "../state/ducks/rankings";
 import { submissionsOperations, submissionsSelectors } from "../state/ducks/submissions";
+import { registrationsSelectors } from "../state/ducks/registrations";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -52,6 +54,7 @@ function ContestTabsPageContainer(props) {
   const setRankingPage = props.setRankingPage;
   const setSubmissionsPage = props.setSubmissionsPage;
   const submissionsPage = props.submissionsPage;
+  const isRegisted = props.isRegisted;
 
   useEffect(() => {
     setTabPosition(getTab());
@@ -71,6 +74,15 @@ function ContestTabsPageContainer(props) {
     setTabPosition(newValue);
   };
 
+  if (!isRegisted) {
+    return (
+      <div className={classes.root}>
+        <Tabs tabPosition="top" onChange={handleChange} tabValueList={["top"]} labels={["トップ"]} />
+        <EntryRegistrationCard />
+      </div>
+    );
+  }
+
   return (
     <div className={classes.root}>
       <Tabs tabPosition={tabPosition} onChange={handleChange} tabValueList={tabValueList} labels={labelList} />
@@ -87,11 +99,13 @@ ContestTabsPageContainer.propTypes = {
   setRankingPage: PropTypes.func,
   setSubmissionsPage: PropTypes.func,
   submissionsPage: PropTypes.number,
+  isRegisted: PropTypes.bool,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, props) => ({
   rankingPage: rankingsSelectors.getRankingPage(state),
   submissionsPage: submissionsSelectors.getPage(state),
+  isRegisted: registrationsSelectors.isRegisted(state, props),
 });
 
 const mapDispatchToProps = {
