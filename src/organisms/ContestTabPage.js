@@ -9,10 +9,12 @@ import ProblemsTable from "./ProblemsTable";
 import SubmissionsPageTable from "./SubmissionsPageTable";
 import RankingPageTable from "./RankingPageTable";
 import ContestTop from "./ContestTop";
+import EntryRegistrationCard from "./EntryRegistrationCard";
 import Tabs from "../atoms/Tabs";
 
 import { rankingsOperations, rankingsSelectors } from "../state/ducks/rankings";
 import { submissionsOperations, submissionsSelectors } from "../state/ducks/submissions";
+import { registrationsOperations, registrationsSelectors } from "../state/ducks/registrations";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -52,8 +54,13 @@ function ContestTabsPageContainer(props) {
   const setRankingPage = props.setRankingPage;
   const setSubmissionsPage = props.setSubmissionsPage;
   const submissionsPage = props.submissionsPage;
+  const isRegisted = props.isRegisted;
+  const fetchRegistration = props.fetchRegistration;
 
   useEffect(() => {
+    if (isRegisted === void 0) {
+      fetchRegistration(`/contests/${contestId}/registrations`);
+    }
     setTabPosition(getTab());
     // tabのpositionがSubmissionsのとき
     if (tabPosition === tabValueList[2]) {
@@ -65,11 +72,30 @@ function ContestTabsPageContainer(props) {
       const page = Number(getPage());
       setRankingPage(page);
     }
-  }, [getTab, getPage, setRankingPage, setSubmissionsPage, tabValueList, tabPosition]);
+  }, [
+    getTab,
+    getPage,
+    setRankingPage,
+    setSubmissionsPage,
+    tabValueList,
+    tabPosition,
+    isRegisted,
+    fetchRegistration,
+    contestId,
+  ]);
 
   const handleChange = (_, newValue) => {
     setTabPosition(newValue);
   };
+
+  if (!isRegisted) {
+    return (
+      <div className={classes.root}>
+        <Tabs tabPosition="top" onChange={handleChange} tabValueList={["top"]} labels={["トップ"]} />
+        <EntryRegistrationCard />
+      </div>
+    );
+  }
 
   return (
     <div className={classes.root}>
@@ -87,16 +113,20 @@ ContestTabsPageContainer.propTypes = {
   setRankingPage: PropTypes.func,
   setSubmissionsPage: PropTypes.func,
   submissionsPage: PropTypes.number,
+  isRegisted: PropTypes.bool,
+  fetchRegistration: PropTypes.func,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, props) => ({
   rankingPage: rankingsSelectors.getRankingPage(state),
   submissionsPage: submissionsSelectors.getPage(state),
+  isRegisted: registrationsSelectors.isRegisted(state, props),
 });
 
 const mapDispatchToProps = {
   setRankingPage: rankingsOperations.setRankingPage,
   setSubmissionsPage: submissionsOperations.setSubmissionsPage,
+  fetchRegistration: registrationsOperations.fetchRegistration,
 };
 
 const ContestTopPage = connect(mapStateToProps, mapDispatchToProps)(ContestTabsPageContainer);

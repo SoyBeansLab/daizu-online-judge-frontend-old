@@ -49,10 +49,7 @@ module.exports = {
     return [200, f(values.contest_id, params.page)];
   },
 
-  post({ values, header, data }) {
-    console.log(data);
-    console.log(header);
-
+  post({ values }) {
     const submitsId = randomStr(7);
     const link = `/contests/${values.contest_id}/submits/${submitsId}`;
 

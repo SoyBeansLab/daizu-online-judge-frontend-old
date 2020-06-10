@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function Contests() {
   const classes = useStyles();
-  const { contestId } = useParams;
+  const { contestId } = useParams();
 
   return (
     <div className={classes.root}>
