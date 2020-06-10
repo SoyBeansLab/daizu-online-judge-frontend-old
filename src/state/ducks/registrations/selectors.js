@@ -1,15 +1,13 @@
 import { createSelector } from "reselect";
 
-const registrationsSelector = state => state.registrationsState.registrations.data || [];
+// eslint-disable-next-line
+const registrationsSelector = (state, props) => state.registrationsState.registrations.data || {};
 
-const registrationListSelector = createSelector(registrationsSelector, registrations => Object.keys(registrations));
-
-const registrationDictSelector = createSelector(registrationsSelector, registrations => registrations);
-
-const isFetched = createSelector(registrationsSelector, registrations => Object.keys(registrations).length !== 0);
+const isRegisted = createSelector(
+  [registrationsSelector, (_, props) => props.contestId],
+  (registrations, contestId) => registrations[contestId]
+);
 
 export default {
-  registrationListSelector,
-  registrationDictSelector,
-  isFetched,
+  isRegisted,
 };

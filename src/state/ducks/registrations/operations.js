@@ -1,13 +1,13 @@
 import axios from "axios";
-import { fetching, receiveRegistraions } from "./actions";
+import { fetching, receiveRegistraions, registEntry } from "./actions";
 import mock from "../../../mocks/$mock";
 
-const contestsOprations = url => dispatch => {
+const fetchRegistraion = url => dispatch => {
   dispatch(fetching);
   mock();
 
   axios
-    .get("/registrations")
+    .get(url)
     .then(response => {
       const data = { ...response.data };
       dispatch(receiveRegistraions(data));
@@ -20,4 +20,30 @@ const contestsOprations = url => dispatch => {
     });
 };
 
-export default contestsOprations;
+const entryRegistraion = (url, token, payload) => dispatch => {
+  dispatch(fetching);
+  mock();
+  console.log(url);
+
+  axios({
+    method: "post",
+    url: url,
+    data: payload,
+    headers: { Authorization: `Bearer ${token}` },
+  })
+    .then(response => {
+      const data = { ...response.data };
+      dispatch(registEntry(data));
+    })
+    .catch(error => {
+      console.log(error);
+    })
+    .finally(() => {
+      console.log("POST: " + url);
+    });
+};
+
+export default {
+  fetchRegistraion,
+  entryRegistraion,
+};
