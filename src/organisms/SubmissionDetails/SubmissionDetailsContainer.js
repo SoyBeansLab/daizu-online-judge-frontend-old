@@ -5,7 +5,7 @@ import SubmissionDetailsComponent from "./SubmissionDetailsComponent";
 import { submissionsOperations, submissionsSelectors } from "../../state/ducks/submissions";
 
 const mapStateToProps = (state, props) => ({
-  submission: submissionsSelectors.getSubmissionsBySubmitId(state, props),
+  submission: submissionsSelectors.getSubmissionBySubmitId(state, props),
 });
 
 const mapDispatchToProps = {

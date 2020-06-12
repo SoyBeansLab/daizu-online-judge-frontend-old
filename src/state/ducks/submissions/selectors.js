@@ -6,14 +6,12 @@ const submissionSelector = (state, props) => state.submissionsState.submissions.
 
 const submissionsUISelector = state => state.submissionsState.submissions.ui || {};
 
-const isfetched = createSelector(submissionsSelector, submissions => submissions.upcoming !== void 0);
-
 // 特定のContestのSubmission一覧を取得する
-const getSubmissions = createSelector(submissionsSelector, submissions => Object.values(submissions));
+const getSubmissionList = createSelector(submissionsSelector, submissions => Object.values(submissions));
 
 // Submission単体を取得する.
 // propsにSubmitIdが必要
-const getSubmissionsBySubmitId = createSelector(submissionSelector, submission => {
+const getSubmissionBySubmitId = createSelector(submissionSelector, submission => {
   const result = {
     username: submission["username"],
     submitDate: submission["submit_date"],
@@ -39,9 +37,8 @@ const getPage = createSelector(submissionsUISelector, ui => ui.page || 0);
 const getTotal = createSelector(submissionsUISelector, ui => ui.total);
 
 export default {
-  isfetched,
-  getSubmissions,
-  getSubmissionsBySubmitId,
+  getSubmissionList,
+  getSubmissionBySubmitId,
   getPage,
   getTotal,
 };
