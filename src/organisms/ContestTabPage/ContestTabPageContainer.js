@@ -7,7 +7,7 @@ import { submissionsOperations, submissionsSelectors } from "../../state/ducks/s
 import { registrationsOperations, registrationsSelectors } from "../../state/ducks/registrations";
 
 const mapStateToProps = (state, props) => ({
-  rankingPage: rankingsSelectors.getRankingPage(state),
+  rankingPage: rankingsSelectors.getPage(state),
   submissionsPage: submissionsSelectors.getPage(state),
   isRegisted: registrationsSelectors.isRegisted(state, props),
 });
