@@ -31,9 +31,9 @@ ContestsContainer.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  currentContests: contestsSelectors.currentContestsSelector(state),
-  upcomingContests: contestsSelectors.upcomingContestsSelector(state),
-  recentContests: contestsSelectors.recentContestsSelector(state),
+  currentContests: contestsSelectors.getCurrentContestList(state),
+  upcomingContests: contestsSelectors.getUpcomingContestList(state),
+  recentContests: contestsSelectors.getRecentContestList(state),
   isfetched: contestsSelectors.isfetchedContests(state),
 });
 

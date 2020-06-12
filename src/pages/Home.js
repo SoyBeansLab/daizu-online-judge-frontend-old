@@ -23,7 +23,7 @@ HomeContainer.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  slideItemList: contestsSelectors.upcomingContestsSelector(state),
+  slideItemList: contestsSelectors.getUpcomingContestList(state),
   isfetched: contestsSelectors.isfetchedContests(state),
 });
 
