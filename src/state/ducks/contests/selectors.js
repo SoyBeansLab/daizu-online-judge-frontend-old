@@ -6,15 +6,15 @@ const contestsListSelector = state => Object.values(state.contestsState.contests
 
 const contestSelector = (state, props) => state.contestsState.contests.entities.contests[props.contestId] || {};
 
-const currentContestsSelector = createSelector(contestsListSelector, contests =>
+const getCurrentContestList = createSelector(contestsListSelector, contests =>
   contests.filter(value => value.holding_status === "current")
 );
 
-const upcomingContestsSelector = createSelector(contestsListSelector, contests =>
+const getUpcomingContestList = createSelector(contestsListSelector, contests =>
   contests.filter(value => value.holding_status === "upcoming")
 );
 
-const recentContestsSelector = createSelector(contestsListSelector, contests =>
+const getRecentContestList = createSelector(contestsListSelector, contests =>
   contests.filter(value => value.holding_status === "recent")
 );
 
@@ -35,11 +35,11 @@ const isfetchedContest = createSelector(contestSelector, contest => contest.cont
 
 export default {
   contestsSelector,
-  currentContestsSelector,
-  upcomingContestsSelector,
-  recentContestsSelector,
   isfetchedContests,
   isfetchedContest,
   contestSelector,
   getProblemList,
+  getRecentContestList,
+  getUpcomingContestList,
+  getCurrentContestList,
 };
