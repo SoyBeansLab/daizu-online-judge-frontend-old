@@ -15,7 +15,7 @@ import Pagination from "../atoms/Paginations";
 import Tabs from "../atoms/Tabs";
 import Blockqoute from "../atoms/Blockqoute";
 
-import { theme } from "../materialui/theme";
+import { theme } from "../styles/materialUItheme";
 
 export default {
   title: "Atoms",

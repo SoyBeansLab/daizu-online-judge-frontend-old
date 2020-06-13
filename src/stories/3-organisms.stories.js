@@ -7,7 +7,7 @@ import Header from "../organisms/Header";
 import Loading from "../organisms/Loading";
 import Slider from "../organisms/Slider";
 
-import { theme } from "../materialui/theme";
+import { theme } from "../styles/materialUItheme";
 
 export default {
   title: "Organisms",
