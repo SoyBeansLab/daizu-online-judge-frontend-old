@@ -1,7 +1,4 @@
 import React from "react";
-import StoryRouter from "storybook-react-router";
-import { muiTheme } from "storybook-addon-material-ui";
-//import { action } from '@storybook/addon-actions';
 
 import LinkTitleImage from "../molecules/LinkTitleImage";
 import CodeSubmit from "../molecules/CodeSubmit";
@@ -16,12 +13,9 @@ import DataTableY from "../molecules/RankingTable";
 import SliderItem from "../molecules/SliderItem";
 import SinginMenuButton from "../molecules/SigninMenuButton";
 
-import { theme } from "../styles/materialUItheme";
-
 export default {
   title: "Molecules",
   component: LinkTitleImage,
-  decorators: [StoryRouter(), muiTheme([theme])],
 };
 
 export const lint_title_image = () => <LinkTitleImage />;
