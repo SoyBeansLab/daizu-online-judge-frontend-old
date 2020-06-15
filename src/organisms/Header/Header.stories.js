@@ -1,4 +1,5 @@
 import React from "react";
+import { boolean, text } from "@storybook/addon-knobs";
 import HeaderComponent from "./HeaderComponent";
 
 export default {
@@ -8,6 +9,11 @@ export default {
 
 export const Header = () => {
   return (
-    <HeaderComponent user={{}} isAuthenticated={false} loginWithRedirect={() => {}} logoutWithRedirect={() => {}} />
+    <HeaderComponent
+      user={{ nickname: text("nickname", "Guest") }}
+      isAuthenticated={boolean("isAuthenticated", false)}
+      loginWithRedirect={() => {}}
+      logoutWithRedirect={() => {}}
+    />
   );
 };

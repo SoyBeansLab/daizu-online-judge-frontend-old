@@ -1,4 +1,5 @@
 import React from "react";
+import { number, array } from "@storybook/addon-knobs";
 import SubmissionsPageTableComponent from "./SubmissionsPageTableComponent";
 
 export default {
@@ -9,9 +10,9 @@ export default {
 export const SubmissionsPageTable = () => {
   return (
     <SubmissionsPageTableComponent
-      submissions={[]}
-      page={0}
-      total={50}
+      submissions={array("submissions", [])}
+      page={number("page", 0)}
+      total={number("total", 50)}
       setSubmissionsPage={() => {}}
       fetchSubmissions={() => {}}
     />

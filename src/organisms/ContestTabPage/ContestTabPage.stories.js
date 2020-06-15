@@ -1,4 +1,5 @@
 import React from "react";
+import { array, number, boolean } from "@storybook/addon-knobs";
 import ContestTabPageComponent from "./ContestTabPageComponent";
 
 export default {
@@ -9,9 +10,9 @@ export default {
 export const ContestTabPage = () => {
   return (
     <ContestTabPageComponent
-      rankings={[]}
-      submissionsPage={0}
-      isRegisted={true}
+      rankings={array("ranking", [])}
+      submissionsPage={number("SubmissionPage", 0)}
+      isRegisted={boolean("isRegisted", true)}
       setRankingPage={() => {}}
       setSubmissionsPage={() => {}}
       fetchRegistration={() => {}}

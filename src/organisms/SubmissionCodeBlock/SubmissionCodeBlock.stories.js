@@ -1,4 +1,5 @@
 import React from "react";
+import { text } from "@storybook/addon-knobs";
 import SubmissionCodeBlockComponent from "./SubmissionCodeBlockComponent";
 
 export default {
@@ -7,5 +8,9 @@ export default {
 };
 
 export const SubmissionCodeBlock = () => {
-  return <SubmissionCodeBlockComponent submission={{ sourceCode: "print", language: "C++" }} />;
+  return (
+    <SubmissionCodeBlockComponent
+      submission={{ sourceCode: text("sourceCode", "#include"), language: text("language", "C++") }}
+    />
+  );
 };

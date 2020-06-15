@@ -1,4 +1,5 @@
 import React from "react";
+import { boolean, text } from "@storybook/addon-knobs";
 import ContestTopComponent from "./ContestTopComponent";
 
 export default {
@@ -7,5 +8,11 @@ export default {
 };
 
 export const ContestTop = () => {
-  return <ContestTopComponent contest={{ top_content: "1" }} fetchContest={() => {}} isfetchedContest={true} />;
+  return (
+    <ContestTopComponent
+      contest={{ top_content: text("top_content", "1") }}
+      fetchContest={() => {}}
+      isfetchedContest={boolean("isfetchedContest", true)}
+    />
+  );
 };
