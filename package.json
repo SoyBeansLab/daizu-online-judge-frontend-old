@@ -64,11 +64,14 @@
     ]
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^5.3.14",
+    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-docs": "^5.3.19",
+    "@storybook/addon-knobs": "^5.3.19",
     "@storybook/addon-links": "^5.3.13",
-    "@storybook/addons": "^5.3.12",
+    "@storybook/addons": "^5.3.19",
     "@storybook/preset-create-react-app": "^2.0.0",
     "@storybook/react": "^5.3.14",
+    "@storybook/source-loader": "^5.3.19",
     "axios-mock-server": "^0.16.3",
     "eslint": "^6.6.0",
     "eslint-config-google": "^0.14.0",
