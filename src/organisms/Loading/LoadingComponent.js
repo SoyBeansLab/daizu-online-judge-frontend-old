@@ -1,5 +1,5 @@
 import React from "react";
-import LoadingAtoms from "../atoms/Loading";
+import LoadingAtoms from "../../atoms/Loading";
 
 export default function Loading() {
   return (
