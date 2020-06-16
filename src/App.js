@@ -35,7 +35,11 @@ function App() {
   const { loading } = useAuth0();
 
   if (loading) {
-    return <Loading />;
+    return (
+      <ReduxProvider store={reduxStore}>
+        <Loading />
+      </ReduxProvider>
+    );
   }
 
   return (
