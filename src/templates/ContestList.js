@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Contests(props) {
+export default function ContestList(props) {
   const classes = useStyles();
 
   const currentContestLists = props.currentContestLists;
@@ -38,7 +38,7 @@ export default function Contests(props) {
   );
 }
 
-Contests.propTypes = {
+ContestList.propTypes = {
   currentContestLists: PropTypes.array,
   upcomingContestLists: PropTypes.array,
   recentContestLists: PropTypes.array,

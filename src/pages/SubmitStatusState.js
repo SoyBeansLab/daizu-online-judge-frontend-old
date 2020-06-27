@@ -1,6 +1,6 @@
 import React from "react";
-import SubmitStatusState from "../templates/SubmitStatusStatu";
+import SubmissionStatus from "../templates/SubmissionStatus";
 
 export default function SubmitStatusDetail() {
-  return <SubmitStatusState />;
+  return <SubmissionStatus />;
 }

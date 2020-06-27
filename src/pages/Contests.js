@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import ContestsTemplate from "../templates/Contests.js";
+import ContestList from "../templates/ContestList.js";
 import { contestsOperations, contestsSelectors } from "../state/ducks/contests";
 
 const ContestsContainer = ({ currentContests, upcomingContests, recentContests, isfetched, fetchContests }) => {
@@ -14,7 +14,7 @@ const ContestsContainer = ({ currentContests, upcomingContests, recentContests, 
   }, [endpoint, fetchContests, isfetched]);
 
   return (
-    <ContestsTemplate
+    <ContestList
       currentContestLists={currentContests}
       upcomingContestLists={upcomingContests}
       recentContestLists={recentContests}

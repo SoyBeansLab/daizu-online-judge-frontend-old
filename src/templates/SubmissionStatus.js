@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SubmitStatusState() {
+export default function SubmissionStatus() {
   const classes = useStyles();
   const { submitId } = useParams();
 
