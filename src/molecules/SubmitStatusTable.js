@@ -18,6 +18,7 @@ const useStyles = makeStyles(theme => ({
     width: "100%",
     margin: theme.spacing(1),
     overflowX: "auto",
+    backgroundColor: theme.palette.primary.main,
   },
   table: {
     minWidth: 650,

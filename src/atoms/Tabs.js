@@ -21,7 +21,7 @@ export default function Tabs(props) {
   const labels = props.labels;
 
   return (
-    <MaterialUITabs value={tabPosition} onChange={handleChange} indicatorColor="primary" className={classes.tabs}>
+    <MaterialUITabs value={tabPosition} onChange={handleChange} indicatorColor="secondary" className={classes.tabs}>
       {tabValueList.map((tabValue, idx) => {
         return (
           <Tab

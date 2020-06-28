@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(3),
   },
   heading: {
-    color: theme.palette.primary.main,
+    color: theme.palette.primary.contrastText,
     fontWeight: 500,
     marginBottom: theme.spacing(2),
   },

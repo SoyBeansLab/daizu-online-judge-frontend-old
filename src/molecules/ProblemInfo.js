@@ -8,6 +8,7 @@ import MarkDown from "@nteract/markdown";
 const useStyles = makeStyles(theme => ({
   typography: {
     margin: theme.spacing(1),
+    color: theme.palette.primary.contrastText,
   },
   divider: {
     margin: theme.spacing(1),
@@ -29,7 +30,7 @@ export default function ProblemInfo(props) {
 
   return (
     <div className="problem-info">
-      <Typography className={classes.typography} variant="h3" color="primary">
+      <Typography className={classes.typography} variant="h3">
         {problemID} - {problemName}
       </Typography>
       <Typography className={classes.typography} variant="subtitle1">

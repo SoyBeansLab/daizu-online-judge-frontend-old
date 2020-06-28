@@ -8,8 +8,7 @@ const useStyles = makeStyles(theme => ({
   },
   footer: {
     padding: theme.spacing(2),
-    backgroundColor: "#00897b",
-    color: "#ffffff",
+    backgroundColor: theme.palette.primary.light,
   },
 }));
 
