@@ -14,7 +14,7 @@ const useStyles = makeStyles(() => ({
   },
   // タブの設定
   tabs: {
-    borderBottom: "0.8px solid #cfd8dc",
+    borderBottom: "0.8px solid #EF6357",
     height: "100%",
   },
 }));

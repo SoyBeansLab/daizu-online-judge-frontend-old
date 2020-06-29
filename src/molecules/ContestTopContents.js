@@ -10,6 +10,7 @@ const useStyles = makeStyles(theme => ({
     height: "100%",
     minHeight: 250,
     boxShadow: "none",
+    backgroundColor: theme.palette.primary.main,
   },
 }));
 

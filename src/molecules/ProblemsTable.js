@@ -9,9 +9,10 @@ import Paper from "@material-ui/core/Paper";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(theme => ({
   root: {
     width: "100%",
+    backgroundColor: theme.palette.primary.main,
   },
   table: {
     minWidth: 650,

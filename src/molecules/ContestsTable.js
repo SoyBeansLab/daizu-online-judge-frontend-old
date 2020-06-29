@@ -9,7 +9,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { Link } from "react-router-dom";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(theme => ({
   root: {
     width: "100%",
     height: "100%",
@@ -17,6 +17,7 @@ const useStyles = makeStyles(() => ({
   table: {
     minWidth: 650,
     height: "100%",
+    backgroundColor: theme.palette.primary.main,
   },
 }));
 

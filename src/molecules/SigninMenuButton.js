@@ -30,8 +30,13 @@ const StyledMenu = withStyles({
 const useStyles = makeStyles(theme => ({
   button: {
     marginRight: theme.spacing(2),
-    color: "#ffffff",
+    paddingLeft: theme.spacing(2),
+    backgroundColor: theme.palette.secondary.main,
+    color: theme.palette.secondary.contrastText,
     textTransform: "none",
+    "&:hover": {
+      backgroundColor: theme.palette.secondary.dark,
+    },
   },
 }));
 
@@ -54,13 +59,7 @@ export default function SigninMenuButton(props) {
 
   return (
     <div>
-      <Button
-        aria-controls="customized-menu"
-        aria-haspopup="true"
-        color="primary"
-        className={classes.button}
-        onClick={handleClick}
-      >
+      <Button aria-controls="customized-menu" aria-haspopup="true" className={classes.button} onClick={handleClick}>
         {username}
         <ArrowDropDownIcon />
       </Button>
