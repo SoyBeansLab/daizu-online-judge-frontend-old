@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useParams } from "react-router-dom";
-import { useAuth0 } from "../../react-auth0-spa";
+import { useAuth0 } from "@auth0/auth0-react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
 
 function EntryRegistrationCardComponent(props) {
   const classes = useStyles();
-  const { user, getTokenSilently } = useAuth0();
+  const { user, getAccessTokenSilently } = useAuth0();
   const { contestId } = useParams();
 
   const entry = props.entry;
@@ -33,7 +33,7 @@ function EntryRegistrationCardComponent(props) {
       username: user.nickname,
       contest_id: contestId,
     };
-    const token = await getTokenSilently();
+    const token = await getAccessTokenSilently();
     entry(`/contests/${contestId}/registrations`, token, payload);
   }
 

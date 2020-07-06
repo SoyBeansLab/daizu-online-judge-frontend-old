@@ -12,7 +12,7 @@ import Signup from "./templates/SignUpModal";
 import NotFound from "./templates/NotFound";
 import Debug from "./pages/temp/works-para";
 import Loading from "./organisms/Loading";
-import { useAuth0 } from "./react-auth0-spa";
+import { useAuth0 } from "@auth0/auth0-react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Provider as ReduxProvider } from "react-redux";
 import configureStore from "./state/store";

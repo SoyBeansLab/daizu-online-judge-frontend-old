@@ -5,7 +5,7 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import { theme } from "./styles/materialUItheme";
-import { Auth0Provider } from "./react-auth0-spa";
+import { Auth0Provider } from "@auth0/auth0-react";
 import history from "./utils/history";
 import { config } from "./config";
 require("./styles/main.css");
@@ -19,8 +19,8 @@ ReactDOM.render(
   <MuiThemeProvider theme={theme}>
     <Auth0Provider
       domain={config.AUTH0_DOMAIN}
-      client_id={config.AUTH0_CLIENT_ID}
-      redirect_uri={window.location.origin}
+      clientId={config.AUTH0_CLIENT_ID}
+      redirectUri={window.location.origin}
       onRedirectCallback={onRedirectCallback}
     >
       <App />
