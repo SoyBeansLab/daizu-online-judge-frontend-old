@@ -4,7 +4,7 @@ import Logo from "../images/daizuLogo.png";
 
 const useStyles = makeStyles(() => ({
   title: {
-    width: "20%",
+    width: "180px",
     //color: "#ffffff",
     border: "0",
   },
