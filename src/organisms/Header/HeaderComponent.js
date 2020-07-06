@@ -54,7 +54,7 @@ export default function HeaderComponent(props) {
 }
 
 HeaderComponent.propTypes = {
-  user: PropTypes.object,
+  user: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
   isAuthenticated: PropTypes.bool,
   loginWithRedirect: PropTypes.func,
   logoutWithRedirect: PropTypes.func,

@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import ProblemDetails from "../organisms/ProblemDetails";
 import CodeSubmit from "../organisms/CodeSubmit";
 
-import { useAuth0 } from "../react-auth0-spa";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const useStyles = makeStyles(theme => ({
   root: {

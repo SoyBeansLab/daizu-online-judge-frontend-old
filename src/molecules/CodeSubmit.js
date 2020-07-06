@@ -9,7 +9,7 @@ import Select from "@material-ui/core/Select";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 
-import { useAuth0 } from "../react-auth0-spa";
+import { useAuth0 } from "@auth0/auth0-react";
 
 require("codemirror/lib/codemirror.css");
 require("codemirror/mode/clike/clike");
@@ -35,7 +35,7 @@ const useStyles = makeStyles(theme => ({
 export default function CodeSubmit(props) {
   const classes = useStyles();
   const { contestId, problemId } = useParams();
-  const { getTokenSilently } = useAuth0();
+  const { getAccessTokenSilently } = useAuth0();
   const [state, setState] = useState({
     codeValue: "",
     codeLanguage: "",
@@ -64,7 +64,7 @@ export default function CodeSubmit(props) {
       contestId: contestId,
       problemId: problemId,
     };
-    const token = await getTokenSilently();
+    const token = await getAccessTokenSilently();
     submit(`/contests/${contestId}/submits`, token, payload);
     setIsSubmitted(true);
   }
