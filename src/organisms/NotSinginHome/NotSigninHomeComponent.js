@@ -16,8 +16,11 @@ const useStyles = makeStyles(theme => ({
     alignItems: "center",
   },
   mascot: {
-    width: "40%",
-    height: "40%",
+    width: "10%",
+    minWidth: "150px",
+  },
+  logo: {
+    width: "300px",
   },
   button: {
     margin: theme.spacing(1),
@@ -33,7 +36,7 @@ function NotSigninHomeComponent(props) {
   return (
     <div className={classes.root}>
       <MascotCharacter className={classes.mascot} />
-      <TitleLogo />
+      <TitleLogo className={classes.logo} />
       <Button text="Sign in" color="secondary" style={classes.button} onClick={loginWithRedirect} />
       <Link>アカウントがない人はコチラ</Link>
     </div>

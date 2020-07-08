@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import Mascot from "../images/soy-da-.png";
 
@@ -10,8 +11,12 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default function TitleImage() {
+export default function TitleImage(props) {
   const classes = useStyles();
 
-  return <img src={Mascot} alt="mascot" className={classes.mascot} />;
+  return <img src={Mascot} alt="mascot" className={classes.mascot} {...props} />;
 }
+
+TitleImage.propTypes = {
+  className: PropTypes.object,
+};
