@@ -1,7 +1,7 @@
 const getRegistration = contestId => {
   const result = {
     contest_id: contestId,
-    is_registed: true,
+    is_registed: contestId === "kurokoji" ? false : true,
   };
   return result;
 };
