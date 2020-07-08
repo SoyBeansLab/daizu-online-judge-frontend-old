@@ -110,4 +110,8 @@ ContestTabsPageComponent.propTypes = {
   fetchRegistration: PropTypes.func.isRequired,
 };
 
+ContestTabsPageComponent.defaultProps = {
+  isRegisted: false,
+};
+
 export default ContestTabsPageComponent;
