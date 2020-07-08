@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import Slider from "../organisms/Slider";
 import NotSinginHome from "../organisms/NotSinginHome/NotSigninHomeComponent";
 
-import { useAuth0 } from "../react-auth0-spa";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function Home(props) {
   const slideItemList = props.slideItemList;
