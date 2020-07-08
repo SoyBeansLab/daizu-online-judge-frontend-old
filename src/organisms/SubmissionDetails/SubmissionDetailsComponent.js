@@ -35,7 +35,7 @@ function SubmissionDetailsComponent(props) {
       userName={username}
       language={language}
       score={score}
-      result={result}
+      result={result || "WJ"}
       executeTime={executeTime}
       memory={memory}
       testCase={testCase}
@@ -44,8 +44,8 @@ function SubmissionDetailsComponent(props) {
 }
 
 SubmissionDetailsComponent.propTypes = {
-  submission: PropTypes.object,
-  fetchSubmission: PropTypes.func,
+  submission: PropTypes.object.isRequired,
+  fetchSubmission: PropTypes.func.isRequired,
 };
 
 export default SubmissionDetailsComponent;

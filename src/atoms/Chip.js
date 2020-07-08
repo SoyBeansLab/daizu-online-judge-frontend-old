@@ -23,5 +23,5 @@ export default function Chip(props) {
 }
 
 Chip.propTypes = {
-  result: PropTypes.string,
+  result: PropTypes.string.isRequired,
 };

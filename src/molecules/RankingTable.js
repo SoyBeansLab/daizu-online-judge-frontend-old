@@ -58,6 +58,5 @@ export default function RankingTable(props) {
 }
 
 RankingTable.propTypes = {
-  rankingList: PropTypes.array,
-  rankings: PropTypes.array,
+  rankings: PropTypes.array.isRequired,
 };

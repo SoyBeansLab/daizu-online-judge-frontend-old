@@ -59,7 +59,7 @@ function EntryRegistrationCardComponent(props) {
 }
 
 EntryRegistrationCardComponent.propTypes = {
-  entry: PropTypes.func,
+  entry: PropTypes.func.isRequired,
 };
 
 export default EntryRegistrationCardComponent;

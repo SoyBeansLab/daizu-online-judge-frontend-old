@@ -15,13 +15,13 @@ export default function LinkButton(props) {
   const classes = useStyles();
 
   return (
-    <Button color="inherit" className={classes.button} component={Link} to={props.to}>
+    <Button color="inherit" className={classes.button} component={Link} to={props.to} {...props}>
       {props.text}
     </Button>
   );
 }
 
 LinkButton.propTypes = {
-  text: PropTypes.string,
-  to: PropTypes.string,
+  text: PropTypes.string.isRequired,
+  to: PropTypes.string.isRequired,
 };

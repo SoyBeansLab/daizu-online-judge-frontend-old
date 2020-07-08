@@ -7,7 +7,7 @@ import { registrationsOperations } from "../../state/ducks/registrations";
 const mapStateToProps = () => ({});
 
 const mapDispatchToProps = {
-  entry: registrationsOperations.entryRegistraion,
+  entry: registrationsOperations.entryRegistration,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(EntryRegistrationCardComponent);

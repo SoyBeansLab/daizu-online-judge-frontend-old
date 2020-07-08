@@ -34,7 +34,7 @@ const getSubmissionBySubmitId = createSelector(submissionSelector, submission =>
 const getPage = createSelector(submissionsUISelector, ui => ui.page || 0);
 
 // submissionsのtotalを取得するselector
-const getTotal = createSelector(submissionsUISelector, ui => ui.total);
+const getTotal = createSelector(submissionsUISelector, ui => ui.total || 0);
 
 export default {
   getSubmissionList,

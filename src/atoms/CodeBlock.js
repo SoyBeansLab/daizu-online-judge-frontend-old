@@ -17,7 +17,7 @@ export default function CodeBlock(props) {
   return (
     <div>
       <pre>
-        <SyntaxHighlighter language={props.language} className={classes.code}>
+        <SyntaxHighlighter className={classes.code} {...props}>
           {props.children}
         </SyntaxHighlighter>
       </pre>
@@ -26,6 +26,6 @@ export default function CodeBlock(props) {
 }
 
 CodeBlock.propTypes = {
-  language: PropTypes.string,
+  language: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
 };

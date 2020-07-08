@@ -45,7 +45,6 @@ function ContestTabsPageComponent(props) {
 
   const [tabPosition, setTabPosition] = useState(getTab()); // useStateで最初にtabを取得して渡してあげないと,最初の描画でうまくtabの場所にいてくれない
 
-  const rankings = props.rankings;
   const setRankingPage = props.setRankingPage;
   const setSubmissionsPage = props.setSubmissionsPage;
   const submissionsPage = props.submissionsPage;
@@ -98,18 +97,17 @@ function ContestTabsPageComponent(props) {
       {tabPosition === tabValueList[0] && <ContestTop contestId={contestId} />}
       {tabPosition === tabValueList[1] && <ProblemsTable contestId={contestId} />}
       {tabPosition === tabValueList[2] && <SubmissionsPageTable contestId={contestId} page={submissionsPage} />}
-      {tabPosition === tabValueList[3] && <RankingPageTable rankings={rankings} />}
+      {tabPosition === tabValueList[3] && <RankingPageTable />}
     </div>
   );
 }
 
 ContestTabsPageComponent.propTypes = {
-  rankings: PropTypes.array,
-  setRankingPage: PropTypes.func,
-  setSubmissionsPage: PropTypes.func,
-  submissionsPage: PropTypes.number,
+  setRankingPage: PropTypes.func.isRequired,
+  setSubmissionsPage: PropTypes.func.isRequired,
+  submissionsPage: PropTypes.number.isRequired,
   isRegisted: PropTypes.bool,
-  fetchRegistration: PropTypes.func,
+  fetchRegistration: PropTypes.func.isRequired,
 };
 
 export default ContestTabsPageComponent;

@@ -129,7 +129,7 @@ export default function CodeSubmit(props) {
 }
 
 CodeSubmit.propTypes = {
-  languageLists: PropTypes.array,
-  languageDict: PropTypes.object,
-  submit: PropTypes.func,
+  languageLists: PropTypes.array.isRequired,
+  languageDict: PropTypes.object.isRequired,
+  submit: PropTypes.func.isRequired,
 };

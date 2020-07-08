@@ -26,12 +26,18 @@ const useStyles = makeStyles(theme => ({
 export default function Blockqoute(props) {
   const classes = useStyles();
 
-  const color = props.color || "info";
-
-  return <blockquote className={classes[color]}>{props.text}</blockquote>;
+  return (
+    <blockquote className={classes.info} {...props}>
+      {props.text}
+    </blockquote>
+  );
 }
 
 Blockqoute.propTypes = {
-  text: PropTypes.string,
+  text: PropTypes.string.isRequired,
   color: PropTypes.string,
+};
+
+Blockqoute.defaultProps = {
+  color: "info",
 };

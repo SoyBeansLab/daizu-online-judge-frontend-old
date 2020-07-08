@@ -74,9 +74,9 @@ export default function SliderItem(props) {
 }
 
 SliderItem.propTypes = {
-  contestId: PropTypes.string,
-  contestName: PropTypes.string,
-  contestDate: PropTypes.string,
-  contestTime: PropTypes.number,
-  contestDescription: PropTypes.string,
+  contestId: PropTypes.string.isRequired,
+  contestName: PropTypes.string.isRequired,
+  contestDate: PropTypes.string.isRequired,
+  contestTime: PropTypes.number.isRequired,
+  contestDescription: PropTypes.string.isRequired,
 };

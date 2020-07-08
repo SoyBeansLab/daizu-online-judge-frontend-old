@@ -59,7 +59,7 @@ export default function ContestsTables(props) {
 }
 
 ContestsTables.propTypes = {
-  currentContestLists: PropTypes.array,
-  upcomingContestLists: PropTypes.array,
-  recentContestLists: PropTypes.array,
+  currentContestLists: PropTypes.array.isRequired,
+  upcomingContestLists: PropTypes.array.isRequired,
+  recentContestLists: PropTypes.array.isRequired,
 };

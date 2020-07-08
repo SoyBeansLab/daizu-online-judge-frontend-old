@@ -50,11 +50,11 @@ function RankingPageTableComponent(props) {
 }
 
 RankingPageTableComponent.propTypes = {
-  ranking: PropTypes.array,
-  page: PropTypes.number,
-  total: PropTypes.number,
-  setRankingPage: PropTypes.func,
-  fetchRanking: PropTypes.func,
+  ranking: PropTypes.array.isRequired,
+  page: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  setRankingPage: PropTypes.func.isRequired,
+  fetchRanking: PropTypes.func.isRequired,
 };
 
 export default RankingPageTableComponent;

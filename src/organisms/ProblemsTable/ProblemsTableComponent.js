@@ -22,9 +22,9 @@ function ProblemsTableComponent(props) {
 }
 
 ProblemsTableComponent.propTypes = {
-  problemList: PropTypes.array,
-  isFetched: PropTypes.bool,
-  fetchProblems: PropTypes.func,
+  problemList: PropTypes.array.isRequired,
+  isFetched: PropTypes.bool.isRequired,
+  fetchProblems: PropTypes.func.isRequired,
 };
 
 export default ProblemsTableComponent;

@@ -69,9 +69,6 @@ export default function SubmitStatusTable(props) {
 }
 
 SubmitStatusTable.propTypes = {
-  contestId: PropTypes.string,
-  submissions: PropTypes.array,
-  submissionsTotal: PropTypes.number,
-  paginationClickHandler: PropTypes.func,
-  offset: PropTypes.number,
+  contestId: PropTypes.string.isRequired,
+  submissions: PropTypes.array.isRequired,
 };

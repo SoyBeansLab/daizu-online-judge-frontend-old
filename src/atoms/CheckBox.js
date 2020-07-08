@@ -32,5 +32,5 @@ export default function CheckBox(props) {
 }
 
 CheckBox.propTypes = {
-  checkBoxText: PropTypes.string,
+  checkBoxText: PropTypes.string.isRequired,
 };

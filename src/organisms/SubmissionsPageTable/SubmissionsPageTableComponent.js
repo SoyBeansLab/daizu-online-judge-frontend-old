@@ -50,11 +50,11 @@ function SubmissionsPageTableComponent(props) {
 }
 
 SubmissionsPageTableComponent.propTypes = {
-  submissions: PropTypes.array,
-  page: PropTypes.number,
-  total: PropTypes.number,
-  setSubmissionsPage: PropTypes.func,
-  fetchSubmissions: PropTypes.func,
+  submissions: PropTypes.array.isRequired,
+  page: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  setSubmissionsPage: PropTypes.func.isRequired,
+  fetchSubmissions: PropTypes.func.isRequired,
 };
 
 export default SubmissionsPageTableComponent;

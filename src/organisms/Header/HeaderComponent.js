@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
 export default function HeaderComponent(props) {
   const classes = useStyles();
 
-  const user = props.user || {};
+  const user = props.user;
   const username = user.nickname || "Guest";
   const isAuthenticated = props.isAuthenticated;
   const loginWithRedirect = props.loginWithRedirect;
@@ -54,8 +54,12 @@ export default function HeaderComponent(props) {
 }
 
 HeaderComponent.propTypes = {
-  user: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
-  isAuthenticated: PropTypes.bool,
-  loginWithRedirect: PropTypes.func,
-  logoutWithRedirect: PropTypes.func,
+  user: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]).isRequired,
+  isAuthenticated: PropTypes.bool.isRequired,
+  loginWithRedirect: PropTypes.func.isRequired,
+  logoutWithRedirect: PropTypes.func.isRequired,
+};
+
+HeaderComponent.defaultProps = {
+  user: {},
 };

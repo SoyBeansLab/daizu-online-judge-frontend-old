@@ -45,6 +45,6 @@ export default function ContestTabs(props) {
 }
 
 ContestTabs.propTypes = {
-  tabPosition: PropTypes.string,
-  onChange: PropTypes.func,
+  tabPosition: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 };

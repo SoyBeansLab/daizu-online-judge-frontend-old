@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
+import Link from "@material-ui/core/Link";
 
 import MascotCharacter from "../../atoms/MascotCharacter";
 import TitleLogo from "../../atoms/TitleLogo";
@@ -26,6 +26,9 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(1),
     color: "#ffffff",
   },
+  link: {
+    color: theme.palette.primary.dark,
+  },
 }));
 
 function NotSigninHomeComponent(props) {
@@ -37,14 +40,16 @@ function NotSigninHomeComponent(props) {
     <div className={classes.root}>
       <MascotCharacter className={classes.mascot} />
       <TitleLogo className={classes.logo} />
-      <Button text="Sign in" color="secondary" style={classes.button} onClick={loginWithRedirect} />
-      <Link>アカウントがない人はコチラ</Link>
+      <Button text="Sign in" color="secondary" className={classes.button} onClick={loginWithRedirect} />
+      <Link className={classes.link} href="#" onClick={loginWithRedirect}>
+        アカウントがない人はコチラ
+      </Link>
     </div>
   );
 }
 
 NotSigninHomeComponent.propTypes = {
-  loginWithRedirect: PropTypes.func,
+  loginWithRedirect: PropTypes.func.isRequired,
 };
 
 export default NotSigninHomeComponent;

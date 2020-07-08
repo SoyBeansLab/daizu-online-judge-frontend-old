@@ -24,16 +24,16 @@ function ProblemDetailsComponent(props) {
       problemName={problem.problem_name}
       problemText={problem.problem_detail}
       timeLimit={problem.time_limit}
-      memoryLimit={problem.memoryLimit}
+      memoryLimit={problem.memory_limit}
       score={problem.score}
     />
   );
 }
 
 ProblemDetailsComponent.propTypes = {
-  fetchProblem: PropTypes.func,
-  problemDetails: PropTypes.object,
-  isFetchedProblem: PropTypes.bool,
+  fetchProblem: PropTypes.func.isRequired,
+  problemDetails: PropTypes.object.isRequired,
+  isFetchedProblem: PropTypes.bool.isRequired,
 };
 
 export default ProblemDetailsComponent;

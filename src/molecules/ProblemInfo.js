@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
 export default function ProblemInfo(props) {
   const classes = useStyles();
 
-  const problemID = props.problemID;
+  const problemId = props.problemId;
   const problemName = props.problemName;
   const timeLimit = props.timeLimit;
   const memoryLimit = props.memoryLimit;
@@ -31,7 +31,7 @@ export default function ProblemInfo(props) {
   return (
     <div className="problem-info">
       <Typography className={classes.typography} variant="h3">
-        {problemID} - {problemName}
+        {problemId} - {problemName}
       </Typography>
       <Typography className={classes.typography} variant="subtitle1">
         実行時間制限: {timeLimit} sec / メモリ制限: {memoryLimit} MB
@@ -47,7 +47,7 @@ export default function ProblemInfo(props) {
 }
 
 ProblemInfo.propTypes = {
-  problemID: PropTypes.string,
+  problemId: PropTypes.string,
   problemName: PropTypes.string,
   timeLimit: PropTypes.number,
   memoryLimit: PropTypes.number,
