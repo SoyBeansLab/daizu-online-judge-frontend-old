@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import MaterialUIButton from "@material-ui/core/Button";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
   button: {
-    marginRight: theme.spacing(2),
+    //    marginRight: theme.spacing(2),
     color: "#ffffff",
   },
 }));
