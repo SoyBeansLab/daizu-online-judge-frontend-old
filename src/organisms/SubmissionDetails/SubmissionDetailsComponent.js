@@ -35,7 +35,7 @@ function SubmissionDetailsComponent(props) {
       userName={username}
       language={language}
       score={score}
-      result={result}
+      result={result || "WJ"}
       executeTime={executeTime}
       memory={memory}
       testCase={testCase}
