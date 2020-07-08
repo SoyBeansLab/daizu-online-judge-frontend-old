@@ -24,7 +24,7 @@ function ProblemDetailsComponent(props) {
       problemName={problem.problem_name}
       problemText={problem.problem_detail}
       timeLimit={problem.time_limit}
-      memoryLimit={problem.memoryLimit}
+      memoryLimit={problem.memory_limit}
       score={problem.score}
     />
   );
