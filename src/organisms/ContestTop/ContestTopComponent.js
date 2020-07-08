@@ -24,9 +24,9 @@ function ContestTopComponent(props) {
 ContestTopComponent.propTypes = {
   contest: PropTypes.shape({
     top_content: PropTypes.string,
-  }),
-  fetchContest: PropTypes.func,
-  isfetchedContest: PropTypes.bool,
+  }).isRequired,
+  fetchContest: PropTypes.func.isRequired,
+  isfetchedContest: PropTypes.bool.isRequired,
 };
 
 export default ContestTopComponent;

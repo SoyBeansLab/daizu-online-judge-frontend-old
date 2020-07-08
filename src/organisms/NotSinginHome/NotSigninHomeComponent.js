@@ -49,7 +49,7 @@ function NotSigninHomeComponent(props) {
 }
 
 NotSigninHomeComponent.propTypes = {
-  loginWithRedirect: PropTypes.func,
+  loginWithRedirect: PropTypes.func.isRequired,
 };
 
 export default NotSigninHomeComponent;

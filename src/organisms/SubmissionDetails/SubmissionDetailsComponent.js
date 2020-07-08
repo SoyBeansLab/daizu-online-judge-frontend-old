@@ -44,8 +44,8 @@ function SubmissionDetailsComponent(props) {
 }
 
 SubmissionDetailsComponent.propTypes = {
-  submission: PropTypes.object,
-  fetchSubmission: PropTypes.func,
+  submission: PropTypes.object.isRequired,
+  fetchSubmission: PropTypes.func.isRequired,
 };
 
 export default SubmissionDetailsComponent;

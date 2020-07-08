@@ -20,11 +20,11 @@ function CodeSubmitComponent(props) {
 }
 
 CodeSubmitComponent.propTypes = {
-  languages: PropTypes.array,
-  languageDict: PropTypes.object,
-  isFetched: PropTypes.bool,
-  submit: PropTypes.func,
-  fetchLanguages: PropTypes.func,
+  languages: PropTypes.array.isRequired,
+  languageDict: PropTypes.object.isRequired,
+  isFetched: PropTypes.bool.isRequired,
+  submit: PropTypes.func.isRequired,
+  fetchLanguages: PropTypes.func.isRequired,
 };
 
 export default CodeSubmitComponent;

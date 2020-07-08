@@ -15,7 +15,7 @@ SubmissionCodeBlockComponent.propTypes = {
   submission: PropTypes.shape({
     sourceCode: PropTypes.string,
     language: PropTypes.string,
-  }),
+  }).isRequired,
 };
 
 export default SubmissionCodeBlockComponent;

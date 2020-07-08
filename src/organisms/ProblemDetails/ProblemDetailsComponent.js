@@ -31,9 +31,9 @@ function ProblemDetailsComponent(props) {
 }
 
 ProblemDetailsComponent.propTypes = {
-  fetchProblem: PropTypes.func,
-  problemDetails: PropTypes.object,
-  isFetchedProblem: PropTypes.bool,
+  fetchProblem: PropTypes.func.isRequired,
+  problemDetails: PropTypes.object.isRequired,
+  isFetchedProblem: PropTypes.bool.isRequired,
 };
 
 export default ProblemDetailsComponent;

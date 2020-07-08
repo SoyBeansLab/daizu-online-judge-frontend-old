@@ -42,5 +42,5 @@ export default function HomeSlider(props) {
 }
 
 HomeSlider.propTypes = {
-  slideItemList: PropTypes.array,
+  slideItemList: PropTypes.array.isRequired,
 };

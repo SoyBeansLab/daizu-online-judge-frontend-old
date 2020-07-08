@@ -27,6 +27,7 @@ function EntryRegistrationCardComponent(props) {
   const { contestId } = useParams();
 
   const entry = props.entry;
+  console.log(props);
 
   async function registrationHandler() {
     const payload = {
@@ -59,7 +60,7 @@ function EntryRegistrationCardComponent(props) {
 }
 
 EntryRegistrationCardComponent.propTypes = {
-  entry: PropTypes.func,
+  entry: PropTypes.func.isRequired,
 };
 
 export default EntryRegistrationCardComponent;
