@@ -18,5 +18,5 @@ export default function TitleImage(props) {
 }
 
 TitleImage.propTypes = {
-  className: PropTypes.object,
+  className: PropTypes.string,
 };
