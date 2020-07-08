@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
+import Link from "@material-ui/core/Link";
 
 import MascotCharacter from "../../atoms/MascotCharacter";
 import TitleLogo from "../../atoms/TitleLogo";
@@ -26,6 +26,9 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(1),
     color: "#ffffff",
   },
+  link: {
+    color: theme.palette.primary.dark,
+  },
 }));
 
 function NotSigninHomeComponent(props) {
@@ -38,7 +41,9 @@ function NotSigninHomeComponent(props) {
       <MascotCharacter className={classes.mascot} />
       <TitleLogo className={classes.logo} />
       <Button text="Sign in" color="secondary" className={classes.button} onClick={loginWithRedirect} />
-      <Link>アカウントがない人はコチラ</Link>
+      <Link className={classes.link} href="#" onClick={loginWithRedirect}>
+        アカウントがない人はコチラ
+      </Link>
     </div>
   );
 }
