@@ -27,7 +27,6 @@ function EntryRegistrationCardComponent(props) {
   const { contestId } = useParams();
 
   const entry = props.entry;
-  console.log(props);
 
   async function registrationHandler() {
     const payload = {
