@@ -18,8 +18,8 @@ export default function Pagination(props) {
 }
 
 Pagination.propTypes = {
-  limit: PropTypes.number,
-  offset: PropTypes.number,
-  total: PropTypes.number,
-  onClick: PropTypes.func,
+  limit: PropTypes.number.isRequired,
+  offset: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
