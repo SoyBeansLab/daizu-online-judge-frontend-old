@@ -27,5 +27,5 @@ export default function ContestTopContents(props) {
 }
 
 ContestTopContents.propTypes = {
-  contestTopContent: PropTypes.string,
+  contestTopContent: PropTypes.string.isRequired,
 };

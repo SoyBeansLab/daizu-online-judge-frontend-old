@@ -58,6 +58,6 @@ export default function ProblemsTable(props) {
 }
 
 ProblemsTable.propTypes = {
-  problemLists: PropTypes.array,
-  contestId: PropTypes.string,
+  problemLists: PropTypes.array.isRequired,
+  contestId: PropTypes.string.isRequired,
 };

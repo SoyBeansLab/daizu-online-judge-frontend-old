@@ -86,8 +86,8 @@ export default function SigninMenuButton(props) {
 }
 
 SigninMenuButton.propTypes = {
-  username: PropTypes.string,
-  isAuthenticated: PropTypes.bool,
-  loginWithRedirect: PropTypes.func,
-  logoutWithRedirect: PropTypes.func,
+  username: PropTypes.string.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired,
+  loginWithRedirect: PropTypes.func.isRequired,
+  logoutWithRedirect: PropTypes.func.isRequired,
 };

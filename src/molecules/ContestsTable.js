@@ -55,5 +55,5 @@ export default function ContestsTable(props) {
 }
 
 ContestsTable.propTypes = {
-  contestLists: PropTypes.array,
+  contestLists: PropTypes.array.isRequired,
 };
