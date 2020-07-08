@@ -37,7 +37,7 @@ function NotSigninHomeComponent(props) {
     <div className={classes.root}>
       <MascotCharacter className={classes.mascot} />
       <TitleLogo className={classes.logo} />
-      <Button text="Sign in" color="secondary" style={classes.button} onClick={loginWithRedirect} />
+      <Button text="Sign in" color="secondary" className={classes.button} onClick={loginWithRedirect} />
       <Link>アカウントがない人はコチラ</Link>
     </div>
   );
