@@ -106,12 +106,8 @@ ContestTabsPageComponent.propTypes = {
   setRankingPage: PropTypes.func.isRequired,
   setSubmissionsPage: PropTypes.func.isRequired,
   submissionsPage: PropTypes.number.isRequired,
-  isRegisted: PropTypes.bool.isRequired,
+  isRegisted: PropTypes.bool,
   fetchRegistration: PropTypes.func.isRequired,
-};
-
-ContestTabsPageComponent.defaultProps = {
-  isRegisted: false,
 };
 
 export default ContestTabsPageComponent;
