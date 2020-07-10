@@ -4,24 +4,25 @@ import { makeStyles } from "@material-ui/core/styles";
 import Chip from "@material-ui/core/Chip";
 
 const useStyles = makeStyles(theme => ({
+  // TODO: 共通のスタイルがあるのでそれをまとめて別で適用してあげたいな
   current: {
     marginRight: theme.spacing(2),
     borderRadius: 0,
-    minWidth: "76px", // "開催中"と"終了"のステータスChipを"開催予定"と同じ幅にする
+    minWidth: "76px",
     color: "#FFFFFF",
     backgroundColor: theme.palette.secondary.main,
   },
   upcoming: {
     marginRight: theme.spacing(2),
     borderRadius: 0,
-    minWidth: "76px", // "開催中"と"終了"のステータスChipを"開催予定"と同じ幅にする
+    minWidth: "76px",
     color: "#FFFFFF",
     backgroundColor: theme.palette.primary.dark,
   },
   recent: {
     marginRight: theme.spacing(2),
     borderRadius: 0,
-    minWidth: "76px", // "開催中"と"終了"のステータスChipを"開催予定"と同じ幅にする
+    minWidth: "76px",
     color: "#FFFFFF",
     backgroundColor: theme.palette.primary.contrastText,
   },
