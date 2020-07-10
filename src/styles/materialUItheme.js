@@ -21,6 +21,11 @@ export const theme = createMuiTheme({
       dark: "#d1564b",
       contrastText: "#FFFFFE" /* テキストカラー(白) */,
     },
+    judgeStatusColor: {
+      correct: "#00897b",
+      wrong: "#EF6357",
+      other: "#e0e0e0",
+    },
   },
 });
 export default theme;
