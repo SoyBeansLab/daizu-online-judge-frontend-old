@@ -8,7 +8,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import Chip from "../atoms/Chip";
+import JudgeStatusChip from "../atoms/Chip/JudgeStatusChip";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -54,7 +54,7 @@ export default function SubmitStatusTable(props) {
                 <TableCell align="center">{row.username}</TableCell>
                 <TableCell align="center">{row.problem_name}</TableCell>
                 <TableCell align="center">
-                  <Chip result={row.result} />
+                  <JudgeStatusChip result={row.result} />
                 </TableCell>
                 <TableCell align="center">{row.language}</TableCell>
                 <TableCell align="center">{row.score}</TableCell>
