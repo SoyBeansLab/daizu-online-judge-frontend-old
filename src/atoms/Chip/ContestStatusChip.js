@@ -41,6 +41,5 @@ export default function ContestStatusChip(props) {
 }
 
 ContestStatusChip.propTypes = {
-  label: PropTypes.string,
   contestStatus: PropTypes.string,
 };

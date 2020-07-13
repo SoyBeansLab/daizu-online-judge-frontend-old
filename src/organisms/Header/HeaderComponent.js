@@ -4,7 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Container from "@material-ui/core/Container";
-import LinkButton from "../../atoms/LinkButton";
+import LinkButton from "../../atoms/Button/LinkButton";
 import SigninMenuButton from "../../molecules/SigninMenuButton";
 import LinkTitleImage from "../../molecules/LinkTitleImage";
 
