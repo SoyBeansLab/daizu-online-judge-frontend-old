@@ -20,6 +20,10 @@ const useStyles = makeStyles(theme => ({
   },
   contestRow: {
     marginBottom: theme.spacing(1),
+    "&:hover": {
+      transition: "0.5s",
+      backgroundColor: "#E5E5E5",
+    },
   },
   contestInfo: {
     marginLeft: theme.spacing(2),
@@ -27,10 +31,6 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(0.2),
     color: theme.palette.primary.contrastText,
     textDecoration: "none",
-    "&:hover": {
-      transition: "0.5s",
-      backgroundColor: "#E5E5E5",
-    },
   },
   contestName: {
     marginRight: theme.spacing(2),
