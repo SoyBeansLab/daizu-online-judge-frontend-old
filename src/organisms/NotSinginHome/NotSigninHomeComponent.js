@@ -5,7 +5,7 @@ import Link from "@material-ui/core/Link";
 
 import MascotCharacter from "../../atoms/MascotCharacter";
 import TitleLogo from "../../atoms/TitleLogo";
-import Button from "../../atoms/Button";
+import Button from "../../atoms/Button/Button";
 
 const useStyles = makeStyles(theme => ({
   root: {
