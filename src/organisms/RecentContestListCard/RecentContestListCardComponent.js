@@ -41,29 +41,9 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function RecentContestListCardComponent(/*props*/) {
+export default function RecentContestListCardComponent(props) {
   const classes = useStyles();
-  //const contestList = props.contestList;
-  const contestList = [
-    {
-      contest_id: "mitohato",
-      contest_status: "current",
-      contest_name: "Welcome Contest Now!",
-      contest_date: new Date(),
-    },
-    {
-      contest_id: "mitohato",
-      contest_status: "upcoming",
-      contest_name: "Welcome Contest future!",
-      contest_date: new Date(),
-    },
-    {
-      contest_id: "mitohato",
-      contest_status: "recent",
-      contest_name: "Welcome Contest owari!",
-      contest_date: new Date(),
-    },
-  ];
+  const contestList = props.contestList;
 
   return (
     <Card className={classes.card}>
