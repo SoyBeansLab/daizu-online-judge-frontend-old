@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Chip(props) {
+export default function JudgeStatusChip(props) {
   const classes = useStyles();
   const result = props.result;
 
@@ -30,6 +30,6 @@ export default function Chip(props) {
   }
 }
 
-Chip.propTypes = {
+JudgeStatusChip.propTypes = {
   result: PropTypes.string.isRequired,
 };

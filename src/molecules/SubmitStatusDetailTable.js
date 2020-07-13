@@ -7,7 +7,7 @@ import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-import Chip from "../atoms/Chip";
+import JudgeStatusChip from "../atoms/Chip/JudgeStatusChip";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -47,7 +47,7 @@ export default function SubmitStatusDetail(props) {
     createData("言語", language),
     createData("得点", score),
     createData("テストケース通過数(通過数/全体)", testCase),
-    createData("結果", <Chip result={result} />),
+    createData("結果", <JudgeStatusChip result={result} />),
     createData("実行時間", executeTime + " ms"),
     createData("メモリ", memory + " KB"),
   ];
