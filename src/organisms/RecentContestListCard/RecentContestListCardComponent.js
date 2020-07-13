@@ -97,10 +97,12 @@ export default function RecentContestListCardComponent(/*props*/) {
 }
 
 RecentContestListCardComponent.propTypes = {
-  contestList: PropTypes.shape({
-    contest_id: PropTypes.string,
-    contest_status: PropTypes.string,
-    contest_name: PropTypes.string,
-    contest_date: PropTypes.object,
-  }),
+  contestList: PropTypes.arrayOf(
+    PropTypes.shape({
+      contest_id: PropTypes.string,
+      contest_status: PropTypes.string,
+      contest_name: PropTypes.string,
+      contest_date: PropTypes.object,
+    })
+  ).isRequired,
 };
