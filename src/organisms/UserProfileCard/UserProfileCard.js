@@ -40,7 +40,7 @@ const useStyles = makeStyles(theme => ({
 export default function UserProfileCardComponent(props) {
   const classes = useStyles();
 
-  const iconSrc = props.iconSrc;
+  const { iconSrc, username, email, updated_at } = props;
 
   return (
     <Card className={classes.root}>
@@ -51,7 +51,7 @@ export default function UserProfileCardComponent(props) {
             username:
           </Box>
           <Box className={classes.content} display="inline">
-            ucpr
+            {username}
           </Box>
         </Typography>
 
@@ -60,7 +60,7 @@ export default function UserProfileCardComponent(props) {
             email:
           </Box>
           <Box className={classes.content} display="inline">
-            hoge@hoge.com
+            {email}
           </Box>
         </Typography>
 
@@ -69,7 +69,7 @@ export default function UserProfileCardComponent(props) {
             updated_at:
           </Box>
           <Box className={classes.content} display="inline">
-            2020-07-13T15:21:10.666Z
+            {updated_at}
           </Box>
         </Typography>
       </CardContent>
@@ -80,8 +80,14 @@ export default function UserProfileCardComponent(props) {
 
 UserProfileCardComponent.propTypes = {
   iconSrc: PropTypes.string,
+  username: PropTypes.string,
+  email: PropTypes.string,
+  updated_at: PropTypes.string,
 };
 
 UserProfileCardComponent.defaultProps = {
   iconSrc: Mascot,
+  username: "Guest",
+  email: "guest@example.com",
+  updated_at: "2020-07-13T15:21:10.666Z",
 };
