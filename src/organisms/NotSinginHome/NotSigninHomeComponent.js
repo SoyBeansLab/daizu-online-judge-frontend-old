@@ -14,6 +14,9 @@ const useStyles = makeStyles(theme => ({
     flexWrap: "wrap",
     justifyContent: "center",
     alignItems: "center",
+    // TODO: ここをいい感じに直してあげる
+    // このやり方は良くない気がするけど一旦これで真上下左右中央に来るように
+    height: "80vh",
   },
   mascot: {
     width: "10%",
