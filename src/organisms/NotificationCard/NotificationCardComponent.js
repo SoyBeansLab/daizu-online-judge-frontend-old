@@ -9,9 +9,6 @@ import CardActions from "@material-ui/core/CardActions";
 import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles(theme => ({
-  card: {
-    backgroundColor: "#FFFFFF",
-  },
   title: {
     color: theme.palette.primary.dark,
     marginBottom: theme.spacing(2),
@@ -40,10 +37,40 @@ const useStyles = makeStyles(theme => ({
 export default function NotificationCardComponent(props) {
   const classes = useStyles();
 
-  const notificationList = props.notificationList;
+  //  const notificationList = props.notificationList;
+
+  const notificationList = [
+    {
+      notificationId: "#hogehoge1",
+      date: new Date().toISOString().slice(0, 10),
+      description: "ほげほげのエラーを修正しました！",
+    },
+    {
+      notificationId: "#hogehoge2",
+      date: new Date().toISOString().slice(0, 10),
+      description: "ほげほげのエラーを修正しました！",
+    },
+    {
+      notificationId: "#hogehoge3",
+      date: new Date().toISOString().slice(0, 10),
+      description: "ほげほげのエラーを修正しました！",
+    },
+    {
+      notificationId: "#hogehoge4",
+      date: new Date().toISOString().slice(0, 10),
+      description: "ほげほげのエラーを修正しました！",
+    },
+    {
+      notificationId: "#hogehoge5",
+      date: new Date().toISOString().slice(0, 10),
+      description: "ほげほげのエラーを修正しました！",
+    },
+  ];
+
+  const style = props.className;
 
   return (
-    <Card className={classes.card}>
+    <Card className={style}>
       <CardContent>
         <Typography component="div">
           <Box className={classes.title} fontWeight="fontWeightBold">
@@ -72,6 +99,7 @@ export default function NotificationCardComponent(props) {
 }
 
 NotificationCardComponent.propTypes = {
+  className: PropTypes.string,
   notificationList: PropTypes.arrayOf(
     PropTypes.shape({
       notificationId: PropTypes.string,

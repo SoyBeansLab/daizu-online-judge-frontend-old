@@ -12,6 +12,7 @@ import Mascot from "../../images/soy-da-.png";
 
 const useStyles = makeStyles(theme => ({
   root: {
+    minHeight: "602px",
     display: "flex",
     flexDirection: "column",
     flexWrap: "wrap",
