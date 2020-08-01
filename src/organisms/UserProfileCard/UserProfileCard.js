@@ -17,6 +17,10 @@ const useStyles = makeStyles(theme => ({
     flexWrap: "wrap",
     justifyContent: "center",
     alignItems: "center",
+    maxWidth: "689px",
+    [theme.breakpoints.up("xl")]: {
+      minHeight: "634px",
+    },
   },
   icon: {
     margin: theme.spacing(3),
@@ -46,7 +50,7 @@ export default function UserProfileCardComponent(props) {
     <Card className={classes.root}>
       <Avatar alt="icon" className={classes.icon} src={iconSrc} />
       <CardContent>
-        <Typography className={classes.row}>
+        <Typography className={classes.row} component="div">
           <Box className={classes.title} display="inline" fontWeight="fontWeightBold">
             username:
           </Box>
@@ -55,7 +59,7 @@ export default function UserProfileCardComponent(props) {
           </Box>
         </Typography>
 
-        <Typography className={classes.row}>
+        <Typography className={classes.row} component="div">
           <Box className={classes.title} display="inline" fontWeight="fontWeightBold">
             email:
           </Box>
@@ -64,7 +68,7 @@ export default function UserProfileCardComponent(props) {
           </Box>
         </Typography>
 
-        <Typography className={classes.row}>
+        <Typography className={classes.row} component="div">
           <Box className={classes.title} display="inline" fontWeight="fontWeightBold">
             updated_at:
           </Box>

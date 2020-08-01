@@ -1,20 +1,72 @@
 import React from "react";
 import PropTypes from "prop-types";
-
-import Slider from "../organisms/Slider";
+import { makeStyles } from "@material-ui/core/styles";
+//import Slider from "../organisms/Slider";
 import NotSinginHome from "../organisms/NotSinginHome/NotSigninHomeComponent";
+import UserProfileCard from "../organisms/UserProfileCard/UserProfileCard";
+import RecentContestListCard from "../organisms/RecentContestListCard/RecentContestListCardComponent";
+import NotificationCard from "../organisms/NotificationCard/NotificationCardComponent";
 
 import { useAuth0 } from "@auth0/auth0-react";
 
-export default function Home(props) {
-  const slideItemList = props.slideItemList;
+const useStyles = makeStyles(theme => ({
+  root: {
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    alignItems: "center",
+    [theme.breakpoints.only("xl")]: {
+      // xlのときminHeightを指定しないと, 上下中央に配置させられない
+      // 80vhだとちゃんとした上下中央じゃないけどまあ妥協
+      minHeight: "80vh",
+    },
+    [theme.breakpoints.down("lg")]: {
+      // widthが1280px以下にならcontentを縦並びにする
+      flexFlow: "column",
+    },
+  },
+  leftContent: {
+    display: "flex",
+    flexWrap: "wrap",
+    alignItems: "flex-start",
+  },
+  rightContent: {
+    display: "flex",
+    flexDirection: "column",
+    [theme.breakpoints.up("xl")]: {
+      marginLeft: theme.spacing(2),
+    },
+  },
+  recentContestListCard: {
+    [theme.breakpoints.down("lg")]: {
+      marginTop: theme.spacing(2),
+    },
+  },
+  notificationCard: {
+    marginTop: theme.spacing(2),
+  },
+}));
+
+export default function Home(/*props*/) {
+  //  const slideItemList = props.slideItemList;
+  const classes = useStyles();
 
   const { isAuthenticated, loginWithRedirect } = useAuth0();
 
   return (
-    <div>
+    <div className={classes.root}>
       {!isAuthenticated && <NotSinginHome loginWithRedirect={loginWithRedirect} />}
-      {isAuthenticated && <Slider slideItemList={slideItemList} />}
+      {isAuthenticated && (
+        <>
+          <div className={classes.leftContent}>
+            <UserProfileCard />
+          </div>
+          <div className={classes.rightContent}>
+            <RecentContestListCard className={classes.recentContestListCard} />
+            <NotificationCard className={classes.notificationCard} />
+          </div>
+        </>
+      )}
       {/* 寂しいので何らかのコンテンツ欲しい */}
     </div>
   );

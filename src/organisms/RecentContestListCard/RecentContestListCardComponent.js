@@ -13,6 +13,7 @@ import ContestStatusChip from "../../atoms/Chip/ContestStatusChip";
 const useStyles = makeStyles(theme => ({
   card: {
     backgroundColor: "#FFFFFF",
+    padding: theme.spacing(1),
   },
   title: {
     color: theme.palette.primary.dark,
@@ -22,7 +23,7 @@ const useStyles = makeStyles(theme => ({
     marginBottom: theme.spacing(1),
     "&:hover": {
       transition: "0.5s",
-      backgroundColor: "#E5E5E5",
+      background: "#E5E5E5",
     },
   },
   contestInfo: {
@@ -37,46 +38,83 @@ const useStyles = makeStyles(theme => ({
   },
   otherContestLink: {
     color: theme.palette.primary.dark,
-    marginLeft: "auto", // 右に寄せる
+    marginLeft: "auto",
   },
 }));
 
 export default function RecentContestListCardComponent(props) {
   const classes = useStyles();
-  const contestList = props.contestList;
+  //  const contestList = props.contestList;
+
+  const contestList = [
+    {
+      contest_id: "mitohato",
+      contest_status: "current",
+      contest_name: "Welcome Contest Now!",
+      contest_date: new Date(),
+    },
+    {
+      contest_id: "mitohato",
+      contest_status: "upcoming",
+      contest_name: "Welcome Contest future!",
+      contest_date: new Date(),
+    },
+    {
+      contest_id: "mitohato",
+      contest_status: "recent",
+      contest_name: "Welcome Contest owari!",
+      contest_date: new Date(),
+    },
+    {
+      contest_id: "mitohato",
+      contest_status: "upcoming",
+      contest_name: "Welcome Contest future!",
+      contest_date: new Date(),
+    },
+    {
+      contest_id: "mitohato",
+      contest_status: "recent",
+      contest_name: "Welcome Contest owari!",
+      contest_date: new Date(),
+    },
+  ];
+  const style = props.className;
 
   return (
-    <Card className={classes.card}>
-      <CardContent>
-        <Typography>
-          <Box className={classes.title} fontWeight="fontWeightBold">
-            最近のコンテスト
-          </Box>
-        </Typography>
-        {contestList.map(row => (
-          <div className={classes.contestRow} key={row.contest_id}>
-            <ContestStatusChip contestStatus={row.contest_status} />
-            <Link className={classes.contestInfo} display="inline" to={`/contests/${row.contest_id}`}>
-              <Box className={classes.contestName} display="inline">
-                {row.contest_name}
-              </Box>
-              <Box fontSize={12} display="inline">
-                {row.contest_date.toString()}
-              </Box>
-            </Link>
-          </div>
-        ))}
-      </CardContent>
-      <CardActions>
-        <Link className={classes.otherContestLink} to="/contests">
-          他のコンテスト情報はこちら
-        </Link>
-      </CardActions>
-    </Card>
+    <div className={style}>
+      <Card className={classes.card}>
+        <CardContent>
+          <Typography component="div">
+            <Box className={classes.title} fontWeight="fontWeightBold">
+              最近のコンテスト
+            </Box>
+          </Typography>
+          {contestList.map(row => (
+            <div className={classes.contestRow} key={row.contest_id}>
+              <ContestStatusChip contestStatus={row.contest_status} />
+              <Link className={classes.contestInfo} display="inline" to={`/contests/${row.contest_id}`}>
+                <Box className={classes.contestName} display="inline">
+                  {row.contest_name}
+                </Box>
+                <Box fontSize={12} display="inline">
+                  {row.contest_date.toString()}
+                </Box>
+              </Link>
+            </div>
+          ))}
+        </CardContent>
+        <CardActions>
+          <Link className={classes.otherContestLink} to="/contests">
+            他のコンテスト情報はこちら
+          </Link>
+        </CardActions>
+      </Card>
+    </div>
   );
 }
 
 RecentContestListCardComponent.propTypes = {
+  className: PropTypes.string,
   contestList: PropTypes.arrayOf(
     PropTypes.shape({
       contest_id: PropTypes.string,
@@ -84,5 +122,5 @@ RecentContestListCardComponent.propTypes = {
       contest_name: PropTypes.string,
       contest_date: PropTypes.object,
     })
-  ).isRequired,
+  ),
 };
