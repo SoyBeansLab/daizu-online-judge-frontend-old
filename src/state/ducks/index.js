@@ -4,3 +4,4 @@ export { default as rankingsState } from "./rankings";
 export { default as submissionsState } from "./submissions";
 export { default as problemsState } from "./problems";
 export { default as registrationsState } from "./registrations";
+export { default as notificationsState } from "./notifications";
