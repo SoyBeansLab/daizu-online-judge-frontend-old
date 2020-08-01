@@ -17,6 +17,10 @@ const useStyles = makeStyles(theme => ({
     flexWrap: "wrap",
     justifyContent: "center",
     alignItems: "center",
+    maxWidth: "689px",
+    [theme.breakpoints.up("xl")]: {
+      minHeight: "634px",
+    },
   },
   icon: {
     margin: theme.spacing(3),

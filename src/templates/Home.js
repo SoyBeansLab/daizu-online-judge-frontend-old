@@ -33,7 +33,9 @@ const useStyles = makeStyles(theme => ({
   rightContent: {
     display: "flex",
     flexDirection: "column",
-    marginLeft: theme.spacing(2),
+    [theme.breakpoints.up("xl")]: {
+      marginLeft: theme.spacing(2),
+    },
   },
   recentContestListCard: {
     [theme.breakpoints.down("lg")]: {
