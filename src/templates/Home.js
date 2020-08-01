@@ -15,6 +15,11 @@ const useStyles = makeStyles(theme => ({
     flexWrap: "wrap",
     justifyContent: "center",
     alignItems: "center",
+    [theme.breakpoints.only("xl")]: {
+      // xlのときminHeightを指定しないと, 上下中央に配置させられない
+      // 80vhだとちゃんとした上下中央じゃないけどまあ妥協
+      minHeight: "80vh",
+    },
     [theme.breakpoints.down("lg")]: {
       // widthが1280px以下にならcontentを縦並びにする
       flexFlow: "column",
