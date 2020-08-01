@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
@@ -41,37 +41,14 @@ const useStyles = makeStyles(theme => ({
 export default function NotificationCardComponent(props) {
   const classes = useStyles();
 
-  //  const notificationList = props.notificationList;
-
-  const notificationList = [
-    {
-      notificationId: "#hogehoge1",
-      date: new Date().toISOString().slice(0, 10),
-      description: "ほげほげのエラーを修正しました！",
-    },
-    {
-      notificationId: "#hogehoge2",
-      date: new Date().toISOString().slice(0, 10),
-      description: "ほげほげのエラーを修正しました！",
-    },
-    {
-      notificationId: "#hogehoge3",
-      date: new Date().toISOString().slice(0, 10),
-      description: "ほげほげのエラーを修正しました！",
-    },
-    {
-      notificationId: "#hogehoge4",
-      date: new Date().toISOString().slice(0, 10),
-      description: "ほげほげのエラーを修正しました！",
-    },
-    {
-      notificationId: "#hogehoge5",
-      date: new Date().toISOString().slice(0, 10),
-      description: "ほげほげのエラーを修正しました！",
-    },
-  ];
-
+  const { notificationList, isFetched, fetchNotifications } = props;
   const style = props.className;
+
+  useEffect(() => {
+    if (!isFetched) {
+      fetchNotifications("/notifications");
+    }
+  }, [isFetched, fetchNotifications]);
 
   return (
     <div className={style}>
@@ -85,7 +62,7 @@ export default function NotificationCardComponent(props) {
             {notificationList.map(row => (
               <div className={classes.notificationRow} key={row.notificationId}>
                 <Box className={classes.notifcationDate} display="inline">
-                  {row.date}
+                  {row.create_date}
                 </Box>
                 <Box className={classes.description} display="inline">
                   {row.description}
@@ -113,4 +90,6 @@ NotificationCardComponent.propTypes = {
       description: PropTypes.string,
     })
   ),
+  isFetched: PropTypes.bool,
+  fetchNotifications: PropTypes.func,
 };

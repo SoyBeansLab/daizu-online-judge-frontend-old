@@ -5,7 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import NotSinginHome from "../organisms/NotSinginHome/NotSigninHomeComponent";
 import UserProfileCard from "../organisms/UserProfileCard/UserProfileCard";
 import RecentContestListCard from "../organisms/RecentContestListCard/RecentContestListCardComponent";
-import NotificationCard from "../organisms/NotificationCard/NotificationCardComponent";
+import NotificationCard from "../organisms/NotificationCard";
 
 import { useAuth0 } from "@auth0/auth0-react";
 
