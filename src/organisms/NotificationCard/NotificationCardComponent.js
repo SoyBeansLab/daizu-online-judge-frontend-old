@@ -9,6 +9,10 @@ import CardActions from "@material-ui/core/CardActions";
 import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles(theme => ({
+  card: {
+    backgroundColor: "#FFFFFF",
+    padding: theme.spacing(1),
+  },
   title: {
     color: theme.palette.primary.dark,
     marginBottom: theme.spacing(2),
@@ -70,31 +74,33 @@ export default function NotificationCardComponent(props) {
   const style = props.className;
 
   return (
-    <Card className={style}>
-      <CardContent>
-        <Typography component="div">
-          <Box className={classes.title} fontWeight="fontWeightBold">
-            お知らせ
-          </Box>
+    <div className={style}>
+      <Card className={classes.card}>
+        <CardContent>
+          <Typography component="div">
+            <Box className={classes.title} fontWeight="fontWeightBold">
+              お知らせ
+            </Box>
 
-          {notificationList.map(row => (
-            <div className={classes.notificationRow} key={row.notificationId}>
-              <Box className={classes.notifcationDate} display="inline">
-                {row.date}
-              </Box>
-              <Box className={classes.description} display="inline">
-                {row.description}
-              </Box>
-            </div>
-          ))}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Link className={classes.otherNoticationsLink} to="/notifications">
-          他のお知らせ情報はこちら
-        </Link>
-      </CardActions>
-    </Card>
+            {notificationList.map(row => (
+              <div className={classes.notificationRow} key={row.notificationId}>
+                <Box className={classes.notifcationDate} display="inline">
+                  {row.date}
+                </Box>
+                <Box className={classes.description} display="inline">
+                  {row.description}
+                </Box>
+              </div>
+            ))}
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Link className={classes.otherNoticationsLink} to="/notifications">
+            他のお知らせ情報はこちら
+          </Link>
+        </CardActions>
+      </Card>
+    </div>
   );
 }
 
@@ -106,5 +112,5 @@ NotificationCardComponent.propTypes = {
       date: PropTypes.string,
       description: PropTypes.string,
     })
-  ).isRequired,
+  ),
 };

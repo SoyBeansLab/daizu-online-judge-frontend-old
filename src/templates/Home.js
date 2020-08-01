@@ -11,11 +11,14 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    height: "80vh",
     display: "flex",
     flexWrap: "wrap",
     justifyContent: "center",
     alignItems: "center",
+    [theme.breakpoints.down("lg")]: {
+      // widthが1280px以下にならcontentを縦並びにする
+      flexFlow: "column",
+    },
   },
   leftContent: {
     display: "flex",
@@ -27,7 +30,12 @@ const useStyles = makeStyles(theme => ({
     flexDirection: "column",
     marginLeft: theme.spacing(2),
   },
-  notifcationsCard: {
+  recentContestListCard: {
+    [theme.breakpoints.down("lg")]: {
+      marginTop: theme.spacing(2),
+    },
+  },
+  notificationCard: {
     marginTop: theme.spacing(2),
   },
 }));
@@ -42,13 +50,15 @@ export default function Home(/*props*/) {
     <div className={classes.root}>
       {!isAuthenticated && <NotSinginHome loginWithRedirect={loginWithRedirect} />}
       {isAuthenticated && (
-        <div className={classes.leftContent}>
-          <UserProfileCard />
-          <div className={classes.rightContent}>
-            <RecentContestListCard />
-            <NotificationCard className={classes.notifcationsCard} />
+        <>
+          <div className={classes.leftContent}>
+            <UserProfileCard />
           </div>
-        </div>
+          <div className={classes.rightContent}>
+            <RecentContestListCard className={classes.recentContestListCard} />
+            <NotificationCard className={classes.notificationCard} />
+          </div>
+        </>
       )}
       {/* 寂しいので何らかのコンテンツ欲しい */}
     </div>
