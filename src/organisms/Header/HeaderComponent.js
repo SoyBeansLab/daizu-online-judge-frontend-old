@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import Container from "@material-ui/core/Container";
 import LinkButton from "../../atoms/Button/LinkButton";
 import SigninMenuButton from "../../molecules/SigninMenuButton";
 import LinkTitleImage from "../../molecules/LinkTitleImage";
@@ -22,6 +21,9 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(2),
     color: theme.palette.primary.contrastText,
   },
+  logo: {
+    flexGrow: 1,
+  },
 }));
 
 export default function HeaderComponent(props) {
@@ -36,9 +38,9 @@ export default function HeaderComponent(props) {
   return (
     <AppBar className={classes.root} position="static" elevation={0}>
       <Toolbar>
-        <Container justify="flex-start">
+        <div className={classes.logo}>
           <LinkTitleImage />
-        </Container>
+        </div>
 
         <LinkButton to="/" text="HOME" />
         <LinkButton to="/contests" text="CONTESTS" />
