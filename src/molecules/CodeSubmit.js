@@ -46,6 +46,10 @@ export default function CodeSubmit(props) {
   const languageDictionary = props.languageDict;
   const submit = props.submit;
 
+  const isInputed = () => {
+    return state.codeLanguage !== "" && state.codeValue !== "";
+  };
+
   function handleChangeSelect(event) {
     //    console.log(languageDictionary);
     //    console.log(event.target);
@@ -117,6 +121,7 @@ export default function CodeSubmit(props) {
         variant="contained"
         color="secondary"
         className={classes.button}
+        disabled={!isInputed()}
         onClick={async () => {
           await postCode();
         }}
