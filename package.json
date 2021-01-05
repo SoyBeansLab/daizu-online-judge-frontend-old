@@ -9,7 +9,7 @@
     "@material-ui/icons": "^4.9.1",
     "@nteract/markdown": "^4.3.7",
     "@types/react-slick": "^0.23.4",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "axios-mock-adapter": "^1.17.0",
     "codemirror": "^5.52.0",
     "history": "^4.10.1",
